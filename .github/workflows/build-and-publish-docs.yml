@@ -15,7 +15,7 @@ jobs:
         run: |
           pip install sphinx_rtd_theme nbsphinx
           pip install 'git+https://github.com/petergtz/sphinx-multiversion.git@override-version-with-refname'
-          apt-get install --yes --quiet pandoc
+          sudo apt-get install --yes --quiet pandoc
       - name: Build and Commit
         uses: sphinx-notes/pages@v2
         with:
