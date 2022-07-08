@@ -38,7 +38,8 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.todo',
     'nbsphinx',
-    'sphinx_rtd_theme'
+    'sphinx_rtd_theme',
+    "sphinx_multiversion",
 ]
 
 autodoc_mock_imports = ['matplotlib', 'causalml', 'pymc3', 'econml']
@@ -196,3 +197,6 @@ todo_include_todos = True
 # init docstrings should also be included in class
 autoclass_content = "both"
 
+smv_tag_whitelist = r'^v0\.7\.1.*$'
+smv_branch_whitelist = "master"
+smv_released_pattern = r"refs/tags/v.*"
