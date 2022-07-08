@@ -6,6 +6,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: docker://pandoc/latex:2.9
+      options: --entrypoint=sh
     steps:
       - uses: actions/setup-python@v2
       - uses: actions/checkout@master
