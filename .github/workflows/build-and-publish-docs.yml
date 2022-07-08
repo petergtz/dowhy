@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install sphinx_rtd_theme nbsphinx
-          pip install -U git+https://github.com/petergtz/sphinx-multiversion.git@override-version-with-refname
+          pip install 'git+https://github.com/petergtz/sphinx-multiversion.git@override-version-with-refname'
       - name: Build and Commit
         uses: sphinx-notes/pages@v2
         with:
