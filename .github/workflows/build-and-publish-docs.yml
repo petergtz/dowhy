@@ -16,12 +16,14 @@ jobs:
           pip install sphinx_rtd_theme nbsphinx
           pip install 'git+https://github.com/petergtz/sphinx-multiversion.git@override-version-with-refname'
           sudo apt-get install --yes --quiet pandoc
-      - name: Build and Commit
-        uses: sphinx-notes/pages@v2
-        with:
-          documentation_path: './docs/source'
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Build
+        run: ./docs/generate_docs.sh
+      - name: Commit and push to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v3
+        # If you're changing the branch from main,
+        # also change the `main` in `refs/heads/main`
+        # below accordingly.
+        if: ${{ github.ref == 'refs/heads/versioning' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
+          publish_dir: ./dowhy-docs

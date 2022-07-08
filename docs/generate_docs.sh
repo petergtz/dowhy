@@ -1,6 +1,8 @@
 #!/bin/bash
 
-OUTPUT_DIR='../../dowhy-docs'
+cd $( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+OUTPUT_DIR='../dowhy-docs'
 
 sphinx-multiversion source ${OUTPUT_DIR}
 
