@@ -14,6 +14,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -30,9 +31,6 @@
         <div class="wy-side-nav-search" >
             <a href="index.html" class="icon icon-home"> DoWhy | An end-to-end library for causal inference
           </a>
-              <div class="version">
-                0.7.1
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -41,53 +39,35 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Introducing DoWhy</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="readme.html">DoWhy | An end-to-end library for causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="readme.html#graphical-models-and-potential-outcomes-best-of-both-worlds">Graphical Models and Potential Outcomes: Best of both worlds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="readme.html#four-steps-of-causal-inference">Four steps of causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="readme.html#citing-this-package">Citing this package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="readme.html#roadmap">Roadmap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="readme.html#contributing">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/intro.html">Introduction to DoWhy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_simple_example.html">Quick-start notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/comparison.html">Comparison to other packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/cite.html">Citing this package</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Quick-Start Tutorial</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/tutorial-causalinference-machinelearning-using-dowhy-econml.html">Tutorial on Causal Inference and its Connections to Machine Learning (Using DoWhy+EconML)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/causality_intro.html">Introduction to causality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_notebooks/nb_index.html">Example notebooks</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Starter Notebooks</span></p>
+<p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_estimation_methods.html">DoWhy: Different estimation methods for causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy-simple-iv-example.html">Simple example on using Instrumental Variables method for estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/load_graph_example.html">Different ways to load an input graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/do_sampler_demo.html">Do-sampler Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_notebooks/tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_notebooks/DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Case Study Notebooks</span></p>
+<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">DoWhy-The Causal Story Behind Hotel Booking Cancellations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_example_effect_of_memberrewards_program.html">Estimating the effect of a Member Rewards program</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_twins_example.html">DoWhy example on Twins dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/lalonde_pandas_api.html">Lalonde Pandas API Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcm/user_guide/index.html">GCMs User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_notebooks/gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_notebooks/rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Advanced Notebooks</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy-conditional-treatment-effects.html">Conditional Average Treatment Effects (CATE) with DoWhy and EconML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_mediation_analysis.html">Mediation analysis with DoWhy: Direct and Indirect Effects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_demo_dummy_outcome_refuter.html">A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_causal_discovery_example.html">Causal Discovery example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_causal_discovery_example.html#Experiments-on-the-Auto-MPG-dataset">Experiments on the Auto-MPG dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_causal_discovery_example.html#Causal-Discovery-with-Causal-Discovery-Tool-(CDT)">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_causal_discovery_example.html#Experiments-on-the-Sachs-dataset">Experiments on the Sachs dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_causal_discovery_example.html#id2">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing/index.html">Contributing to DoWhy</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Package</span></p>
 <ul class="current">
@@ -100,6 +80,7 @@
 <li class="toctree-l3"><a class="reference internal" href="dowhy.causal_refuters.html">dowhy.causal_refuters package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dowhy.data_transformers.html">dowhy.data_transformers package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dowhy.do_samplers.html">dowhy.do_samplers package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dowhy.gcm.html">dowhy.gcm package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dowhy.graph_learners.html">dowhy.graph_learners package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dowhy.interpreters.html">dowhy.interpreters package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="dowhy.utils.html">dowhy.utils package</a></li>
@@ -171,9 +152,9 @@
 }
 </style>
 <section id="dowhy-package">
-<h1>dowhy package<a class="headerlink" href="#dowhy-package" title="Permalink to this headline"></a></h1>
+<h1>dowhy package<a class="headerlink" href="#dowhy-package" title="Permalink to this heading"></a></h1>
 <section id="subpackages">
-<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline"></a></h2>
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="dowhy.api.html">dowhy.api package</a><ul>
@@ -234,6 +215,46 @@
 <li class="toctree-l2"><a class="reference internal" href="dowhy.do_samplers.html#module-dowhy.do_samplers">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy.gcm.html">dowhy.gcm package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dowhy.gcm.independence_test.html">dowhy.gcm.independence_test package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.independence_test.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.independence_test.html#dowhy-gcm-independence-test-kernel-module">dowhy.gcm.independence_test.kernel module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.independence_test.html#dowhy-gcm-independence-test-kernel-operation-module">dowhy.gcm.independence_test.kernel_operation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.independence_test.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dowhy.gcm.ml.html">dowhy.gcm.ml package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.ml.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.ml.html#dowhy-gcm-ml-classification-module">dowhy.gcm.ml.classification module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.ml.html#dowhy-gcm-ml-regression-module">dowhy.gcm.ml.regression module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.ml.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dowhy.gcm.util.html">dowhy.gcm.util package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.util.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.util.html#dowhy-gcm-util-general-module">dowhy.gcm.util.general module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.util.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#dowhy-gcm-cms-module">dowhy.gcm.cms module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#dowhy-gcm-config-module">dowhy.gcm.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#dowhy-gcm-constant-module">dowhy.gcm.constant module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#dowhy-gcm-distribution-change-module">dowhy.gcm.distribution_change module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#dowhy-gcm-divergence-module">dowhy.gcm.divergence module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#dowhy-gcm-fcms-module">dowhy.gcm.fcms module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#dowhy-gcm-fitting-sampling-module">dowhy.gcm.fitting_sampling module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#dowhy-gcm-graph-module">dowhy.gcm.graph module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#dowhy-gcm-shapley-module">dowhy.gcm.shapley module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#dowhy-gcm-stats-module">dowhy.gcm.stats module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#dowhy-gcm-stochastic-models-module">dowhy.gcm.stochastic_models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#dowhy-gcm-whatif-module">dowhy.gcm.whatif module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy.gcm.html#module-contents">Module contents</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy.graph_learners.html">dowhy.graph_learners package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="dowhy.graph_learners.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy.graph_learners.html#module-dowhy.graph_learners.cdt">dowhy.graph_learners.cdt module</a></li>
@@ -268,10 +289,10 @@
 </div>
 </section>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
 <section id="module-dowhy.causal_estimator">
-<span id="dowhy-causal-estimator-module"></span><h2>dowhy.causal_estimator module<a class="headerlink" href="#module-dowhy.causal_estimator" title="Permalink to this headline"></a></h2>
+<span id="dowhy-causal-estimator-module"></span><h2>dowhy.causal_estimator module<a class="headerlink" href="#module-dowhy.causal_estimator" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="dowhy.causal_estimator.CausalEstimate">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_estimator.</span></span><span class="sig-name descname"><span class="pre">CausalEstimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_estimand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">realized_estimand_expr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treatment_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_estimates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_estimator.html#CausalEstimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_estimator.CausalEstimate" title="Permalink to this definition"></a></dt>
@@ -682,7 +703,7 @@ implementation of the child estimator.</p>
 
 </section>
 <section id="module-dowhy.causal_graph">
-<span id="dowhy-causal-graph-module"></span><h2>dowhy.causal_graph module<a class="headerlink" href="#module-dowhy.causal_graph" title="Permalink to this headline"></a></h2>
+<span id="dowhy-causal-graph-module"></span><h2>dowhy.causal_graph module<a class="headerlink" href="#module-dowhy.causal_graph" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="dowhy.causal_graph.CausalGraph">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_graph.</span></span><span class="sig-name descname"><span class="pre">CausalGraph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">treatment_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outcome_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">graph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_cause_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instrument_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">effect_modifier_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mediator_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">observed_node_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missing_nodes_as_confounders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_graph.html#CausalGraph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_graph.CausalGraph" title="Permalink to this definition"></a></dt>
@@ -839,7 +860,7 @@ the second is the outcome, and the third is the candidate backdoor set</p>
 
 </section>
 <section id="module-dowhy.causal_identifier">
-<span id="dowhy-causal-identifier-module"></span><h2>dowhy.causal_identifier module<a class="headerlink" href="#module-dowhy.causal_identifier" title="Permalink to this headline"></a></h2>
+<span id="dowhy-causal-identifier-module"></span><h2>dowhy.causal_identifier module<a class="headerlink" href="#module-dowhy.causal_identifier" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_identifier.</span></span><span class="sig-name descname"><span class="pre">CausalIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimand_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proceed_when_unidentifiable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifier.html#CausalIdentifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier" title="Permalink to this definition"></a></dt>
@@ -1039,7 +1060,7 @@ Otherwise, return the backdoor variables for the default backdoor estimand.</p>
 
 </section>
 <section id="module-dowhy.causal_model">
-<span id="dowhy-causal-model-module"></span><h2>dowhy.causal_model module<a class="headerlink" href="#module-dowhy.causal_model" title="Permalink to this headline"></a></h2>
+<span id="dowhy-causal-model-module"></span><h2>dowhy.causal_model module<a class="headerlink" href="#module-dowhy.causal_model" title="Permalink to this heading"></a></h2>
 <p>Module containing the main model class for the dowhy package.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="dowhy.causal_model.CausalModel">
@@ -1113,7 +1134,7 @@ and other method-dependent information</p>
 </ul>
 </dd>
 </dl>
-<p>In addition, you can directly call any of the EconML estimation methods. The convention is “backdoor.econml.path-to-estimator-class”. For example, for the double machine learning estimator (“DML” class) that is located inside “dml” module of EconML, you can use the method name, “backdoor.econml.dml.DML”. CausalML estimators can also be called. See <a class="reference external" href="https://microsoft.github.io/dowhy/example_notebooks/dowhy-conditional-treatment-effects.html">this demo notebook</a>.</p>
+<p>In addition, you can directly call any of the EconML estimation methods. The convention is “backdoor.econml.path-to-estimator-class”. For example, for the double machine learning estimator (“DML” class) that is located inside “dml” module of EconML, you can use the method name, “backdoor.econml.dml.DML”. CausalML estimators can also be called. See <a class="reference external" href="https://py-why.github.io/dowhy/example_notebooks/dowhy-conditional-treatment-effects.html">this demo notebook</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1249,7 +1270,7 @@ causal graph object using the learnt graph.</p>
 ( X ⫫ Y ) | Z
 where X and Y are considered as singleton sets currently
 Z can have multiple variables
-:param k: number of covariates in set Z 
+:param k: number of covariates in set Z
 :param independence_test: dictionary containing methods to test conditional independece in data
 :param independence_constraints: list of implications to be test input by the user in the format</p>
 <blockquote>
@@ -1293,7 +1314,7 @@ Z can have multiple variables
 
 </section>
 <section id="module-dowhy.causal_refuter">
-<span id="dowhy-causal-refuter-module"></span><h2>dowhy.causal_refuter module<a class="headerlink" href="#module-dowhy.causal_refuter" title="Permalink to this headline"></a></h2>
+<span id="dowhy-causal-refuter-module"></span><h2>dowhy.causal_refuter module<a class="headerlink" href="#module-dowhy.causal_refuter" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="dowhy.causal_refuter.CausalRefutation">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_refuter.</span></span><span class="sig-name descname"><span class="pre">CausalRefutation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimated_effect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_effect</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refutation_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuter.html#CausalRefutation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuter.CausalRefutation" title="Permalink to this definition"></a></dt>
@@ -1398,7 +1419,7 @@ A Dict containing the p_value and a boolean that indicates if the result is stat
 
 </section>
 <section id="module-dowhy.data_transformer">
-<span id="dowhy-data-transformer-module"></span><h2>dowhy.data_transformer module<a class="headerlink" href="#module-dowhy.data_transformer" title="Permalink to this headline"></a></h2>
+<span id="dowhy-data-transformer-module"></span><h2>dowhy.data_transformer module<a class="headerlink" href="#module-dowhy.data_transformer" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="dowhy.data_transformer.DimensionalityReducer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.data_transformer.</span></span><span class="sig-name descname"><span class="pre">DimensionalityReducer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndims</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/data_transformer.html#DimensionalityReducer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.data_transformer.DimensionalityReducer" title="Permalink to this definition"></a></dt>
@@ -1412,7 +1433,7 @@ A Dict containing the p_value and a boolean that indicates if the result is stat
 
 </section>
 <section id="module-dowhy.datasets">
-<span id="dowhy-datasets-module"></span><h2>dowhy.datasets module<a class="headerlink" href="#module-dowhy.datasets" title="Permalink to this headline"></a></h2>
+<span id="dowhy-datasets-module"></span><h2>dowhy.datasets module<a class="headerlink" href="#module-dowhy.datasets" title="Permalink to this heading"></a></h2>
 <p>Module for generating some sample datasets.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="dowhy.datasets.choice">
@@ -1455,7 +1476,7 @@ size</p>
 </dd>
 </dl>
 <p>randint, shuffle, permutation
-Generator.choice: which should be used in new code</p>
+random.Generator.choice: which should be used in new code</p>
 <p>Setting user-specified probabilities through <code class="docutils literal notranslate"><span class="pre">p</span></code> uses a more general but less
 efficient sampler than the default. The general sampler produces a different sample
 than the optimized sampler even if each element of <code class="docutils literal notranslate"><span class="pre">p</span></code> is 1 / len(a).</p>
@@ -1565,7 +1586,7 @@ It creates a random graph and models the variables linearly according to the rel
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dowhy.datasets.linear_dataset">
-<span class="sig-prename descclassname"><span class="pre">dowhy.datasets.</span></span><span class="sig-name descname"><span class="pre">linear_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_common_causes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_instruments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_effect_modifiers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_treatments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_frontdoor_variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treatment_is_binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treatment_is_category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outcome_is_binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stochastic_discretization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_discrete_common_causes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_discrete_instruments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_discrete_effect_modifiers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stddev_treatment_noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one_hot_encode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/datasets.html#linear_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.datasets.linear_dataset" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">dowhy.datasets.</span></span><span class="sig-name descname"><span class="pre">linear_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_common_causes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_instruments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_effect_modifiers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_treatments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_frontdoor_variables</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treatment_is_binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treatment_is_category</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outcome_is_binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stochastic_discretization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_discrete_common_causes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_discrete_instruments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_discrete_effect_modifiers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stddev_treatment_noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stddev_outcome_noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one_hot_encode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/datasets.html#linear_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.datasets.linear_dataset" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -1598,7 +1619,7 @@ It creates a random graph and models the variables linearly according to the rel
 
 </section>
 <section id="module-dowhy.do_sampler">
-<span id="dowhy-do-sampler-module"></span><h2>dowhy.do_sampler module<a class="headerlink" href="#module-dowhy.do_sampler" title="Permalink to this headline"></a></h2>
+<span id="dowhy-do-sampler-module"></span><h2>dowhy.do_sampler module<a class="headerlink" href="#module-dowhy.do_sampler" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="dowhy.do_sampler.DoSampler">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.do_sampler.</span></span><span class="sig-name descname"><span class="pre">DoSampler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable_types</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_cores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">causal_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_original_treatment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/do_sampler.html#DoSampler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.do_sampler.DoSampler" title="Permalink to this definition"></a></dt>
@@ -1684,7 +1705,7 @@ Override this method if you want to use a different approach to sampling.
 
 </section>
 <section id="module-dowhy.graph_learner">
-<span id="dowhy-graph-learner-module"></span><h2>dowhy.graph_learner module<a class="headerlink" href="#module-dowhy.graph_learner" title="Permalink to this headline"></a></h2>
+<span id="dowhy-graph-learner-module"></span><h2>dowhy.graph_learner module<a class="headerlink" href="#module-dowhy.graph_learner" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="dowhy.graph_learner.GraphLearner">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.graph_learner.</span></span><span class="sig-name descname"><span class="pre">GraphLearner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">library_class</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/graph_learner.html#GraphLearner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.graph_learner.GraphLearner" title="Permalink to this definition"></a></dt>
@@ -1701,7 +1722,7 @@ Override this method if you want to use a different approach to sampling.
 
 </section>
 <section id="module-dowhy.interpreter">
-<span id="dowhy-interpreter-module"></span><h2>dowhy.interpreter module<a class="headerlink" href="#module-dowhy.interpreter" title="Permalink to this headline"></a></h2>
+<span id="dowhy-interpreter-module"></span><h2>dowhy.interpreter module<a class="headerlink" href="#module-dowhy.interpreter" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="dowhy.interpreter.Interpreter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.interpreter.</span></span><span class="sig-name descname"><span class="pre">Interpreter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/interpreter.html#Interpreter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.interpreter.Interpreter" title="Permalink to this definition"></a></dt>
@@ -1739,7 +1760,7 @@ Override this method if you want to use a different approach to sampling.
 
 </section>
 <section id="module-dowhy.plotter">
-<span id="dowhy-plotter-module"></span><h2>dowhy.plotter module<a class="headerlink" href="#module-dowhy.plotter" title="Permalink to this headline"></a></h2>
+<span id="dowhy-plotter-module"></span><h2>dowhy.plotter module<a class="headerlink" href="#module-dowhy.plotter" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="dowhy.plotter.plot_causal_effect">
 <span class="sig-prename descclassname"><span class="pre">dowhy.plotter.</span></span><span class="sig-name descname"><span class="pre">plot_causal_effect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treatment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outcome</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/plotter.html#plot_causal_effect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.plotter.plot_causal_effect" title="Permalink to this definition"></a></dt>
@@ -1752,7 +1773,7 @@ Override this method if you want to use a different approach to sampling.
 
 </section>
 <section id="module-dowhy">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-dowhy" title="Permalink to this headline"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-dowhy" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 
@@ -1767,7 +1788,7 @@ Override this method if you want to use a different approach to sampling.
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, Microsoft.</p>
+    <p>&#169; Copyright 2022, PyWhy contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

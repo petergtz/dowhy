@@ -14,6 +14,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -21,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Causal Discovery example" href="dowhy_causal_discovery_example.html" />
+    <link rel="next" title="Identifying Effect using ID Algorithm" href="identifying_effects_using_id_algorithm.html" />
     <link rel="prev" title="Estimating effect of multiple treatments" href="dowhy_multiple_treatments.html" /> 
 </head>
 
@@ -32,9 +33,6 @@
         <div class="wy-side-nav-search" >
             <a href="../index.html" class="icon icon-home"> DoWhy | An end-to-end library for causal inference
           </a>
-              <div class="version">
-                0.7.1
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -43,69 +41,83 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Introducing DoWhy</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html">DoWhy | An end-to-end library for causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#graphical-models-and-potential-outcomes-best-of-both-worlds">Graphical Models and Potential Outcomes: Best of both worlds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#four-steps-of-causal-inference">Four steps of causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#citing-this-package">Citing this package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#roadmap">Roadmap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#contributing">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/intro.html">Introduction to DoWhy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_simple_example.html">Quick-start notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/comparison.html">Comparison to other packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/cite.html">Citing this package</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Quick-Start Tutorial</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">Tutorial on Causal Inference and its Connections to Machine Learning (Using DoWhy+EconML)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Starter Notebooks</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_estimation_methods.html">DoWhy: Different estimation methods for causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy-simple-iv-example.html">Simple example on using Instrumental Variables method for estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="load_graph_example.html">Different ways to load an input graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Case Study Notebooks</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">DoWhy-The Causal Story Behind Hotel Booking Cancellations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Estimating the effect of a Member Rewards program</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_twins_example.html">DoWhy example on Twins dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lalonde_pandas_api.html">Lalonde Pandas API Example</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Advanced Notebooks</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="dowhy-conditional-treatment-effects.html">Conditional Average Treatment Effects (CATE) with DoWhy and EconML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_mediation_analysis.html">Mediation analysis with DoWhy: Direct and Indirect Effects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_demo_dummy_outcome_refuter.html">A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Iterating over multiple refutation tests</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Import-Dependencies">Import Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Inspection-Parameters">Inspection Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Estimator-List">Estimator List</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Refuter-List">Refuter List</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Create-the-Datasets">Create the Datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Inspect-Data">Inspect Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Create-the-CausalModels">Create the CausalModels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#View-Models">View Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Identify-Effect">Identify Effect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Identified-Estimands">Identified Estimands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Estimate-Effect">Estimate Effect</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Estimate-Values">Estimate Values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Refute-Estimate">Refute Estimate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Refutation-Values">Refutation Values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/causality_intro.html">Introduction to causality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="nb_index.html">Example notebooks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_estimation_methods.html">DoWhy: Different estimation methods for causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph_conditional_independence_refuter.html">Testing Assumptions in model with DoWhy: A simple example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy-simple-iv-example.html">Simple example on using Instrumental Variables method for estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load_graph_example.html">Different ways to load an input graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html">Causal Discovery example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Auto-MPG-dataset">Experiments on the Auto-MPG dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Causal-Discovery-with-Causal-Discovery-Tool-(CDT)">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Sachs-dataset">Experiments on the Sachs dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#id2">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_twins_example.html">DoWhy example on Twins dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lalonde_pandas_api.html">Lalonde Pandas API Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy-conditional-treatment-effects.html">Conditional Average Treatment Effects (CATE) with DoWhy and EconML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_mediation_analysis.html">Mediation analysis with DoWhy: Direct and Indirect Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_demo_dummy_outcome_refuter.html">A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Iterating over multiple refutation tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Import-Dependencies">Import Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Inspection-Parameters">Inspection Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Estimator-List">Estimator List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Refuter-List">Refuter List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Create-the-Datasets">Create the Datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Inspect-Data">Inspect Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Create-the-CausalModels">Create the CausalModels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#View-Models">View Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Identify-Effect">Identify Effect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Identified-Estimands">Identified Estimands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Estimate-Effect">Estimate Effect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Estimate-Values">Estimate Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Refute-Estimate">Refute Estimate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Refutation-Values">Refutation Values</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html">Causal Discovery example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Auto-MPG-dataset">Experiments on the Auto-MPG dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#Causal-Discovery-with-Causal-Discovery-Tool-(CDT)">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Sachs-dataset">Experiments on the Sachs dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#id2">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html">Causal Discovery example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Auto-MPG-dataset">Experiments on the Auto-MPG dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Causal-Discovery-with-Causal-Discovery-Tool-(CDT)">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Sachs-dataset">Experiments on the Sachs dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#id2">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gcm/user_guide/index.html">GCMs User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contributing to DoWhy</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Package</span></p>
 <ul>
@@ -127,7 +139,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="nb_advanced_index.html">&lt;no title&gt;</a> &raquo;</li>
+          <li><a href="nb_index.html">Example notebooks</a> &raquo;</li>
       <li>Iterating over multiple refutation tests</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/example_notebooks/dowhy_refuter_notebook.ipynb.txt" rel="nofollow"> View page source</a>
@@ -353,6 +365,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -361,10 +374,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -376,12 +393,15 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
@@ -409,133 +429,133 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Iterating-over-multiple-refutation-tests">
-<h1>Iterating over multiple refutation tests<a class="headerlink" href="#Iterating-over-multiple-refutation-tests" title="Permalink to this headline"></a></h1>
+<h1>Iterating over multiple refutation tests<a class="headerlink" href="#Iterating-over-multiple-refutation-tests" title="Permalink to this heading"></a></h1>
 <p>The objective of this notebook is to compare the ability of refuters to detect the problems in a given set of estimators. Note: This notebook makes use of the optional dependencies: - pygraphviz - econml</p>
 <section id="Import-Dependencies">
-<h2>Import Dependencies<a class="headerlink" href="#Import-Dependencies" title="Permalink to this headline"></a></h2>
+<h2>Import Dependencies<a class="headerlink" href="#Import-Dependencies" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dowhy.datasets</span> <span class="kn">import</span> <span class="n">linear_dataset</span>
-<span class="kn">from</span> <span class="nn">dowhy</span> <span class="kn">import</span> <span class="n">CausalModel</span>
-<span class="kn">import</span> <span class="nn">econml</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from dowhy.datasets import linear_dataset
+from dowhy import CausalModel
+import econml
 
-<span class="c1"># Config dict to set the logging level</span>
-<span class="kn">import</span> <span class="nn">logging.config</span>
-<span class="n">DEFAULT_LOGGING</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;WARN&#39;</span><span class="p">,</span>
-        <span class="p">},</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+# Config dict to set the logging level
+import logging.config
+DEFAULT_LOGGING = {
+    &#39;version&#39;: 1,
+    &#39;disable_existing_loggers&#39;: False,
+    &#39;loggers&#39;: {
+        &#39;&#39;: {
+            &#39;level&#39;: &#39;WARN&#39;,
+        },
+    }
+}
 
-<span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">DEFAULT_LOGGING</span><span class="p">)</span>
-<span class="c1"># Disabling warnings output</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">sklearn.exceptions</span> <span class="kn">import</span> <span class="n">DataConversionWarning</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">DataConversionWarning</span><span class="p">)</span>
+logging.config.dictConfig(DEFAULT_LOGGING)
+# Disabling warnings output
+import warnings
+from sklearn.exceptions import DataConversionWarning
+warnings.filterwarnings(action=&#39;ignore&#39;, category=DataConversionWarning)
 </pre></div>
 </div>
 </div>
 </section>
 <section id="Inspection-Parameters">
-<h2>Inspection Parameters<a class="headerlink" href="#Inspection-Parameters" title="Permalink to this headline"></a></h2>
+<h2>Inspection Parameters<a class="headerlink" href="#Inspection-Parameters" title="Permalink to this heading"></a></h2>
 <p>These parameters give us the option of inspecting the intermediate steps to sanity check the steps performed</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inspect_datasets</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">inspect_models</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">inspect_identified_estimands</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">inspect_estimates</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">inspect_refutations</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>inspect_datasets = True
+inspect_models = True
+inspect_identified_estimands = True
+inspect_estimates = True
+inspect_refutations = True
 </pre></div>
 </div>
 </div>
 </section>
 <section id="Estimator-List">
-<h2>Estimator List<a class="headerlink" href="#Estimator-List" title="Permalink to this headline"></a></h2>
+<h2>Estimator List<a class="headerlink" href="#Estimator-List" title="Permalink to this heading"></a></h2>
 <p>We pass a list of strings, corresponding to the estimators of interest</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LassoCV</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LassoCV
+from sklearn.ensemble import GradientBoostingRegressor
 
-<span class="n">estimator_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;backdoor.propensity_score_matching&quot;</span><span class="p">,</span> <span class="s2">&quot;backdoor.propensity_score_weighting&quot;</span><span class="p">,</span> <span class="s2">&quot;backdoor.econml.dml.DML&quot;</span><span class="p">]</span>
-<span class="n">method_params</span><span class="o">=</span> <span class="p">[</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;init_params&quot;</span><span class="p">:{</span><span class="s1">&#39;model_y&#39;</span><span class="p">:</span><span class="n">GradientBoostingRegressor</span><span class="p">(),</span>
-                                                              <span class="s1">&#39;model_t&#39;</span><span class="p">:</span> <span class="n">GradientBoostingRegressor</span><span class="p">(),</span>
-                                                              <span class="s2">&quot;model_final&quot;</span><span class="p">:</span><span class="n">LassoCV</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-                                                              <span class="s1">&#39;featurizer&#39;</span><span class="p">:</span><span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">include_bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)},</span>
-                                               <span class="s2">&quot;fit_params&quot;</span><span class="p">:{}}</span> <span class="p">]</span>
+estimator_list = [&quot;backdoor.propensity_score_matching&quot;, &quot;backdoor.propensity_score_weighting&quot;, &quot;backdoor.econml.dml.DML&quot;]
+method_params= [ None, None, {&quot;init_params&quot;:{&#39;model_y&#39;:GradientBoostingRegressor(),
+                                                              &#39;model_t&#39;: GradientBoostingRegressor(),
+                                                              &quot;model_final&quot;:LassoCV(fit_intercept=False),
+                                                              &#39;featurizer&#39;:PolynomialFeatures(degree=1, include_bias=False)},
+                                               &quot;fit_params&quot;:{}} ]
 </pre></div>
 </div>
 </div>
 </section>
 <section id="Refuter-List">
-<h2>Refuter List<a class="headerlink" href="#Refuter-List" title="Permalink to this headline"></a></h2>
+<h2>Refuter List<a class="headerlink" href="#Refuter-List" title="Permalink to this heading"></a></h2>
 <p>A list of strings, corresponding to each refuter we wish to run</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refuter_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bootstrap_refuter&quot;</span><span class="p">,</span> <span class="s2">&quot;data_subset_refuter&quot;</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>refuter_list = [&quot;bootstrap_refuter&quot;, &quot;data_subset_refuter&quot;]
 </pre></div>
 </div>
 </div>
 </section>
 <section id="Create-the-Datasets">
-<h2>Create the Datasets<a class="headerlink" href="#Create-the-Datasets" title="Permalink to this headline"></a></h2>
+<h2>Create the Datasets<a class="headerlink" href="#Create-the-Datasets" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Parameters for creating the Dataset</span>
-<span class="n">TREATMENT_IS_BINARY</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">BETA</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">NUM_SAMPLES</span> <span class="o">=</span> <span class="mi">5000</span>
-<span class="n">NUM_CONFOUNDERS</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">NUM_INSTRUMENTS</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">NUM_EFFECT_MODIFIERS</span> <span class="o">=</span> <span class="mi">2</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Parameters for creating the Dataset
+TREATMENT_IS_BINARY = True
+BETA = 10
+NUM_SAMPLES = 5000
+NUM_CONFOUNDERS = 5
+NUM_INSTRUMENTS = 3
+NUM_EFFECT_MODIFIERS = 2
 
-<span class="c1"># Creating a Linear Dataset with the given parameters</span>
-<span class="n">linear_data</span> <span class="o">=</span> <span class="n">linear_dataset</span><span class="p">(</span>
-            <span class="n">beta</span> <span class="o">=</span> <span class="n">BETA</span><span class="p">,</span>
-            <span class="n">num_common_causes</span> <span class="o">=</span> <span class="n">NUM_CONFOUNDERS</span><span class="p">,</span>
-            <span class="n">num_instruments</span> <span class="o">=</span> <span class="n">NUM_INSTRUMENTS</span><span class="p">,</span>
-            <span class="n">num_effect_modifiers</span> <span class="o">=</span> <span class="n">NUM_EFFECT_MODIFIERS</span><span class="p">,</span>
-            <span class="n">num_samples</span> <span class="o">=</span> <span class="n">NUM_SAMPLES</span><span class="p">,</span>
-            <span class="n">treatment_is_binary</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="p">)</span>
-<span class="c1"># Other datasets come here</span>
+# Creating a Linear Dataset with the given parameters
+linear_data = linear_dataset(
+            beta = BETA,
+            num_common_causes = NUM_CONFOUNDERS,
+            num_instruments = NUM_INSTRUMENTS,
+            num_effect_modifiers = NUM_EFFECT_MODIFIERS,
+            num_samples = NUM_SAMPLES,
+            treatment_is_binary = True
+        )
+# Other datasets come here
 
 
-<span class="c1"># Append them together in an array</span>
-<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">linear_data</span><span class="p">]</span>
+# Append them together in an array
+datasets = [linear_data]
 <br/></pre></div>
 </div>
 </div>
 </section>
 <section id="Inspect-Data">
-<h2>Inspect Data<a class="headerlink" href="#Inspect-Data" title="Permalink to this headline"></a></h2>
+<h2>Inspect Data<a class="headerlink" href="#Inspect-Data" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset_num</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">if</span> <span class="n">inspect_datasets</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####### Dataset </span><span class="si">{}</span><span class="s2">###########################################################################################&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dataset_num</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;df&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#############################################################################################################&quot;</span><span class="p">)</span>
-        <span class="n">dataset_num</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dataset_num = 1
+if inspect_datasets is True:
+    for data in datasets:
+        print(&quot;####### Dataset {}###########################################################################################&quot;.format(dataset_num))
+        print(data[&#39;df&#39;].head())
+        print(&quot;#############################################################################################################&quot;)
+        dataset_num += 1
 </pre></div>
 </div>
 </div>
@@ -563,33 +583,33 @@ div.rendered_html tbody tr:hover {
 </div>
 </section>
 <section id="Create-the-CausalModels">
-<h2>Create the CausalModels<a class="headerlink" href="#Create-the-CausalModels" title="Permalink to this headline"></a></h2>
+<h2>Create the CausalModels<a class="headerlink" href="#Create-the-CausalModels" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">models</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">datasets</span><span class="p">:</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">CausalModel</span><span class="p">(</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;df&#39;</span><span class="p">],</span>
-                <span class="n">treatment</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;treatment_name&#39;</span><span class="p">],</span>
-                <span class="n">outcome</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;outcome_name&#39;</span><span class="p">],</span>
-                <span class="n">graph</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;gml_graph&#39;</span><span class="p">]</span>
-            <span class="p">)</span>
-    <span class="n">models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>models = []
+for data in datasets:
+    model = CausalModel(
+                data = data[&#39;df&#39;],
+                treatment = data[&#39;treatment_name&#39;],
+                outcome = data[&#39;outcome_name&#39;],
+                graph = data[&#39;gml_graph&#39;]
+            )
+    models.append(model)
 </pre></div>
 </div>
 </div>
 </section>
 <section id="View-Models">
-<h2>View Models<a class="headerlink" href="#View-Models" title="Permalink to this headline"></a></h2>
+<h2>View Models<a class="headerlink" href="#View-Models" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">view_model</span><span class="p">()</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;causal_model.png&quot;</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>model.view_model()
+from IPython.display import Image, display
+display(Image(filename=&quot;causal_model.png&quot;))
 </pre></div>
 </div>
 </div>
@@ -602,31 +622,31 @@ div.rendered_html tbody tr:hover {
 </div>
 </section>
 <section id="Identify-Effect">
-<h2>Identify Effect<a class="headerlink" href="#Identify-Effect" title="Permalink to this headline"></a></h2>
+<h2>Identify Effect<a class="headerlink" href="#Identify-Effect" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">identified_estimands</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
-    <span class="n">identified_estimand</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">identify_effect</span><span class="p">(</span><span class="n">proceed_when_unidentifiable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">identified_estimands</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>identified_estimands = []
+for model in models:
+    identified_estimand = model.identify_effect(proceed_when_unidentifiable=True)
+    identified_estimands.append(identified_estimand)
 </pre></div>
 </div>
 </div>
 </section>
 <section id="Identified-Estimands">
-<h2>Identified Estimands<a class="headerlink" href="#Identified-Estimands" title="Permalink to this headline"></a></h2>
+<h2>Identified Estimands<a class="headerlink" href="#Identified-Estimands" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimand_count</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">for</span> <span class="n">estimand</span> <span class="ow">in</span> <span class="n">identified_estimands</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####### Identified Estimand </span><span class="si">{}</span><span class="s2">#####################################################################################&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">estimand_count</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">estimand</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;###################################################################################################################&quot;</span><span class="p">)</span>
-    <span class="n">estimand_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>estimand_count = 1
+for estimand in identified_estimands:
+    print(&quot;####### Identified Estimand {}#####################################################################################&quot;.format(estimand_count))
+    print(estimand)
+    print(&quot;###################################################################################################################&quot;)
+    estimand_count += 1
 </pre></div>
 </div>
 </div>
@@ -662,42 +682,42 @@ No such variable(s) found!
 </div>
 </section>
 <section id="Estimate-Effect">
-<h2>Estimate Effect<a class="headerlink" href="#Estimate-Effect" title="Permalink to this headline"></a></h2>
+<h2>Estimate Effect<a class="headerlink" href="#Estimate-Effect" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimate_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">identified_estimands</span><span class="p">)):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">estimator_list</span><span class="p">)):</span>
-        <span class="n">estimate</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span>
-                        <span class="n">identified_estimands</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
-                        <span class="n">method_name</span><span class="o">=</span><span class="n">estimator_list</span><span class="p">[</span><span class="n">j</span><span class="p">],</span>
-                        <span class="n">method_params</span><span class="o">=</span><span class="n">method_params</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-                  <span class="p">)</span>
-        <span class="n">estimate_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">estimate</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>estimate_list = []
+for i in range(len(identified_estimands)):
+    for j in range(len(estimator_list)):
+        estimate = model.estimate_effect(
+                        identified_estimands[i],
+                        method_name=estimator_list[j],
+                        method_params=method_params[j]
+                  )
+        estimate_list.append(estimate)
 </pre></div>
 </div>
 </div>
 </section>
 <section id="Estimate-Values">
-<h2>Estimate Values<a class="headerlink" href="#Estimate-Values" title="Permalink to this headline"></a></h2>
+<h2>Estimate Values<a class="headerlink" href="#Estimate-Values" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimand_count</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">if</span> <span class="n">inspect_estimates</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">estimand</span> <span class="ow">in</span> <span class="n">estimate_list</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####### Estimand </span><span class="si">{}</span><span class="s2">#######################################################################################&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">estimand_count</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*** Class Name ***&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">estimand</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;estimator_class&#39;</span><span class="p">])</span>
-        <span class="nb">print</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">estimand</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;########################################################################################################&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">()</span>
-        <span class="n">estimand_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>estimand_count = 1
+if inspect_estimates is True:
+    for estimand in estimate_list:
+        print(&quot;####### Estimand {}#######################################################################################&quot;.format(estimand_count))
+        print(&quot;*** Class Name ***&quot;)
+        print()
+        print(estimand.params[&#39;estimator_class&#39;])
+        print()
+        print(estimand)
+        print(&quot;########################################################################################################&quot;)
+        print()
+        estimand_count += 1
 </pre></div>
 </div>
 </div>
@@ -793,39 +813,39 @@ Effect estimates: [11.0297145   9.78699228 10.30838788 ...  9.46308525  9.647566
 </div>
 </section>
 <section id="Refute-Estimate">
-<h2>Refute Estimate<a class="headerlink" href="#Refute-Estimate" title="Permalink to this headline"></a></h2>
+<h2>Refute Estimate<a class="headerlink" href="#Refute-Estimate" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refutation_list</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">estimand</span> <span class="ow">in</span> <span class="n">identified_estimands</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">estimate</span> <span class="ow">in</span> <span class="n">estimate_list</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">refuter</span> <span class="ow">in</span> <span class="n">refuter_list</span><span class="p">:</span>
-            <span class="n">ref</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">estimand</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span><span class="n">method_name</span><span class="o">=</span><span class="n">refuter</span><span class="p">)</span>
-            <span class="n">refutation_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>refutation_list = []
+for estimand in identified_estimands:
+    for estimate in estimate_list:
+        for refuter in refuter_list:
+            ref = model.refute_estimate(estimand, estimate,method_name=refuter)
+            refutation_list.append(ref)
 </pre></div>
 </div>
 </div>
 </section>
 <section id="Refutation-Values">
-<h2>Refutation Values<a class="headerlink" href="#Refutation-Values" title="Permalink to this headline"></a></h2>
+<h2>Refutation Values<a class="headerlink" href="#Refutation-Values" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refuter_count</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">if</span> <span class="n">inspect_refutations</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">refutation</span> <span class="ow">in</span> <span class="n">refutation_list</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;####### Refutation </span><span class="si">{}</span><span class="s2">#######################################################################################&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">refuter_count</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;*** Class Name ***&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">refutation</span><span class="o">.</span><span class="n">refutation_type</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">refutation</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;########################################################################################################&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">()</span>
-        <span class="n">refuter_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>refuter_count = 1
+if inspect_refutations is True:
+    for refutation in refutation_list:
+        print(&quot;####### Refutation {}#######################################################################################&quot;.format(refuter_count))
+        print(&quot;*** Class Name ***&quot;)
+        print()
+        print(refutation.refutation_type)
+        print()
+        print(refutation)
+        print(&quot;########################################################################################################&quot;)
+        print()
+        refuter_count += 1
 </pre></div>
 </div>
 </div>
@@ -916,13 +936,13 @@ p value:0.28
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="dowhy_multiple_treatments.html" class="btn btn-neutral float-left" title="Estimating effect of multiple treatments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="dowhy_causal_discovery_example.html" class="btn btn-neutral float-right" title="Causal Discovery example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="identifying_effects_using_id_algorithm.html" class="btn btn-neutral float-right" title="Identifying Effect using ID Algorithm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, Microsoft.</p>
+    <p>&#169; Copyright 2022, PyWhy contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -14,13 +14,16 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Simple example on using Instrumental Variables method for estimation" href="dowhy-simple-iv-example.html" />
+    <link rel="prev" title="DoWhy: Different estimation methods for causal inference" href="dowhy_estimation_methods.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -30,9 +33,6 @@
         <div class="wy-side-nav-search" >
             <a href="../index.html" class="icon icon-home"> DoWhy | An end-to-end library for causal inference
           </a>
-              <div class="version">
-                0.7.1
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -41,53 +41,77 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Introducing DoWhy</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html">DoWhy | An end-to-end library for causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#graphical-models-and-potential-outcomes-best-of-both-worlds">Graphical Models and Potential Outcomes: Best of both worlds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#four-steps-of-causal-inference">Four steps of causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#citing-this-package">Citing this package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#roadmap">Roadmap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#contributing">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/intro.html">Introduction to DoWhy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_simple_example.html">Quick-start notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/comparison.html">Comparison to other packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/cite.html">Citing this package</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Quick-Start Tutorial</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">Tutorial on Causal Inference and its Connections to Machine Learning (Using DoWhy+EconML)</a></li>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/causality_intro.html">Introduction to causality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="nb_index.html">Example notebooks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_estimation_methods.html">DoWhy: Different estimation methods for causal inference</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Testing Assumptions in model with DoWhy: A simple example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Step-1:-Load-dataset">Step 1: Load dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-2:-Input-causal-graph">Step 2: Input causal graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-3:-Create-Causal-Model">Step 3: Create Causal Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-4:-Testing-for-Conditional-Independence">Step 4: Testing for Conditional Independence</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Testing-for-a-set-of-edges">Testing for a set of edges</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Starter Notebooks</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_estimation_methods.html">DoWhy: Different estimation methods for causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy-simple-iv-example.html">Simple example on using Instrumental Variables method for estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="load_graph_example.html">Different ways to load an input graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Testing-with-a-wrong-graph-input">Testing with a wrong graph input</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Case Study Notebooks</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">DoWhy-The Causal Story Behind Hotel Booking Cancellations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Estimating the effect of a Member Rewards program</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_twins_example.html">DoWhy example on Twins dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lalonde_pandas_api.html">Lalonde Pandas API Example</a></li>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy-simple-iv-example.html">Simple example on using Instrumental Variables method for estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load_graph_example.html">Different ways to load an input graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html">Causal Discovery example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Auto-MPG-dataset">Experiments on the Auto-MPG dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Causal-Discovery-with-Causal-Discovery-Tool-(CDT)">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Sachs-dataset">Experiments on the Sachs dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#id2">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_twins_example.html">DoWhy example on Twins dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lalonde_pandas_api.html">Lalonde Pandas API Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy-conditional-treatment-effects.html">Conditional Average Treatment Effects (CATE) with DoWhy and EconML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_mediation_analysis.html">Mediation analysis with DoWhy: Direct and Indirect Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_demo_dummy_outcome_refuter.html">A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html">Causal Discovery example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Auto-MPG-dataset">Experiments on the Auto-MPG dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Causal-Discovery-with-Causal-Discovery-Tool-(CDT)">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Sachs-dataset">Experiments on the Sachs dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#id2">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Advanced Notebooks</span></p>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="dowhy-conditional-treatment-effects.html">Conditional Average Treatment Effects (CATE) with DoWhy and EconML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_mediation_analysis.html">Mediation analysis with DoWhy: Direct and Indirect Effects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_demo_dummy_outcome_refuter.html">A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html">Causal Discovery example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Auto-MPG-dataset">Experiments on the Auto-MPG dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#Causal-Discovery-with-Causal-Discovery-Tool-(CDT)">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Sachs-dataset">Experiments on the Sachs dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#id2">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gcm/user_guide/index.html">GCMs User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contributing to DoWhy</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Package</span></p>
 <ul>
@@ -109,6 +133,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="nb_index.html">Example notebooks</a> &raquo;</li>
       <li>Testing Assumptions in model with DoWhy: A simple example</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/example_notebooks/graph_conditional_independence_refuter.ipynb.txt" rel="nofollow"> View page source</a>
@@ -334,6 +359,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -342,10 +368,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -357,12 +387,15 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
@@ -390,677 +423,386 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Testing-Assumptions-in-model-with-DoWhy:-A-simple-example">
-<h1>Testing Assumptions in model with DoWhy: A simple example<a class="headerlink" href="#Testing-Assumptions-in-model-with-DoWhy:-A-simple-example" title="Permalink to this headline"></a></h1>
+<h1>Testing Assumptions in model with DoWhy: A simple example<a class="headerlink" href="#Testing-Assumptions-in-model-with-DoWhy:-A-simple-example" title="Permalink to this heading"></a></h1>
 <p>This is a quick introduction to how we can test if our assumed graph is correct and the assumptions match with the dataset. We do so by checking the conditional independences in the graph and see if they hold true for the data as well. Currently we are using partial correlation to test continuous data and conditional mutual information to test discrete data.</p>
 <p>First, let us load all required packages.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
-<span class="o">%</span><span class="k">autoreload</span> 2
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%load_ext autoreload
+%autoreload 2
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;../../../&quot;</span><span class="p">))</span>
-<span class="kn">import</span> <span class="nn">dowhy</span>
-<span class="kn">from</span> <span class="nn">dowhy</span> <span class="kn">import</span> <span class="n">CausalModel</span>
-<span class="kn">import</span> <span class="nn">dowhy.datasets</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import pandas as pd
+import os, sys
+sys.path.append(os.path.abspath(&quot;../../../&quot;))
+import dowhy
+from dowhy import CausalModel
+import dowhy.datasets
 </pre></div>
 </div>
 </div>
 <section id="Step-1:-Load-dataset">
-<h2>Step 1: Load dataset<a class="headerlink" href="#Step-1:-Load-dataset" title="Permalink to this headline"></a></h2>
+<h2>Step 1: Load dataset<a class="headerlink" href="#Step-1:-Load-dataset" title="Permalink to this heading"></a></h2>
 <p>The function <code class="docutils literal notranslate"><span class="pre">dataset_from_random_graph(num_vars,</span> <span class="pre">num_samples,</span> <span class="pre">prob_edge,</span> <span class="pre">random_seed,</span> <span class="pre">prob_type_data)</span></code> can be used to create a dataset from a randomly generated directed graph. The data can be mixture of discrete, binary and continuous variables. The parameters have the following significance - - num_vars : Number of variables in the dataset - num_samples: Number of samples in the dataset - prob_edge : Probability of an edge between two random nodes in a graph - random_seed: Seed for
 generating random graph - prob_type_of_data : 3-element tuple containing the probability of data being discrete, binary and continuous respectively.(Should add up to 1)</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">dowhy</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">dataset_from_random_graph</span><span class="p">(</span><span class="n">num_vars</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
-                                                <span class="n">num_samples</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">,</span>
-                                                <span class="n">prob_edge</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
-                                                <span class="n">random_seed</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
-                                                <span class="n">prob_type_of_data</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.333</span><span class="p">,</span> <span class="mf">0.333</span><span class="p">,</span> <span class="mf">0.334</span><span class="p">))</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;df&quot;</span><span class="p">]</span> <span class="c1">#Insert dataset here</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;discrete_columns&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;continuous_columns&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;binary_columns&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data = dowhy.datasets.dataset_from_random_graph(num_vars = 10,
+                                                num_samples = 5000,
+                                                prob_edge = 0.3,
+                                                random_seed = 100,
+                                                prob_type_of_data = (0.333, 0.333, 0.334))
+df = data[&quot;df&quot;] #Insert dataset here
+print(data[&quot;discrete_columns&quot;], data[&quot;continuous_columns&quot;], data[&quot;binary_columns&quot;])
+print(df.head())
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;a&#39;, &#39;c&#39;, &#39;e&#39;, &#39;f&#39;, &#39;h&#39;] [&#39;b&#39;, &#39;d&#39;, &#39;g&#39;, &#39;i&#39;, &#39;j&#39;] [&#39;c&#39;, &#39;e&#39;]
-   a         b  c         d  e  f         g  h         i         j
-0 -1 -1.170054  1  0.996507  1  0 -0.218214 -1 -1.107993  0.699933
-1  0  0.527130  1  0.894435  1  1  1.485562  0 -1.450727 -1.055649
-2  0  0.436049  0 -0.151908  0  0  0.195296  0  2.280391  1.162284
-3  0  0.005213  1  0.347139  1  0 -0.727156 -1 -1.140999 -2.165819
-4  0  1.212397  0 -1.230150  0  1  0.582913  0 -1.377051 -2.359753
-</pre></div></div>
 </div>
 <p>Note that we are using a pandas dataframe to load the data. At present, DoWhy only supports pandas dataframe as input.</p>
 </section>
 <section id="Step-2:-Input-causal-graph">
-<h2>Step 2: Input causal graph<a class="headerlink" href="#Step-2:-Input-causal-graph" title="Permalink to this headline"></a></h2>
+<h2>Step 2: Input causal graph<a class="headerlink" href="#Step-2:-Input-causal-graph" title="Permalink to this heading"></a></h2>
 <p>We now input a causal graph. You can do that in the GML graph format (recommended), DOT format or the output from daggity - To create the causal graph for your dataset, you can use a tool like <a class="reference external" href="http://dagitty.net/dags.html#">DAGitty</a> that provides a GUI to construct the graph. You can export the graph string that it generates.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;graph [</span>
-<span class="s2">  directed 1</span>
-<span class="s2">  node [</span>
-<span class="s2">    id 0</span>
-<span class="s2">    label &quot;a&quot;</span>
-<span class="s2">  ]</span>
-<span class="s2">  node [</span>
-<span class="s2">    id 1</span>
-<span class="s2">    label &quot;b&quot;</span>
-<span class="s2">  ]</span>
-<span class="s2">  node [</span>
-<span class="s2">    id 2</span>
-<span class="s2">    label &quot;c&quot;</span>
-<span class="s2">  ]</span>
-<span class="s2">  node [</span>
-<span class="s2">    id 3</span>
-<span class="s2">    label &quot;d&quot;</span>
-<span class="s2">  ]</span>
-<span class="s2">  node [</span>
-<span class="s2">    id 4</span>
-<span class="s2">    label &quot;e&quot;</span>
-<span class="s2">  ]</span>
-<span class="s2">  node [</span>
-<span class="s2">    id 5</span>
-<span class="s2">    label &quot;f&quot;</span>
-<span class="s2">  ]</span>
-<span class="s2">  node [</span>
-<span class="s2">    id 6</span>
-<span class="s2">    label &quot;g&quot;</span>
-<span class="s2">  ]</span>
-<span class="s2">  node [</span>
-<span class="s2">    id 7</span>
-<span class="s2">    label &quot;h&quot;</span>
-<span class="s2">  ]</span>
-<span class="s2">  node [</span>
-<span class="s2">    id 8</span>
-<span class="s2">    label &quot;i&quot;</span>
-<span class="s2">  ]</span>
-<span class="s2">  node [</span>
-<span class="s2">    id 9</span>
-<span class="s2">    label &quot;j&quot;</span>
-<span class="s2">  ]</span>
-<span class="s2">  edge [</span>
-<span class="s2">    source 0</span>
-<span class="s2">    target 1</span>
-<span class="s2">  ]</span>
-<span class="s2">  edge [</span>
-<span class="s2">    source 0</span>
-<span class="s2">    target 8</span>
-<span class="s2">  ]</span>
-<span class="s2">  edge [</span>
-<span class="s2">    source 1</span>
-<span class="s2">    target 2</span>
-<span class="s2">  ]</span>
-<span class="s2">  edge [</span>
-<span class="s2">    source 1</span>
-<span class="s2">    target 5</span>
-<span class="s2">  ]</span>
-<span class="s2">  edge [</span>
-<span class="s2">    source 2</span>
-<span class="s2">    target 3</span>
-<span class="s2">  ]</span>
-<span class="s2">  edge [</span>
-<span class="s2">    source 2</span>
-<span class="s2">    target 4</span>
-<span class="s2">  ]</span>
-<span class="s2">  edge [</span>
-<span class="s2">    source 3</span>
-<span class="s2">    target 4</span>
-<span class="s2">  ]</span>
-<span class="s2">  edge [</span>
-<span class="s2">    source 4</span>
-<span class="s2">    target 5</span>
-<span class="s2">  ]</span>
-<span class="s2">  edge [</span>
-<span class="s2">    source 5</span>
-<span class="s2">    target 6</span>
-<span class="s2">  ]</span>
-<span class="s2">  edge [</span>
-<span class="s2">    source 6</span>
-<span class="s2">    target 7</span>
-<span class="s2">  ]</span>
-<span class="s2">  edge [</span>
-<span class="s2">    source 7</span>
-<span class="s2">    target 8</span>
-<span class="s2">  ]</span>
-<span class="s2">  edge [</span>
-<span class="s2">    source 8</span>
-<span class="s2">    target 9</span>
-<span class="s2">  ]</span>
-<span class="s2">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>graph_string = &quot;&quot;&quot;graph [
+  directed 1
+  node [
+    id 0
+    label &quot;a&quot;
+  ]
+  node [
+    id 1
+    label &quot;b&quot;
+  ]
+  node [
+    id 2
+    label &quot;c&quot;
+  ]
+  node [
+    id 3
+    label &quot;d&quot;
+  ]
+  node [
+    id 4
+    label &quot;e&quot;
+  ]
+  node [
+    id 5
+    label &quot;f&quot;
+  ]
+  node [
+    id 6
+    label &quot;g&quot;
+  ]
+  node [
+    id 7
+    label &quot;h&quot;
+  ]
+  node [
+    id 8
+    label &quot;i&quot;
+  ]
+  node [
+    id 9
+    label &quot;j&quot;
+  ]
+  edge [
+    source 0
+    target 1
+  ]
+  edge [
+    source 0
+    target 8
+  ]
+  edge [
+    source 1
+    target 2
+  ]
+  edge [
+    source 1
+    target 5
+  ]
+  edge [
+    source 2
+    target 3
+  ]
+  edge [
+    source 2
+    target 4
+  ]
+  edge [
+    source 3
+    target 4
+  ]
+  edge [
+    source 4
+    target 5
+  ]
+  edge [
+    source 5
+    target 6
+  ]
+  edge [
+    source 6
+    target 7
+  ]
+  edge [
+    source 7
+    target 8
+  ]
+  edge [
+    source 8
+    target 9
+  ]
+]
 
-<span class="s2">&quot;&quot;&quot;</span>
+&quot;&quot;&quot;
 </pre></div>
 </div>
 </div>
 </section>
 <section id="Step-3:-Create-Causal-Model">
-<h2>Step 3: Create Causal Model<a class="headerlink" href="#Step-3:-Create-Causal-Model" title="Permalink to this headline"></a></h2>
+<h2>Step 3: Create Causal Model<a class="headerlink" href="#Step-3:-Create-Causal-Model" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">=</span><span class="n">CausalModel</span><span class="p">(</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span>
-        <span class="n">treatment</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;treatment_name&quot;</span><span class="p">],</span>
-        <span class="n">outcome</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;outcome_name&quot;</span><span class="p">],</span>
-        <span class="n">graph</span><span class="o">=</span><span class="n">graph_string</span>
-        <span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>model=CausalModel(
+        data = df,
+        treatment=data[&quot;treatment_name&quot;],
+        outcome=data[&quot;outcome_name&quot;],
+        graph=graph_string
+        )
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">view_model</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;causal_model.png&quot;</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>model.view_model()
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<img alt="../_images/example_notebooks_graph_conditional_independence_refuter_12_0.png" src="../_images/example_notebooks_graph_conditional_independence_refuter_12_0.png" />
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from IPython.display import Image, display
+display(Image(filename=&quot;causal_model.png&quot;))
+</pre></div>
 </div>
 </div>
 </section>
 <section id="Step-4:-Testing-for-Conditional-Independence">
-<h2>Step 4: Testing for Conditional Independence<a class="headerlink" href="#Step-4:-Testing-for-Conditional-Independence" title="Permalink to this headline"></a></h2>
-<p>We can check if the assumptions of the graph hold true for the data using <code class="docutils literal notranslate"><span class="pre">model.refute_graph(k,</span> <span class="pre">independence_test</span> <span class="pre">=</span> <span class="pre">{'test_for_continuous':</span> <span class="pre">'partial_correlation',</span> <span class="pre">'test_for_discrete'</span> <span class="pre">:</span> <span class="pre">'conditional_mutual_information'})</span></code> We are testing X ⫫ Y | Z where X and Y are singular sets and Z can have k number of variables. k value is 1 by default unless input. Currently we are using following settings - - “partial_correlation” for continuous data - “conditional_mutual_information” for discrete
-data - “conditional_mutua_information” when Z is discrete and either of X and Y is continuous - “partial_correlation” when Z is continuous/binary and X and Y are either continuous/binary - “conditional_mutual_information” when X and Y are discrete and Z has mixed data - other settings are currently not supported</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<h2>Step 4: Testing for Conditional Independence<a class="headerlink" href="#Step-4:-Testing-for-Conditional-Independence" title="Permalink to this heading"></a></h2>
+<p>We can check if the assumptions of the graph hold true for the data using <code class="docutils literal notranslate"><span class="pre">model.refute_graph(k,</span> <span class="pre">independence_test</span> <span class="pre">=</span> <span class="pre">{'test_for_continuous':</span> <span class="pre">'partial_correlation',</span> <span class="pre">'test_for_discrete'</span> <span class="pre">:</span> <span class="pre">'conditional_mutual_information'})</span></code> We are testing X ⫫ Y | Z where X and Y are singular sets and Z can have k number of variables. k value is 1 by default unless input. Currently we are using following settings - - “partial_correlation” for continuous data - “conditional_mutual_information” for discrete data -
+“conditional_mutua_information” when Z is discrete and either of X and Y is continuous - “partial_correlation” when Z is continuous/binary and X and Y are either continuous/binary - “conditional_mutual_information” when X and Y are discrete and Z has mixed data - other settings are currently not supported</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refuter_object</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">refute_graph</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">independence_test</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;test_for_continuous&#39;</span><span class="p">:</span> <span class="s1">&#39;partial_correlation&#39;</span><span class="p">,</span> <span class="s1">&#39;test_for_discrete&#39;</span> <span class="p">:</span> <span class="s1">&#39;conditional_mutual_information&#39;</span><span class="p">})</span> <span class="c1">#Change k parameter to test conditional independence given different number of variables</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-The following setting with f as discrete, j as continuous, (&#39;i&#39;,) as [&#39;continuous&#39;] not supported
-The following setting with d as continuous, g as continuous, (&#39;f&#39;,) as [&#39;discrete&#39;] not supported
-The following setting with d as continuous, a as discrete, (&#39;b&#39;,) as [&#39;continuous&#39;] not supported
-The following setting with d as continuous, h as discrete, (&#39;g&#39;,) as [&#39;continuous&#39;] not supported
-The following setting with g as continuous, b as continuous, (&#39;f&#39;,) as [&#39;discrete&#39;] not supported
-The following setting with g as continuous, a as discrete, (&#39;b&#39;,) as [&#39;continuous&#39;] not supported
-The following setting with b as continuous, h as discrete, (&#39;g&#39;,) as [&#39;continuous&#39;] not supported
-The following setting with j as continuous, a as discrete, (&#39;i&#39;,) as [&#39;continuous&#39;] not supported
-The following setting with j as continuous, h as discrete, (&#39;i&#39;,) as [&#39;continuous&#39;] not supported
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">refuter_object</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>refuter_object = model.refute_graph(k=1, independence_test = {&#39;test_for_continuous&#39;: &#39;partial_correlation&#39;, &#39;test_for_discrete&#39; : &#39;conditional_mutual_information&#39;}) #Change k parameter to test conditional independence given different number of variables
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Method name for discrete data:conditional_mutual_information
-Method name for continuous data:partial_correlation
-Number of conditional independencies entailed by model:34
-Number of independences satisfied by data:25
-Test passed:True
-
-</pre></div></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(refuter_object)
+</pre></div>
+</div>
 </div>
 <section id="Testing-for-a-set-of-edges">
-<h3>Testing for a set of edges<a class="headerlink" href="#Testing-for-a-set-of-edges" title="Permalink to this headline"></a></h3>
+<h3>Testing for a set of edges<a class="headerlink" href="#Testing-for-a-set-of-edges" title="Permalink to this heading"></a></h3>
 <p>We can also test a set of conditional independences whether they are true or not The input has to be in the form - [( x1, y1, (z1, z2)), ( x2, y2, (z3, z4)), ( x3, y3, (z5,)), ( x4, y4, ()) ] ##### The testing data can be a mix of discrete and continuous types as well (Here binary implies discrete only) -</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refuter_object</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">refute_graph</span><span class="p">(</span><span class="n">independence_constraints</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="s1">&#39;g&#39;</span><span class="p">,)),</span> <span class="c1"># c and e - binary, g - continuous</span>
-                                                                <span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,)),</span> <span class="c1"># f and h - discrete, b - continuous</span>
-                                                                <span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,)),</span> <span class="c1"># e - binary, g - continuous, h - discrete</span>
-                                                                <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,)),</span> <span class="c1"># c and a - discrete, b - continuous</span>
-                                                                <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span> <span class="p">,</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,)),</span> <span class="c1"># d and i - continuous, c - binary</span>
-                                                                <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span> <span class="p">,</span> <span class="p">())</span>      <span class="c1"># a - discrete, j - continuous</span>
-                                                               <span class="p">],</span>
-                         <span class="n">independence_test</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;test_for_continuous&#39;</span><span class="p">:</span> <span class="s1">&#39;partial_correlation&#39;</span><span class="p">,</span> <span class="s1">&#39;test_for_discrete&#39;</span> <span class="p">:</span> <span class="s1">&#39;conditional_mutual_information&#39;</span><span class="p">}</span>
-                        <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">refuter_object</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>refuter_object = model.refute_graph(independence_constraints = [(&#39;c&#39;, &#39;e&#39; , (&#39;g&#39;,)), # c and e - binary, g - continuous
+                                                                (&#39;f&#39;, &#39;h&#39; , (&#39;b&#39;,)), # f and h - discrete, b - continuous
+                                                                (&#39;e&#39;, &#39;g&#39; , (&#39;h&#39;,)), # e - binary, g - continuous, h - discrete
+                                                                (&#39;c&#39;, &#39;a&#39; , (&#39;b&#39;,)), # c and a - discrete, b - continuous
+                                                                (&#39;d&#39;, &#39;i&#39; , (&#39;c&#39;,)), # d and i - continuous, c - binary
+                                                                (&#39;a&#39;, &#39;j&#39; , ())      # a - discrete, j - continuous
+                                                               ],
+                         independence_test = {&#39;test_for_continuous&#39;: &#39;partial_correlation&#39;, &#39;test_for_discrete&#39; : &#39;conditional_mutual_information&#39;}
+                        )
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Method name for discrete data:conditional_mutual_information
-Method name for continuous data:partial_correlation
-Number of conditional independencies entailed by model:6
-Number of independences satisfied by data:6
-Test passed:True
-
-</pre></div></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(refuter_object)
+</pre></div>
+</div>
 </div>
 </section>
 </section>
 <section id="Testing-with-a-wrong-graph-input">
-<h2>Testing with a wrong graph input<a class="headerlink" href="#Testing-with-a-wrong-graph-input" title="Permalink to this headline"></a></h2>
+<h2>Testing with a wrong graph input<a class="headerlink" href="#Testing-with-a-wrong-graph-input" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">graph_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;graph [</span>
-<span class="s2">        directed 1</span>
-<span class="s2">        node [</span>
-<span class="s2">            id 0</span>
-<span class="s2">            label &quot;a&quot;</span>
-<span class="s2">        ]</span>
-<span class="s2">        node [</span>
-<span class="s2">            id 1</span>
-<span class="s2">            label &quot;b&quot;</span>
-<span class="s2">        ]</span>
-<span class="s2">        node [</span>
-<span class="s2">            id 2</span>
-<span class="s2">            label &quot;c&quot;</span>
-<span class="s2">        ]</span>
-<span class="s2">        node [</span>
-<span class="s2">            id 3</span>
-<span class="s2">            label &quot;d&quot;</span>
-<span class="s2">        ]</span>
-<span class="s2">        node [</span>
-<span class="s2">            id 4</span>
-<span class="s2">            label &quot;e&quot;</span>
-<span class="s2">        ]</span>
-<span class="s2">        node [</span>
-<span class="s2">            id 5</span>
-<span class="s2">            label &quot;f&quot;</span>
-<span class="s2">        ]</span>
-<span class="s2">        node [</span>
-<span class="s2">            id 6</span>
-<span class="s2">            label &quot;g&quot;</span>
-<span class="s2">        ]</span>
-<span class="s2">        node [</span>
-<span class="s2">            id 7</span>
-<span class="s2">            label &quot;h&quot;</span>
-<span class="s2">        ]</span>
-<span class="s2">        node [</span>
-<span class="s2">            id 8</span>
-<span class="s2">            label &quot;i&quot;</span>
-<span class="s2">        ]</span>
-<span class="s2">        node [</span>
-<span class="s2">            id 9</span>
-<span class="s2">            label &quot;j&quot;</span>
-<span class="s2">        ]</span>
-<span class="s2">        edge [</span>
-<span class="s2">            source 0</span>
-<span class="s2">            target 1</span>
-<span class="s2">        ]</span>
-<span class="s2">        edge [</span>
-<span class="s2">            source 0</span>
-<span class="s2">            target 2</span>
-<span class="s2">        ]</span>
-<span class="s2">        edge [</span>
-<span class="s2">            source 0</span>
-<span class="s2">            target 3</span>
-<span class="s2">        ]</span>
-<span class="s2">        edge [</span>
-<span class="s2">            source 1</span>
-<span class="s2">            target 4</span>
-<span class="s2">        ]</span>
-<span class="s2">        edge [</span>
-<span class="s2">            source 1</span>
-<span class="s2">            target 5</span>
-<span class="s2">        ]</span>
-<span class="s2">        edge [</span>
-<span class="s2">            source 2</span>
-<span class="s2">            target 3</span>
-<span class="s2">        ]</span>
-<span class="s2">        edge [</span>
-<span class="s2">            source 4</span>
-<span class="s2">            target 2</span>
-<span class="s2">        ]</span>
-<span class="s2">        edge [</span>
-<span class="s2">            source 4</span>
-<span class="s2">            target 5</span>
-<span class="s2">        ]</span>
-<span class="s2">        edge [</span>
-<span class="s2">            source 4</span>
-<span class="s2">            target 6</span>
-<span class="s2">        ]</span>
-<span class="s2">        edge [</span>
-<span class="s2">            source 4</span>
-<span class="s2">            target 7</span>
-<span class="s2">        ]</span>
-<span class="s2">        edge [</span>
-<span class="s2">            source 8</span>
-<span class="s2">            target 6</span>
-<span class="s2">        ]</span>
-<span class="s2">        edge</span>
-<span class="s2">        [</span>
-<span class="s2">        source 9</span>
-<span class="s2">        target 0</span>
-<span class="s2">        ]</span>
-<span class="s2">        ]&quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">CausalModel</span><span class="p">(</span>
-            <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-            <span class="n">treatment</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;treatment_name&quot;</span><span class="p">],</span>
-            <span class="n">outcome</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;outcome_name&quot;</span><span class="p">],</span>
-            <span class="n">graph</span><span class="o">=</span><span class="n">graph_string</span><span class="p">,</span>
-        <span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>graph_string = &quot;&quot;&quot;graph [
+        directed 1
+        node [
+            id 0
+            label &quot;a&quot;
+        ]
+        node [
+            id 1
+            label &quot;b&quot;
+        ]
+        node [
+            id 2
+            label &quot;c&quot;
+        ]
+        node [
+            id 3
+            label &quot;d&quot;
+        ]
+        node [
+            id 4
+            label &quot;e&quot;
+        ]
+        node [
+            id 5
+            label &quot;f&quot;
+        ]
+        node [
+            id 6
+            label &quot;g&quot;
+        ]
+        node [
+            id 7
+            label &quot;h&quot;
+        ]
+        node [
+            id 8
+            label &quot;i&quot;
+        ]
+        node [
+            id 9
+            label &quot;j&quot;
+        ]
+        edge [
+            source 0
+            target 1
+        ]
+        edge [
+            source 0
+            target 2
+        ]
+        edge [
+            source 0
+            target 3
+        ]
+        edge [
+            source 1
+            target 4
+        ]
+        edge [
+            source 1
+            target 5
+        ]
+        edge [
+            source 2
+            target 3
+        ]
+        edge [
+            source 4
+            target 2
+        ]
+        edge [
+            source 4
+            target 5
+        ]
+        edge [
+            source 4
+            target 6
+        ]
+        edge [
+            source 4
+            target 7
+        ]
+        edge [
+            source 8
+            target 6
+        ]
+        edge
+        [
+        source 9
+        target 0
+        ]
+        ]&quot;&quot;&quot;
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">view_model</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;causal_model.png&quot;</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>model = CausalModel(
+            data=df,
+            treatment=data[&quot;treatment_name&quot;],
+            outcome=data[&quot;outcome_name&quot;],
+            graph=graph_string,
+        )
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/example_notebooks_graph_conditional_independence_refuter_23_0.png" src="../_images/example_notebooks_graph_conditional_independence_refuter_23_0.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refuter_object</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">refute_graph</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>model.view_model()
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-The following setting with f as discrete, d as continuous, (&#39;e&#39;, &#39;b&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, g as continuous, (&#39;d&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with f as discrete, g as continuous, (&#39;e&#39;, &#39;b&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, g as continuous, (&#39;e&#39;, &#39;j&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, g as continuous, (&#39;e&#39;, &#39;i&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, j as continuous, (&#39;d&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with f as discrete, j as continuous, (&#39;g&#39;, &#39;b&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, j as continuous, (&#39;g&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with f as discrete, j as continuous, (&#39;e&#39;, &#39;b&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, j as continuous, (&#39;b&#39;, &#39;i&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, j as continuous, (&#39;b&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with f as discrete, j as continuous, (&#39;b&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with f as discrete, j as continuous, (&#39;i&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;c&#39;, &#39;d&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;c&#39;, &#39;b&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;c&#39;, &#39;j&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;d&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;d&#39;, &#39;b&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;d&#39;, &#39;j&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;d&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;d&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;g&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;e&#39;, &#39;b&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;e&#39;, &#39;j&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;b&#39;, &#39;j&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;b&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;b&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;j&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with f as discrete, i as continuous, (&#39;j&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with c as binary, j as continuous, (&#39;d&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with c as binary, j as continuous, (&#39;g&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with c as binary, j as continuous, (&#39;b&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with c as binary, j as continuous, (&#39;i&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with c as binary, i as continuous, (&#39;f&#39;, &#39;d&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with c as binary, i as continuous, (&#39;f&#39;, &#39;b&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with c as binary, i as continuous, (&#39;f&#39;, &#39;j&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with c as binary, i as continuous, (&#39;d&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with c as binary, i as continuous, (&#39;d&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with c as binary, i as continuous, (&#39;b&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with c as binary, i as continuous, (&#39;b&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with c as binary, i as continuous, (&#39;j&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with c as binary, i as continuous, (&#39;j&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, g as continuous, (&#39;f&#39;, &#39;e&#39;) as [&#39;discrete&#39;, &#39;binary&#39;] not supported
-The following setting with d as continuous, g as continuous, (&#39;c&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, g as continuous, (&#39;e&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, g as continuous, (&#39;e&#39;, &#39;h&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, b as continuous, (&#39;c&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, b as continuous, (&#39;e&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, j as continuous, (&#39;f&#39;, &#39;a&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, j as continuous, (&#39;c&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, j as continuous, (&#39;g&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, j as continuous, (&#39;e&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, j as continuous, (&#39;b&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, j as continuous, (&#39;i&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, j as continuous, (&#39;a&#39;, &#39;h&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;f&#39;, &#39;c&#39;) as [&#39;discrete&#39;, &#39;binary&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;f&#39;, &#39;e&#39;) as [&#39;discrete&#39;, &#39;binary&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;f&#39;, &#39;b&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;f&#39;, &#39;j&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;f&#39;, &#39;a&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;f&#39;, &#39;h&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;c&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;c&#39;, &#39;h&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;e&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;e&#39;, &#39;h&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;b&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;b&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;j&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;j&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, i as continuous, (&#39;a&#39;, &#39;h&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with d as continuous, h as discrete, (&#39;g&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with d as continuous, h as discrete, (&#39;e&#39;, &#39;b&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with d as continuous, h as discrete, (&#39;e&#39;, &#39;j&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with d as continuous, h as discrete, (&#39;e&#39;, &#39;i&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with g as continuous, b as continuous, (&#39;f&#39;, &#39;e&#39;) as [&#39;discrete&#39;, &#39;binary&#39;] not supported
-The following setting with g as continuous, b as continuous, (&#39;e&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with g as continuous, b as continuous, (&#39;e&#39;, &#39;h&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with g as continuous, j as continuous, (&#39;f&#39;, &#39;e&#39;) as [&#39;discrete&#39;, &#39;binary&#39;] not supported
-The following setting with g as continuous, j as continuous, (&#39;f&#39;, &#39;b&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with g as continuous, j as continuous, (&#39;f&#39;, &#39;a&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with g as continuous, j as continuous, (&#39;c&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with g as continuous, j as continuous, (&#39;d&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with g as continuous, j as continuous, (&#39;e&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with g as continuous, j as continuous, (&#39;e&#39;, &#39;h&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with g as continuous, j as continuous, (&#39;b&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with g as continuous, j as continuous, (&#39;b&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with g as continuous, j as continuous, (&#39;i&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with g as continuous, j as continuous, (&#39;a&#39;, &#39;h&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with g as continuous, a as discrete, (&#39;f&#39;, &#39;b&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with g as continuous, a as discrete, (&#39;d&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with g as continuous, a as discrete, (&#39;e&#39;, &#39;b&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with g as continuous, a as discrete, (&#39;e&#39;, &#39;j&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with g as continuous, a as discrete, (&#39;e&#39;, &#39;i&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with g as continuous, a as discrete, (&#39;b&#39;, &#39;j&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with g as continuous, a as discrete, (&#39;b&#39;, &#39;i&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with g as continuous, a as discrete, (&#39;b&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with g as continuous, h as discrete, (&#39;d&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with g as continuous, h as discrete, (&#39;e&#39;, &#39;b&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with g as continuous, h as discrete, (&#39;e&#39;, &#39;j&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with g as continuous, h as discrete, (&#39;e&#39;, &#39;i&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with e as binary, j as continuous, (&#39;f&#39;, &#39;b&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with e as binary, j as continuous, (&#39;d&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with e as binary, j as continuous, (&#39;g&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with e as binary, j as continuous, (&#39;b&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with e as binary, j as continuous, (&#39;b&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with e as binary, j as continuous, (&#39;i&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with e as binary, i as continuous, (&#39;f&#39;, &#39;d&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with e as binary, i as continuous, (&#39;f&#39;, &#39;b&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with e as binary, i as continuous, (&#39;f&#39;, &#39;j&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with e as binary, i as continuous, (&#39;d&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with e as binary, i as continuous, (&#39;d&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with e as binary, i as continuous, (&#39;b&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with e as binary, i as continuous, (&#39;b&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with e as binary, i as continuous, (&#39;j&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with e as binary, i as continuous, (&#39;j&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, j as continuous, (&#39;f&#39;, &#39;a&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, j as continuous, (&#39;c&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, j as continuous, (&#39;d&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, j as continuous, (&#39;g&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, j as continuous, (&#39;e&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, j as continuous, (&#39;i&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, j as continuous, (&#39;a&#39;, &#39;h&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;f&#39;, &#39;c&#39;) as [&#39;discrete&#39;, &#39;binary&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;f&#39;, &#39;d&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;f&#39;, &#39;e&#39;) as [&#39;discrete&#39;, &#39;binary&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;f&#39;, &#39;j&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;f&#39;, &#39;a&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;f&#39;, &#39;h&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;c&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;c&#39;, &#39;h&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;d&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;d&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;e&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;e&#39;, &#39;h&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;j&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;j&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, i as continuous, (&#39;a&#39;, &#39;h&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with b as continuous, h as discrete, (&#39;d&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with b as continuous, h as discrete, (&#39;g&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with b as continuous, h as discrete, (&#39;e&#39;, &#39;j&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with b as continuous, h as discrete, (&#39;e&#39;, &#39;i&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;f&#39;, &#39;c&#39;) as [&#39;discrete&#39;, &#39;binary&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;f&#39;, &#39;d&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;f&#39;, &#39;e&#39;) as [&#39;discrete&#39;, &#39;binary&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;f&#39;, &#39;b&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;f&#39;, &#39;a&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;f&#39;, &#39;h&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;c&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;c&#39;, &#39;h&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;d&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;d&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;g&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;e&#39;, &#39;a&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;e&#39;, &#39;h&#39;) as [&#39;binary&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;b&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;b&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, i as continuous, (&#39;a&#39;, &#39;h&#39;) as [&#39;discrete&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, h as discrete, (&#39;f&#39;, &#39;b&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with j as continuous, h as discrete, (&#39;d&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with j as continuous, h as discrete, (&#39;d&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, h as discrete, (&#39;g&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with j as continuous, h as discrete, (&#39;g&#39;, &#39;b&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with j as continuous, h as discrete, (&#39;g&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, h as discrete, (&#39;e&#39;, &#39;b&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with j as continuous, h as discrete, (&#39;e&#39;, &#39;i&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with j as continuous, h as discrete, (&#39;b&#39;, &#39;i&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with j as continuous, h as discrete, (&#39;b&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with j as continuous, h as discrete, (&#39;i&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;f&#39;, &#39;d&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;f&#39;, &#39;b&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;f&#39;, &#39;j&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;c&#39;, &#39;d&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;c&#39;, &#39;b&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;c&#39;, &#39;j&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;d&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;d&#39;, &#39;b&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;d&#39;, &#39;j&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;d&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;g&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;g&#39;, &#39;b&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;e&#39;, &#39;b&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;e&#39;, &#39;j&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;b&#39;, &#39;j&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;b&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with i as continuous, a as discrete, (&#39;j&#39;, &#39;h&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;f&#39;, &#39;d&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;f&#39;, &#39;b&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;f&#39;, &#39;j&#39;) as [&#39;discrete&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;c&#39;, &#39;d&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;c&#39;, &#39;b&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;c&#39;, &#39;j&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;d&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;d&#39;, &#39;b&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;d&#39;, &#39;j&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;d&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;g&#39;, &#39;e&#39;) as [&#39;continuous&#39;, &#39;binary&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;e&#39;, &#39;b&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;e&#39;, &#39;j&#39;) as [&#39;binary&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;b&#39;, &#39;j&#39;) as [&#39;continuous&#39;, &#39;continuous&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;b&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-The following setting with i as continuous, h as discrete, (&#39;j&#39;, &#39;a&#39;) as [&#39;continuous&#39;, &#39;discrete&#39;] not supported
-</pre></div></div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from IPython.display import Image, display
+display(Image(filename=&quot;causal_model.png&quot;))
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>refuter_object = model.refute_graph(k=2)
+</pre></div>
+</div>
 </div>
 <p>We can see that since we input the wrong graph, many conditional independences were not met</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">refuter_object</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(refuter_object)
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Method name for discrete data:conditional_mutual_information
-Method name for continuous data:partial_correlation
-Number of conditional independencies entailed by model:359
-Number of independences satisfied by data:144
-Test passed:False
-
-</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -1076,12 +818,15 @@ Test passed:False
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dowhy_estimation_methods.html" class="btn btn-neutral float-left" title="DoWhy: Different estimation methods for causal inference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dowhy-simple-iv-example.html" class="btn btn-neutral float-right" title="Simple example on using Instrumental Variables method for estimation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, Microsoft.</p>
+    <p>&#169; Copyright 2022, PyWhy contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

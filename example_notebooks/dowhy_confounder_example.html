@@ -14,6 +14,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -22,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="DoWhy: Different estimation methods for causal inference" href="dowhy_estimation_methods.html" />
-    <link rel="prev" title="Getting started with DoWhy: A simple example" href="dowhy_simple_example.html" /> 
+    <link rel="prev" title="Example notebooks" href="nb_index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,9 +33,6 @@
         <div class="wy-side-nav-search" >
             <a href="../index.html" class="icon icon-home"> DoWhy | An end-to-end library for causal inference
           </a>
-              <div class="version">
-                0.7.1
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -43,67 +41,81 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Introducing DoWhy</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html">DoWhy | An end-to-end library for causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#graphical-models-and-potential-outcomes-best-of-both-worlds">Graphical Models and Potential Outcomes: Best of both worlds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#four-steps-of-causal-inference">Four steps of causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#citing-this-package">Citing this package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#roadmap">Roadmap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#contributing">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/intro.html">Introduction to DoWhy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_simple_example.html">Quick-start notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/comparison.html">Comparison to other packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/cite.html">Citing this package</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Quick-Start Tutorial</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">Tutorial on Causal Inference and its Connections to Machine Learning (Using DoWhy+EconML)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Starter Notebooks</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Confounding Example: Finding causal effects from observed data</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Let's-create-a-mystery-dataset-for-which-we-need-to-determine-whether-there-is-a-causal-effect.">Let’s create a mystery dataset for which we need to determine whether there is a causal effect.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Using-DoWhy-to-resolve-the-mystery:-Does-Treatment-cause-Outcome?">Using DoWhy to resolve the mystery: <em>Does Treatment cause Outcome?</em></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#STEP-1:-Model-the-problem-as-a-causal-graph">STEP 1: Model the problem as a causal graph</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#STEP-2:-Identify-causal-effect-using-properties-of-the-formal-causal-graph">STEP 2: Identify causal effect using properties of the formal causal graph</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#STEP-3:-Estimate-the-causal-effect">STEP 3: Estimate the causal effect</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Checking-if-the-estimate-is-correct">Checking if the estimate is correct</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Step-4:-Refuting-the-estimate">Step 4: Refuting the estimate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Adding-a-random-common-cause-variable">Adding a random common cause variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Replacing-treatment-with-a-random-(placebo)-variable">Replacing treatment with a random (placebo) variable</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Removing-a-random-subset-of-the-data">Removing a random subset of the data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/causality_intro.html">Introduction to causality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="nb_index.html">Example notebooks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Confounding Example: Finding causal effects from observed data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Let’s-create-a-mystery-dataset-for-which-we-need-to-determine-whether-there-is-a-causal-effect.">Let’s create a mystery dataset for which we need to determine whether there is a causal effect.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Using-DoWhy-to-resolve-the-mystery:-Does-Treatment-cause-Outcome?">Using DoWhy to resolve the mystery: <em>Does Treatment cause Outcome?</em></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#STEP-1:-Model-the-problem-as-a-causal-graph">STEP 1: Model the problem as a causal graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#STEP-2:-Identify-causal-effect-using-properties-of-the-formal-causal-graph">STEP 2: Identify causal effect using properties of the formal causal graph</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#STEP-3:-Estimate-the-causal-effect">STEP 3: Estimate the causal effect</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Checking-if-the-estimate-is-correct">Checking if the estimate is correct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Step-4:-Refuting-the-estimate">Step 4: Refuting the estimate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Adding-a-random-common-cause-variable">Adding a random common cause variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Replacing-treatment-with-a-random-(placebo)-variable">Replacing treatment with a random (placebo) variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Removing-a-random-subset-of-the-data">Removing a random subset of the data</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_estimation_methods.html">DoWhy: Different estimation methods for causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy-simple-iv-example.html">Simple example on using Instrumental Variables method for estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="load_graph_example.html">Different ways to load an input graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_estimation_methods.html">DoWhy: Different estimation methods for causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph_conditional_independence_refuter.html">Testing Assumptions in model with DoWhy: A simple example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy-simple-iv-example.html">Simple example on using Instrumental Variables method for estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load_graph_example.html">Different ways to load an input graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html">Causal Discovery example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Auto-MPG-dataset">Experiments on the Auto-MPG dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Causal-Discovery-with-Causal-Discovery-Tool-(CDT)">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Sachs-dataset">Experiments on the Sachs dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#id2">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_twins_example.html">DoWhy example on Twins dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lalonde_pandas_api.html">Lalonde Pandas API Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy-conditional-treatment-effects.html">Conditional Average Treatment Effects (CATE) with DoWhy and EconML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_mediation_analysis.html">Mediation analysis with DoWhy: Direct and Indirect Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_demo_dummy_outcome_refuter.html">A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html">Causal Discovery example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Auto-MPG-dataset">Experiments on the Auto-MPG dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Causal-Discovery-with-Causal-Discovery-Tool-(CDT)">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Sachs-dataset">Experiments on the Sachs dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#id2">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Case Study Notebooks</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">DoWhy-The Causal Story Behind Hotel Booking Cancellations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Estimating the effect of a Member Rewards program</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_twins_example.html">DoWhy example on Twins dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lalonde_pandas_api.html">Lalonde Pandas API Example</a></li>
+</li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Advanced Notebooks</span></p>
+<p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="dowhy-conditional-treatment-effects.html">Conditional Average Treatment Effects (CATE) with DoWhy and EconML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_mediation_analysis.html">Mediation analysis with DoWhy: Direct and Indirect Effects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_demo_dummy_outcome_refuter.html">A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html">Causal Discovery example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Auto-MPG-dataset">Experiments on the Auto-MPG dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#Causal-Discovery-with-Causal-Discovery-Tool-(CDT)">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Sachs-dataset">Experiments on the Sachs dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#id2">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gcm/user_guide/index.html">GCMs User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contributing to DoWhy</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Package</span></p>
 <ul>
@@ -125,7 +137,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="nb_index.html">&lt;no title&gt;</a> &raquo;</li>
+          <li><a href="nb_index.html">Example notebooks</a> &raquo;</li>
       <li>Confounding Example: Finding causal effects from observed data</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/example_notebooks/dowhy_confounder_example.ipynb.txt" rel="nofollow"> View page source</a>
@@ -351,6 +363,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -359,10 +372,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -374,12 +391,15 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
@@ -407,589 +427,175 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="Confounding-Example:-Finding-causal-effects-from-observed-data">
-<h1>Confounding Example: Finding causal effects from observed data<a class="headerlink" href="#Confounding-Example:-Finding-causal-effects-from-observed-data" title="Permalink to this headline"></a></h1>
+<h1>Confounding Example: Finding causal effects from observed data<a class="headerlink" href="#Confounding-Example:-Finding-causal-effects-from-observed-data" title="Permalink to this heading"></a></h1>
 <p>Suppose you are given some data with treatment and outcome. Can you determine whether the treatment causes the outcome, or the correlation is purely due to another common cause?</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">dowhy</span>
-<span class="kn">from</span> <span class="nn">dowhy</span> <span class="kn">import</span> <span class="n">CausalModel</span>
-<span class="kn">import</span> <span class="nn">dowhy.datasets</span><span class="o">,</span> <span class="nn">dowhy.plotter</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import math
+import dowhy
+from dowhy import CausalModel
+import dowhy.datasets, dowhy.plotter
 
-<span class="c1"># Config dict to set the logging level</span>
-<span class="kn">import</span> <span class="nn">logging.config</span>
-<span class="n">DEFAULT_LOGGING</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span>
-        <span class="p">},</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+# Config dict to set the logging level
+import logging.config
+DEFAULT_LOGGING = {
+    &#39;version&#39;: 1,
+    &#39;disable_existing_loggers&#39;: False,
+    &#39;loggers&#39;: {
+        &#39;&#39;: {
+            &#39;level&#39;: &#39;INFO&#39;,
+        },
+    }
+}
 
-<span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">DEFAULT_LOGGING</span><span class="p">)</span>
+logging.config.dictConfig(DEFAULT_LOGGING)
 </pre></div>
 </div>
 </div>
-<section id="Let's-create-a-mystery-dataset-for-which-we-need-to-determine-whether-there-is-a-causal-effect.">
-<h2>Let’s create a mystery dataset for which we need to determine whether there is a causal effect.<a class="headerlink" href="#Let's-create-a-mystery-dataset-for-which-we-need-to-determine-whether-there-is-a-causal-effect." title="Permalink to this headline"></a></h2>
+<section id="Let’s-create-a-mystery-dataset-for-which-we-need-to-determine-whether-there-is-a-causal-effect.">
+<h2>Let’s create a mystery dataset for which we need to determine whether there is a causal effect.<a class="headerlink" href="#Let’s-create-a-mystery-dataset-for-which-we-need-to-determine-whether-there-is-a-causal-effect." title="Permalink to this heading"></a></h2>
 <p>Creating the dataset. It is generated from either one of two models: * <strong>Model 1</strong>: Treatment does cause outcome. * <strong>Model 2</strong>: Treatment does not cause outcome. All observed correlation is due to a common cause.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rvar</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">()</span> <span class="o">&gt;</span><span class="mf">0.5</span> <span class="k">else</span> <span class="mi">0</span>
-<span class="n">data_dict</span> <span class="o">=</span> <span class="n">dowhy</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">xy_dataset</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span> <span class="n">effect</span><span class="o">=</span><span class="n">rvar</span><span class="p">,</span>
-                                      <span class="n">num_common_causes</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                                      <span class="n">sd_error</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;df&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;Treatment&quot;</span><span class="p">,</span> <span class="s2">&quot;Outcome&quot;</span><span class="p">,</span> <span class="s2">&quot;w0&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-   Treatment    Outcome        w0
-0   5.438575  11.075003 -0.546602
-1   3.732834   7.893114 -2.100311
-2   9.785925  19.777951  3.722833
-3   4.028664   8.199676 -1.815155
-4   9.971588  19.920100  3.873208
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dowhy</span><span class="o">.</span><span class="n">plotter</span><span class="o">.</span><span class="n">plot_treatment_outcome</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;treatment_name&quot;</span><span class="p">]],</span> <span class="n">df</span><span class="p">[</span><span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;outcome_name&quot;</span><span class="p">]],</span>
-                             <span class="n">df</span><span class="p">[</span><span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;time_val&quot;</span><span class="p">]])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rvar = 1 if np.random.uniform() &gt;0.5 else 0
+data_dict = dowhy.datasets.xy_dataset(10000, effect=rvar,
+                                      num_common_causes=1,
+                                      sd_error=0.2)
+df = data_dict[&#39;df&#39;]
+print(df[[&quot;Treatment&quot;, &quot;Outcome&quot;, &quot;w0&quot;]].head())
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<img alt="../_images/example_notebooks_dowhy_confounder_example_4_0.png" src="../_images/example_notebooks_dowhy_confounder_example_4_0.png" />
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dowhy.plotter.plot_treatment_outcome(df[data_dict[&quot;treatment_name&quot;]], df[data_dict[&quot;outcome_name&quot;]],
+                             df[data_dict[&quot;time_val&quot;]])
+</pre></div>
 </div>
 </div>
 </section>
 <section id="Using-DoWhy-to-resolve-the-mystery:-Does-Treatment-cause-Outcome?">
-<h2>Using DoWhy to resolve the mystery: <em>Does Treatment cause Outcome?</em><a class="headerlink" href="#Using-DoWhy-to-resolve-the-mystery:-Does-Treatment-cause-Outcome?" title="Permalink to this headline"></a></h2>
+<h2>Using DoWhy to resolve the mystery: <em>Does Treatment cause Outcome?</em><a class="headerlink" href="#Using-DoWhy-to-resolve-the-mystery:-Does-Treatment-cause-Outcome?" title="Permalink to this heading"></a></h2>
 <section id="STEP-1:-Model-the-problem-as-a-causal-graph">
-<h3>STEP 1: Model the problem as a causal graph<a class="headerlink" href="#STEP-1:-Model-the-problem-as-a-causal-graph" title="Permalink to this headline"></a></h3>
+<h3>STEP 1: Model the problem as a causal graph<a class="headerlink" href="#STEP-1:-Model-the-problem-as-a-causal-graph" title="Permalink to this heading"></a></h3>
 <p>Initializing the causal model.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">=</span> <span class="n">CausalModel</span><span class="p">(</span>
-        <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-        <span class="n">treatment</span><span class="o">=</span><span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;treatment_name&quot;</span><span class="p">],</span>
-        <span class="n">outcome</span><span class="o">=</span><span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;outcome_name&quot;</span><span class="p">],</span>
-        <span class="n">common_causes</span><span class="o">=</span><span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;common_causes_names&quot;</span><span class="p">],</span>
-        <span class="n">instruments</span><span class="o">=</span><span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;instrument_names&quot;</span><span class="p">])</span>
-<span class="n">model</span><span class="o">.</span><span class="n">view_model</span><span class="p">(</span><span class="n">layout</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>model= CausalModel(
+        data=df,
+        treatment=data_dict[&quot;treatment_name&quot;],
+        outcome=data_dict[&quot;outcome_name&quot;],
+        common_causes=data_dict[&quot;common_causes_names&quot;],
+        instruments=data_dict[&quot;instrument_names&quot;])
+model.view_model(layout=&quot;dot&quot;)
 </pre></div>
 </div>
 </div>
 <p>Showing the causal model stored in the local file “causal_model.png”</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
-<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;causal_model.png&quot;</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from IPython.display import Image, display
+display(Image(filename=&quot;causal_model.png&quot;))
 </pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/example_notebooks_dowhy_confounder_example_8_0.png" src="../_images/example_notebooks_dowhy_confounder_example_8_0.png" />
 </div>
 </div>
 </section>
 <section id="STEP-2:-Identify-causal-effect-using-properties-of-the-formal-causal-graph">
-<h3>STEP 2: Identify causal effect using properties of the formal causal graph<a class="headerlink" href="#STEP-2:-Identify-causal-effect-using-properties-of-the-formal-causal-graph" title="Permalink to this headline"></a></h3>
+<h3>STEP 2: Identify causal effect using properties of the formal causal graph<a class="headerlink" href="#STEP-2:-Identify-causal-effect-using-properties-of-the-formal-causal-graph" title="Permalink to this heading"></a></h3>
 <p>Identify the causal effect using properties of the causal graph.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">identified_estimand</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">identify_effect</span><span class="p">(</span><span class="n">proceed_when_unidentifiable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>identified_estimand = model.identify_effect(proceed_when_unidentifiable=True)
+print(identified_estimand)
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Estimand type: nonparametric-ate
-
-### Estimand : 1
-Estimand name: backdoor
-Estimand expression:
-     d
-────────────(Expectation(Outcome|w0))
-d[Treatment]
-Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w0,U) = P(Outcome|Treatment,w0)
-
-### Estimand : 2
-Estimand name: iv
-No such variable(s) found!
-
-### Estimand : 3
-Estimand name: frontdoor
-No such variable(s) found!
-
-</pre></div></div>
 </div>
 </section>
 <section id="STEP-3:-Estimate-the-causal-effect">
-<h3>STEP 3: Estimate the causal effect<a class="headerlink" href="#STEP-3:-Estimate-the-causal-effect" title="Permalink to this headline"></a></h3>
+<h3>STEP 3: Estimate the causal effect<a class="headerlink" href="#STEP-3:-Estimate-the-causal-effect" title="Permalink to this heading"></a></h3>
 <p>Once we have identified the estimand, we can use any statistical method to estimate the causal effect.</p>
 <p>Let’s use Linear Regression for simplicity.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimate</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span>
-        <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;backdoor.linear_regression&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Causal Estimate is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">estimate</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>estimate = model.estimate_effect(identified_estimand,
+        method_name=&quot;backdoor.linear_regression&quot;)
+print(&quot;Causal Estimate is &quot; + str(estimate.value))
 
-<span class="c1"># Plot Slope of line between treamtent and outcome =causal effect</span>
-<span class="n">dowhy</span><span class="o">.</span><span class="n">plotter</span><span class="o">.</span><span class="n">plot_causal_effect</span><span class="p">(</span><span class="n">estimate</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;treatment_name&quot;</span><span class="p">]],</span> <span class="n">df</span><span class="p">[</span><span class="n">data_dict</span><span class="p">[</span><span class="s2">&quot;outcome_name&quot;</span><span class="p">]])</span>
+# Plot Slope of line between treamtent and outcome =causal effect
+dowhy.plotter.plot_causal_effect(estimate, df[data_dict[&quot;treatment_name&quot;]], df[data_dict[&quot;outcome_name&quot;]])
 </pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-linear_regression
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-Causal Estimate is 1.0032664937694786
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/example_notebooks_dowhy_confounder_example_12_1.png" src="../_images/example_notebooks_dowhy_confounder_example_12_1.png" />
 </div>
 </div>
 </section>
 <section id="Checking-if-the-estimate-is-correct">
-<h3>Checking if the estimate is correct<a class="headerlink" href="#Checking-if-the-estimate-is-correct" title="Permalink to this headline"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<h3>Checking if the estimate is correct<a class="headerlink" href="#Checking-if-the-estimate-is-correct" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DoWhy estimate is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">estimate</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Actual true causal effect was </span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rvar</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;DoWhy estimate is &quot; + str(estimate.value))
+print (&quot;Actual true causal effect was {0}&quot;.format(rvar))
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-DoWhy estimate is 1.0032664937694786
-Actual true causal effect was 1
-</pre></div></div>
 </div>
 </section>
 <section id="Step-4:-Refuting-the-estimate">
-<h3>Step 4: Refuting the estimate<a class="headerlink" href="#Step-4:-Refuting-the-estimate" title="Permalink to this headline"></a></h3>
+<h3>Step 4: Refuting the estimate<a class="headerlink" href="#Step-4:-Refuting-the-estimate" title="Permalink to this heading"></a></h3>
 <p>We can also refute the estimate to check its robustness to assumptions (<em>aka</em> sensitivity analysis, but on steroids).</p>
 </section>
 <section id="Adding-a-random-common-cause-variable">
-<h3>Adding a random common cause variable<a class="headerlink" href="#Adding-a-random-common-cause-variable" title="Permalink to this headline"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<h3>Adding a random common cause variable<a class="headerlink" href="#Adding-a-random-common-cause-variable" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_random</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span> <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;random_common_cause&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res_random</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>res_random=model.refute_estimate(identified_estimand, estimate, method_name=&quot;random_common_cause&quot;)
+print(res_random)
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-Refute: Add a random common cause
-Estimated effect:1.0032664937694786
-New effect:1.0032506396287213
-p value:0.43999999999999995
-
-</pre></div></div>
 </div>
 </section>
 <section id="Replacing-treatment-with-a-random-(placebo)-variable">
-<h3>Replacing treatment with a random (placebo) variable<a class="headerlink" href="#Replacing-treatment-with-a-random-(placebo)-variable" title="Permalink to this headline"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<h3>Replacing treatment with a random (placebo) variable<a class="headerlink" href="#Replacing-treatment-with-a-random-(placebo)-variable" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_placebo</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span>
-        <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;placebo_treatment_refuter&quot;</span><span class="p">,</span> <span class="n">placebo_type</span><span class="o">=</span><span class="s2">&quot;permute&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res_placebo</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>res_placebo=model.refute_estimate(identified_estimand, estimate,
+        method_name=&quot;placebo_treatment_refuter&quot;, placebo_type=&quot;permute&quot;)
+print(res_placebo)
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-Refute: Use a Placebo Treatment
-Estimated effect:1.0032664937694786
-New effect:-0.00010180264443938825
-p value:0.48
-
-</pre></div></div>
 </div>
 </section>
 <section id="Removing-a-random-subset-of-the-data">
-<h3>Removing a random subset of the data<a class="headerlink" href="#Removing-a-random-subset-of-the-data" title="Permalink to this headline"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<h3>Removing a random subset of the data<a class="headerlink" href="#Removing-a-random-subset-of-the-data" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_subset</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span>
-        <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;data_subset_refuter&quot;</span><span class="p">,</span> <span class="n">subset_fraction</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res_subset</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>res_subset=model.refute_estimate(identified_estimand, estimate,
+        method_name=&quot;data_subset_refuter&quot;, subset_fraction=0.9)
+print(res_subset)
 <br/></pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-Refute: Use a subset of data
-Estimated effect:1.0032664937694786
-New effect:1.0037653625776304
-p value:0.46
-
-</pre></div></div>
 </div>
 <p>As you can see, our causal estimator is robust to simple refutations.</p>
 </section>
@@ -1000,14 +606,14 @@ p value:0.46
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="dowhy_simple_example.html" class="btn btn-neutral float-left" title="Getting started with DoWhy: A simple example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nb_index.html" class="btn btn-neutral float-left" title="Example notebooks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="dowhy_estimation_methods.html" class="btn btn-neutral float-right" title="DoWhy: Different estimation methods for causal inference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, Microsoft.</p>
+    <p>&#169; Copyright 2022, PyWhy contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -14,6 +14,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -32,9 +33,6 @@
         <div class="wy-side-nav-search" >
             <a href="../index.html" class="icon icon-home"> DoWhy | An end-to-end library for causal inference
           </a>
-              <div class="version">
-                0.7.1
-              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -43,59 +41,73 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Introducing DoWhy</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html">DoWhy | An end-to-end library for causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#graphical-models-and-potential-outcomes-best-of-both-worlds">Graphical Models and Potential Outcomes: Best of both worlds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#four-steps-of-causal-inference">Four steps of causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#citing-this-package">Citing this package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#roadmap">Roadmap</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme.html#contributing">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/intro.html">Introduction to DoWhy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_simple_example.html">Quick-start notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/comparison.html">Comparison to other packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/cite.html">Citing this package</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Quick-Start Tutorial</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">Tutorial on Causal Inference and its Connections to Machine Learning (Using DoWhy+EconML)</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Starter Notebooks</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_estimation_methods.html">DoWhy: Different estimation methods for causal inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy-simple-iv-example.html">Simple example on using Instrumental Variables method for estimation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="load_graph_example.html">Different ways to load an input graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Case Study Notebooks</span></p>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">DoWhy-The Causal Story Behind Hotel Booking Cancellations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Estimating the effect of a Member Rewards program</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_twins_example.html">DoWhy example on Twins dataset</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">DoWhy example on the Lalonde dataset</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#1.-Load-the-data">1. Load the data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Run-DoWhy-analysis:-model,-identify,-estimate">Run DoWhy analysis: model, identify, estimate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Interpret-the-estimate">Interpret the estimate</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Sanity-check:-compare-to-manual-IPW-estimate">Sanity check: compare to manual IPW estimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/causality_intro.html">Introduction to causality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="nb_index.html">Example notebooks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_estimation_methods.html">DoWhy: Different estimation methods for causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph_conditional_independence_refuter.html">Testing Assumptions in model with DoWhy: A simple example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy-simple-iv-example.html">Simple example on using Instrumental Variables method for estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load_graph_example.html">Different ways to load an input graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html">Causal Discovery example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Auto-MPG-dataset">Experiments on the Auto-MPG dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Causal-Discovery-with-Causal-Discovery-Tool-(CDT)">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Sachs-dataset">Experiments on the Sachs dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#id2">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_twins_example.html">DoWhy example on Twins dataset</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DoWhy example on the Lalonde dataset</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#1.-Load-the-data">1. Load the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Run-DoWhy-analysis:-model,-identify,-estimate">Run DoWhy analysis: model, identify, estimate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Interpret-the-estimate">Interpret the estimate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Sanity-check:-compare-to-manual-IPW-estimate">Sanity check: compare to manual IPW estimate</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lalonde_pandas_api.html">Lalonde Pandas API Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lalonde_pandas_api.html">Lalonde Pandas API Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy-conditional-treatment-effects.html">Conditional Average Treatment Effects (CATE) with DoWhy and EconML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_mediation_analysis.html">Mediation analysis with DoWhy: Direct and Indirect Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_demo_dummy_outcome_refuter.html">A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html">Causal Discovery example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Auto-MPG-dataset">Experiments on the Auto-MPG dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Causal-Discovery-with-Causal-Discovery-Tool-(CDT)">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Sachs-dataset">Experiments on the Sachs dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_discovery_example.html#id2">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Advanced Notebooks</span></p>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="dowhy-conditional-treatment-effects.html">Conditional Average Treatment Effects (CATE) with DoWhy and EconML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_mediation_analysis.html">Mediation analysis with DoWhy: Direct and Indirect Effects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_demo_dummy_outcome_refuter.html">A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html">Causal Discovery example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Auto-MPG-dataset">Experiments on the Auto-MPG dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#Causal-Discovery-with-Causal-Discovery-Tool-(CDT)">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#Experiments-on-the-Sachs-dataset">Experiments on the Sachs dataset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dowhy_causal_discovery_example.html#id2">Causal Discovery with Causal Discovery Tool (CDT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gcm/user_guide/index.html">GCMs User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/index.html">Contributing to DoWhy</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Package</span></p>
 <ul>
@@ -117,7 +129,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="nb_casestudies_index.html">&lt;no title&gt;</a> &raquo;</li>
+          <li><a href="nb_index.html">Example notebooks</a> &raquo;</li>
       <li>DoWhy example on the Lalonde dataset</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/example_notebooks/dowhy_lalonde_example.ipynb.txt" rel="nofollow"> View page source</a>
@@ -343,6 +355,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* Some additional styling taken form the Jupyter notebook CSS */
+.jp-RenderedHTMLCommon table,
 div.rendered_html table {
   border: none;
   border-collapse: collapse;
@@ -351,10 +364,14 @@ div.rendered_html table {
   font-size: 12px;
   table-layout: fixed;
 }
+.jp-RenderedHTMLCommon thead,
 div.rendered_html thead {
   border-bottom: 1px solid black;
   vertical-align: bottom;
 }
+.jp-RenderedHTMLCommon tr,
+.jp-RenderedHTMLCommon th,
+.jp-RenderedHTMLCommon td,
 div.rendered_html tr,
 div.rendered_html th,
 div.rendered_html td {
@@ -366,12 +383,15 @@ div.rendered_html td {
   max-width: none;
   border: none;
 }
+.jp-RenderedHTMLCommon th,
 div.rendered_html th {
   font-weight: bold;
 }
+.jp-RenderedHTMLCommon tbody tr:nth-child(odd),
 div.rendered_html tbody tr:nth-child(odd) {
   background: #f5f5f5;
 }
+.jp-RenderedHTMLCommon tbody tr:hover,
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
@@ -399,252 +419,97 @@ div.rendered_html tbody tr:hover {
 }
 </style>
 <section id="DoWhy-example-on-the-Lalonde-dataset">
-<h1>DoWhy example on the Lalonde dataset<a class="headerlink" href="#DoWhy-example-on-the-Lalonde-dataset" title="Permalink to this headline"></a></h1>
+<h1>DoWhy example on the Lalonde dataset<a class="headerlink" href="#DoWhy-example-on-the-Lalonde-dataset" title="Permalink to this heading"></a></h1>
 <p>Thanks to [&#64;mizuy](<a class="reference external" href="https://github.com/mizuy">https://github.com/mizuy</a>) for providing this example. Here we use the Lalonde dataset and apply IPW estimator to it.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;../../../&quot;</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os, sys
+sys.path.append(os.path.abspath(&quot;../../../&quot;))
 
-<span class="kn">import</span> <span class="nn">dowhy</span>
-<span class="kn">from</span> <span class="nn">dowhy</span> <span class="kn">import</span> <span class="n">CausalModel</span>
-<span class="kn">from</span> <span class="nn">rpy2.robjects</span> <span class="kn">import</span> <span class="n">r</span> <span class="k">as</span> <span class="n">R</span>
-<span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
+import dowhy
+from dowhy import CausalModel
+from rpy2.robjects import r as R
+%load_ext rpy2.ipython
 
-<span class="c1">#%R install.packages(&quot;Matching&quot;)</span>
-<span class="o">%</span><span class="k">R</span> library(Matching)
+#%R install.packages(&quot;Matching&quot;)
+%R library(Matching)
 <br/></pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-R[write to console]: Loading required package: MASS
-
-R[write to console]: ##
-##  Matching (Version 4.9-11, Build Date: 2021-10-18)
-##  See http://sekhon.berkeley.edu/matching for additional documentation.
-##  Please cite software as:
-##   Jasjeet S. Sekhon. 2011. ``Multivariate and Propensity Score Matching
-##   Software with Automated Balance Optimization: The Matching package for R.&#39;&#39;
-##   Journal of Statistical Software, 42(7): 1-52.
-##
-
-
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<span>StrVector with 10 elements.</span>
-<table>
-<tbody>
-  <tr>
-
-    <td>
-    'Matching'
-    </td>
-
-    <td>
-    'MASS'
-    </td>
-
-    <td>
-    'tools'
-    </td>
-
-    <td>
-    ...
-    </td>
-
-    <td>
-    'datasets'
-    </td>
-
-    <td>
-    'methods'
-    </td>
-
-    <td>
-    'base'
-    </td>
-
-  </tr>
-</tbody>
-</table></div>
-</div>
 <section id="1.-Load-the-data">
-<h2>1. Load the data<a class="headerlink" href="#1.-Load-the-data" title="Permalink to this headline"></a></h2>
+<h2>1. Load the data<a class="headerlink" href="#1.-Load-the-data" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">R</span> data(lalonde)
-<span class="o">%</span><span class="k">R</span> -o lalonde
-<span class="n">lalonde</span> <span class="o">=</span> <span class="n">lalonde</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s1">&#39;treat&#39;</span><span class="p">:</span><span class="s1">&#39;bool&#39;</span><span class="p">},</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%R data(lalonde)
+%R -o lalonde
+lalonde = lalonde.astype({&#39;treat&#39;:&#39;bool&#39;}, copy=False)
 </pre></div>
 </div>
 </div>
 </section>
 <section id="Run-DoWhy-analysis:-model,-identify,-estimate">
-<h2>Run DoWhy analysis: model, identify, estimate<a class="headerlink" href="#Run-DoWhy-analysis:-model,-identify,-estimate" title="Permalink to this headline"></a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<h2>Run DoWhy analysis: model, identify, estimate<a class="headerlink" href="#Run-DoWhy-analysis:-model,-identify,-estimate" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">=</span><span class="n">CausalModel</span><span class="p">(</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">lalonde</span><span class="p">,</span>
-        <span class="n">treatment</span><span class="o">=</span><span class="s1">&#39;treat&#39;</span><span class="p">,</span>
-        <span class="n">outcome</span><span class="o">=</span><span class="s1">&#39;re78&#39;</span><span class="p">,</span>
-        <span class="n">common_causes</span><span class="o">=</span><span class="s1">&#39;nodegr+black+hisp+age+educ+married&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">))</span>
-<span class="n">identified_estimand</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">identify_effect</span><span class="p">(</span><span class="n">proceed_when_unidentifiable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">estimate</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span>
-        <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;backdoor.propensity_score_weighting&quot;</span><span class="p">,</span>
-        <span class="n">target_units</span><span class="o">=</span><span class="s2">&quot;ate&quot;</span><span class="p">,</span>
-        <span class="n">method_params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;weighting_scheme&quot;</span><span class="p">:</span><span class="s2">&quot;ips_weight&quot;</span><span class="p">})</span>
-<span class="c1">#print(estimate)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Causal Estimate is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">estimate</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>model=CausalModel(
+        data = lalonde,
+        treatment=&#39;treat&#39;,
+        outcome=&#39;re78&#39;,
+        common_causes=&#39;nodegr+black+hisp+age+educ+married&#39;.split(&#39;+&#39;))
+identified_estimand = model.identify_effect(proceed_when_unidentifiable=True)
+estimate = model.estimate_effect(identified_estimand,
+        method_name=&quot;backdoor.propensity_score_weighting&quot;,
+        target_units=&quot;ate&quot;,
+        method_params={&quot;weighting_scheme&quot;:&quot;ips_weight&quot;})
+#print(estimate)
+print(&quot;Causal Estimate is &quot; + str(estimate.value))
 
-<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
-<span class="n">reg</span><span class="o">=</span><span class="n">smf</span><span class="o">.</span><span class="n">wls</span><span class="p">(</span><span class="s1">&#39;re78~1+treat&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">lalonde</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">lalonde</span><span class="o">.</span><span class="n">ips_stabilized_weight</span><span class="p">)</span>
-<span class="n">res</span><span class="o">=</span><span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+import statsmodels.formula.api as smf
+reg=smf.wls(&#39;re78~1+treat&#39;, data=lalonde, weights=lalonde.ips_stabilized_weight)
+res=reg.fit()
+res.summary()
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-propensity_score_weighting
-Causal Estimate is 1639.8544900641518
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/home/amshar/python-environments/vpy38/lib/python3.8/site-packages/sklearn/utils/validation.py:63: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  return f(*args, **kwargs)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<table class="simpletable">
-<caption>WLS Regression Results</caption>
-<tr>
-  <th>Dep. Variable:</th>          <td>re78</td>       <th>  R-squared:         </th> <td>   0.015</td>
-</tr>
-<tr>
-  <th>Model:</th>                   <td>WLS</td>       <th>  Adj. R-squared:    </th> <td>   0.013</td>
-</tr>
-<tr>
-  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   6.743</td>
-</tr>
-<tr>
-  <th>Date:</th>             <td>Sun, 20 Mar 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00972</td>
-</tr>
-<tr>
-  <th>Time:</th>                 <td>20:15:21</td>     <th>  Log-Likelihood:    </th> <td> -4544.7</td>
-</tr>
-<tr>
-  <th>No. Observations:</th>      <td>   445</td>      <th>  AIC:               </th> <td>   9093.</td>
-</tr>
-<tr>
-  <th>Df Residuals:</th>          <td>   443</td>      <th>  BIC:               </th> <td>   9102.</td>
-</tr>
-<tr>
-  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>
-</tr>
-<tr>
-  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>
-</tr>
-</table>
-<table class="simpletable">
-<tr>
-        <td></td>           <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
-</tr>
-<tr>
-  <th>Intercept</th>     <td> 4555.0723</td> <td>  406.707</td> <td>   11.200</td> <td> 0.000</td> <td> 3755.758</td> <td> 5354.386</td>
-</tr>
-<tr>
-  <th>treat[T.True]</th> <td> 1639.8545</td> <td>  631.498</td> <td>    2.597</td> <td> 0.010</td> <td>  398.750</td> <td> 2880.959</td>
-</tr>
-</table>
-<table class="simpletable">
-<tr>
-  <th>Omnibus:</th>       <td>303.267</td> <th>  Durbin-Watson:     </th> <td>   2.085</td>
-</tr>
-<tr>
-  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>4770.838</td>
-</tr>
-<tr>
-  <th>Skew:</th>          <td> 2.709</td>  <th>  Prob(JB):          </th> <td>    0.00</td>
-</tr>
-<tr>
-  <th>Kurtosis:</th>      <td>18.098</td>  <th>  Cond. No.          </th> <td>    2.47</td>
-</tr>
-</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div>
 </div>
 </section>
 <section id="Interpret-the-estimate">
-<h2>Interpret the estimate<a class="headerlink" href="#Interpret-the-estimate" title="Permalink to this headline"></a></h2>
+<h2>Interpret the estimate<a class="headerlink" href="#Interpret-the-estimate" title="Permalink to this heading"></a></h2>
 <p>The plot below shows how the distribution of a confounder, “married” changes from the original data to the weighted data. In both datasets, we compare the distribution of “married” across treated and untreated units.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimate</span><span class="o">.</span><span class="n">interpret</span><span class="p">(</span><span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;confounder_distribution_interpreter&quot;</span><span class="p">,</span><span class="n">var_type</span><span class="o">=</span><span class="s1">&#39;discrete&#39;</span><span class="p">,</span>
-                   <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="n">fig_size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">font_size</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>estimate.interpret(method_name=&quot;confounder_distribution_interpreter&quot;,var_type=&#39;discrete&#39;,
+                   var_name=&#39;married&#39;, fig_size = (10, 7), font_size = 12)
 </pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/example_notebooks_dowhy_lalonde_example_7_0.png" src="../_images/example_notebooks_dowhy_lalonde_example_7_0.png" />
 </div>
 </div>
 </section>
 <section id="Sanity-check:-compare-to-manual-IPW-estimate">
-<h2>Sanity check: compare to manual IPW estimate<a class="headerlink" href="#Sanity-check:-compare-to-manual-IPW-estimate" title="Permalink to this headline"></a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<h2>Sanity check: compare to manual IPW estimate<a class="headerlink" href="#Sanity-check:-compare-to-manual-IPW-estimate" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">_data</span>
-<span class="n">ps</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;propensity_score&#39;</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;re78&#39;</span><span class="p">]</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = model._data
+ps = df[&#39;propensity_score&#39;]
+y = df[&#39;re78&#39;]
+z = df[&#39;treat&#39;]
 
-<span class="n">ey1</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="n">ps</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="n">ps</span><span class="p">)</span>
-<span class="n">ey0</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ps</span><span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">ps</span><span class="p">))</span>
-<span class="n">ate</span> <span class="o">=</span> <span class="n">ey1</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">-</span><span class="n">ey0</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Causal Estimate is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ate</span><span class="p">))</span>
+ey1 = z*y/ps / sum(z/ps)
+ey0 = (1-z)*y/(1-ps) / sum((1-z)/(1-ps))
+ate = ey1.sum()-ey0.sum()
+print(&quot;Causal Estimate is &quot; + str(ate))
 
-<span class="c1"># correct -&gt; Causal Estimate is 1634.9868359746906</span>
+# correct -&gt; Causal Estimate is 1634.9868359746906
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Causal Estimate is 1639.854490064151
-</pre></div></div>
 </div>
 </section>
 </section>
@@ -660,7 +525,7 @@ Causal Estimate is 1639.854490064151
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020, Microsoft.</p>
+    <p>&#169; Copyright 2022, PyWhy contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
