@@ -70,6 +70,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Case Study Notebooks</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">DoWhy-The Causal Story Behind Hotel Booking Cancellations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Estimating the effect of a Member Rewards program</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">DoWhy example on ihdp (Infant Health and Development Program) dataset</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Loading-Data">Loading Data</a></li>
@@ -671,13 +672,13 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[y_factual|x14,x23,x17,x15,x12,x22,x21,x3,x9,x5,x7,x11,x24,x2,x1
+────────────(E[y_factual|x24,x5,x21,x19,x8,x1,x12,x15,x4,x11,x17,x14,x9,x16,x2
 d[treatment]
 
 
-,x4,x8,x20,x25,x10,x13,x6,x19,x16,x18])
+,x23,x10,x6,x13,x20,x3,x7,x25,x22,x18])
 
-Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x14,x23,x17,x15,x12,x22,x21,x3,x9,x5,x7,x11,x24,x2,x1,x4,x8,x20,x25,x10,x13,x6,x19,x16,x18,U) = P(y_factual|treatment,x14,x23,x17,x15,x12,x22,x21,x3,x9,x5,x7,x11,x24,x2,x1,x4,x8,x20,x25,x10,x13,x6,x19,x16,x18)
+Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x24,x5,x21,x19,x8,x1,x12,x15,x4,x11,x17,x14,x9,x16,x2,x23,x10,x6,x13,x20,x3,x7,x25,x22,x18,U) = P(y_factual|treatment,x24,x5,x21,x19,x8,x1,x12,x15,x4,x11,x17,x14,x9,x16,x2,x23,x10,x6,x13,x20,x3,x7,x25,x22,x18)
 
 ### Estimand : 2
 Estimand name: iv
@@ -729,23 +730,23 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[y_factual|x14,x23,x17,x15,x12,x22,x21,x3,x9,x5,x7,x11,x24,x2,x1
+────────────(E[y_factual|x24,x5,x21,x19,x8,x1,x12,x15,x4,x11,x17,x14,x9,x16,x2
 d[treatment]
 
 
-,x4,x8,x20,x25,x10,x13,x6,x19,x16,x18])
+,x23,x10,x6,x13,x20,x3,x7,x25,x22,x18])
 
-Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x14,x23,x17,x15,x12,x22,x21,x3,x9,x5,x7,x11,x24,x2,x1,x4,x8,x20,x25,x10,x13,x6,x19,x16,x18,U) = P(y_factual|treatment,x14,x23,x17,x15,x12,x22,x21,x3,x9,x5,x7,x11,x24,x2,x1,x4,x8,x20,x25,x10,x13,x6,x19,x16,x18)
+Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x24,x5,x21,x19,x8,x1,x12,x15,x4,x11,x17,x14,x9,x16,x2,x23,x10,x6,x13,x20,x3,x7,x25,x22,x18,U) = P(y_factual|treatment,x24,x5,x21,x19,x8,x1,x12,x15,x4,x11,x17,x14,x9,x16,x2,x23,x10,x6,x13,x20,x3,x7,x25,x22,x18)
 
 ## Realized estimand
-b: y_factual~treatment+x14+x23+x17+x15+x12+x22+x21+x3+x9+x5+x7+x11+x24+x2+x1+x4+x8+x20+x25+x10+x13+x6+x19+x16+x18
+b: y_factual~treatment+x24+x5+x21+x19+x8+x1+x12+x15+x4+x11+x17+x14+x9+x16+x2+x23+x10+x6+x13+x20+x3+x7+x25+x22+x18
 Target units: ate
 
 ## Estimate
-Mean value: 3.9286717508727182
+Mean value: 3.9286717508727094
 p-value: [1.58915682e-156]
 
-Causal Estimate is 3.9286717508727182
+Causal Estimate is 3.9286717508727094
 ATE 4.021121012430829
 </pre></div></div>
 </div>
@@ -773,24 +774,16 @@ ATE 4.021121012430829
 <div class="highlight"><pre>
 propensity_score_matching
 Causal Estimate is 3.97913882321704
+ATE 4.021121012430829
 </pre></div></div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
 /usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
   y = column_or_1d(y, warn=True)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-ATE 4.021121012430829
 </pre></div></div>
 </div>
 </section>
@@ -812,20 +805,20 @@ ATE 4.021121012430829
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-propensity_score_stratification
-Causal Estimate is 3.4550471588628207
-ATE 4.021121012430829
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area stderr docutils container">
+<div class="output_area docutils container">
 <div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
+propensity_score_stratification
+Causal Estimate is 3.4550471588628207
+ATE 4.021121012430829
 </pre></div></div>
 </div>
 </section>
@@ -851,7 +844,7 @@ ATE 4.021121012430829
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 propensity_score_weighting
-Causal Estimate is 4.0287482183903
+Causal Estimate is 4.028748218389643
 ATE 4.021121012430829
 </pre></div></div>
 </div>
@@ -1081,20 +1074,27 @@ ATE 4.021121012430829
   y = column_or_1d(y, warn=True)
 /usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
   y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
 </pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:4.0287482183903
-New effect:4.02944914949019
-p value:0.42
+Estimated effect:4.028748218389643
+New effect:4.028460387886364
+p value:0.42000000000000004
 
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1310,20 +1310,27 @@ p value:0.42
   y = column_or_1d(y, warn=True)
 /usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
   y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
 </pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:4.0287482183903
-New effect:0.012160600689034502
-p value:0.49
+Estimated effect:4.028748218389643
+New effect:-0.019040190884955233
+p value:0.44999999999999996
 
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
 </pre></div></div>
 </div>
 <section id="4.3-Data-Subset-Refuter">
@@ -1541,20 +1548,27 @@ p value:0.49
   y = column_or_1d(y, warn=True)
 /usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
   y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
 </pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:4.0287482183903
-New effect:4.02679742148183
-p value:0.44999999999999996
+Estimated effect:4.028748218389643
+New effect:4.03020006973109
+p value:0.47
 
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
 </pre></div></div>
 </div>
 </section>

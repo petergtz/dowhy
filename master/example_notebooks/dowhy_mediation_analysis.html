@@ -94,6 +94,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
 <ul>
@@ -463,12 +464,12 @@ keywords are unexpanded, not using
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-        FD0        W0        v0          y
-0 -8.011416 -1.247028 -4.555256 -38.991983
-1  1.257388  0.021884  1.194923   5.912401
-2 -8.086675 -1.599591 -4.246597 -39.786018
-3 -2.399444 -0.216187 -0.613040 -11.475487
-4 -0.818136 -0.691528 -0.529817  -4.680962
+         FD0        W0         v0           y
+0  31.675559  1.480177   8.455816  146.472052
+1  44.512165  2.386895  11.288281  206.728437
+2  13.307400  0.780693   3.543605   62.001211
+3  35.062526  1.967948   8.608807  163.104881
+4   8.084728  0.503270   2.221237   37.739447
 </pre></div></div>
 </div>
 </section>
@@ -616,7 +617,7 @@ Estimand assumption 3, Second-stage-unconfoundedness: If U→{FD0} and U→y the
 Target units: ate
 
 ## Estimate
-Mean value: 7.496820952740984
+Mean value: 17.64341010592473
 
 </pre></div></div>
 </div>
@@ -634,7 +635,7 @@ Mean value: 7.496820952740984
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-7.496820952740984 7.498723479525751
+17.64341010592473 17.64382027211618
 </pre></div></div>
 </div>
 <p>The parameter is called <code class="docutils literal notranslate"><span class="pre">ate</span></code> because in the simulated dataset, the direct effect is set to be zero.</p>
@@ -688,7 +689,7 @@ Estimand assumption 3, Second-stage-unconfoundedness: If U→{FD0} and U→y the
 Target units: ate
 
 ## Estimate
-Mean value: 2.3522916619000966e-05
+Mean value: 6.012478571904012e-06
 
 </pre></div></div>
 </div>

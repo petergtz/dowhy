@@ -70,6 +70,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Case Study Notebooks</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">DoWhy-The Causal Story Behind Hotel Booking Cancellations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Estimating the effect of a Member Rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
@@ -479,63 +480,63 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.414761</td>
-      <td>0.155814</td>
-      <td>0.318334</td>
-      <td>2.296099</td>
+      <td>-0.831101</td>
+      <td>-1.572675</td>
+      <td>-1.645484</td>
+      <td>-1.252540</td>
       <td>1</td>
       <td>3</td>
-      <td>23.059282</td>
-      <td>21.142779</td>
-      <td>1427.409222</td>
+      <td>-4.857868</td>
+      <td>9.282456</td>
+      <td>351.819875</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.661959</td>
-      <td>-0.003597</td>
-      <td>1.110503</td>
-      <td>0.547102</td>
+      <td>0.145671</td>
+      <td>-0.238214</td>
+      <td>0.416713</td>
+      <td>2.395070</td>
       <td>2</td>
-      <td>3</td>
-      <td>23.349837</td>
-      <td>22.555525</td>
-      <td>1629.997208</td>
+      <td>0</td>
+      <td>9.475842</td>
+      <td>15.593247</td>
+      <td>113.215809</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.032441</td>
-      <td>-1.049392</td>
-      <td>1.422736</td>
-      <td>-0.398399</td>
+      <td>-0.763231</td>
+      <td>-0.635544</td>
+      <td>-0.030392</td>
+      <td>1.108645</td>
       <td>2</td>
-      <td>2</td>
-      <td>16.093053</td>
-      <td>17.676941</td>
-      <td>509.423335</td>
+      <td>0</td>
+      <td>3.740148</td>
+      <td>11.205905</td>
+      <td>38.239830</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.110975</td>
-      <td>1.109051</td>
-      <td>1.330044</td>
-      <td>1.787035</td>
+      <td>-0.746411</td>
+      <td>-0.717951</td>
+      <td>-1.066080</td>
+      <td>-0.872450</td>
       <td>3</td>
-      <td>1</td>
-      <td>25.015244</td>
-      <td>21.755821</td>
-      <td>873.808065</td>
+      <td>3</td>
+      <td>-1.248419</td>
+      <td>16.556969</td>
+      <td>225.157665</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.219422</td>
-      <td>-1.882242</td>
-      <td>0.496639</td>
-      <td>0.819676</td>
+      <td>1.157412</td>
+      <td>0.010182</td>
+      <td>1.252431</td>
+      <td>2.186662</td>
       <td>0</td>
-      <td>0</td>
-      <td>3.307860</td>
-      <td>3.973380</td>
-      <td>79.666764</td>
+      <td>2</td>
+      <td>10.565695</td>
+      <td>9.904151</td>
+      <td>234.515073</td>
     </tr>
   </tbody>
 </table>
@@ -588,9 +589,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W0,W2,W1])
+─────────(E[y|W3,W1,W0,W2])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W0,W2,W1,U) = P(y|v0,v1,W3,W0,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W1,W0,W2,U) = P(y|v0,v1,W3,W1,W0,W2)
 
 ### Estimand : 2
 Estimand name: iv
@@ -625,7 +626,7 @@ No such variable(s) found!
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 linear_regression
-{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X1&#39;, &#39;X0&#39;], &#39;need_conditional_estimates&#39;: False}
+{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X0&#39;, &#39;X1&#39;], &#39;need_conditional_estimates&#39;: False}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -635,16 +636,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W0,W2,W1])
+─────────(E[y|W3,W1,W0,W2])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W0,W2,W1,U) = P(y|v0,v1,W3,W0,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W1,W0,W2,U) = P(y|v0,v1,W3,W1,W0,W2)
 
 ## Realized estimand
-b: y~v0+v1+W3+W0+W2+W1+v0*X1+v0*X0+v1*X1+v1*X0
+b: y~v0+v1+W3+W1+W0+W2+v0*X0+v0*X1+v1*X0+v1*X1
 Target units: ate
 
 ## Estimate
-Mean value: 49.95689865611702
+Mean value: -1.5569257094441014
 
 </pre></div></div>
 </div>
@@ -667,7 +668,7 @@ Mean value: 49.95689865611702
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 linear_regression
-{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X1&#39;, &#39;X0&#39;]}
+{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X0&#39;, &#39;X1&#39;]}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -677,43 +678,43 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W0,W2,W1])
+─────────(E[y|W3,W1,W0,W2])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W0,W2,W1,U) = P(y|v0,v1,W3,W0,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W1,W0,W2,U) = P(y|v0,v1,W3,W1,W0,W2)
 
 ## Realized estimand
-b: y~v0+v1+W3+W0+W2+W1+v0*X1+v0*X0+v1*X1+v1*X0
+b: y~v0+v1+W3+W1+W0+W2+v0*X0+v0*X1+v1*X0+v1*X1
 Target units: ate
 
 ## Estimate
-Mean value: 49.95689865611702
+Mean value: -1.5569257094441014
 ### Conditional Estimates
-__categorical__X1              __categorical__X0
-(-3.1479999999999997, -0.525]  (-3.1959999999999997, -0.247]     -8.129081
-                               (-0.247, 0.341]                   14.307116
-                               (0.341, 0.846]                    27.431151
-                               (0.846, 1.428]                    41.270554
-                               (1.428, 4.51]                     63.626123
-(-0.525, 0.061]                (-3.1959999999999997, -0.247]      5.620247
-                               (-0.247, 0.341]                   27.564560
-                               (0.341, 0.846]                    41.085965
-                               (0.846, 1.428]                    55.163622
-                               (1.428, 4.51]                     78.545697
-(0.061, 0.57]                  (-3.1959999999999997, -0.247]     13.374162
-                               (-0.247, 0.341]                   36.522374
-                               (0.341, 0.846]                    49.846057
-                               (0.846, 1.428]                    63.427646
-                               (1.428, 4.51]                     87.012601
-(0.57, 1.165]                  (-3.1959999999999997, -0.247]     21.484076
-                               (-0.247, 0.341]                   44.068905
-                               (0.341, 0.846]                    58.012917
-                               (0.846, 1.428]                    71.405070
-                               (1.428, 4.51]                     94.715143
-(1.165, 4.243]                 (-3.1959999999999997, -0.247]     35.954469
-                               (-0.247, 0.341]                   58.515339
-                               (0.341, 0.846]                    71.672447
-                               (0.846, 1.428]                    86.545015
-                               (1.428, 4.51]                    109.782151
+__categorical__X0   __categorical__X1
+(-4.367, -1.701]    (-4.509, -1.179]    -87.166016
+                    (-1.179, -0.585]    -35.304115
+                    (-0.585, -0.0734]    -4.256338
+                    (-0.0734, 0.509]     27.327770
+                    (0.509, 3.729]       77.233795
+(-1.701, -1.123]    (-4.509, -1.179]    -84.511760
+                    (-1.179, -0.585]    -34.056194
+                    (-0.585, -0.0734]    -2.816923
+                    (-0.0734, 0.509]     28.653453
+                    (0.509, 3.729]       79.059568
+(-1.123, -0.612]    (-4.509, -1.179]    -85.235610
+                    (-1.179, -0.585]    -34.089616
+                    (-0.585, -0.0734]    -1.241324
+                    (-0.0734, 0.509]     30.185683
+                    (0.509, 3.729]       81.596583
+(-0.612, -0.00163]  (-4.509, -1.179]    -84.312670
+                    (-1.179, -0.585]    -31.180255
+                    (-0.585, -0.0734]    -0.774571
+                    (-0.0734, 0.509]     31.614736
+                    (0.509, 3.729]       84.324608
+(-0.00163, 3.06]    (-4.509, -1.179]    -82.492112
+                    (-1.179, -0.585]    -29.524382
+                    (-0.585, -0.0734]     1.615645
+                    (-0.0734, 0.509]     33.053293
+                    (0.509, 3.729]       83.393899
 dtype: float64
 </pre></div></div>
 </div>

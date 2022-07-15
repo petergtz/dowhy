@@ -70,6 +70,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Case Study Notebooks</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">DoWhy-The Causal Story Behind Hotel Booking Cancellations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Estimating the effect of a Member Rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
@@ -681,88 +682,88 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>19</td>
-      <td>6</td>
+      <td>17</td>
+      <td>10</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>5071.80</td>
-      <td>1</td>
-      <td>1</td>
+      <td>1442.68</td>
+      <td>1734.560</td>
+      <td>6354.190</td>
       <td>0</td>
-      <td>0.698327</td>
-      <td>1.431993</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.741759</td>
+      <td>1.348146</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>27</td>
-      <td>11</td>
+      <td>46</td>
+      <td>13</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0</td>
       <td>0.00</td>
+      <td>0.000</td>
+      <td>647.205</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>0.365495</td>
-      <td>2.736014</td>
+      <td>0.561076</td>
+      <td>1.782290</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>54</td>
-      <td>11</td>
+      <td>28</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
+      <td>803.343</td>
+      <td>16477.000</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>7812.52</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0.591586</td>
-      <td>1.690371</td>
+      <td>0.416132</td>
+      <td>2.403086</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>28</td>
+      <td>29</td>
+      <td>8</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.595413</td>
+      <td>1.679506</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>18</td>
       <td>9</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.00</td>
+      <td>0.000</td>
+      <td>0.000</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td>0.609144</td>
-      <td>1.641649</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>21</td>
-      <td>7</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>33800.0</td>
-      <td>0.0</td>
-      <td>11011.60</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0.596159</td>
-      <td>1.677406</td>
+      <td>0.624982</td>
+      <td>1.600045</td>
     </tr>
   </tbody>
 </table>
@@ -803,7 +804,7 @@ $\displaystyle 1794.34308487526$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1738.56848543984$</div></div>
+$\displaystyle 1012.03205853283$</div></div>
 </div>
 <p>We could get some rough error bars on the outcome using the normal approximation for a 95% confidence interval, like</p>
 <div class="nbinput docutils container">
@@ -822,7 +823,7 @@ $\displaystyle 1738.56848543984$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1115.84225901481$</div></div>
+$\displaystyle 1130.22957168777$</div></div>
 </div>
 <p>but note that these DO NOT contain propensity score estimation error. For that, a bootstrapping procedure might be more appropriate.</p>
 <p>This is just one statistic we can compute from the interventional distribution of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can get all of the interventional moments as well, including functions of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can leverage the full power of pandas, like</p>
@@ -841,13 +842,13 @@ $\displaystyle 1115.84225901481$</div></div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 count      445.000000
-mean      5283.410482
-std       6122.764363
+mean      5245.446016
+std       6063.268025
 min          0.000000
 25%          0.000000
-50%       3931.240000
-75%       8087.490000
-max      60307.900000
+50%       3595.890000
+75%       8190.420000
+max      39483.500000
 Name: re78, dtype: float64
 </pre></div></div>
 </div>
@@ -1002,88 +1003,88 @@ Name: re78, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>18</td>
+      <td>28</td>
       <td>11</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>858.254</td>
-      <td>214.564</td>
-      <td>929.884</td>
+      <td>1929.03</td>
+      <td>6871.860</td>
+      <td>0.00</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>0.351615</td>
-      <td>2.844018</td>
+      <td>0.367048</td>
+      <td>2.724439</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>23</td>
-      <td>12</td>
-      <td>0</td>
+      <td>17</td>
+      <td>9</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>9385.740</td>
-      <td>1117.440</td>
-      <td>559.443</td>
-      <td>0</td>
-      <td>0</td>
       <td>1</td>
-      <td>0.414561</td>
-      <td>2.412191</td>
+      <td>0.00</td>
+      <td>0.000</td>
+      <td>0.00</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.373447</td>
+      <td>2.677754</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>19</td>
-      <td>10</td>
-      <td>1</td>
+      <td>21</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3670.87</td>
+      <td>334.049</td>
+      <td>12558.00</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>4121.950</td>
-      <td>6056.750</td>
-      <td>0.000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.364785</td>
-      <td>2.741340</td>
+      <td>0.572421</td>
+      <td>1.746966</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>17</td>
-      <td>7</td>
+      <td>18</td>
+      <td>12</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0.00</td>
       <td>0.000</td>
-      <td>0.000</td>
-      <td>3023.880</td>
+      <td>2321.11</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>0.397400</td>
-      <td>2.516355</td>
+      <td>0.527069</td>
+      <td>1.897285</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>42</td>
-      <td>14</td>
+      <td>41</td>
+      <td>4</td>
       <td>1</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.00</td>
       <td>0.000</td>
-      <td>0.000</td>
-      <td>20505.900</td>
+      <td>7284.99</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>0.541935</td>
-      <td>1.845238</td>
+      <td>0.526626</td>
+      <td>1.898879</td>
     </tr>
   </tbody>
 </table>

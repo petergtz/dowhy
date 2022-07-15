@@ -87,6 +87,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
 <ul>
@@ -594,7 +595,7 @@ Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome incom
 Target units: ate
 
 ## Estimate
-Mean value: 4.1471629325516846
+Mean value: 3.917861259668064
 p-value: [0, 0.001]
 
 </pre></div></div>
@@ -617,9 +618,9 @@ p-value: [0, 0.001]
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:4.1471629325516846
-New effect:-0.05113409425702896
-p value:0.41000000000000003
+Estimated effect:3.917861259668064
+New effect:0.003978533763358715
+p value:0.43
 
 </pre></div></div>
 </div>
@@ -646,22 +647,22 @@ p value:0.41000000000000003
 <table class="simpletable">
 <caption>IV2SLS Regression Results</caption>
 <tr>
-  <th>Dep. Variable:</th>         <td>income</td>      <th>  R-squared:         </th> <td>   0.907</td>
+  <th>Dep. Variable:</th>         <td>income</td>      <th>  R-squared:         </th> <td>   0.879</td>
 </tr>
 <tr>
-  <th>Model:</th>                 <td>IV2SLS</td>      <th>  Adj. R-squared:    </th> <td>   0.907</td>
+  <th>Model:</th>                 <td>IV2SLS</td>      <th>  Adj. R-squared:    </th> <td>   0.879</td>
 </tr>
 <tr>
-  <th>Method:</th>               <td>Two Stage</td>    <th>  F-statistic:       </th> <td>   1847.</td>
+  <th>Method:</th>               <td>Two Stage</td>    <th>  F-statistic:       </th> <td>   1222.</td>
 </tr>
 <tr>
-  <th></th>                    <td>Least Squares</td>  <th>  Prob (F-statistic):</th> <td>2.99e-229</td>
+  <th></th>                    <td>Least Squares</td>  <th>  Prob (F-statistic):</th> <td>1.86e-175</td>
 </tr>
 <tr>
   <th>Date:</th>             <td>Fri, 15 Jul 2022</td> <th>                     </th>     <td> </td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>14:39:14</td>     <th>                     </th>     <td> </td>
+  <th>Time:</th>                 <td>15:47:25</td>     <th>                     </th>     <td> </td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1000</td>      <th>                     </th>     <td> </td>
@@ -678,24 +679,24 @@ p value:0.41000000000000003
       <td></td>         <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
 </tr>
 <tr>
-  <th>Intercept</th> <td>    8.8537</td> <td>    0.910</td> <td>    9.728</td> <td> 0.000</td> <td>    7.068</td> <td>   10.640</td>
+  <th>Intercept</th> <td>   10.5665</td> <td>    1.026</td> <td>   10.297</td> <td> 0.000</td> <td>    8.553</td> <td>   12.580</td>
 </tr>
 <tr>
-  <th>education</th> <td>    4.1472</td> <td>    0.096</td> <td>   42.977</td> <td> 0.000</td> <td>    3.958</td> <td>    4.337</td>
+  <th>education</th> <td>    3.9179</td> <td>    0.112</td> <td>   34.957</td> <td> 0.000</td> <td>    3.698</td> <td>    4.138</td>
 </tr>
 </table>
 <table class="simpletable">
 <tr>
-  <th>Omnibus:</th>       <td> 0.377</td> <th>  Durbin-Watson:     </th> <td>   1.968</td>
+  <th>Omnibus:</th>       <td> 5.022</td> <th>  Durbin-Watson:     </th> <td>   2.029</td>
 </tr>
 <tr>
-  <th>Prob(Omnibus):</th> <td> 0.828</td> <th>  Jarque-Bera (JB):  </th> <td>   0.379</td>
+  <th>Prob(Omnibus):</th> <td> 0.081</td> <th>  Jarque-Bera (JB):  </th> <td>   5.944</td>
 </tr>
 <tr>
-  <th>Skew:</th>          <td>-0.047</td> <th>  Prob(JB):          </th> <td>   0.827</td>
+  <th>Skew:</th>          <td> 0.054</td> <th>  Prob(JB):          </th> <td>  0.0512</td>
 </tr>
 <tr>
-  <th>Kurtosis:</th>      <td> 2.986</td> <th>  Cond. No.          </th> <td>    25.8</td>
+  <th>Kurtosis:</th>      <td> 3.362</td> <th>  Cond. No.          </th> <td>    25.8</td>
 </tr>
 </table></div>
 </div>
