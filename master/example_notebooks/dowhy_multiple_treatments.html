@@ -55,7 +55,8 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="nb_index.html">Example notebooks</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
@@ -66,6 +67,7 @@
 <li class="toctree-l2"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
@@ -80,6 +82,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_supply_chain_dist_change.html">Root causes of changes in a supply chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">Counterfactual analysis in a medical case using a GCM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_401k_analysis.html">Impact of 401(k) eligibility on net financial assets</a></li>
 </ul>
 </li>
 </ul>
@@ -88,12 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -489,63 +489,63 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.081738</td>
-      <td>-0.716242</td>
-      <td>-1.019100</td>
-      <td>-0.515536</td>
-      <td>3</td>
-      <td>0</td>
-      <td>2.980139</td>
-      <td>5.754950</td>
-      <td>34.261493</td>
+      <td>0.665953</td>
+      <td>-0.548758</td>
+      <td>1.407637</td>
+      <td>-0.098377</td>
+      <td>2</td>
+      <td>1</td>
+      <td>12.137377</td>
+      <td>16.456986</td>
+      <td>935.157259</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.235964</td>
-      <td>0.570785</td>
-      <td>-1.145603</td>
-      <td>1.084871</td>
+      <td>2.442810</td>
+      <td>-0.446569</td>
+      <td>-1.727618</td>
+      <td>-1.915768</td>
+      <td>2</td>
       <td>0</td>
-      <td>3</td>
-      <td>0.531058</td>
-      <td>14.095209</td>
-      <td>169.645569</td>
+      <td>-10.974046</td>
+      <td>-2.571819</td>
+      <td>227.197266</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.518671</td>
-      <td>0.185003</td>
-      <td>0.554171</td>
-      <td>0.224577</td>
-      <td>1</td>
-      <td>1</td>
-      <td>5.759131</td>
-      <td>10.038810</td>
-      <td>315.573635</td>
+      <td>0.942718</td>
+      <td>-0.997879</td>
+      <td>4.108104</td>
+      <td>-0.460896</td>
+      <td>2</td>
+      <td>3</td>
+      <td>24.748750</td>
+      <td>25.653423</td>
+      <td>3299.442726</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.515925</td>
-      <td>-1.957763</td>
-      <td>0.766593</td>
-      <td>0.651849</td>
+      <td>0.538976</td>
+      <td>0.570778</td>
+      <td>-0.824058</td>
+      <td>-1.446548</td>
       <td>0</td>
-      <td>2</td>
-      <td>4.987419</td>
-      <td>13.792726</td>
-      <td>-251.343351</td>
+      <td>0</td>
+      <td>-10.813225</td>
+      <td>-6.975802</td>
+      <td>73.385000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.269055</td>
-      <td>-0.567829</td>
-      <td>0.001983</td>
-      <td>1.643617</td>
-      <td>3</td>
+      <td>-0.383121</td>
+      <td>-0.292757</td>
+      <td>0.557624</td>
+      <td>0.704530</td>
       <td>0</td>
-      <td>8.509527</td>
-      <td>12.435065</td>
-      <td>-139.089129</td>
+      <td>1</td>
+      <td>7.239302</td>
+      <td>6.313954</td>
+      <td>34.392099</td>
     </tr>
   </tbody>
 </table>
@@ -598,9 +598,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W0,W1,W3])
+─────────(E[y|W1,W3,W0,W2])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W0,W1,W3,U) = P(y|v0,v1,W2,W0,W1,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W1,W3,W0,W2,U) = P(y|v0,v1,W1,W3,W0,W2)
 
 ### Estimand : 2
 Estimand name: iv
@@ -645,16 +645,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W0,W1,W3])
+─────────(E[y|W1,W3,W0,W2])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W0,W1,W3,U) = P(y|v0,v1,W2,W0,W1,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W1,W3,W0,W2,U) = P(y|v0,v1,W1,W3,W0,W2)
 
 ## Realized estimand
-b: y~v0+v1+W2+W0+W1+W3+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W1+W3+W0+W2+v0*X0+v0*X1+v1*X0+v1*X1
 Target units: ate
 
 ## Estimate
-Mean value: -29.415825000350537
+Mean value: 87.84338599723067
 
 </pre></div></div>
 </div>
@@ -687,43 +687,43 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W0,W1,W3])
+─────────(E[y|W1,W3,W0,W2])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W0,W1,W3,U) = P(y|v0,v1,W2,W0,W1,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W1,W3,W0,W2,U) = P(y|v0,v1,W1,W3,W0,W2)
 
 ## Realized estimand
-b: y~v0+v1+W2+W0+W1+W3+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W1+W3+W0+W2+v0*X0+v0*X1+v1*X0+v1*X1
 Target units: ate
 
 ## Estimate
-Mean value: -29.415825000350537
+Mean value: 87.84338599723067
 ### Conditional Estimates
-__categorical__X0              __categorical__X1
-(-3.5709999999999997, -0.865]  (-4.597, -1.465]    -202.070700
-                               (-1.465, -0.881]    -140.960577
-                               (-0.881, -0.377]    -107.235920
-                               (-0.377, 0.205]      -71.524183
-                               (0.205, 3.497]        -8.683408
-(-0.865, -0.262]               (-4.597, -1.465]    -157.236636
-                               (-1.465, -0.881]     -93.623343
-                               (-0.881, -0.377]     -57.894361
-                               (-0.377, 0.205]      -23.601811
-                               (0.205, 3.497]        38.937344
-(-0.262, 0.228]                (-4.597, -1.465]    -126.101551
-                               (-1.465, -0.881]     -65.406011
-                               (-0.881, -0.377]     -28.909238
-                               (-0.377, 0.205]        6.648727
-                               (0.205, 3.497]        64.825911
-(0.228, 0.818]                 (-4.597, -1.465]     -95.156835
-                               (-1.465, -0.881]     -34.775799
-                               (-0.881, -0.377]      -0.789714
-                               (-0.377, 0.205]       34.810522
-                               (0.205, 3.497]        94.332808
-(0.818, 3.71]                  (-4.597, -1.465]     -44.678331
-                               (-1.465, -0.881]      11.199664
-                               (-0.881, -0.377]      47.147095
-                               (-0.377, 0.205]       84.480127
-                               (0.205, 3.497]       140.340981
+__categorical__X0  __categorical__X1
+(-2.685, 0.0646]   (-4.458, -1.249]     -36.074263
+                   (-1.249, -0.643]     -31.942523
+                   (-0.643, -0.141]     -19.470181
+                   (-0.141, 0.436]      -18.723151
+                   (0.436, 3.837]        -9.838650
+(0.0646, 0.654]    (-4.458, -1.249]      30.258641
+                   (-1.249, -0.643]      40.465341
+                   (-0.643, -0.141]      47.609569
+                   (-0.141, 0.436]       51.473910
+                   (0.436, 3.837]        62.116484
+(0.654, 1.164]     (-4.458, -1.249]      73.806322
+                   (-1.249, -0.643]      82.833880
+                   (-0.643, -0.141]      88.107020
+                   (-0.141, 0.436]       93.453028
+                   (0.436, 3.837]       102.802279
+(1.164, 1.762]     (-4.458, -1.249]     115.175566
+                   (-1.249, -0.643]     125.057228
+                   (-0.643, -0.141]     130.628558
+                   (-0.141, 0.436]      135.676778
+                   (0.436, 3.837]       145.889426
+(1.762, 4.865]     (-4.458, -1.249]     180.995044
+                   (-1.249, -0.643]     191.427074
+                   (-0.643, -0.141]     197.865840
+                   (-0.141, 0.436]      203.087488
+                   (0.436, 3.837]       213.606876
 dtype: float64
 </pre></div></div>
 </div>
@@ -769,6 +769,14 @@ dtype: float64
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="../../v0.7.1/index.html">v0.7.1</a></dd>
         </dl>
         <dl>

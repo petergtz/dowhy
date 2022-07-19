@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="&lt;no title&gt;" href="nb_casestudies_index.html" />
-    <link rel="prev" title="Identifying Effect using ID Algorithm" href="identifying_effects_using_id_algorithm.html" /> 
+    <link rel="prev" title="Impact of 401(k) eligibility on net financial assets" href="gcm_401k_analysis.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,7 +55,8 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nb_index.html">Example notebooks</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
@@ -98,12 +99,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -616,9 +611,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W2,W1,W3,W0,W4])
+─────(E[y|W1,W0,W2,W3,W4])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W1,W3,W0,W4,U) = P(y|v0,W2,W1,W3,W0,W4)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W0,W2,W3,W4,U) = P(y|v0,W1,W0,W2,W3,W4)
 
 ### Estimand : 2
 Estimand name: iv
@@ -665,16 +660,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W2,W1,W3,W0,W4])
+─────(E[y|W1,W0,W2,W3,W4])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W1,W3,W0,W4,U) = P(y|v0,W2,W1,W3,W0,W4)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W0,W2,W3,W4,U) = P(y|v0,W1,W0,W2,W3,W4)
 
 ## Realized estimand
-b: y~v0+W2+W1+W3+W0+W4
+b: y~v0+W1+W0+W2+W3+W4
 Target units: ate
 
 ## Estimate
-Mean value: 10.015664243578982
+Mean value: 10.010683829289547
 
 </pre></div></div>
 </div>
@@ -712,18 +707,17 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W2,W1,W3,W0,W4])
+─────(E[y|W1,W0,W2,W3,W4])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W1,W3,W0,W4,U) = P(y|v0,W2,W1,W3,W0,W4)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W0,W2,W3,W4,U) = P(y|v0,W1,W0,W2,W3,W4)
 
 ## Realized estimand
-b: y~v0+W2+W1+W3+W0+W4 |
+b: y~v0+W1+W0+W2+W3+W4 |
 Target units: ate
 
 ## Estimate
-Mean value: 10.070833362224246
-Effect estimates: [10.07083336 10.07083336 10.07083336 ... 10.07083336 10.07083336
- 10.07083336]
+Mean value: 9.986376397120733
+Effect estimates: [9.9863764 9.9863764 9.9863764 ... 9.9863764 9.9863764 9.9863764]
 
 </pre></div></div>
 </div>
@@ -747,9 +741,9 @@ estimate value of 0 when the action variable is replaced by a random variable, i
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:10.015664243578982
-New effect:0.012708839194554929
-p value:0.4
+Estimated effect:10.010683829289547
+New effect:0.011403020235484158
+p value:0.86
 
 </pre></div></div>
 </div>
@@ -801,11 +795,11 @@ than learning a new toolkit. The power of EconML is that you can now implement t
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0         s        w1
-0  17.338279  34.857999 -3.452594  6.260131 -1.320044
-1  11.449300  22.574541 -2.018588  5.592374  2.474386
-2  12.410776  24.901017  2.515388  4.218446  0.377827
-3  21.261854  42.399066 -3.917753  6.713212 -0.907171
-4   9.847190  19.619389 -1.992836  5.583256  0.059146
+0  13.772881  27.723193 -2.797107  0.392874 -0.079114
+1  22.256050  44.708054 -3.857238  6.622161  1.786919
+2  19.176472  38.525229  3.430709  2.245486  1.686048
+3   5.227331   9.956225  0.172355  9.042634 -1.044607
+4  10.588070  21.543046 -2.175673  5.649324  0.347207
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -854,9 +848,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[Outcome|w1,w0])
+────────────(E[Outcome|w0,w1])
 d[Treatment]
-Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w1,w0,U) = P(Outcome|Treatment,w1,w0)
+Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w0,w1,U) = P(Outcome|Treatment,w0,w1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -902,18 +896,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[Outcome|w1,w0])
+────────────(E[Outcome|w0,w1])
 d[Treatment]
-Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w1,w0,U) = P(Outcome|Treatment,w1,w0)
+Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w0,w1,U) = P(Outcome|Treatment,w0,w1)
 
 ## Realized estimand
-b: Outcome~Treatment+w1+w0
+b: Outcome~Treatment+w0+w1
 Target units: ate
 
 ## Estimate
-Mean value: 1.9992312436873674
+Mean value: 1.9988809748364555
 
-Causal Estimate is 1.9992312436873674
+Causal Estimate is 1.9988809748364555
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -960,17 +954,17 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[Outcome|w1,w0])
+────────────(E[Outcome|w0,w1])
 d[Treatment]
-Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w1,w0,U) = P(Outcome|Treatment,w1,w0)
+Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w0,w1,U) = P(Outcome|Treatment,w0,w1)
 
 ## Realized estimand
-b: Outcome~Treatment+w1+w0 |
+b: Outcome~Treatment+w0+w1 |
 Target units: ate
 
 ## Estimate
-Mean value: 1.173268064964517
-Effect estimates: [1.17326806 1.17326806 1.17326806 ... 1.17326806 1.17326806 1.17326806]
+Mean value: 1.2117217414108976
+Effect estimates: [1.21172174 1.21172174 1.21172174 ... 1.21172174 1.21172174 1.21172174]
 
 </pre></div></div>
 </div>
@@ -993,9 +987,9 @@ Effect estimates: [1.17326806 1.17326806 1.17326806 ... 1.17326806 1.17326806 1.
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:1.173268064964517
-New effect:1.1569906604761233
-p value:0.37
+Estimated effect:1.2117217414108976
+New effect:1.2127641315932582
+p value:0.92
 
 </pre></div></div>
 </div>
@@ -1016,9 +1010,9 @@ p value:0.37
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1.173268064964517
-New effect:-7.474516824475873e-05
-p value:0.4276841986633583
+Estimated effect:1.2117217414108976
+New effect:5.693242174430528e-05
+p value:0.44072387915230044
 
 </pre></div></div>
 </div>
@@ -1087,7 +1081,7 @@ refutation methods that can check the robustness of the estimate.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="identifying_effects_using_id_algorithm.html" class="btn btn-neutral float-left" title="Identifying Effect using ID Algorithm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gcm_401k_analysis.html" class="btn btn-neutral float-left" title="Impact of 401(k) eligibility on net financial assets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="nb_casestudies_index.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
@@ -1117,6 +1111,14 @@ refutation methods that can check the robustness of the estimate.</p>
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="../../v0.7.1/index.html">v0.7.1</a></dd>
         </dl>
         <dl>

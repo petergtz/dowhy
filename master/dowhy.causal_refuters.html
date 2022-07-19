@@ -53,7 +53,8 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_notebooks/nb_index.html">Example notebooks</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
@@ -61,12 +62,6 @@
 <li class="toctree-l1"><a class="reference internal" href="example_notebooks/tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_notebooks/DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -87,6 +82,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#module-dowhy.causal_refuters.data_subset_refuter">dowhy.causal_refuters.data_subset_refuter module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-dowhy.causal_refuters.dummy_outcome_refuter">dowhy.causal_refuters.dummy_outcome_refuter module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-dowhy.causal_refuters.graph_refuter">dowhy.causal_refuters.graph_refuter module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-dowhy.causal_refuters.linear_sensitivity_analyzer">dowhy.causal_refuters.linear_sensitivity_analyzer module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-dowhy.causal_refuters.placebo_treatment_refuter">dowhy.causal_refuters.placebo_treatment_refuter module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-dowhy.causal_refuters.random_common_cause">dowhy.causal_refuters.random_common_cause module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-dowhy.causal_refuters">Module contents</a></li>
@@ -403,13 +399,15 @@ It is <code class="docutils literal notranslate"><span class="pre">noise</span><
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_refuters.data_subset_refuter.</span></span><span class="sig-name descname"><span class="pre">DataSubsetRefuter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/data_subset_refuter.html#DataSubsetRefuter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.data_subset_refuter.DataSubsetRefuter" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="dowhy.html#dowhy.causal_refuter.CausalRefuter" title="dowhy.causal_refuter.CausalRefuter"><code class="xref py py-class docutils literal notranslate"><span class="pre">CausalRefuter</span></code></a></p>
 <p>Refute an estimate by rerunning it on a random subset of the original data.</p>
-<p>Supports additional parameters that can be specified in the refute_estimate() method.</p>
+<p>Supports additional parameters that can be specified in the refute_estimate() method. For joblib-related parameters (n_jobs, verbose), please refer to the joblib documentation for more details (<a class="reference external" href="https://joblib.readthedocs.io/en/latest/generated/joblib.Parallel.html">https://joblib.readthedocs.io/en/latest/generated/joblib.Parallel.html</a>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>subset_fraction</strong> (<em>float</em><em>, </em><em>optional</em>) – Fraction of the data to be used for re-estimation, which is <code class="docutils literal notranslate"><span class="pre">DataSubsetRefuter.DEFAULT_SUBSET_FRACTION</span></code> by default.</p></li>
 <li><p><strong>num_simulations</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of simulations to be run, which is <code class="docutils literal notranslate"><span class="pre">CausalRefuter.DEFAULT_NUM_SIMULATIONS</span></code> by default</p></li>
 <li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>RandomState</em><em>, </em><em>optional</em>) – The seed value to be added if we wish to repeat the same random behavior. If we with to repeat the same behavior we push the same seed in the psuedo-random generator</p></li>
+<li><p><strong>n_jobs</strong> (<em>int</em><em>, </em><em>optional</em>) – The maximum number of concurrently running jobs. If -1 all CPUs are used. If 1 is given, no parallel computing code is used at all (this is the default).</p></li>
+<li><p><strong>verbose</strong> (<em>int</em><em>, </em><em>optional</em>) – The verbosity level: if non zero, progress messages are printed. Above 50, the output is sent to stdout. The frequency of the messages increases with the verbosity level. If it more than 10, all iterations are reported. The default is 0.</p></li>
 </ul>
 </dd>
 </dl>
@@ -790,6 +788,191 @@ We then apply the estimators on <code class="docutils literal notranslate"><span
 </dd></dl>
 
 </section>
+<section id="module-dowhy.causal_refuters.linear_sensitivity_analyzer">
+<span id="dowhy-causal-refuters-linear-sensitivity-analyzer-module"></span><h2>dowhy.causal_refuters.linear_sensitivity_analyzer module<a class="headerlink" href="#module-dowhy.causal_refuters.linear_sensitivity_analyzer" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_refuters.linear_sensitivity_analyzer.</span></span><span class="sig-name descname"><span class="pre">LinearSensitivityAnalyzer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treatment_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent_change_estimate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">significance_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confounder_increases_estimate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">benchmark_common_causes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">null_hypothesis_effect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_strength_treatment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_strength_outcome</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">common_causes_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/linear_sensitivity_analyzer.html#LinearSensitivityAnalyzer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to perform sensitivity analysis
+See: <a class="reference external" href="https://carloscinelli.com/files/Cinelli%20and%20Hazlett%20(2020)%20-%20Making%20Sense%20of%20Sensitivity.pdf">https://carloscinelli.com/files/Cinelli%20and%20Hazlett%20(2020)%20-%20Making%20Sense%20of%20Sensitivity.pdf</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>estimator</strong> – linear estimator of the causal model</p></li>
+<li><p><strong>data</strong> – Pandas dataframe</p></li>
+<li><p><strong>treatment_name</strong> – <p>name of treatment
+:param percent_change_estimate: It is the percentage of reduction of treatment estimate that could alter the results (default = 1)</p>
+<blockquote>
+<div><p>if percent_change_estimate = 1, the robustness value describes the strength of association of confounders with treatment and outcome in order to reduce the estimate by 100% i.e bring it down to 0.</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>null_hypothesis_effect</strong> – assumed effect under the null hypothesis</p></li>
+<li><p><strong>confounder_increases_estimate</strong> – True implies that confounder increases the absolute value of estimate and vice versa. (Default = True)</p></li>
+<li><p><strong>benchmark_common_causes</strong> – names of variables for bounding strength of confounders</p></li>
+<li><p><strong>significance_level</strong> – confidence interval for statistical inference(default = 0.05)</p></li>
+<li><p><strong>frac_strength_treatment</strong> – strength of association between unobserved confounder and treatment compared to benchmark covariate</p></li>
+<li><p><strong>frac_strength_outcome</strong> – strength of association between unobserved confounder and outcome compared to benchmark covariate</p></li>
+<li><p><strong>common_causes_order</strong> – The order of column names in OLS regression data</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.check_sensitivity">
+<span class="sig-name descname"><span class="pre">check_sensitivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/linear_sensitivity_analyzer.html#LinearSensitivityAnalyzer.check_sensitivity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.check_sensitivity" title="Permalink to this definition"></a></dt>
+<dd><p>Function to perform sensitivity analysis. 
+:param plot: plot = True generates a plot of point estimate and the variations with respect to unobserved confounding.</p>
+<blockquote>
+<div><p>plot = False overrides the setting</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>instance of LinearSensitivityAnalyzer class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.compute_bias_adjusted">
+<span class="sig-name descname"><span class="pre">compute_bias_adjusted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r2tu_w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2yu_tw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/linear_sensitivity_analyzer.html#LinearSensitivityAnalyzer.compute_bias_adjusted"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.compute_bias_adjusted" title="Permalink to this definition"></a></dt>
+<dd><p>Computes the bias adjusted estimate, standard error, t-value,  partial R2, confidence intervals</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r2tu_w</strong> – partial r^2 from regressing unobserved confounder u on treatment t after conditioning on observed covariates w</p></li>
+<li><p><strong>r2yu_tw</strong> – partial r^2 from regressing unobserved confounder u on outcome y after conditioning on observed covariates w and treatment t</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Python dictionary with information about partial R^2 of confounders with treatment and outcome and bias adjusted variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.partial_r2_func">
+<span class="sig-name descname"><span class="pre">partial_r2_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimator_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treatment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/linear_sensitivity_analyzer.html#LinearSensitivityAnalyzer.partial_r2_func"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.partial_r2_func" title="Permalink to this definition"></a></dt>
+<dd><p>Computes the partial R^2 of regression model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>estimator_model</strong> – Linear regression model</p></li>
+<li><p><strong>treatment</strong> – treatment name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>partial R^2 value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'estimate'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_points_per_contour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(7,</span> <span class="pre">7)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contours_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'blue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical_contour_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'red'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contour_linewidths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.75</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contour_linestyles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'solid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contours_label_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">critical_label_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'red'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unadjusted_estimate_marker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'D'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unadjusted_estimate_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjusted_estimate_marker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'^'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjusted_estimate_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'red'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legend_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1.6,</span> <span class="pre">0.6)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/linear_sensitivity_analyzer.html#LinearSensitivityAnalyzer.plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.plot" title="Permalink to this definition"></a></dt>
+<dd><p>Plots and summarizes the sensitivity bounds as a contour plot, as they vary with the partial R^2 of the unobserved confounder(s) with the treatment and the outcome
+Two types of plots can be generated, based on adjusted estimates or adjusted t-values
+X-axis: Partial R^2 of treatment and unobserved confounder(s)
+Y-axis: Partial R^2 of outcome and unobserved confounder(s)
+We also plot bounds on the partial R^2 of the unobserved confounders obtained from observed covariates</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plot_type</strong> – “estimate” or “t-value”</p></li>
+<li><p><strong>critical_value</strong> – special reference value of the estimate or t-value that will be highlighted in the plot</p></li>
+<li><p><strong>x_limit</strong> – plot’s maximum x_axis value (default = 0.8)</p></li>
+<li><p><strong>y_limit</strong> – plot’s minimum y_axis value (default = 0.8)</p></li>
+<li><p><strong>num_points_per_contour</strong> – number of points to calculate and plot each contour line (default = 200)</p></li>
+<li><p><strong>plot_size</strong> – tuple denoting the size of the plot (default = (7,7))</p></li>
+<li><p><strong>contours_color</strong> – color of contour line (default = blue)
+String or array. If array, lines will be plotted with the specific color in ascending order.</p></li>
+<li><p><strong>critical_contour_color</strong> – color of threshold line (default = red)</p></li>
+<li><p><strong>label_fontsize</strong> – fontsize for labelling contours (default = 9)</p></li>
+<li><p><strong>contour_linewidths</strong> – linewidths for contours (default = 0.75)</p></li>
+<li><p><strong>contour_linestyles</strong> – linestyles for contours (default = “solid”)
+See : <a class="reference external" href="https://matplotlib.org/3.5.0/gallery/lines_bars_and_markers/linestyles.html">https://matplotlib.org/3.5.0/gallery/lines_bars_and_markers/linestyles.html</a> for more examples</p></li>
+<li><p><strong>contours_label_color</strong> – color of contour line label (default = black)</p></li>
+<li><p><strong>critical_label_color</strong> – color of threshold line label (default = red)</p></li>
+<li><p><strong>unadjusted_estimate_marker</strong> – marker type for unadjusted estimate in the plot (default = ‘D’)
+See: <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html">https://matplotlib.org/stable/api/markers_api.html</a></p></li>
+<li><p><strong>adjusted_estimate_marker</strong> – marker type for bias adjusted estimates in the plot (default = ‘^’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parm unadjusted_estimate_color</dt>
+<dd class="field-even"><p>marker color for unadjusted estimate in the plot (default = “black”)</p>
+</dd>
+<dt class="field-odd">Parm adjusted_estimate_color</dt>
+<dd class="field-odd"><p>marker color for bias adjusted estimates in the plot (default = “red”)</p>
+</dd>
+</dl>
+<p>:param legend_position:tuple denoting the position of the legend (default = (1.6, 0.6))</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.plot_estimate">
+<span class="sig-name descname"><span class="pre">plot_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r2tu_w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2yu_tw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/linear_sensitivity_analyzer.html#LinearSensitivityAnalyzer.plot_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.plot_estimate" title="Permalink to this definition"></a></dt>
+<dd><p>Computes the contours, threshold line and bounds for plotting estimates.
+Contour lines (z - axis) correspond to the adjusted estimate values for different values of r2tu_w (x) and r2yu_tw (y).
+:param r2tu_w: hypothetical partial R^2 of confounder with treatment(x - axis)
+:param r2yu_tw: hypothetical partial R^2 of confounder with outcome(y - axis)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+<p>contour_values : values of contour lines for the plot
+critical_estimate : threshold point 
+estimate_bounds : estimate values for unobserved confounders (bias adjusted estimates)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.plot_t">
+<span class="sig-name descname"><span class="pre">plot_t</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r2tu_w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r2yu_tw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/linear_sensitivity_analyzer.html#LinearSensitivityAnalyzer.plot_t"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.plot_t" title="Permalink to this definition"></a></dt>
+<dd><p>Computes the contours, threshold line and bounds for plotting t.
+Contour lines (z - axis) correspond to the adjusted t values for different values of r2tu_w (x) and r2yu_tw (y).
+:param r2tu_w: hypothetical partial R^2 of confounder with treatment(x - axis)
+:param r2yu_tw: hypothetical partial R^2 of confounder with outcome(y - axis)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+<p>contour_values : values of contour lines for the plot
+critical_t : threshold point 
+t_bounds : t-value for unobserved confounders (bias adjusted t values)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.robustness_value_func">
+<span class="sig-name descname"><span class="pre">robustness_value_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/linear_sensitivity_analyzer.html#LinearSensitivityAnalyzer.robustness_value_func"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.robustness_value_func" title="Permalink to this definition"></a></dt>
+<dd><p>Function to calculate the robustness value. 
+It is the minimum strength of association that confounders must have with treatment and outcome to change conclusions.
+Robustness value describes how strong the association must be in order to reduce the estimated effect by (100 * percent_change_estimate)%.
+Robustness value close to 1 means the treatment effect can handle strong confounders explaining  almost all residual variation of the treatment and the outcome.
+Robustness value close to 0 means that even very weak confounders can also change the results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>alpha</strong> – confidence interval (default = 1)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>robustness value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.treatment_regression">
+<span class="sig-name descname"><span class="pre">treatment_regression</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/linear_sensitivity_analyzer.html#LinearSensitivityAnalyzer.treatment_regression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.treatment_regression" title="Permalink to this definition"></a></dt>
+<dd><p>Function to perform regression with treatment as outcome</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>new OLS regression model</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-dowhy.causal_refuters.placebo_treatment_refuter">
 <span id="dowhy-causal-refuters-placebo-treatment-refuter-module"></span><h2>dowhy.causal_refuters.placebo_treatment_refuter module<a class="headerlink" href="#module-dowhy.causal_refuters.placebo_treatment_refuter" title="Permalink to this heading"></a></h2>
 <dl class="py class">
@@ -797,13 +980,15 @@ We then apply the estimators on <code class="docutils literal notranslate"><span
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_refuters.placebo_treatment_refuter.</span></span><span class="sig-name descname"><span class="pre">PlaceboTreatmentRefuter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/placebo_treatment_refuter.html#PlaceboTreatmentRefuter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.placebo_treatment_refuter.PlaceboTreatmentRefuter" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="dowhy.html#dowhy.causal_refuter.CausalRefuter" title="dowhy.causal_refuter.CausalRefuter"><code class="xref py py-class docutils literal notranslate"><span class="pre">CausalRefuter</span></code></a></p>
 <p>Refute an estimate by replacing treatment with a randomly-generated placebo variable.</p>
-<p>Supports additional parameters that can be specified in the refute_estimate() method.</p>
+<p>Supports additional parameters that can be specified in the refute_estimate() method. For joblib-related parameters (n_jobs, verbose), please refer to the joblib documentation for more details (<a class="reference external" href="https://joblib.readthedocs.io/en/latest/generated/joblib.Parallel.html">https://joblib.readthedocs.io/en/latest/generated/joblib.Parallel.html</a>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>placebo_type</strong> (<em>str</em><em>, </em><em>optional</em>) – Default is to generate random values for the treatment. If placebo_type is “permute”, then the original treatment values are permuted by row.</p></li>
 <li><p><strong>num_simulations</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of simulations to be run, which is <code class="docutils literal notranslate"><span class="pre">CausalRefuter.DEFAULT_NUM_SIMULATIONS</span></code> by default</p></li>
 <li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>RandomState</em><em>, </em><em>optional</em>) – The seed value to be added if we wish to repeat the same random behavior. If we want to repeat the same behavior we push the same seed in the psuedo-random generator.</p></li>
+<li><p><strong>n_jobs</strong> (<em>int</em><em>, </em><em>optional</em>) – The maximum number of concurrently running jobs. If -1 all CPUs are used. If 1 is given, no parallel computing code is used at all (this is the default).</p></li>
+<li><p><strong>verbose</strong> (<em>int</em><em>, </em><em>optional</em>) – The verbosity level: if non zero, progress messages are printed. Above 50, the output is sent to stdout. The frequency of the messages increases with the verbosity level. If it more than 10, all iterations are reported. The default is 0.</p></li>
 </ul>
 </dd>
 </dl>
@@ -843,11 +1028,14 @@ We then apply the estimators on <code class="docutils literal notranslate"><span
 <dd><p>Bases: <a class="reference internal" href="dowhy.html#dowhy.causal_refuter.CausalRefuter" title="dowhy.causal_refuter.CausalRefuter"><code class="xref py py-class docutils literal notranslate"><span class="pre">CausalRefuter</span></code></a></p>
 <p>Refute an estimate by introducing a randomly generated confounder
 (that may have been unobserved).</p>
+<p>Supports additional parameters that can be specified in the refute_estimate() method. For joblib-related parameters (n_jobs, verbose), please refer to the joblib documentation for more details (<a class="reference external" href="https://joblib.readthedocs.io/en/latest/generated/joblib.Parallel.html">https://joblib.readthedocs.io/en/latest/generated/joblib.Parallel.html</a>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_simulations</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of simulations to be run, which is <code class="docutils literal notranslate"><span class="pre">CausalRefuter.DEFAULT_NUM_SIMULATIONS</span></code> by default</p></li>
 <li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>RandomState</em><em>, </em><em>optional</em>) – The seed value to be added if we wish to repeat the same random behavior. If we with to repeat the same behavior we push the same seed in the psuedo-random generator</p></li>
+<li><p><strong>n_jobs</strong> (<em>int</em><em>, </em><em>optional</em>) – The maximum number of concurrently running jobs. If -1 all CPUs are used. If 1 is given, no parallel computing code is used at all (this is the default).</p></li>
+<li><p><strong>verbose</strong> (<em>int</em><em>, </em><em>optional</em>) – The verbosity level: if non zero, progress messages are printed. Above 50, the output is sent to stdout. The frequency of the messages increases with the verbosity level. If it more than 10, all iterations are reported. The default is 0.</p></li>
 </ul>
 </dd>
 </dl>
@@ -903,6 +1091,14 @@ We then apply the estimators on <code class="docutils literal notranslate"><span
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../v0.1-alpha/dowhy.causal_refuters.html">v0.1-alpha</a></dd>
+            <dd><a href="../v0.1.1-alpha/dowhy.causal_refuters.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../v0.2/dowhy.causal_refuters.html">v0.2</a></dd>
+            <dd><a href="../v0.4/dowhy.causal_refuters.html">v0.4</a></dd>
+            <dd><a href="../v0.5/dowhy.causal_refuters.html">v0.5</a></dd>
+            <dd><a href="../v0.5.1/dowhy.causal_refuters.html">v0.5.1</a></dd>
+            <dd><a href="../v0.6/dowhy.causal_refuters.html">v0.6</a></dd>
+            <dd><a href="../v0.7/dowhy.causal_refuters.html">v0.7</a></dd>
             <dd><a href="../v0.7.1/dowhy.causal_refuters.html">v0.7.1</a></dd>
         </dl>
         <dl>

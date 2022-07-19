@@ -50,7 +50,8 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_notebooks/nb_index.html">Example notebooks</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
@@ -58,12 +59,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../example_notebooks/tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_notebooks/dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_notebooks/DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../example_notebooks/gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../example_notebooks/rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -106,6 +101,8 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+
 
 <span class="kn">from</span> <span class="nn">dowhy.causal_refuter</span> <span class="kn">import</span> <span class="n">CausalRefutation</span>
 <span class="kn">from</span> <span class="nn">dowhy.causal_refuter</span> <span class="kn">import</span> <span class="n">CausalRefuter</span>
@@ -115,7 +112,7 @@
 <div class="viewcode-block" id="PlaceboTreatmentRefuter"><a class="viewcode-back" href="../../../dowhy.causal_refuters.html#dowhy.causal_refuters.placebo_treatment_refuter.PlaceboTreatmentRefuter">[docs]</a><span class="k">class</span> <span class="nc">PlaceboTreatmentRefuter</span><span class="p">(</span><span class="n">CausalRefuter</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Refute an estimate by replacing treatment with a randomly-generated placebo variable.</span>
 
-<span class="sd">    Supports additional parameters that can be specified in the refute_estimate() method.</span>
+<span class="sd">    Supports additional parameters that can be specified in the refute_estimate() method. For joblib-related parameters (n_jobs, verbose), please refer to the joblib documentation for more details (https://joblib.readthedocs.io/en/latest/generated/joblib.Parallel.html).</span>
 
 <span class="sd">    :param placebo_type: Default is to generate random values for the treatment. If placebo_type is &quot;permute&quot;, then the original treatment values are permuted by row.</span>
 <span class="sd">    :type placebo_type: str, optional</span>
@@ -125,6 +122,12 @@
 
 <span class="sd">    :param random_state: The seed value to be added if we wish to repeat the same random behavior. If we want to repeat the same behavior we push the same seed in the psuedo-random generator.</span>
 <span class="sd">    :type random_state: int, RandomState, optional</span>
+
+<span class="sd">    :param n_jobs: The maximum number of concurrently running jobs. If -1 all CPUs are used. If 1 is given, no parallel computing code is used at all (this is the default).</span>
+<span class="sd">    :type n_jobs: int, optional</span>
+
+<span class="sd">    :param verbose: The verbosity level: if non zero, progress messages are printed. Above 50, the output is sent to stdout. The frequency of the messages increases with the verbosity level. If it more than 10, all iterations are reported. The default is 0.</span>
+<span class="sd">    :type verbose: int, optional</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Default value of the p value taken for the distribution</span>
@@ -168,7 +171,6 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_estimate</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;method_params&quot;</span><span class="p">][</span><span class="s2">&quot;iv_instrument_name&quot;</span><span class="p">]</span> <span class="o">=</span> \
                 <span class="p">[</span><span class="s2">&quot;placebo_&quot;</span> <span class="o">+</span> <span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">parse_state</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_estimate</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;method_params&quot;</span><span class="p">][</span><span class="s2">&quot;iv_instrument_name&quot;</span><span class="p">])]</span>
 
-        <span class="n">sample_estimates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_simulations</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Refutation over </span><span class="si">{}</span><span class="s2"> simulated datasets of </span><span class="si">{}</span><span class="s2"> treatment&quot;</span>
                         <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_simulations</span>
                         <span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_placebo_type</span><span class="p">)</span>
@@ -178,8 +180,7 @@
         <span class="n">treatment_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_treatment_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Extract the name of the treatment variable</span>
         <span class="n">type_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">dtypes</span> <span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_simulations</span><span class="p">):</span>
-
+        <span class="k">def</span> <span class="nf">refute_once</span><span class="p">():</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_placebo_type</span> <span class="o">==</span> <span class="s2">&quot;permute&quot;</span><span class="p">:</span>
                 <span class="n">permuted_idx</span> <span class="o">=</span> <span class="kc">None</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_random_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -236,7 +237,14 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">new_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>
             <span class="n">new_estimator</span> <span class="o">=</span> <span class="n">CausalEstimator</span><span class="o">.</span><span class="n">get_estimator_object</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">identified_estimand</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_estimate</span><span class="p">)</span>
             <span class="n">new_effect</span> <span class="o">=</span> <span class="n">new_estimator</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">()</span>
-            <span class="n">sample_estimates</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_effect</span><span class="o">.</span><span class="n">value</span>
+            <span class="k">return</span> <span class="n">new_effect</span><span class="o">.</span><span class="n">value</span>
+
+        <span class="c1"># Run refutation in parallel</span>
+        <span class="n">sample_estimates</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span>
+            <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_jobs</span><span class="p">,</span> 
+            <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span>
+        <span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">refute_once</span><span class="p">)()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_simulations</span><span class="p">))</span>
+        <span class="n">sample_estimates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sample_estimates</span><span class="p">)</span>
 
         <span class="c1"># Restoring the value of iv_instrument_name</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target_estimand</span><span class="o">.</span><span class="n">identifier_method</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;iv&quot;</span><span class="p">):</span>
@@ -294,6 +302,14 @@
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="../../../../v0.7.1/index.html">v0.7.1</a></dd>
         </dl>
         <dl>

@@ -50,7 +50,8 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../example_notebooks/nb_index.html">Example notebooks</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
@@ -58,12 +59,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../example_notebooks/tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../example_notebooks/dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../example_notebooks/DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../example_notebooks/gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../example_notebooks/rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -113,6 +108,8 @@
 
 <span class="sd">    Subclasses implement specific refutations methods.</span>
 
+<span class="sd">    # todo: add docstring for common parameters here and remove from child refuter classes</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Default value for the number of simulations to be conducted</span>
     <span class="n">DEFAULT_NUM_SIMULATIONS</span> <span class="o">=</span> <span class="mi">100</span>
@@ -124,6 +121,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_treatment_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target_estimand</span><span class="o">.</span><span class="n">treatment_variable</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_outcome_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target_estimand</span><span class="o">.</span><span class="n">outcome_variable</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_random_seed</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># joblib params for parallel processing</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_jobs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;n_jobs&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;verbose&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="s2">&quot;random_seed&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_random_seed</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;random_seed&#39;</span><span class="p">]</span>
@@ -277,7 +278,7 @@
         <span class="c1"># Sort the simulations</span>
         <span class="n">simulations</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
         <span class="c1"># Obtain the median value</span>
-        <span class="n">median_refute_values</span><span class="o">=</span> <span class="n">simulations</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">num_simulations</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span>
+        <span class="n">median_refute_values</span> <span class="o">=</span> <span class="n">simulations</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">num_simulations</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span>
 
         <span class="c1"># Performing a two sided test</span>
         <span class="k">if</span> <span class="n">estimate</span><span class="o">.</span><span class="n">value</span> <span class="o">&gt;</span> <span class="n">median_refute_values</span><span class="p">:</span>
@@ -291,8 +292,8 @@
             <span class="n">estimate_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">simulations</span><span class="p">,</span> <span class="n">estimate</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
             <span class="c1"># We get the probability with respect to the left tail.</span>
             <span class="n">p_value</span> <span class="o">=</span> <span class="n">estimate_index</span> <span class="o">/</span> <span class="n">num_simulations</span>
-
-        <span class="k">return</span> <span class="n">p_value</span></div>
+        <span class="c1"># return twice the determined quantile as this is a two sided test</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">p_value</span></div>
 
 <div class="viewcode-block" id="CausalRefuter.perform_normal_distribution_test"><a class="viewcode-back" href="../../dowhy.html#dowhy.causal_refuter.CausalRefuter.perform_normal_distribution_test">[docs]</a>    <span class="k">def</span> <span class="nf">perform_normal_distribution_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span> <span class="n">simulations</span><span class="p">):</span>
         <span class="c1"># Get the mean for the simulations</span>
@@ -390,6 +391,14 @@
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="../../../v0.7.1/index.html">v0.7.1</a></dd>
         </dl>
         <dl>

@@ -55,7 +55,8 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="nb_index.html">Example notebooks</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
@@ -76,6 +77,7 @@
 <li class="toctree-l2"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
@@ -86,6 +88,10 @@
 <li class="toctree-l2"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_supply_chain_dist_change.html">Root causes of changes in a supply chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">Counterfactual analysis in a medical case using a GCM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_401k_analysis.html">Impact of 401(k) eligibility on net financial assets</a></li>
 </ul>
 </li>
 </ul>
@@ -94,12 +100,6 @@
 <li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -507,62 +507,62 @@ keywords are unexpanded, not using
     <tr>
       <th>0</th>
       <td>1.0</td>
-      <td>0.392021</td>
-      <td>-1.180189</td>
-      <td>0.605756</td>
-      <td>-0.154052</td>
-      <td>-0.968314</td>
-      <td>-0.442465</td>
+      <td>0.260497</td>
+      <td>-0.375454</td>
+      <td>0.612475</td>
+      <td>0.647781</td>
+      <td>1.397621</td>
+      <td>1.435138</td>
       <td>True</td>
-      <td>10.081418</td>
+      <td>16.209737</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.0</td>
-      <td>0.831451</td>
-      <td>1.011810</td>
-      <td>0.589253</td>
-      <td>1.511271</td>
-      <td>-1.384911</td>
-      <td>-0.152497</td>
+      <td>0.053705</td>
+      <td>1.703669</td>
+      <td>1.483199</td>
+      <td>-2.473480</td>
+      <td>-0.433612</td>
+      <td>0.532273</td>
       <td>False</td>
-      <td>3.414455</td>
+      <td>4.522710</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.0</td>
-      <td>0.221870</td>
-      <td>-0.616612</td>
-      <td>1.484984</td>
-      <td>1.211972</td>
-      <td>0.702741</td>
-      <td>0.607626</td>
+      <td>1.0</td>
+      <td>0.111328</td>
+      <td>0.370289</td>
+      <td>-0.004049</td>
+      <td>-0.717671</td>
+      <td>-0.790429</td>
+      <td>1.610257</td>
       <td>True</td>
-      <td>15.247187</td>
+      <td>10.406678</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.0</td>
-      <td>0.377473</td>
-      <td>-0.408407</td>
-      <td>-0.888820</td>
-      <td>-0.448498</td>
-      <td>0.906620</td>
-      <td>-0.665140</td>
-      <td>False</td>
-      <td>-3.323690</td>
+      <td>1.0</td>
+      <td>0.608136</td>
+      <td>1.512787</td>
+      <td>0.617424</td>
+      <td>1.007173</td>
+      <td>-2.470661</td>
+      <td>0.802730</td>
+      <td>True</td>
+      <td>20.931515</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1.0</td>
-      <td>0.535826</td>
-      <td>-0.228525</td>
-      <td>-0.499568</td>
-      <td>0.770246</td>
-      <td>0.368635</td>
-      <td>1.031655</td>
+      <td>0.852366</td>
+      <td>-0.419083</td>
+      <td>0.888377</td>
+      <td>1.310111</td>
+      <td>-0.186600</td>
+      <td>0.947900</td>
       <td>True</td>
-      <td>10.729513</td>
+      <td>17.683159</td>
     </tr>
     <tr>
       <th>...</th>
@@ -579,62 +579,62 @@ keywords are unexpanded, not using
     <tr>
       <th>9995</th>
       <td>1.0</td>
-      <td>0.191587</td>
-      <td>-0.153558</td>
-      <td>1.143994</td>
-      <td>-0.685529</td>
-      <td>-0.751611</td>
-      <td>-0.545464</td>
+      <td>0.595534</td>
+      <td>-0.278855</td>
+      <td>0.691050</td>
+      <td>0.258900</td>
+      <td>-2.250974</td>
+      <td>-0.453412</td>
       <td>True</td>
-      <td>11.083686</td>
+      <td>10.480006</td>
     </tr>
     <tr>
       <th>9996</th>
       <td>0.0</td>
-      <td>0.943562</td>
-      <td>1.058475</td>
-      <td>0.584479</td>
-      <td>1.438399</td>
-      <td>-1.012398</td>
-      <td>0.164145</td>
+      <td>0.788211</td>
+      <td>1.688699</td>
+      <td>1.852749</td>
+      <td>1.661655</td>
+      <td>0.006058</td>
+      <td>1.245019</td>
       <td>True</td>
-      <td>13.681717</td>
+      <td>31.357825</td>
     </tr>
     <tr>
       <th>9997</th>
-      <td>1.0</td>
-      <td>0.824387</td>
-      <td>-0.482070</td>
-      <td>0.277981</td>
-      <td>0.533021</td>
-      <td>-0.230109</td>
-      <td>-0.079108</td>
+      <td>0.0</td>
+      <td>0.132988</td>
+      <td>-0.706078</td>
+      <td>0.325932</td>
+      <td>-2.308265</td>
+      <td>-1.445611</td>
+      <td>1.159454</td>
       <td>True</td>
-      <td>10.970503</td>
+      <td>1.262293</td>
     </tr>
     <tr>
       <th>9998</th>
-      <td>0.0</td>
-      <td>0.088246</td>
-      <td>-0.059524</td>
-      <td>0.611283</td>
-      <td>1.984252</td>
-      <td>-0.645737</td>
-      <td>0.928503</td>
-      <td>False</td>
-      <td>4.657308</td>
+      <td>1.0</td>
+      <td>0.140371</td>
+      <td>-0.700740</td>
+      <td>-0.583390</td>
+      <td>0.378167</td>
+      <td>-1.799458</td>
+      <td>1.636147</td>
+      <td>True</td>
+      <td>7.032904</td>
     </tr>
     <tr>
       <th>9999</th>
       <td>0.0</td>
-      <td>0.481281</td>
-      <td>-1.309756</td>
-      <td>1.659612</td>
-      <td>-0.112951</td>
-      <td>-0.314056</td>
-      <td>0.046180</td>
+      <td>0.184748</td>
+      <td>1.119774</td>
+      <td>0.384389</td>
+      <td>2.769690</td>
+      <td>-0.524669</td>
+      <td>0.551846</td>
       <td>True</td>
-      <td>13.025446</td>
+      <td>25.587171</td>
     </tr>
   </tbody>
 </table>
@@ -705,9 +705,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W4,W3,W0,W2,W1])
+─────(E[y|W3,W4,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W0,W2,W1,U) = P(y|v0,W4,W3,W0,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W4,W1,W2,W0,U) = P(y|v0,W3,W4,W1,W2,W0)
 
 ### Estimand : 2
 Estimand name: iv
@@ -757,19 +757,19 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W4,W3,W0,W2,W1])
+─────(E[y|W3,W4,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W0,W2,W1,U) = P(y|v0,W4,W3,W0,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W4,W1,W2,W0,U) = P(y|v0,W3,W4,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W4+W3+W0+W2+W1
+b: y~v0+W3+W4+W1+W2+W0
 Target units: ate
 
 ## Estimate
-Mean value: 10.000165094456163
+Mean value: 10.000173450067788
 p-value: [0.]
 
-Causal Estimate is 10.000165094456163
+Causal Estimate is 10.000173450067788
 </pre></div></div>
 </div>
 </section>
@@ -804,18 +804,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W4,W3,W0,W2,W1])
+─────(E[y|W3,W4,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W0,W2,W1,U) = P(y|v0,W4,W3,W0,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W4,W1,W2,W0,U) = P(y|v0,W3,W4,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W4+W3+W0+W2+W1
+b: y~v0+W3+W4+W1+W2+W0
 Target units: att
 
 ## Estimate
-Mean value: 10.271275707264625
+Mean value: 11.203481551297564
 
-Causal Estimate is 10.271275707264625
+Causal Estimate is 11.203481551297564
 </pre></div></div>
 </div>
 </section>
@@ -865,18 +865,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W4,W3,W0,W2,W1])
+─────(E[y|W3,W4,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W0,W2,W1,U) = P(y|v0,W4,W3,W0,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W4,W1,W2,W0,U) = P(y|v0,W3,W4,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W4+W3+W0+W2+W1
+b: y~v0+W3+W4+W1+W2+W0
 Target units: att
 
 ## Estimate
-Mean value: 10.046939466720799
+Mean value: 9.965619209441089
 
-Causal Estimate is 10.046939466720799
+Causal Estimate is 9.965619209441089
 </pre></div></div>
 </div>
 </section>
@@ -926,18 +926,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W4,W3,W0,W2,W1])
+─────(E[y|W3,W4,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W0,W2,W1,U) = P(y|v0,W4,W3,W0,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W4,W1,W2,W0,U) = P(y|v0,W3,W4,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W4+W3+W0+W2+W1
+b: y~v0+W3+W4+W1+W2+W0
 Target units: atc
 
 ## Estimate
-Mean value: 9.985886488964368
+Mean value: 9.850587237107119
 
-Causal Estimate is 9.985886488964368
+Causal Estimate is 9.850587237107119
 </pre></div></div>
 </div>
 </section>
@@ -972,18 +972,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W4,W3,W0,W2,W1])
+─────(E[y|W3,W4,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W0,W2,W1,U) = P(y|v0,W4,W3,W0,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W4,W1,W2,W0,U) = P(y|v0,W3,W4,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W4+W3+W0+W2+W1
+b: y~v0+W3+W4+W1+W2+W0
 Target units: ate
 
 ## Estimate
-Mean value: 10.311573679174797
+Mean value: 12.474453779732384
 
-Causal Estimate is 10.311573679174797
+Causal Estimate is 12.474453779732384
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1046,9 +1046,9 @@ Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome y is 
 Target units: ate
 
 ## Estimate
-Mean value: 9.944188573863583
+Mean value: 9.273931842253699
 
-Causal Estimate is 9.944188573863583
+Causal Estimate is 9.273931842253699
 </pre></div></div>
 </div>
 </section>
@@ -1076,19 +1076,19 @@ Causal Estimate is 9.944188573863583
 <div class="highlight"><pre>
 regression_discontinuity
       local_rd_variable  local_treatment  local_outcome
-0              0.392021             True      10.081418
-3              0.377473            False      -3.323690
-4              0.535826             True      10.729513
-5              0.421176            False       1.746475
-6              0.362484             True      14.290777
+3              0.608136             True      20.931515
+5              0.445468             True      11.220712
+19             0.465214             True      29.959459
+29             0.588242             True      18.537502
+31             0.420902             True      23.487069
 ...                 ...              ...            ...
-9986           0.486656            False      -2.171183
-9991           0.352922             True      14.292856
-9993           0.558538             True      17.120848
-9994           0.605788             True      12.459413
-9999           0.481281             True      13.025446
+9980           0.357265             True      14.580486
+9985           0.458452             True      20.464325
+9989           0.647551             True       6.748597
+9990           0.589480            False       1.726811
+9995           0.595534             True      10.480006
 
-[3018 rows x 3 columns]
+[2947 rows x 3 columns]
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -1119,9 +1119,9 @@ Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome local
 Target units: ate
 
 ## Estimate
-Mean value: 12.65277674596312
+Mean value: 8.547259216112469
 
-Causal Estimate is 12.65277674596312
+Causal Estimate is 8.547259216112469
 </pre></div></div>
 </div>
 </section>
@@ -1161,6 +1161,14 @@ Causal Estimate is 12.65277674596312
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="../../v0.7.1/index.html">v0.7.1</a></dd>
         </dl>
         <dl>

@@ -73,7 +73,8 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nb_index.html">Example notebooks</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
@@ -81,12 +82,6 @@
 <li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -473,19 +468,19 @@ keywords are unexpanded, not using
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-         X0   Z0        Z1        W0        W1        W2        W3 W4    v0  \
-0 -0.111886  0.0  0.555702 -0.731188  0.281232 -0.997149 -1.213923  0  True
-1  0.737522  0.0  0.945680 -0.212373 -1.455703 -0.501901  0.471908  3  True
-2  0.728616  0.0  0.732481 -0.944423  1.005438 -0.307868 -0.165201  2  True
-3 -1.474637  0.0  0.705584 -1.066580 -1.349458 -0.473052  0.009120  2  True
-4  0.195383  1.0  0.862131 -0.817728 -1.016917 -0.534247 -1.797424  2  True
+         X0   Z0        Z1        W0        W1        W2        W3 W4     v0  \
+0  0.231623  0.0  0.052025 -1.056003  0.514756 -0.324867  0.342448  0  False
+1 -0.051477  0.0  0.374994 -0.141036 -1.012710 -0.385590 -0.657772  1  False
+2  0.038578  0.0  0.306150 -1.215956  0.288434  3.247430 -2.007821  3   True
+3  0.038602  0.0  0.110020 -2.001559 -1.403139 -0.167142  0.893729  0  False
+4  2.474698  0.0  0.650216 -3.109052 -0.054286  2.142385  1.131778  2   True
 
-          y
-0  1.217138
-1  3.026094
-2  9.741291
-3 -2.723007
-4 -3.725347
+           y
+0  -1.048228
+1  -2.104807
+2  26.385375
+3  -4.622731
+4  21.983173
 digraph {v0-&gt;y;W0-&gt; v0; W1-&gt; v0; W2-&gt; v0; W3-&gt; v0; W4-&gt; v0;Z0-&gt; v0; Z1-&gt; v0;W0-&gt; y; W1-&gt; y; W2-&gt; y; W3-&gt; y; W4-&gt; y;X0-&gt; y;}
 
 
@@ -561,9 +556,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W4,W1,W0,W2,W3])
+─────(E[y|W1,W3,W0,W4,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W1,W0,W2,W3,U) = P(y|v0,W4,W1,W0,W2,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W3,W0,W4,W2,U) = P(y|v0,W1,W3,W0,W4,W2)
 
 ### Estimand : 2
 Estimand name: iv
@@ -571,9 +566,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
-Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
+ ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
+Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
 
 ### Estimand : 3
 Estimand name: frontdoor
@@ -611,18 +606,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W4,W1,W0,W2,W3])
+─────(E[y|W1,W3,W0,W4,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W1,W0,W2,W3,U) = P(y|v0,W4,W1,W0,W2,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W3,W0,W4,W2,U) = P(y|v0,W1,W3,W0,W4,W2)
 
 ## Realized estimand
-b: y~v0+W4+W1+W0+W2+W3
+b: y~v0+W1+W3+W0+W4+W2
 Target units: ate
 
 ## Estimate
-Mean value: 9.612921138179649
+Mean value: 10.038829596721305
 
-Causal Estimate is 9.612921138179649
+Causal Estimate is 10.038829596721305
 </pre></div></div>
 </div>
 <p>You can input additional parameters to the estimate_effect method. For instance, to estimate the effect on any subset of the units, you can specify the “target_units” parameter which can be a string (“ate”, “att”, or “atc”), lambda function that filters rows of the data frame, or a new dataframe on which to compute the effect. You can also specify “effect modifiers” to estimate heterogeneous effects across these variables. See <code class="docutils literal notranslate"><span class="pre">help(CausalModel.estimate_effect)</span></code>.</p>
@@ -654,18 +649,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W4,W1,W0,W2,W3])
+─────(E[y|W1,W3,W0,W4,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W1,W0,W2,W3,U) = P(y|v0,W4,W1,W0,W2,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W3,W0,W4,W2,U) = P(y|v0,W1,W3,W0,W4,W2)
 
 ## Realized estimand
-b: y~v0+W4+W1+W0+W2+W3
+b: y~v0+W1+W3+W0+W4+W2
 Target units: atc
 
 ## Estimate
-Mean value: 9.73620400944003
+Mean value: 10.103317861392146
 
-Causal Estimate is 9.73620400944003
+Causal Estimate is 10.103317861392146
 </pre></div></div>
 </div>
 </section>
@@ -754,18 +749,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W4,W1,W0,W2,W3])
+─────(E[y|W1,W3,W0,W4,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W1,W0,W2,W3,U) = P(y|v0,W4,W1,W0,W2,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W3,W0,W4,W2,U) = P(y|v0,W1,W3,W0,W4,W2)
 
 ## Realized estimand
-b: y~v0+W4+W1+W0+W2+W3
+b: y~v0+W1+W3+W0+W4+W2
 Target units: ate
 
 ## Estimate
-Mean value: 9.612921138179649
+Mean value: 10.038829596721305
 
-Causal Estimate is 9.612921138179649
+Causal Estimate is 10.038829596721305
 </pre></div></div>
 </div>
 </section>
@@ -800,9 +795,9 @@ Causal Estimate is 9.612921138179649
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:9.612921138179649
-New effect:9.70845925665113
-p value:0.05
+Estimated effect:10.038829596721305
+New effect:10.086772039418987
+p value:0.32
 
 </pre></div></div>
 </div>
@@ -825,9 +820,9 @@ p value:0.05
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:9.612921138179649
-New effect:0.02317479232961216
-p value:0.38
+Estimated effect:10.038829596721305
+New effect:0.018162948492990764
+p value:0.8
 
 </pre></div></div>
 </div>
@@ -841,7 +836,7 @@ p value:0.38
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_subset</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span>
         <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;data_subset_refuter&quot;</span><span class="p">,</span> <span class="n">subset_fraction</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res_subset</span><span class="p">)</span>
-<br/></pre></div>
+</pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -850,33 +845,187 @@ p value:0.38
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:9.612921138179649
-New effect:9.722381910033329
-p value:0.1
+Estimated effect:10.038829596721305
+New effect:10.10505846368863
+p value:0.24
 
 </pre></div></div>
 </div>
-<p>As you can see, the propensity score stratification estimator is reasonably robust to refutations. For reproducibility, you can add a parameter “random_seed” to any refutation method, as shown below.</p>
+<p>As you can see, the propensity score stratification estimator is reasonably robust to refutations.</p>
+<p><strong>Reproducability</strong>: For reproducibility, you can add a parameter “random_seed” to any refutation method, as shown below.</p>
+<p><strong>Parallelization</strong>: You can also use built-in parallelization to speed up the refutation process. Simply set <code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> to a value greater than 1 to spread the workload to multiple CPUs, or set <code class="docutils literal notranslate"><span class="pre">n_jobs=-1</span></code> to use all CPUs. Currently, this is available only for <code class="docutils literal notranslate"><span class="pre">random_common_cause</span></code>, <code class="docutils literal notranslate"><span class="pre">placebo_treatment_refuter</span></code>, and <code class="docutils literal notranslate"><span class="pre">data_subset_refuter</span></code>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_subset</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span>
-        <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;data_subset_refuter&quot;</span><span class="p">,</span> <span class="n">subset_fraction</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">random_seed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;data_subset_refuter&quot;</span><span class="p">,</span> <span class="n">subset_fraction</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">random_seed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res_subset</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[Parallel(n_jobs=-1)]: Using backend LokyBackend with 2 concurrent workers.
+[Parallel(n_jobs=-1)]: Done   1 tasks      | elapsed:    1.4s
+[Parallel(n_jobs=-1)]: Done   4 tasks      | elapsed:    1.7s
+[Parallel(n_jobs=-1)]: Done   9 tasks      | elapsed:    2.5s
+[Parallel(n_jobs=-1)]: Done  14 tasks      | elapsed:    3.0s
+[Parallel(n_jobs=-1)]: Done  21 tasks      | elapsed:    4.0s
+[Parallel(n_jobs=-1)]: Done  28 tasks      | elapsed:    4.8s
+[Parallel(n_jobs=-1)]: Done  37 tasks      | elapsed:    6.0s
+[Parallel(n_jobs=-1)]: Done  46 tasks      | elapsed:    7.1s
+[Parallel(n_jobs=-1)]: Done  57 tasks      | elapsed:    8.5s
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
+[Parallel(n_jobs=-1)]: Done  68 tasks      | elapsed:    9.9s
+[Parallel(n_jobs=-1)]: Done  81 tasks      | elapsed:   11.4s
+[Parallel(n_jobs=-1)]: Done  94 tasks      | elapsed:   13.2s
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:9.612921138179649
-New effect:9.734867149855019
-p value:0.05
+Estimated effect:10.038829596721305
+New effect:10.093189596921313
+p value:0.28
 
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[Parallel(n_jobs=-1)]: Done 100 out of 100 | elapsed:   13.9s finished
 </pre></div></div>
 </div>
 </section>
@@ -905,8 +1054,8 @@ unobserved common cause’s effect.</p>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add an Unobserved Common Cause
-Estimated effect:9.612921138179649
-New effect:9.367146754444159
+Estimated effect:10.038829596721305
+New effect:9.714985262727987
 
 </pre></div></div>
 </div>
@@ -935,8 +1084,8 @@ New effect:9.367146754444159
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add an Unobserved Common Cause
-Estimated effect:9.612921138179649
-New effect:(8.615642899865234, 9.654365301940048)
+Estimated effect:10.038829596721305
+New effect:(8.48560736883268, 9.9300478552988)
 
 </pre></div></div>
 </div>
@@ -967,8 +1116,8 @@ New effect:(8.615642899865234, 9.654365301940048)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add an Unobserved Common Cause
-Estimated effect:9.612921138179649
-New effect:(5.71410217499298, 9.759386531193764)
+Estimated effect:10.038829596721305
+New effect:(5.167450894203756, 9.990112148115339)
 
 </pre></div></div>
 </div>
@@ -997,8 +1146,8 @@ strength of observed confounders. There is an additional optional parameter sign
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add an Unobserved Common Cause
-Estimated effect:9.612921138179649
-New effect:(-0.18066593170847275, 9.21928750051663)
+Estimated effect:10.038829596721305
+New effect:(-0.1372674838326756, 9.94342913879459)
 
 </pre></div></div>
 </div>
@@ -1041,6 +1190,14 @@ New effect:(-0.18066593170847275, 9.21928750051663)
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="../../v0.7.1/index.html">v0.7.1</a></dd>
         </dl>
         <dl>

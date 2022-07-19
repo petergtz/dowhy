@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="../gcm/index.html" />
+    <link rel="next" title="Contributing to DoWhy" href="../contributing/index.html" />
     <link rel="prev" title="Estimating the effect of a Member Rewards program" href="dowhy_example_effect_of_memberrewards_program.html" /> 
 </head>
 
@@ -55,7 +55,8 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nb_index.html">Example notebooks</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
@@ -80,12 +81,6 @@
 </li>
 </ul>
 </li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -1165,7 +1160,7 @@ definite conclusion at this stage. Thus assigning rooms different to what a cust
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 588.6612$</div></div>
+$\displaystyle 588.5909$</div></div>
 </div>
 <p>We now consider the scenario when there were no booking changes and recalculate the expected count.</p>
 <div class="nbinput docutils container">
@@ -1189,7 +1184,7 @@ $\displaystyle 588.6612$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 572.7637$</div></div>
+$\displaystyle 572.6448$</div></div>
 </div>
 <p>In the 2nd case, we take the scenario when there were booking changes(&gt;0) and recalculate the expected count.</p>
 <div class="nbinput docutils container">
@@ -1213,7 +1208,7 @@ $\displaystyle 572.7637$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 666.1407$</div></div>
+$\displaystyle 665.737$</div></div>
 </div>
 <p>There is definitely some change happening when the number of booking changes are non-zero. So it gives us a hint that <em>Booking Changes</em> may be affecting room cancellation.</p>
 <p>But is <em>Booking Changes</em> the only confounding variable? What if there were some unobserved confounders, regarding which we have no information(feature) present in our dataset. Would we still be able to make the same claims as before?</p>
@@ -1327,17 +1322,17 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
             d
-──────────────────────────(E[is_canceled|booking_changes,guests,hotel,total_st
+──────────────────────────(E[is_canceled|booking_changes,lead_time,required_ca
 d[different_room_assigned]
 
 
-ay,total_of_special_requests,is_repeated_guest,required_car_parking_spaces,lea
+r_parking_spaces,guests,total_stay,total_of_special_requests,is_repeated_guest
 
 
 
-d_time,days_in_waiting_list])
+,hotel,days_in_waiting_list])
 
-Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,booking_changes,guests,hotel,total_stay,total_of_special_requests,is_repeated_guest,required_car_parking_spaces,lead_time,days_in_waiting_list,U) = P(is_canceled|different_room_assigned,booking_changes,guests,hotel,total_stay,total_of_special_requests,is_repeated_guest,required_car_parking_spaces,lead_time,days_in_waiting_list)
+Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,booking_changes,lead_time,required_car_parking_spaces,guests,total_stay,total_of_special_requests,is_repeated_guest,hotel,days_in_waiting_list,U) = P(is_canceled|different_room_assigned,booking_changes,lead_time,required_car_parking_spaces,guests,total_stay,total_of_special_requests,is_repeated_guest,hotel,days_in_waiting_list)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1380,24 +1375,24 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
             d
-──────────────────────────(E[is_canceled|booking_changes,guests,hotel,total_st
+──────────────────────────(E[is_canceled|booking_changes,lead_time,required_ca
 d[different_room_assigned]
 
 
-ay,total_of_special_requests,is_repeated_guest,required_car_parking_spaces,lea
+r_parking_spaces,guests,total_stay,total_of_special_requests,is_repeated_guest
 
 
 
-d_time,days_in_waiting_list])
+,hotel,days_in_waiting_list])
 
-Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,booking_changes,guests,hotel,total_stay,total_of_special_requests,is_repeated_guest,required_car_parking_spaces,lead_time,days_in_waiting_list,U) = P(is_canceled|different_room_assigned,booking_changes,guests,hotel,total_stay,total_of_special_requests,is_repeated_guest,required_car_parking_spaces,lead_time,days_in_waiting_list)
+Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,booking_changes,lead_time,required_car_parking_spaces,guests,total_stay,total_of_special_requests,is_repeated_guest,hotel,days_in_waiting_list,U) = P(is_canceled|different_room_assigned,booking_changes,lead_time,required_car_parking_spaces,guests,total_stay,total_of_special_requests,is_repeated_guest,hotel,days_in_waiting_list)
 
 ## Realized estimand
-b: is_canceled~different_room_assigned+booking_changes+guests+hotel+total_stay+total_of_special_requests+is_repeated_guest+required_car_parking_spaces+lead_time+days_in_waiting_list
+b: is_canceled~different_room_assigned+booking_changes+lead_time+required_car_parking_spaces+guests+total_stay+total_of_special_requests+is_repeated_guest+hotel+days_in_waiting_list
 Target units: ate
 
 ## Estimate
-Mean value: -0.26210947354494535
+Mean value: -0.262079831193776
 
 </pre></div></div>
 </div>
@@ -1428,9 +1423,9 @@ Mean value: -0.26210947354494535
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:-0.26210947354494535
-New effect:-0.2622204691597517
-p value:0.16000000000000003
+Estimated effect:-0.262079831193776
+New effect:-0.2622147477125127
+p value:0.15999999999999992
 
 </pre></div></div>
 </div>
@@ -1454,9 +1449,9 @@ p value:0.16000000000000003
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:-0.26210947354494535
-New effect:-0.0002046512031729719
-p value:0.49
+Estimated effect:-0.262079831193776
+New effect:-0.0002169216023266346
+p value:0.9199999999999999
 
 </pre></div></div>
 </div>
@@ -1480,9 +1475,9 @@ p value:0.49
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:-0.26210947354494535
-New effect:-0.26210898665330795
-p value:0.48
+Estimated effect:-0.262079831193776
+New effect:-0.26211262136773267
+p value:0.8999999999999999
 
 </pre></div></div>
 </div>
@@ -1496,7 +1491,7 @@ p value:0.48
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="dowhy_example_effect_of_memberrewards_program.html" class="btn btn-neutral float-left" title="Estimating the effect of a Member Rewards program" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../gcm/index.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../contributing/index.html" class="btn btn-neutral float-right" title="Contributing to DoWhy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -1525,6 +1520,14 @@ p value:0.48
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="../../v0.7.1/index.html">v0.7.1</a></dd>
         </dl>
         <dl>

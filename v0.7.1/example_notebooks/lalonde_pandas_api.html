@@ -682,88 +682,88 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>17</td>
-      <td>10</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1442.68</td>
-      <td>1734.560</td>
-      <td>6354.190</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.741759</td>
-      <td>1.348146</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>46</td>
-      <td>13</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0.000</td>
-      <td>647.205</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0.561076</td>
-      <td>1.782290</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>28</td>
-      <td>12</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>803.343</td>
-      <td>16477.000</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.416132</td>
-      <td>2.403086</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>29</td>
+      <td>18</td>
       <td>8</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.00</td>
-      <td>0.000</td>
-      <td>0.000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.386959</td>
+      <td>2.584253</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>27</td>
+      <td>11</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>7506.15</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.365472</td>
+      <td>2.736190</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>26</td>
+      <td>11</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>7176.19</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td>0.595413</td>
-      <td>1.679506</td>
+      <td>0.636081</td>
+      <td>1.572128</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>24</td>
+      <td>4</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3880.83</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.669186</td>
+      <td>1.494352</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>18</td>
-      <td>9</td>
+      <td>24</td>
+      <td>11</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>0.00</td>
-      <td>0.000</td>
-      <td>0.000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>995.70</td>
       <td>1</td>
       <td>1</td>
-      <td>0</td>
-      <td>0.624982</td>
-      <td>1.600045</td>
+      <td>1</td>
+      <td>0.360823</td>
+      <td>2.771442</td>
     </tr>
   </tbody>
 </table>
@@ -804,7 +804,7 @@ $\displaystyle 1794.34308487526$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1012.03205853283$</div></div>
+$\displaystyle 2372.31830919484$</div></div>
 </div>
 <p>We could get some rough error bars on the outcome using the normal approximation for a 95% confidence interval, like</p>
 <div class="nbinput docutils container">
@@ -823,7 +823,7 @@ $\displaystyle 1012.03205853283$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1130.22957168777$</div></div>
+$\displaystyle 1149.54271485017$</div></div>
 </div>
 <p>but note that these DO NOT contain propensity score estimation error. For that, a bootstrapping procedure might be more appropriate.</p>
 <p>This is just one statistic we can compute from the interventional distribution of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can get all of the interventional moments as well, including functions of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can leverage the full power of pandas, like</p>
@@ -842,13 +842,13 @@ $\displaystyle 1130.22957168777$</div></div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 count      445.000000
-mean      5245.446016
-std       6063.268025
+mean      5036.457730
+std       6297.231597
 min          0.000000
 25%          0.000000
-50%       3595.890000
-75%       8190.420000
-max      39483.500000
+50%       3194.010000
+75%       7693.400000
+max      36647.000000
 Name: re78, dtype: float64
 </pre></div></div>
 </div>
@@ -1003,88 +1003,88 @@ Name: re78, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>28</td>
-      <td>11</td>
-      <td>1</td>
-      <td>0</td>
+      <td>20</td>
+      <td>9</td>
       <td>0</td>
       <td>1</td>
-      <td>1929.03</td>
-      <td>6871.860</td>
-      <td>0.00</td>
+      <td>0</td>
+      <td>1</td>
+      <td>12260.8</td>
+      <td>5875.05</td>
+      <td>1358.640</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>0.367048</td>
-      <td>2.724439</td>
+      <td>0.272011</td>
+      <td>3.676325</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>17</td>
-      <td>9</td>
-      <td>1</td>
-      <td>0</td>
+      <td>29</td>
+      <td>10</td>
       <td>0</td>
       <td>1</td>
-      <td>0.00</td>
-      <td>0.000</td>
-      <td>0.00</td>
+      <td>0</td>
       <td>1</td>
+      <td>0.0</td>
+      <td>8853.67</td>
+      <td>5112.010</td>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
-      <td>0.373447</td>
-      <td>2.677754</td>
+      <td>0.273931</td>
+      <td>3.650558</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>21</td>
-      <td>12</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>3670.87</td>
-      <td>334.049</td>
-      <td>12558.00</td>
-      <td>0</td>
+      <td>26</td>
+      <td>11</td>
+      <td>1</td>
       <td>0</td>
       <td>1</td>
-      <td>0.572421</td>
-      <td>1.746966</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>2754.65</td>
+      <td>26372.300</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.413818</td>
+      <td>2.416522</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>18</td>
-      <td>12</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0.000</td>
-      <td>2321.11</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0.527069</td>
-      <td>1.897285</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>41</td>
+      <td>29</td>
       <td>4</td>
       <td>1</td>
       <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
+      <td>0.0</td>
       <td>0.00</td>
-      <td>0.000</td>
-      <td>7284.99</td>
+      <td>762.915</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>0.526626</td>
-      <td>1.898879</td>
+      <td>0.454154</td>
+      <td>2.201897</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17</td>
+      <td>10</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>16218.000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.361683</td>
+      <td>2.764854</td>
     </tr>
   </tbody>
 </table>
@@ -1190,6 +1190,14 @@ do(x, method=&#39;weighting&#39;, num_cores=1, variable_types={}, outcome=None, 
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="lalonde_pandas_api.html">v0.7.1</a></dd>
         </dl>
         <dl>

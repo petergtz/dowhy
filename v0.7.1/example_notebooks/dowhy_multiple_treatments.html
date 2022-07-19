@@ -480,63 +480,63 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.831101</td>
-      <td>-1.572675</td>
-      <td>-1.645484</td>
-      <td>-1.252540</td>
-      <td>1</td>
-      <td>3</td>
-      <td>-4.857868</td>
-      <td>9.282456</td>
-      <td>351.819875</td>
+      <td>-0.852847</td>
+      <td>0.303969</td>
+      <td>2.792873</td>
+      <td>-0.604617</td>
+      <td>2</td>
+      <td>0</td>
+      <td>17.290339</td>
+      <td>19.671967</td>
+      <td>252.926994</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.145671</td>
-      <td>-0.238214</td>
-      <td>0.416713</td>
-      <td>2.395070</td>
-      <td>2</td>
+      <td>-0.118773</td>
+      <td>-0.392881</td>
+      <td>0.557175</td>
+      <td>0.696514</td>
       <td>0</td>
-      <td>9.475842</td>
-      <td>15.593247</td>
-      <td>113.215809</td>
+      <td>1</td>
+      <td>3.282155</td>
+      <td>5.611560</td>
+      <td>77.599309</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.763231</td>
-      <td>-0.635544</td>
-      <td>-0.030392</td>
-      <td>1.108645</td>
-      <td>2</td>
+      <td>-0.790794</td>
+      <td>-1.153121</td>
+      <td>0.089282</td>
+      <td>2.271046</td>
       <td>0</td>
-      <td>3.740148</td>
-      <td>11.205905</td>
-      <td>38.239830</td>
+      <td>2</td>
+      <td>6.990994</td>
+      <td>11.829151</td>
+      <td>-100.555600</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.746411</td>
-      <td>-0.717951</td>
-      <td>-1.066080</td>
-      <td>-0.872450</td>
+      <td>-0.661957</td>
+      <td>0.133859</td>
+      <td>0.299408</td>
+      <td>-1.324778</td>
       <td>3</td>
-      <td>3</td>
-      <td>-1.248419</td>
-      <td>16.556969</td>
-      <td>225.157665</td>
+      <td>1</td>
+      <td>14.139402</td>
+      <td>13.817588</td>
+      <td>190.287165</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.157412</td>
-      <td>0.010182</td>
-      <td>1.252431</td>
-      <td>2.186662</td>
-      <td>0</td>
-      <td>2</td>
-      <td>10.565695</td>
-      <td>9.904151</td>
-      <td>234.515073</td>
+      <td>-0.487052</td>
+      <td>1.469174</td>
+      <td>1.505081</td>
+      <td>-0.993303</td>
+      <td>3</td>
+      <td>1</td>
+      <td>19.343027</td>
+      <td>22.357459</td>
+      <td>1628.392408</td>
     </tr>
   </tbody>
 </table>
@@ -589,9 +589,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W1,W0,W2])
+─────────(E[y|W3,W1,W2,W0])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W1,W0,W2,U) = P(y|v0,v1,W3,W1,W0,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W1,W2,W0,U) = P(y|v0,v1,W3,W1,W2,W0)
 
 ### Estimand : 2
 Estimand name: iv
@@ -636,16 +636,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W1,W0,W2])
+─────────(E[y|W3,W1,W2,W0])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W1,W0,W2,U) = P(y|v0,v1,W3,W1,W0,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W1,W2,W0,U) = P(y|v0,v1,W3,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+v1+W3+W1+W0+W2+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W3+W1+W2+W0+v0*X0+v0*X1+v1*X0+v1*X1
 Target units: ate
 
 ## Estimate
-Mean value: -1.5569257094441014
+Mean value: -5.680028593795839
 
 </pre></div></div>
 </div>
@@ -678,43 +678,43 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W1,W0,W2])
+─────────(E[y|W3,W1,W2,W0])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W1,W0,W2,U) = P(y|v0,v1,W3,W1,W0,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W1,W2,W0,U) = P(y|v0,v1,W3,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+v1+W3+W1+W0+W2+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W3+W1+W2+W0+v0*X0+v0*X1+v1*X0+v1*X1
 Target units: ate
 
 ## Estimate
-Mean value: -1.5569257094441014
+Mean value: -5.680028593795839
 ### Conditional Estimates
-__categorical__X0   __categorical__X1
-(-4.367, -1.701]    (-4.509, -1.179]    -87.166016
-                    (-1.179, -0.585]    -35.304115
-                    (-0.585, -0.0734]    -4.256338
-                    (-0.0734, 0.509]     27.327770
-                    (0.509, 3.729]       77.233795
-(-1.701, -1.123]    (-4.509, -1.179]    -84.511760
-                    (-1.179, -0.585]    -34.056194
-                    (-0.585, -0.0734]    -2.816923
-                    (-0.0734, 0.509]     28.653453
-                    (0.509, 3.729]       79.059568
-(-1.123, -0.612]    (-4.509, -1.179]    -85.235610
-                    (-1.179, -0.585]    -34.089616
-                    (-0.585, -0.0734]    -1.241324
-                    (-0.0734, 0.509]     30.185683
-                    (0.509, 3.729]       81.596583
-(-0.612, -0.00163]  (-4.509, -1.179]    -84.312670
-                    (-1.179, -0.585]    -31.180255
-                    (-0.585, -0.0734]    -0.774571
-                    (-0.0734, 0.509]     31.614736
-                    (0.509, 3.729]       84.324608
-(-0.00163, 3.06]    (-4.509, -1.179]    -82.492112
-                    (-1.179, -0.585]    -29.524382
-                    (-0.585, -0.0734]     1.615645
-                    (-0.0734, 0.509]     33.053293
-                    (0.509, 3.729]       83.393899
+__categorical__X0             __categorical__X1
+(-4.6370000000000005, -1.79]  (-3.525, -0.807]    -94.418215
+                              (-0.807, -0.188]    -58.689774
+                              (-0.188, 0.333]     -36.547039
+                              (0.333, 0.906]      -15.047846
+                              (0.906, 3.84]        20.125143
+(-1.79, -1.214]               (-3.525, -0.807]    -73.771950
+                              (-0.807, -0.188]    -39.036012
+                              (-0.188, 0.333]     -17.412582
+                              (0.333, 0.906]        4.753173
+                              (0.906, 3.84]        38.068654
+(-1.214, -0.712]              (-3.525, -0.807]    -62.202451
+                              (-0.807, -0.188]    -27.162508
+                              (-0.188, 0.333]      -5.007042
+                              (0.333, 0.906]       16.477662
+                              (0.906, 3.84]        49.535653
+(-0.712, -0.106]              (-3.525, -0.807]    -51.159568
+                              (-0.807, -0.188]    -15.571454
+                              (-0.188, 0.333]       6.683680
+                              (0.333, 0.906]       28.340686
+                              (0.906, 3.84]        63.446964
+(-0.106, 2.468]               (-3.525, -0.807]    -31.866501
+                              (-0.807, -0.188]      3.924196
+                              (-0.188, 0.333]      26.607503
+                              (0.333, 0.906]       47.086114
+                              (0.906, 3.84]        80.947368
 dtype: float64
 </pre></div></div>
 </div>
@@ -760,6 +760,14 @@ dtype: float64
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="dowhy_multiple_treatments.html">v0.7.1</a></dd>
         </dl>
         <dl>

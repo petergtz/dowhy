@@ -586,7 +586,7 @@ Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome incom
 Target units: ate
 
 ## Estimate
-Mean value: 4.043431556746492
+Mean value: 4.142171890767333
 p-value: [0, 0.001]
 
 </pre></div></div>
@@ -609,9 +609,9 @@ p-value: [0, 0.001]
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:4.043431556746492
-New effect:0.04245763526583778
-p value:0.48
+Estimated effect:4.142171890767333
+New effect:-0.020605033550528406
+p value:0.96
 
 </pre></div></div>
 </div>
@@ -638,22 +638,22 @@ p value:0.48
 <table class="simpletable">
 <caption>IV2SLS Regression Results</caption>
 <tr>
-  <th>Dep. Variable:</th>         <td>income</td>      <th>  R-squared:         </th> <td>   0.897</td>
+  <th>Dep. Variable:</th>         <td>income</td>      <th>  R-squared:         </th> <td>   0.905</td>
 </tr>
 <tr>
-  <th>Model:</th>                 <td>IV2SLS</td>      <th>  Adj. R-squared:    </th> <td>   0.897</td>
+  <th>Model:</th>                 <td>IV2SLS</td>      <th>  Adj. R-squared:    </th> <td>   0.905</td>
 </tr>
 <tr>
-  <th>Method:</th>               <td>Two Stage</td>    <th>  F-statistic:       </th> <td>   1484.</td>
+  <th>Method:</th>               <td>Two Stage</td>    <th>  F-statistic:       </th> <td>   2213.</td>
 </tr>
 <tr>
-  <th></th>                    <td>Least Squares</td>  <th>  Prob (F-statistic):</th> <td>1.08e-199</td>
+  <th></th>                    <td>Least Squares</td>  <th>  Prob (F-statistic):</th> <td>1.80e-255</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 15 Jul 2022</td> <th>                     </th>     <td> </td>
+  <th>Date:</th>             <td>Tue, 19 Jul 2022</td> <th>                     </th>     <td> </td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>16:23:34</td>     <th>                     </th>     <td> </td>
+  <th>Time:</th>                 <td>21:18:47</td>     <th>                     </th>     <td> </td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1000</td>      <th>                     </th>     <td> </td>
@@ -670,24 +670,24 @@ p value:0.48
       <td></td>         <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
 </tr>
 <tr>
-  <th>Intercept</th> <td>    9.6581</td> <td>    0.964</td> <td>   10.014</td> <td> 0.000</td> <td>    7.766</td> <td>   11.551</td>
+  <th>Intercept</th> <td>    8.9639</td> <td>    0.833</td> <td>   10.757</td> <td> 0.000</td> <td>    7.329</td> <td>   10.599</td>
 </tr>
 <tr>
-  <th>education</th> <td>    4.0434</td> <td>    0.105</td> <td>   38.529</td> <td> 0.000</td> <td>    3.837</td> <td>    4.249</td>
+  <th>education</th> <td>    4.1422</td> <td>    0.088</td> <td>   47.039</td> <td> 0.000</td> <td>    3.969</td> <td>    4.315</td>
 </tr>
 </table>
 <table class="simpletable">
 <tr>
-  <th>Omnibus:</th>       <td> 0.419</td> <th>  Durbin-Watson:     </th> <td>   1.985</td>
+  <th>Omnibus:</th>       <td> 2.216</td> <th>  Durbin-Watson:     </th> <td>   2.016</td>
 </tr>
 <tr>
-  <th>Prob(Omnibus):</th> <td> 0.811</td> <th>  Jarque-Bera (JB):  </th> <td>   0.303</td>
+  <th>Prob(Omnibus):</th> <td> 0.330</td> <th>  Jarque-Bera (JB):  </th> <td>   2.076</td>
 </tr>
 <tr>
-  <th>Skew:</th>          <td> 0.006</td> <th>  Prob(JB):          </th> <td>   0.859</td>
+  <th>Skew:</th>          <td> 0.101</td> <th>  Prob(JB):          </th> <td>   0.354</td>
 </tr>
 <tr>
-  <th>Kurtosis:</th>      <td> 3.084</td> <th>  Cond. No.          </th> <td>    24.9</td>
+  <th>Kurtosis:</th>      <td> 3.096</td> <th>  Cond. No.          </th> <td>    26.3</td>
 </tr>
 </table></div>
 </div>
@@ -728,6 +728,14 @@ p value:0.48
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="dowhy-simple-iv-example.html">v0.7.1</a></dd>
         </dl>
         <dl>

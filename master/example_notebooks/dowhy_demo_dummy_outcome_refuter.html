@@ -55,7 +55,8 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="nb_index.html">Example notebooks</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
@@ -66,6 +67,7 @@
 <li class="toctree-l2"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
@@ -86,6 +88,10 @@
 <li class="toctree-l2"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_supply_chain_dist_change.html">Root causes of changes in a supply chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">Counterfactual analysis in a medical case using a GCM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_401k_analysis.html">Impact of 401(k) eligibility on net financial assets</a></li>
 </ul>
 </li>
 </ul>
@@ -94,12 +100,6 @@
 <li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -544,42 +544,42 @@ keywords are unexpanded, not using
     <tr>
       <th>0</th>
       <td>0.0</td>
-      <td>1.109197</td>
-      <td>-1.819551</td>
-      <td>-8.579648</td>
-      <td>-80.505149</td>
+      <td>-0.670212</td>
+      <td>1.451556</td>
+      <td>0.699976</td>
+      <td>5.196390</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.0</td>
-      <td>-0.895341</td>
-      <td>-0.521416</td>
-      <td>-1.255617</td>
-      <td>-17.385905</td>
+      <td>1.251011</td>
+      <td>2.325954</td>
+      <td>13.288219</td>
+      <td>137.158100</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.0</td>
-      <td>0.981779</td>
-      <td>-0.884612</td>
-      <td>-1.348503</td>
-      <td>-8.571225</td>
+      <td>1.0</td>
+      <td>0.337073</td>
+      <td>0.352857</td>
+      <td>13.325380</td>
+      <td>134.358466</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1.0</td>
-      <td>0.539495</td>
-      <td>0.462537</td>
-      <td>13.224386</td>
-      <td>135.216825</td>
+      <td>1.695894</td>
+      <td>-0.274758</td>
+      <td>18.133349</td>
+      <td>186.551171</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1.0</td>
-      <td>-1.379067</td>
-      <td>0.448649</td>
-      <td>12.101515</td>
-      <td>113.924721</td>
+      <td>1.451630</td>
+      <td>0.785431</td>
+      <td>21.607214</td>
+      <td>220.708734</td>
     </tr>
   </tbody>
 </table>
@@ -705,7 +705,7 @@ Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome y is 
 Target units: ate
 
 ## Estimate
-Mean value: 9.994616880897661
+Mean value: 10.002469744725413
 
 </pre></div></div>
 </div>
@@ -734,8 +734,8 @@ Mean value: 9.994616880897661
 <div class="highlight"><pre>
 Refute: Use a Dummy Outcome
 Estimated effect:0
-New effect:-8.712950668677731e-07
-p value:0.48
+New effect:2.9007782696037094e-05
+p value:0.94
 
 </pre></div></div>
 </div>
@@ -779,8 +779,8 @@ p value:0.48
 <div class="highlight"><pre>
 Refute: Use a Dummy Outcome
 Estimated effect:0
-New effect:1.0360193200443491e-05
-p value:0.48
+New effect:-2.367144481771673e-05
+p value:0.98
 
 </pre></div></div>
 </div>
@@ -822,6 +822,14 @@ p value:0.48
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="../../v0.7.1/index.html">v0.7.1</a></dd>
         </dl>
         <dl>

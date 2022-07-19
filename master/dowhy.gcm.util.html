@@ -53,7 +53,8 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_notebooks/nb_index.html">Example notebooks</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
@@ -61,12 +62,6 @@
 <li class="toctree-l1"><a class="reference internal" href="example_notebooks/tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_notebooks/dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example_notebooks/DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example_notebooks/rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -86,17 +81,29 @@
 <li class="toctree-l3 current"><a class="reference internal" href="dowhy.gcm.html">dowhy.gcm package</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="dowhy.gcm.html#subpackages">Subpackages</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.anomaly">dowhy.gcm.anomaly module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.anomaly_scorer">dowhy.gcm.anomaly_scorer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.anomaly_scorers">dowhy.gcm.anomaly_scorers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.auto">dowhy.gcm.auto module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.cms">dowhy.gcm.cms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.confidence_intervals">dowhy.gcm.confidence_intervals module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.confidence_intervals_cms">dowhy.gcm.confidence_intervals_cms module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.config">dowhy.gcm.config module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.constant">dowhy.gcm.constant module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.density_estimator">dowhy.gcm.density_estimator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.density_estimators">dowhy.gcm.density_estimators module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.distribution_change">dowhy.gcm.distribution_change module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.divergence">dowhy.gcm.divergence module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.fcms">dowhy.gcm.fcms module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.feature">dowhy.gcm.feature module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.fitting_sampling">dowhy.gcm.fitting_sampling module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.graph">dowhy.gcm.graph module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.influence">dowhy.gcm.influence module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.shapley">dowhy.gcm.shapley module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.stats">dowhy.gcm.stats module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.stochastic_models">dowhy.gcm.stochastic_models module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.uncertainty">dowhy.gcm.uncertainty module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.validation">dowhy.gcm.validation module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm.whatif">dowhy.gcm.whatif module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dowhy.gcm.html#module-dowhy.gcm">Module contents</a></li>
 </ul>
@@ -296,6 +303,45 @@ modified and returned as it is.</p>
 <dd></dd></dl>
 
 </section>
+<section id="module-dowhy.gcm.util.plotting">
+<span id="dowhy-gcm-util-plotting-module"></span><h2>dowhy.gcm.util.plotting module<a class="headerlink" href="#module-dowhy.gcm.util.plotting" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="dowhy.gcm.util.plotting.plot">
+<span class="sig-prename descclassname"><span class="pre">dowhy.gcm.util.plotting.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">causal_graph</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">causal_strengths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_plot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figure_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dowhy/gcm/util/plotting.html#plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.gcm.util.plotting.plot" title="Permalink to this definition"></a></dt>
+<dd><p>Convenience function to plot causal graphs. This function uses different backends based on what’s
+available on the system. The best result is achieved when using Graphviz as the backend. This requires both
+the Python pygraphviz package (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pygraphviz</span></code>) and the shared system library (e.g. <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span>
+<span class="pre">graphviz</span></code> or <code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">graphviz</span></code>). When graphviz is not available, it will fall back to the
+networkx backend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>causal_graph</strong> – The graph to be plotted</p></li>
+<li><p><strong>causal_strengths</strong> – An optional dictionary with Edge -&gt; float entries.</p></li>
+<li><p><strong>filename</strong> – An optional filename if the output should be plotted into a file.</p></li>
+<li><p><strong>display_plot</strong> – Optionally specify if the plot should be displayed or not (default to True).</p></li>
+<li><p><strong>figure_size</strong> – A tuple to define the width and height (as a tuple) of the pyplot. This is used to parameter to
+modify pyplot’s ‘figure.figsize’ parameter. If None is given, the current/default value is used.</p></li>
+<li><p><strong>kwargs</strong> – Remaining parameters will be passed through to the backend verbatim.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example usage</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">([(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)]))</span> <span class="c1"># plots X -&gt; Y</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">([(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">)]),</span> <span class="n">causal_strengths</span><span class="o">=</span><span class="p">{(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">):</span> <span class="mf">0.43</span><span class="p">})</span> <span class="c1"># annotates arrow with 0.43</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dowhy.gcm.util.plotting.plot_adjacency_matrix">
+<span class="sig-prename descclassname"><span class="pre">dowhy.gcm.util.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_adjacency_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adjacency_matrix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_directed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_plot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/dowhy/gcm/util/plotting.html#plot_adjacency_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.gcm.util.plotting.plot_adjacency_matrix" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-dowhy.gcm.util.pygraphviz">
+<span id="dowhy-gcm-util-pygraphviz-module"></span><h2>dowhy.gcm.util.pygraphviz module<a class="headerlink" href="#module-dowhy.gcm.util.pygraphviz" title="Permalink to this heading"></a></h2>
+</section>
 <section id="module-dowhy.gcm.util">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-dowhy.gcm.util" title="Permalink to this heading"></a></h2>
 </section>
@@ -335,6 +381,14 @@ modified and returned as it is.</p>
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../v0.7/index.html">v0.7</a></dd>
             <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
         </dl>
         <dl>

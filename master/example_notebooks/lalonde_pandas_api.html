@@ -55,7 +55,8 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="nb_index.html">Example notebooks</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
@@ -66,6 +67,7 @@
 <li class="toctree-l2"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
@@ -83,6 +85,10 @@
 <li class="toctree-l2"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_supply_chain_dist_change.html">Root causes of changes in a supply chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">Counterfactual analysis in a medical case using a GCM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_401k_analysis.html">Impact of 401(k) eligibility on net financial assets</a></li>
 </ul>
 </li>
 </ul>
@@ -91,12 +97,6 @@
 <li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -691,88 +691,88 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>18</td>
-      <td>11</td>
-      <td>1</td>
-      <td>0</td>
+      <td>17</td>
+      <td>10</td>
       <td>0</td>
       <td>1</td>
-      <td>1064.7</td>
-      <td>645.272</td>
-      <td>5497.59</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4905.12</td>
+      <td>1168.9</td>
+      <td>11306.30</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0.648385</td>
-      <td>1.542294</td>
+      <td>0.741760</td>
+      <td>1.348146</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>21</td>
-      <td>12</td>
+      <td>18</td>
+      <td>9</td>
+      <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>1</td>
+      <td>0.00</td>
       <td>0.0</td>
-      <td>0.000</td>
-      <td>8048.60</td>
+      <td>4482.85</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>0.572414</td>
-      <td>1.746989</td>
+      <td>0.375018</td>
+      <td>2.666541</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>23</td>
-      <td>8</td>
-      <td>0</td>
+      <td>27</td>
+      <td>13</td>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.00</td>
       <td>0.0</td>
-      <td>0.000</td>
-      <td>3881.28</td>
+      <td>14581.90</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>0.286243</td>
-      <td>3.493537</td>
+      <td>0.529497</td>
+      <td>1.888583</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>26</td>
-      <td>12</td>
+      <td>23</td>
+      <td>10</td>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
       <td>0</td>
+      <td>1</td>
+      <td>0.00</td>
       <td>0.0</td>
-      <td>0.000</td>
-      <td>6191.94</td>
+      <td>0.00</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td>0.408037</td>
-      <td>2.450761</td>
+      <td>0.628976</td>
+      <td>1.589886</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>27</td>
+      <td>38</td>
       <td>12</td>
-      <td>1</td>
       <td>0</td>
-      <td>1</td>
       <td>0</td>
-      <td>0.0</td>
-      <td>752.390</td>
+      <td>0</td>
+      <td>0</td>
       <td>0.00</td>
+      <td>0.0</td>
+      <td>4941.85</td>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.406418</td>
-      <td>2.460523</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.600063</td>
+      <td>1.666492</td>
     </tr>
   </tbody>
 </table>
@@ -813,7 +813,7 @@ $\displaystyle 1794.34308487526$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1747.55083132383$</div></div>
+$\displaystyle 2342.56466713852$</div></div>
 </div>
 <p>We could get some rough error bars on the outcome using the normal approximation for a 95% confidence interval, like</p>
 <div class="nbinput docutils container">
@@ -832,7 +832,7 @@ $\displaystyle 1747.55083132383$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1349.49895208244$</div></div>
+$\displaystyle 1233.30689365817$</div></div>
 </div>
 <p>but note that these DO NOT contain propensity score estimation error. For that, a bootstrapping procedure might be more appropriate.</p>
 <p>This is just one statistic we can compute from the interventional distribution of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can get all of the interventional moments as well, including functions of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can leverage the full power of pandas, like</p>
@@ -851,12 +851,12 @@ $\displaystyle 1349.49895208244$</div></div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 count      445.000000
-mean      5140.948265
-std       7518.692614
+mean      5345.195998
+std       6835.849616
 min          0.000000
 25%          0.000000
-50%       3094.160000
-75%       7506.150000
+50%       3931.240000
+75%       7565.270000
 max      60307.900000
 Name: re78, dtype: float64
 </pre></div></div>
@@ -1012,88 +1012,88 @@ Name: re78, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>24</td>
-      <td>11</td>
+      <td>27</td>
+      <td>9</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
-      <td>824.389</td>
-      <td>1666.11</td>
-      <td>4032.71</td>
-      <td>0</td>
+      <td>0.000</td>
+      <td>934.445</td>
+      <td>1773.42</td>
+      <td>1</td>
       <td>0</td>
       <td>1</td>
-      <td>0.410569</td>
-      <td>2.435645</td>
+      <td>0.440217</td>
+      <td>2.271607</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>18</td>
-      <td>6</td>
+      <td>19</td>
+      <td>10</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>0.000</td>
-      <td>0.00</td>
-      <td>0.00</td>
+      <td>0.000</td>
+      <td>3228.50</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>0.411185</td>
-      <td>2.431993</td>
+      <td>0.364787</td>
+      <td>2.741328</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>33</td>
-      <td>12</td>
-      <td>1</td>
+      <td>26</td>
+      <td>11</td>
       <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20280.000</td>
-      <td>10941.40</td>
-      <td>15952.60</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>0.603252</td>
-      <td>1.657682</td>
+      <td>0.000</td>
+      <td>2226.270</td>
+      <td>13385.90</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.402496</td>
+      <td>2.484496</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>18</td>
-      <td>11</td>
+      <td>20</td>
+      <td>12</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
-      <td>0.000</td>
+      <td>0</td>
+      <td>989.268</td>
+      <td>165.208</td>
       <td>0.00</td>
-      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0.351615</td>
-      <td>2.844020</td>
+      <td>0.530411</td>
+      <td>1.885332</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>23</td>
-      <td>8</td>
+      <td>31</td>
+      <td>12</td>
       <td>0</td>
-      <td>1</td>
       <td>0</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>0.000</td>
-      <td>0.00</td>
-      <td>3881.28</td>
+      <td>2611.220</td>
+      <td>2484.55</td>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>0.286243</td>
-      <td>3.493537</td>
+      <td>0.588747</td>
+      <td>1.698521</td>
     </tr>
   </tbody>
 </table>
@@ -1199,6 +1199,14 @@ do(x, method=&#39;weighting&#39;, num_cores=1, variable_types={}, outcome=None, 
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="../../v0.7.1/index.html">v0.7.1</a></dd>
         </dl>
         <dl>

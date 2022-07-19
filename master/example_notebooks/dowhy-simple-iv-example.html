@@ -55,7 +55,8 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="nb_index.html">Example notebooks</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
@@ -70,6 +71,7 @@
 <li class="toctree-l2"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
@@ -80,6 +82,10 @@
 <li class="toctree-l2"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
 <li class="toctree-l2"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_supply_chain_dist_change.html">Root causes of changes in a supply chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">Counterfactual analysis in a medical case using a GCM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_401k_analysis.html">Impact of 401(k) eligibility on net financial assets</a></li>
 </ul>
 </li>
 </ul>
@@ -88,12 +94,6 @@
 <li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -595,7 +595,7 @@ Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome incom
 Target units: ate
 
 ## Estimate
-Mean value: 3.917861259668064
+Mean value: 3.8719198135996575
 p-value: [0, 0.001]
 
 </pre></div></div>
@@ -618,9 +618,9 @@ p-value: [0, 0.001]
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:3.917861259668064
-New effect:0.003978533763358715
-p value:0.43
+Estimated effect:3.8719198135996575
+New effect:-0.013380160469622817
+p value:0.96
 
 </pre></div></div>
 </div>
@@ -647,22 +647,22 @@ p value:0.43
 <table class="simpletable">
 <caption>IV2SLS Regression Results</caption>
 <tr>
-  <th>Dep. Variable:</th>         <td>income</td>      <th>  R-squared:         </th> <td>   0.879</td>
+  <th>Dep. Variable:</th>         <td>income</td>      <th>  R-squared:         </th> <td>   0.875</td>
 </tr>
 <tr>
-  <th>Model:</th>                 <td>IV2SLS</td>      <th>  Adj. R-squared:    </th> <td>   0.879</td>
+  <th>Model:</th>                 <td>IV2SLS</td>      <th>  Adj. R-squared:    </th> <td>   0.875</td>
 </tr>
 <tr>
-  <th>Method:</th>               <td>Two Stage</td>    <th>  F-statistic:       </th> <td>   1222.</td>
+  <th>Method:</th>               <td>Two Stage</td>    <th>  F-statistic:       </th> <td>   1258.</td>
 </tr>
 <tr>
-  <th></th>                    <td>Least Squares</td>  <th>  Prob (F-statistic):</th> <td>1.86e-175</td>
+  <th></th>                    <td>Least Squares</td>  <th>  Prob (F-statistic):</th> <td>6.33e-179</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 15 Jul 2022</td> <th>                     </th>     <td> </td>
+  <th>Date:</th>             <td>Tue, 19 Jul 2022</td> <th>                     </th>     <td> </td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>15:47:25</td>     <th>                     </th>     <td> </td>
+  <th>Time:</th>                 <td>20:29:19</td>     <th>                     </th>     <td> </td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>  1000</td>      <th>                     </th>     <td> </td>
@@ -679,24 +679,24 @@ p value:0.43
       <td></td>         <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
 </tr>
 <tr>
-  <th>Intercept</th> <td>   10.5665</td> <td>    1.026</td> <td>   10.297</td> <td> 0.000</td> <td>    8.553</td> <td>   12.580</td>
+  <th>Intercept</th> <td>   11.1788</td> <td>    1.000</td> <td>   11.182</td> <td> 0.000</td> <td>    9.217</td> <td>   13.141</td>
 </tr>
 <tr>
-  <th>education</th> <td>    3.9179</td> <td>    0.112</td> <td>   34.957</td> <td> 0.000</td> <td>    3.698</td> <td>    4.138</td>
+  <th>education</th> <td>    3.8719</td> <td>    0.109</td> <td>   35.465</td> <td> 0.000</td> <td>    3.658</td> <td>    4.086</td>
 </tr>
 </table>
 <table class="simpletable">
 <tr>
-  <th>Omnibus:</th>       <td> 5.022</td> <th>  Durbin-Watson:     </th> <td>   2.029</td>
+  <th>Omnibus:</th>       <td> 0.813</td> <th>  Durbin-Watson:     </th> <td>   2.081</td>
 </tr>
 <tr>
-  <th>Prob(Omnibus):</th> <td> 0.081</td> <th>  Jarque-Bera (JB):  </th> <td>   5.944</td>
+  <th>Prob(Omnibus):</th> <td> 0.666</td> <th>  Jarque-Bera (JB):  </th> <td>   0.894</td>
 </tr>
 <tr>
-  <th>Skew:</th>          <td> 0.054</td> <th>  Prob(JB):          </th> <td>  0.0512</td>
+  <th>Skew:</th>          <td> 0.057</td> <th>  Prob(JB):          </th> <td>   0.640</td>
 </tr>
 <tr>
-  <th>Kurtosis:</th>      <td> 3.362</td> <th>  Cond. No.          </th> <td>    25.8</td>
+  <th>Kurtosis:</th>      <td> 2.908</td> <th>  Cond. No.          </th> <td>    25.4</td>
 </tr>
 </table></div>
 </div>
@@ -737,6 +737,14 @@ p value:0.43
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="../../v0.7.1/index.html">v0.7.1</a></dd>
         </dl>
         <dl>

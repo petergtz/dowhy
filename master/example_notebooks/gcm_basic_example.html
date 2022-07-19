@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Root cause analysis (RCA) of latencies in a microservice architecture" href="rca_microservice_architecture.html" />
-    <link rel="prev" title="Independence Tests" href="../gcm/user_guide/independence_tests.html" /> 
+    <link rel="next" title="DoWhy example on ihdp (Infant Health and Development Program) dataset" href="dowhy_ihdp_data_example.html" />
+    <link rel="prev" title="Do-sampler Introduction" href="do_sampler_demo.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -53,27 +53,48 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/cite.html">Citing this package</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/four_steps_causality.html">Effect inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nb_index.html">Example notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="nb_index.html">Example notebooks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_estimation_methods.html">DoWhy: Different estimation methods for causal inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph_conditional_independence_refuter.html">Testing Assumptions in model with DoWhy: A simple example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy-simple-iv-example.html">Simple example on using Instrumental Variables method for estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load_graph_example.html">Different ways to load an input graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_causal_api.html">Demo for the DoWhy causal API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basic Example for GCM-Based Inference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Step-1:-Modeling-cause-effect-relationships-as-a-structural-causal-model-(SCM)">Step 1: Modeling cause-effect relationships as a structural causal model (SCM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-2:-Fitting-the-SCM-to-the-data">Step 2: Fitting the SCM to the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Step-3:-Answering-a-causal-query-based-on-the-SCM">Step 3: Answering a causal query based on the SCM</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lalonde_pandas_api.html">Lalonde Pandas API Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy-conditional-treatment-effects.html">Conditional Average Treatment Effects (CATE) with DoWhy and EconML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_mediation_analysis.html">Mediation analysis with DoWhy: Direct and Indirect Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_demo_dummy_outcome_refuter.html">A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_supply_chain_dist_change.html">Root causes of changes in a supply chain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">Counterfactual analysis in a medical case using a GCM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gcm_401k_analysis.html">Impact of 401(k) eligibility on net financial assets</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Example for GCM-Based Inference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Step-1:-Modeling-cause-effect-relationships-as-a-structural-causal-model-(SCM)">Step 1: Modeling cause-effect relationships as a structural causal model (SCM)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Step-2:-Fitting-the-SCM-to-the-data">Step 2: Fitting the SCM to the data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Step-3:-Answering-a-causal-query-based-on-the-SCM">Step 3: Answering a causal query based on the SCM</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -99,7 +120,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../gcm/index.html">&lt;no title&gt;</a> &raquo;</li>
+          <li><a href="nb_index.html">Example notebooks</a> &raquo;</li>
       <li>Basic Example for GCM-Based Inference</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/example_notebooks/gcm_basic_example.ipynb.txt" rel="nofollow"> View page source</a>
@@ -466,33 +487,33 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.897165</td>
-      <td>2.419705</td>
-      <td>6.948414</td>
+      <td>-0.041247</td>
+      <td>0.913617</td>
+      <td>3.632641</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.846301</td>
-      <td>2.874586</td>
-      <td>8.649329</td>
+      <td>1.578579</td>
+      <td>1.373049</td>
+      <td>3.849027</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.310488</td>
-      <td>2.622863</td>
-      <td>5.848307</td>
+      <td>-0.901385</td>
+      <td>-1.116731</td>
+      <td>-1.854529</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.854572</td>
-      <td>1.612193</td>
-      <td>3.267815</td>
+      <td>-0.029279</td>
+      <td>-0.131158</td>
+      <td>-0.031590</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.344084</td>
-      <td>2.063249</td>
-      <td>6.822501</td>
+      <td>-0.333384</td>
+      <td>-1.077016</td>
+      <td>-3.181516</td>
     </tr>
   </tbody>
 </table>
@@ -537,7 +558,7 @@ keywords are unexpanded, not using
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 624.46it/s]
+Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 437.39it/s]
 </pre></div></div>
 </div>
 <p>Fitting means, we learn the generative models of the variables in the SCM according to the data.</p>
@@ -591,33 +612,33 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
   <tbody>
     <tr>
       <th>0</th>
-      <td>-1.276276</td>
+      <td>-0.201375</td>
       <td>2.34</td>
-      <td>5.376630</td>
+      <td>7.596123</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.606206</td>
+      <td>-0.989016</td>
       <td>2.34</td>
-      <td>5.423866</td>
+      <td>7.320681</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.587732</td>
+      <td>-2.349524</td>
       <td>2.34</td>
-      <td>6.819214</td>
+      <td>7.113464</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.546047</td>
+      <td>-0.463230</td>
       <td>2.34</td>
-      <td>7.115547</td>
+      <td>6.879009</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>3.003677</td>
+      <td>0.321827</td>
       <td>2.34</td>
-      <td>7.305262</td>
+      <td>6.036900</td>
     </tr>
   </tbody>
 </table>
@@ -631,8 +652,8 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../gcm/user_guide/independence_tests.html" class="btn btn-neutral float-left" title="Independence Tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="rca_microservice_architecture.html" class="btn btn-neutral float-right" title="Root cause analysis (RCA) of latencies in a microservice architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="do_sampler_demo.html" class="btn btn-neutral float-left" title="Do-sampler Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dowhy_ihdp_data_example.html" class="btn btn-neutral float-right" title="DoWhy example on ihdp (Infant Health and Development Program) dataset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
@@ -661,6 +682,14 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="../../v0.7.1/index.html">v0.7.1</a></dd>
         </dl>
         <dl>

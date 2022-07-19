@@ -50,7 +50,8 @@
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../user_guide/causality_intro.html">Introduction to causality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/four_steps_causality.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/effect_inference/index.html">Effect inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../user_guide/gcm_based_inference/index.html">GCM-based inference (Experimental)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_notebooks/nb_index.html">Example notebooks</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials/Case studies</span></p>
@@ -58,12 +59,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../example_notebooks/tutorial-causalinference-machinelearning-using-dowhy-econml.html">CATE estimation with DoWhy+EconML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_notebooks/dowhy_example_effect_of_memberrewards_program.html">Effect of membership rewards program</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../example_notebooks/DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">Understanding hotel booking cancellations</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">GCM-based inference (Experimental)</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../gcm/user_guide/index.html">GCMs User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../example_notebooks/gcm_basic_example.html">Basic Example for GCM-Based Inference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../example_notebooks/rca_microservice_architecture.html">Root cause analysis (RCA) of latencies in a microservice architecture</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -105,6 +100,7 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
 
 <span class="kn">from</span> <span class="nn">dowhy.causal_refuter</span> <span class="kn">import</span> <span class="n">CausalRefutation</span>
 <span class="kn">from</span> <span class="nn">dowhy.causal_refuter</span> <span class="kn">import</span> <span class="n">CausalRefuter</span>
@@ -114,22 +110,29 @@
     <span class="sd">&quot;&quot;&quot;Refute an estimate by introducing a randomly generated confounder</span>
 <span class="sd">    (that may have been unobserved).</span>
 
+<span class="sd">    Supports additional parameters that can be specified in the refute_estimate() method. For joblib-related parameters (n_jobs, verbose), please refer to the joblib documentation for more details (https://joblib.readthedocs.io/en/latest/generated/joblib.Parallel.html).</span>
+
 <span class="sd">    :param num_simulations: The number of simulations to be run, which is ``CausalRefuter.DEFAULT_NUM_SIMULATIONS`` by default</span>
 <span class="sd">    :type num_simulations: int, optional</span>
 
 <span class="sd">    :param random_state: The seed value to be added if we wish to repeat the same random behavior. If we with to repeat the same behavior we push the same seed in the psuedo-random generator</span>
 <span class="sd">    :type random_state: int, RandomState, optional</span>
+
+<span class="sd">    :param n_jobs: The maximum number of concurrently running jobs. If -1 all CPUs are used. If 1 is given, no parallel computing code is used at all (this is the default).</span>
+<span class="sd">    :type n_jobs: int, optional</span>
+
+<span class="sd">    :param verbose: The verbosity level: if non zero, progress messages are printed. Above 50, the output is sent to stdout. The frequency of the messages increases with the verbosity level. If it more than 10, all iterations are reported. The default is 0.</span>
+<span class="sd">    :type verbose: int, optional</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_num_simulations</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;num_simulations&quot;</span><span class="p">,</span> <span class="n">CausalRefuter</span><span class="o">.</span><span class="n">DEFAULT_NUM_SIMULATIONS</span> <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_random_state</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;random_state&quot;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_random_state</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;random_state&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 <div class="viewcode-block" id="RandomCommonCause.refute_estimate"><a class="viewcode-back" href="../../../dowhy.causal_refuters.html#dowhy.causal_refuters.random_common_cause.RandomCommonCause.refute_estimate">[docs]</a>    <span class="k">def</span> <span class="nf">refute_estimate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">num_rows</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">sample_estimates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_simulations</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Refutation over </span><span class="si">{}</span><span class="s2"> simulated datasets, each with a random common cause added&quot;</span>
                          <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_simulations</span><span class="p">))</span>
 
@@ -137,7 +140,8 @@
         <span class="n">identified_estimand</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_target_estimand</span><span class="p">)</span>
         <span class="c1"># Adding a new backdoor variable to the identified estimand</span>
         <span class="n">identified_estimand</span><span class="o">.</span><span class="n">set_backdoor_variables</span><span class="p">(</span><span class="n">new_backdoor_variables</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_simulations</span><span class="p">):</span>
+        
+        <span class="k">def</span> <span class="nf">refute_once</span><span class="p">():</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_random_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">new_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">w_random</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">num_rows</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
@@ -146,8 +150,14 @@
 
             <span class="n">new_estimator</span> <span class="o">=</span> <span class="n">CausalEstimator</span><span class="o">.</span><span class="n">get_estimator_object</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">identified_estimand</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_estimate</span><span class="p">)</span>
             <span class="n">new_effect</span> <span class="o">=</span> <span class="n">new_estimator</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">new_effect</span><span class="o">.</span><span class="n">value</span>
 
-            <span class="n">sample_estimates</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_effect</span><span class="o">.</span><span class="n">value</span>
+        <span class="c1"># Run refutation in parallel</span>
+        <span class="n">sample_estimates</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span>
+            <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_jobs</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span>
+        <span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">refute_once</span><span class="p">)()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_simulations</span><span class="p">))</span>
+        <span class="n">sample_estimates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sample_estimates</span><span class="p">)</span>
 
         <span class="n">refute</span> <span class="o">=</span> <span class="n">CausalRefutation</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_estimate</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
@@ -196,6 +206,14 @@
     <div class="rst-other-versions">
         <dl>
             <dt>Releases</dt>
+            <dd><a href="../../../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="../../../../v0.7.1/index.html">v0.7.1</a></dd>
         </dl>
         <dl>
