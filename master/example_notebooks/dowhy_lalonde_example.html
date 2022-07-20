@@ -128,16 +128,36 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
-        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
-    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
-    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
-    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
-</span>
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
       </div>
       
       <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
+        
+<div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        master-branch
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+        <dl>
+            <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
+            <dd><a href="../../v0.7.1/index.html">v0.7.1</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="dowhy_lalonde_example.html">master</a></dd>
+        </dl>
+    </div>
+</div>
       </div>
       
     </div>
@@ -747,19 +767,19 @@ R[write to console]: ##
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-propensity_score_weighting
-Causal Estimate is 1639.8345730373849
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area stderr docutils container">
+<div class="output_area docutils container">
 <div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
+propensity_score_weighting
+Causal Estimate is 1639.8203003855288
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -782,7 +802,7 @@ Causal Estimate is 1639.8345730373849
   <th>Date:</th>             <td>Wed, 20 Jul 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00972</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>18:06:38</td>     <th>  Log-Likelihood:    </th> <td> -4544.7</td>
+  <th>Time:</th>                 <td>21:24:42</td>     <th>  Log-Likelihood:    </th> <td> -4544.7</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   445</td>      <th>  AIC:               </th> <td>   9093.</td>
@@ -802,24 +822,24 @@ Causal Estimate is 1639.8345730373849
         <td></td>           <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
 </tr>
 <tr>
-  <th>Intercept</th>     <td> 4555.0717</td> <td>  406.706</td> <td>   11.200</td> <td> 0.000</td> <td> 3755.759</td> <td> 5354.384</td>
+  <th>Intercept</th>     <td> 4555.0738</td> <td>  406.705</td> <td>   11.200</td> <td> 0.000</td> <td> 3755.763</td> <td> 5354.385</td>
 </tr>
 <tr>
-  <th>treat[T.True]</th> <td> 1639.8346</td> <td>  631.497</td> <td>    2.597</td> <td> 0.010</td> <td>  398.733</td> <td> 2880.936</td>
+  <th>treat[T.True]</th> <td> 1639.8203</td> <td>  631.496</td> <td>    2.597</td> <td> 0.010</td> <td>  398.720</td> <td> 2880.921</td>
 </tr>
 </table>
 <table class="simpletable">
 <tr>
-  <th>Omnibus:</th>       <td>303.265</td> <th>  Durbin-Watson:     </th> <td>   2.085</td>
+  <th>Omnibus:</th>       <td>303.264</td> <th>  Durbin-Watson:     </th> <td>   2.085</td>
 </tr>
 <tr>
-  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>4770.742</td>
+  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>4770.664</td>
 </tr>
 <tr>
   <th>Skew:</th>          <td> 2.709</td>  <th>  Prob(JB):          </th> <td>    0.00</td>
 </tr>
 <tr>
-  <th>Kurtosis:</th>      <td>18.098</td>  <th>  Cond. No.          </th> <td>    2.47</td>
+  <th>Kurtosis:</th>      <td>18.097</td>  <th>  Cond. No.          </th> <td>    2.47</td>
 </tr>
 </table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div>
 </div>
@@ -869,7 +889,7 @@ Causal Estimate is 1639.8345730373849
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Causal Estimate is 1639.8345730373858
+Causal Estimate is 1639.8203003855251
 </pre></div></div>
 </div>
 </section>

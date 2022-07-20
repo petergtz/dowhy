@@ -128,16 +128,36 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
-        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
-    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
-    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
-    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
-</span>
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
       </div>
       
       <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
+        
+<div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        master-branch
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+        <dl>
+            <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
+            <dd><a href="../../v0.7.1/index.html">v0.7.1</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="dowhy_multiple_treatments.html">master</a></dd>
+        </dl>
+    </div>
+</div>
       </div>
       
     </div>
@@ -687,63 +707,63 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.080424</td>
-      <td>-0.426089</td>
-      <td>0.015109</td>
-      <td>-0.736820</td>
-      <td>1</td>
+      <td>0.380460</td>
+      <td>0.382734</td>
+      <td>1.909337</td>
+      <td>-1.843406</td>
+      <td>3</td>
       <td>0</td>
-      <td>3.287874</td>
-      <td>0.857334</td>
-      <td>43.390563</td>
+      <td>12.289105</td>
+      <td>6.050475</td>
+      <td>284.356699</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.152756</td>
-      <td>-0.397773</td>
-      <td>1.607017</td>
-      <td>0.445626</td>
+      <td>-1.776464</td>
+      <td>-0.099254</td>
+      <td>-1.539887</td>
+      <td>-0.071818</td>
       <td>3</td>
-      <td>1</td>
-      <td>14.274763</td>
-      <td>11.404970</td>
-      <td>311.072508</td>
+      <td>0</td>
+      <td>5.782445</td>
+      <td>6.906700</td>
+      <td>38.825087</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.057741</td>
-      <td>-0.345743</td>
-      <td>0.049679</td>
-      <td>-0.168539</td>
+      <td>0.190313</td>
+      <td>-1.207141</td>
+      <td>-0.587983</td>
+      <td>0.363565</td>
       <td>3</td>
       <td>2</td>
-      <td>13.118984</td>
-      <td>11.057687</td>
-      <td>241.631307</td>
+      <td>10.607659</td>
+      <td>9.980614</td>
+      <td>-81.423122</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.931758</td>
-      <td>-0.809188</td>
-      <td>0.739433</td>
-      <td>-0.094339</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.733536</td>
-      <td>1.366301</td>
-      <td>26.219216</td>
+      <td>1.713785</td>
+      <td>-0.042593</td>
+      <td>-0.341261</td>
+      <td>-1.576342</td>
+      <td>3</td>
+      <td>3</td>
+      <td>8.365227</td>
+      <td>9.343371</td>
+      <td>306.589895</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-1.185931</td>
-      <td>-2.635616</td>
-      <td>-0.816199</td>
-      <td>-0.137890</td>
-      <td>0</td>
-      <td>3</td>
-      <td>7.576244</td>
-      <td>3.907733</td>
-      <td>62.781618</td>
+      <td>-0.171521</td>
+      <td>-0.204969</td>
+      <td>-0.090609</td>
+      <td>0.483478</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5.546843</td>
+      <td>5.670825</td>
+      <td>98.997821</td>
     </tr>
   </tbody>
 </table>
@@ -796,9 +816,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W1,W2,W0])
+─────────(E[y|W0,W3,W1,W2])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W1,W2,W0,U) = P(y|v0,v1,W3,W1,W2,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W3,W1,W2,U) = P(y|v0,v1,W0,W3,W1,W2)
 
 ### Estimand : 2
 Estimand name: iv
@@ -843,16 +863,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W1,W2,W0])
+─────────(E[y|W0,W3,W1,W2])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W1,W2,W0,U) = P(y|v0,v1,W3,W1,W2,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W3,W1,W2,U) = P(y|v0,v1,W0,W3,W1,W2)
 
 ## Realized estimand
-b: y~v0+v1+W3+W1+W2+W0+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W0+W3+W1+W2+v0*X0+v0*X1+v1*X0+v1*X1
 Target units: ate
 
 ## Estimate
-Mean value: 13.3817564084639
+Mean value: 32.58998073998795
 
 </pre></div></div>
 </div>
@@ -885,43 +905,43 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W1,W2,W0])
+─────────(E[y|W0,W3,W1,W2])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W1,W2,W0,U) = P(y|v0,v1,W3,W1,W2,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W3,W1,W2,U) = P(y|v0,v1,W0,W3,W1,W2)
 
 ## Realized estimand
-b: y~v0+v1+W3+W1+W2+W0+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W0+W3+W1+W2+v0*X0+v0*X1+v1*X0+v1*X1
 Target units: ate
 
 ## Estimate
-Mean value: 13.3817564084639
+Mean value: 32.58998073998795
 ### Conditional Estimates
-__categorical__X0  __categorical__X1
-(-3.685, -1.118]   (-4.095000000000001, -1.202]    -8.574981
-                   (-1.202, -0.599]                -8.575389
-                   (-0.599, -0.109]                -8.273462
-                   (-0.109, 0.46]                  -8.086307
-                   (0.46, 3.415]                   -7.691705
-(-1.118, -0.541]   (-4.095000000000001, -1.202]     3.845838
-                   (-1.202, -0.599]                 4.767834
-                   (-0.599, -0.109]                 4.853286
-                   (-0.109, 0.46]                   5.330922
-                   (0.46, 3.415]                    5.906740
-(-0.541, -0.0261]  (-4.095000000000001, -1.202]    12.528256
-                   (-1.202, -0.599]                13.147514
-                   (-0.599, -0.109]                13.257994
-                   (-0.109, 0.46]                  13.573999
-                   (0.46, 3.415]                   13.995480
-(-0.0261, 0.571]   (-4.095000000000001, -1.202]    20.922313
-                   (-1.202, -0.599]                21.563543
-                   (-0.599, -0.109]                21.991048
-                   (-0.109, 0.46]                  21.923431
-                   (0.46, 3.415]                   22.149909
-(0.571, 3.272]     (-4.095000000000001, -1.202]    34.489602
-                   (-1.202, -0.599]                35.067396
-                   (-0.599, -0.109]                34.756626
-                   (-0.109, 0.46]                  35.227956
-                   (0.46, 3.415]                   36.377943
+__categorical__X0              __categorical__X1
+(-3.5509999999999997, -0.916]  (-3.395, -0.384]    -13.491958
+                               (-0.384, 0.201]       6.391587
+                               (0.201, 0.715]       19.505404
+                               (0.715, 1.307]       31.442512
+                               (1.307, 4.041]       52.663523
+(-0.916, -0.318]               (-3.395, -0.384]     -4.985933
+                               (-0.384, 0.201]      15.062361
+                               (0.201, 0.715]       27.584119
+                               (0.715, 1.307]       39.636943
+                               (1.307, 4.041]       59.900290
+(-0.318, 0.193]                (-3.395, -0.384]      0.090836
+                               (-0.384, 0.201]      20.012549
+                               (0.201, 0.715]       32.737672
+                               (0.715, 1.307]       45.278849
+                               (1.307, 4.041]       65.064361
+(0.193, 0.755]                 (-3.395, -0.384]      5.523649
+                               (-0.384, 0.201]      25.646135
+                               (0.201, 0.715]       37.862833
+                               (0.715, 1.307]       50.606799
+                               (1.307, 4.041]       70.545407
+(0.755, 3.287]                 (-3.395, -0.384]     12.349601
+                               (-0.384, 0.201]      33.786838
+                               (0.201, 0.715]       45.567441
+                               (0.715, 1.307]       58.198458
+                               (1.307, 4.041]       77.898602
 dtype: float64
 </pre></div></div>
 </div>

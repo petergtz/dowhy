@@ -128,16 +128,36 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
-        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
-    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
-    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
-    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
-</span>
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
       </div>
       
       <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
+        
+<div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        master-branch
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+        <dl>
+            <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
+            <dd><a href="../../v0.7.1/index.html">v0.7.1</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="dowhy_refutation_testing.html">master</a></dd>
+        </dl>
+    </div>
+</div>
       </div>
       
     </div>
@@ -1280,13 +1300,13 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[y_factual|x3,x9,x1,x10,x22,x12,x5,x18,x8,x19,x11,x17,x20,x4,x14
+────────────(E[y_factual|x19,x2,x7,x22,x23,x6,x14,x8,x9,x12,x17,x16,x18,x3,x5,
 d[treatment]
 
 
-,x13,x2,x7,x16,x23,x6,x25,x15,x21,x24])
+x13,x4,x21,x10,x1,x11,x25,x15,x20,x24])
 
-Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x3,x9,x1,x10,x22,x12,x5,x18,x8,x19,x11,x17,x20,x4,x14,x13,x2,x7,x16,x23,x6,x25,x15,x21,x24,U) = P(y_factual|treatment,x3,x9,x1,x10,x22,x12,x5,x18,x8,x19,x11,x17,x20,x4,x14,x13,x2,x7,x16,x23,x6,x25,x15,x21,x24)
+Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x19,x2,x7,x22,x23,x6,x14,x8,x9,x12,x17,x16,x18,x3,x5,x13,x4,x21,x10,x1,x11,x25,x15,x20,x24,U) = P(y_factual|treatment,x19,x2,x7,x22,x23,x6,x14,x8,x9,x12,x17,x16,x18,x3,x5,x13,x4,x21,x10,x1,x11,x25,x15,x20,x24)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1322,9 +1342,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
    d
-────────(E[re78|hisp,married,black,nodegr,age,educ])
+────────(E[re78|age,married,educ,nodegr,black,hisp])
 d[treat]
-Estimand assumption 1, Unconfoundedness: If U→{treat} and U→re78 then P(re78|treat,hisp,married,black,nodegr,age,educ,U) = P(re78|treat,hisp,married,black,nodegr,age,educ)
+Estimand assumption 1, Unconfoundedness: If U→{treat} and U→re78 then P(re78|treat,age,married,educ,nodegr,black,hisp,U) = P(re78|treat,age,married,educ,nodegr,black,hisp)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1361,7 +1381,7 @@ No such variable(s) found!
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 propensity_score_weighting
-The Causal Estimate is 4.028748218389682
+The Causal Estimate is 4.028748218389978
 </pre></div></div>
 </div>
 </section>
@@ -1386,7 +1406,7 @@ The Causal Estimate is 4.028748218389682
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 propensity_score_weighting
-The Causal Estimate is 1639.8264021394389
+The Causal Estimate is 1639.8111178793833
 </pre></div></div>
 </div>
 </section>
@@ -1417,8 +1437,8 @@ The Causal Estimate is 1639.8264021394389
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:4.028748218389682
-New effect:4.028489801173542
+Estimated effect:4.028748218389978
+New effect:4.028463164392812
 p value:0.98
 
 </pre></div></div>
@@ -1447,9 +1467,9 @@ p value:0.98
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:4.028748218389682
-New effect:-0.004118438641845943
-p value:0.96
+Estimated effect:4.028748218389978
+New effect:-0.010364795952805652
+p value:0.98
 
 </pre></div></div>
 </div>
@@ -1476,8 +1496,8 @@ p value:0.96
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:4.028748218389682
-New effect:4.030056861279144
+Estimated effect:4.028748218389978
+New effect:4.032752746850374
 p value:0.96
 
 </pre></div></div>
@@ -1731,9 +1751,9 @@ Please also refer to the documentation for alternative solver options:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:1639.8264021394389
-New effect:1634.8914654084615
-p value:0.8799999999999999
+Estimated effect:1639.8111178793833
+New effect:1637.908283108147
+p value:0.94
 
 </pre></div></div>
 </div>
@@ -1742,38 +1762,6 @@ p value:0.8799999999999999
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/usr/local/lib/python3.8/dist-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/usr/local/lib/python3.8/dist-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/usr/local/lib/python3.8/dist-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
 /usr/local/lib/python3.8/dist-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
 STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
 
@@ -1808,9 +1796,9 @@ Please also refer to the documentation for alternative solver options:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1639.8264021394389
-New effect:9.957325323721298
-p value:0.98
+Estimated effect:1639.8111178793833
+New effect:-77.7078875619916
+p value:0.96
 
 </pre></div></div>
 </div>
@@ -1832,30 +1820,15 @@ p value:0.98
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:1639.8264021394389
-New effect:1631.6741484810948
-p value:1.0
+Estimated effect:1639.8111178793833
+New effect:1666.4347959765612
+p value:0.84
 
 </pre></div></div>
 </div>

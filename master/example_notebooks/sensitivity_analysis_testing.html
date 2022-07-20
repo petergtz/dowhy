@@ -126,16 +126,36 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
-        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
-    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
-    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
-    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
-</span>
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
       </div>
       
       <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
+        
+<div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        master-branch
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+        <dl>
+            <dt>Releases</dt>
+            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
+            <dd><a href="../../v0.7.1/index.html">v0.7.1</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="sensitivity_analysis_testing.html">master</a></dd>
+        </dl>
+    </div>
+</div>
       </div>
       
     </div>
@@ -834,9 +854,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W2,W6,W5,W0,W3])
+─────(E[y|W6,W3,W5,W0,W2,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W2,W6,W5,W0,W3,U) = P(y|v0,W1,W2,W6,W5,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W6,W3,W5,W0,W2,W1,U) = P(y|v0,W6,W3,W5,W0,W2,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -877,16 +897,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W2,W6,W5,W0,W3])
+─────(E[y|W6,W3,W5,W0,W2,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W2,W6,W5,W0,W3,U) = P(y|v0,W1,W2,W6,W5,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W6,W3,W5,W0,W2,W1,U) = P(y|v0,W6,W3,W5,W0,W2,W1)
 
 ## Realized estimand
-b: y~v0+W1+W2+W6+W5+W0+W3
+b: y~v0+W6+W3+W5+W0+W2+W1
 Target units: ate
 
 ## Estimate
-Mean value: 10.69767748688092
+Mean value: 10.697677486880913
 
 </pre></div></div>
 </div>
@@ -932,14 +952,14 @@ sensitivity analysis. (default = True). To override the setting, set plot_estima
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;estimate&#39;: 10.69767748688092,
- &#39;standard_error&#39;: 0.593873566128295,
+{&#39;estimate&#39;: 10.697677486880911,
+ &#39;standard_error&#39;: 0.5938735661282947,
  &#39;degree of freedom&#39;: 492,
- &#39;t_statistic&#39;: 18.013392238727615,
- &#39;r2yt_w&#39;: 0.39741498372666795,
- &#39;partial_f2&#39;: 0.6595168698094559,
+ &#39;t_statistic&#39;: 18.01339223872761,
+ &#39;r2yt_w&#39;: 0.39741498372666784,
+ &#39;partial_f2&#39;: 0.6595168698094557,
  &#39;robustness_value&#39;: 0.5467445572181008,
- &#39;robustness_value_alpha&#39;: 0.5076289101030925}
+ &#39;robustness_value_alpha&#39;: 0.5076289101030924}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1055,14 +1075,14 @@ position of the legend (default = (1.6, 0.6))</p>
 Sensitivity Analysis to Unobserved Confounding using R^2 paramterization
 
 Unadjusted Estimates of Treatment [&#39;v0&#39;] :
-Coefficient Estimate : 10.69767748688092
+Coefficient Estimate : 10.697677486880911
 Degree of Freedom : 492
-Standard Error : 0.593873566128295
-t-value : 18.013392238727615
-F^2 value : 0.6595168698094559
+Standard Error : 0.5938735661282947
+t-value : 18.01339223872761
+F^2 value : 0.6595168698094557
 
 Sensitivity Statistics :
-Partial R2 of treatment with outcome : 0.39741498372666795
+Partial R2 of treatment with outcome : 0.39741498372666784
 Robustness Value : 0.5467445572181008
 
 Interpretation of results :
@@ -1236,9 +1256,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W2,W4,W6,W5,W0,W3])
+─────(E[y|W6,W3,W5,W0,W2,W4,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W2,W4,W6,W5,W0,W3,U) = P(y|v0,W1,W2,W4,W6,W5,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W6,W3,W5,W0,W2,W4,W1,U) = P(y|v0,W6,W3,W5,W0,W2,W4,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1275,16 +1295,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W2,W4,W6,W5,W0,W3])
+─────(E[y|W6,W3,W5,W0,W2,W4,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W2,W4,W6,W5,W0,W3,U) = P(y|v0,W1,W2,W4,W6,W5,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W6,W3,W5,W0,W2,W4,W1,U) = P(y|v0,W6,W3,W5,W0,W2,W4,W1)
 
 ## Realized estimand
-b: y~v0+W1+W2+W4+W6+W5+W0+W3
+b: y~v0+W6+W3+W5+W0+W2+W4+W1
 Target units: ate
 
 ## Estimate
-Mean value: 10.081924375588311
+Mean value: 10.081924375588294
 
 </pre></div></div>
 </div>
@@ -1349,14 +1369,14 @@ Mean value: 10.081924375588311
 Sensitivity Analysis to Unobserved Confounding using R^2 paramterization
 
 Unadjusted Estimates of Treatment [&#39;v0&#39;] :
-Coefficient Estimate : 10.08192437558831
+Coefficient Estimate : 10.081924375588294
 Degree of Freedom : 491
-Standard Error : 0.10446229543424752
-t-value : 96.51256784735551
-F^2 value : 18.970826379817517
+Standard Error : 0.10446229543424744
+t-value : 96.51256784735543
+F^2 value : 18.970826379817485
 
 Sensitivity Statistics :
-Partial R2 of treatment with outcome : 0.9499269594066173
+Partial R2 of treatment with outcome : 0.9499269594066172
 Robustness Value : 0.9522057801012398
 
 Interpretation of results :
@@ -1382,14 +1402,14 @@ If confounders explained 100% of the residual variance of the outcome, they woul
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;estimate&#39;: 10.08192437558831,
- &#39;standard_error&#39;: 0.10446229543424752,
+{&#39;estimate&#39;: 10.081924375588294,
+ &#39;standard_error&#39;: 0.10446229543424744,
  &#39;degree of freedom&#39;: 491,
- &#39;t_statistic&#39;: 96.51256784735551,
- &#39;r2yt_w&#39;: 0.9499269594066173,
- &#39;partial_f2&#39;: 18.970826379817517,
+ &#39;t_statistic&#39;: 96.51256784735543,
+ &#39;r2yt_w&#39;: 0.9499269594066172,
+ &#39;partial_f2&#39;: 18.970826379817485,
  &#39;robustness_value&#39;: 0.9522057801012398,
- &#39;robustness_value_alpha&#39;: 0.9503866913195278}
+ &#39;robustness_value_alpha&#39;: 0.950386691319526}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
