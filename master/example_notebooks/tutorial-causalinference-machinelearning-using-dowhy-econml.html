@@ -777,9 +777,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W2,W4,W3])
+─────(E[y|W0,W1,W3,W2,W4])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,W4,W3,U) = P(y|v0,W0,W1,W2,W4,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W3,W2,W4,U) = P(y|v0,W0,W1,W3,W2,W4)
 
 ### Estimand : 2
 Estimand name: iv
@@ -787,9 +787,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
-Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
+ ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
+Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
 
 ### Estimand : 3
 Estimand name: frontdoor
@@ -826,16 +826,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W2,W4,W3])
+─────(E[y|W0,W1,W3,W2,W4])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,W4,W3,U) = P(y|v0,W0,W1,W2,W4,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W3,W2,W4,U) = P(y|v0,W0,W1,W3,W2,W4)
 
 ## Realized estimand
-b: y~v0+W0+W1+W2+W4+W3
+b: y~v0+W0+W1+W3+W2+W4
 Target units: ate
 
 ## Estimate
-Mean value: 9.928372831025376
+Mean value: 9.980233572279904
 
 </pre></div></div>
 </div>
@@ -873,17 +873,17 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W2,W4,W3])
+─────(E[y|W0,W1,W3,W2,W4])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,W4,W3,U) = P(y|v0,W0,W1,W2,W4,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W3,W2,W4,U) = P(y|v0,W0,W1,W3,W2,W4)
 
 ## Realized estimand
-b: y~v0+W0+W1+W2+W4+W3 |
+b: y~v0+W0+W1+W3+W2+W4 |
 Target units: ate
 
 ## Estimate
-Mean value: 9.957577097987313
-Effect estimates: [9.9575771 9.9575771 9.9575771 ... 9.9575771 9.9575771 9.9575771]
+Mean value: 9.956486770846974
+Effect estimates: [9.95648677 9.95648677 9.95648677 ... 9.95648677 9.95648677 9.95648677]
 
 </pre></div></div>
 </div>
@@ -907,9 +907,9 @@ estimate value of 0 when the action variable is replaced by a random variable, i
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:9.928372831025376
-New effect:0.0036488529696997595
-p value:0.86
+Estimated effect:9.980233572279904
+New effect:-0.008607891108652071
+p value:0.9199999999999999
 
 </pre></div></div>
 </div>
@@ -961,11 +961,11 @@ than learning a new toolkit. The power of EconML is that you can now implement t
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0         s        w1
-0  16.004966  18.705992 -3.325841  0.293371 -1.750612
-1   7.445421  14.849948  1.316155  9.305679 -0.437849
-2  19.757389  22.408619 -3.781625  6.532694 -0.434557
-3  26.013240  36.484451  4.480657  9.912157  0.032557
-4  23.428667  32.693317  3.980821  2.861511  1.462899
+0  17.834758  35.766595  3.375900  3.790000  0.498636
+1   6.412982  13.044184  0.033388  4.991636  0.546874
+2  21.932058  44.245795  3.999011  3.031445  0.350459
+3  21.308809  43.324148  3.876317  2.648315  1.131853
+4  29.920616  59.172364  4.957438  9.992898 -1.280405
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1071,9 +1071,9 @@ b: Outcome~Treatment+w0+w1
 Target units: ate
 
 ## Estimate
-Mean value: 0.9991217159829402
+Mean value: 1.9985584133330865
 
-Causal Estimate is 0.9991217159829402
+Causal Estimate is 1.9985584133330865
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1129,8 +1129,8 @@ b: Outcome~Treatment+w0+w1 |
 Target units: ate
 
 ## Estimate
-Mean value: 0.1898895376310392
-Effect estimates: [0.18988954 0.18988954 0.18988954 ... 0.18988954 0.18988954 0.18988954]
+Mean value: 1.2124984626408906
+Effect estimates: [1.21249846 1.21249846 1.21249846 ... 1.21249846 1.21249846 1.21249846]
 
 </pre></div></div>
 </div>
@@ -1153,9 +1153,9 @@ Effect estimates: [0.18988954 0.18988954 0.18988954 ... 0.18988954 0.18988954 0.
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:0.1898895376310392
-New effect:0.17459603272088964
-p value:0.24
+Estimated effect:1.2124984626408906
+New effect:1.1944339725108626
+p value:0.6599999999999999
 
 </pre></div></div>
 </div>
@@ -1176,9 +1176,9 @@ p value:0.24
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:0.1898895376310392
-New effect:6.886078591526992e-06
-p value:0.48571348791625524
+Estimated effect:1.2124984626408906
+New effect:0.0001949252375436384
+p value:0.34265852515974504
 
 </pre></div></div>
 </div>

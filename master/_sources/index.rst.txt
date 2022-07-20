@@ -28,7 +28,7 @@ Getting started
 ---------------
 
 New to DoWhy? Our :doc:`getting_started/index` guide will get you up to speed in minutes. Once completed, you'll be
-ready to check out our :doc:`example_notebook/nb_index`, :doc:`user_guide/index`, and other sections.
+ready to check out our :doc:`example_notebooks/nb_index`, :doc:`user_guide/index`, and other sections.
 
 User Guide
 ----------
