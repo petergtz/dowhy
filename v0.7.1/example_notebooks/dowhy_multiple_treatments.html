@@ -691,63 +691,63 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.761575</td>
-      <td>0.246955</td>
-      <td>-0.949356</td>
-      <td>-1.102177</td>
-      <td>3</td>
-      <td>1</td>
-      <td>-0.221555</td>
-      <td>5.093883</td>
-      <td>46.089614</td>
+      <td>0.806818</td>
+      <td>-0.787536</td>
+      <td>-1.473734</td>
+      <td>1.854108</td>
+      <td>0</td>
+      <td>2</td>
+      <td>-0.823983</td>
+      <td>11.473664</td>
+      <td>94.664615</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.875416</td>
-      <td>1.789224</td>
-      <td>0.208317</td>
-      <td>-1.462897</td>
+      <td>-0.230825</td>
+      <td>0.861225</td>
+      <td>-0.110921</td>
+      <td>1.420084</td>
       <td>2</td>
-      <td>1</td>
-      <td>1.475902</td>
-      <td>9.629963</td>
-      <td>171.773954</td>
+      <td>2</td>
+      <td>9.246886</td>
+      <td>15.983836</td>
+      <td>351.832212</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.167530</td>
-      <td>2.153932</td>
-      <td>-3.016545</td>
-      <td>-0.519657</td>
+      <td>-0.545601</td>
+      <td>0.211487</td>
+      <td>-0.424763</td>
+      <td>1.269449</td>
       <td>1</td>
-      <td>3</td>
-      <td>-1.692927</td>
-      <td>-0.243949</td>
-      <td>-27.205072</td>
+      <td>1</td>
+      <td>0.831951</td>
+      <td>10.780398</td>
+      <td>104.330828</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2.405517</td>
-      <td>-0.221561</td>
-      <td>-0.860264</td>
-      <td>-0.066930</td>
-      <td>3</td>
-      <td>0</td>
-      <td>1.129698</td>
-      <td>2.679728</td>
-      <td>57.006056</td>
+      <td>-0.038946</td>
+      <td>1.651712</td>
+      <td>-0.978835</td>
+      <td>0.969390</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3.569853</td>
+      <td>8.851804</td>
+      <td>222.671213</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.750714</td>
-      <td>0.158826</td>
-      <td>-0.244036</td>
-      <td>-2.429012</td>
-      <td>1</td>
-      <td>0</td>
-      <td>-7.048439</td>
-      <td>-1.210319</td>
-      <td>-44.734028</td>
+      <td>-0.059649</td>
+      <td>-0.274382</td>
+      <td>-0.537201</td>
+      <td>2.392541</td>
+      <td>3</td>
+      <td>2</td>
+      <td>7.870592</td>
+      <td>24.736125</td>
+      <td>191.867028</td>
     </tr>
   </tbody>
 </table>
@@ -837,7 +837,7 @@ No such variable(s) found!
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 linear_regression
-{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X0&#39;, &#39;X1&#39;], &#39;need_conditional_estimates&#39;: False}
+{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X1&#39;, &#39;X0&#39;], &#39;need_conditional_estimates&#39;: False}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -852,11 +852,11 @@ d[v₀  v₁]
 Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W1,W2,W3,W0,U) = P(y|v0,v1,W1,W2,W3,W0)
 
 ## Realized estimand
-b: y~v0+v1+W1+W2+W3+W0+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W1+W2+W3+W0+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: 23.30550612859225
+Mean value: -15.617792180527005
 
 </pre></div></div>
 </div>
@@ -879,7 +879,7 @@ Mean value: 23.30550612859225
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 linear_regression
-{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X0&#39;, &#39;X1&#39;]}
+{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X1&#39;, &#39;X0&#39;]}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -894,38 +894,38 @@ d[v₀  v₁]
 Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W1,W2,W3,W0,U) = P(y|v0,v1,W1,W2,W3,W0)
 
 ## Realized estimand
-b: y~v0+v1+W1+W2+W3+W0+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W1+W2+W3+W0+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: 23.30550612859225
+Mean value: -15.617792180527005
 ### Conditional Estimates
-__categorical__X0  __categorical__X1
-(-3.169, -0.461]   (-3.94, -0.343]       9.227080
-                   (-0.343, 0.235]      11.523583
-                   (0.235, 0.741]       12.865472
-                   (0.741, 1.337]       14.185778
-                   (1.337, 4.105]       16.565546
-(-0.461, 0.14]     (-3.94, -0.343]      15.671004
-                   (-0.343, 0.235]      17.934601
-                   (0.235, 0.741]       19.241609
-                   (0.741, 1.337]       20.639326
-                   (1.337, 4.105]       23.125566
-(0.14, 0.647]      (-3.94, -0.343]      19.658388
-                   (-0.343, 0.235]      21.925471
-                   (0.235, 0.741]       23.264620
-                   (0.741, 1.337]       24.762736
-                   (1.337, 4.105]       27.020946
-(0.647, 1.238]     (-3.94, -0.343]      23.622602
-                   (-0.343, 0.235]      25.830498
-                   (0.235, 0.741]       27.278745
-                   (0.741, 1.337]       28.710234
-                   (1.337, 4.105]       31.024857
-(1.238, 3.99]      (-3.94, -0.343]      29.997404
-                   (-0.343, 0.235]      31.920351
-                   (0.235, 0.741]       33.936720
-                   (0.741, 1.337]       35.125279
-                   (1.337, 4.105]       37.588210
+__categorical__X1  __categorical__X0
+(-3.81, -1.286]    (-4.166, -1.262]    -123.708254
+                   (-1.262, -0.675]     -76.568631
+                   (-0.675, -0.153]     -48.498264
+                   (-0.153, 0.455]      -18.017489
+                   (0.455, 3.356]        25.501284
+(-1.286, -0.671]   (-4.166, -1.262]    -100.261239
+                   (-1.262, -0.675]     -56.841229
+                   (-0.675, -0.153]     -28.837145
+                   (-0.153, 0.455]        1.072218
+                   (0.455, 3.356]        46.429306
+(-0.671, -0.174]   (-4.166, -1.262]     -89.307550
+                   (-1.262, -0.675]     -44.151418
+                   (-0.675, -0.153]     -15.764888
+                   (-0.153, 0.455]       13.412211
+                   (0.455, 3.356]        58.893374
+(-0.174, 0.426]    (-4.166, -1.262]     -78.873856
+                   (-1.262, -0.675]     -31.904823
+                   (-0.675, -0.153]      -3.874017
+                   (-0.153, 0.455]       25.428882
+                   (0.455, 3.356]        70.622959
+(0.426, 3.375]     (-4.166, -1.262]     -59.331149
+                   (-1.262, -0.675]     -11.919560
+                   (-0.675, -0.153]      16.245328
+                   (-0.153, 0.455]       47.593341
+                   (0.455, 3.356]        92.206232
 dtype: float64
 </pre></div></div>
 </div>

@@ -45,7 +45,7 @@ TBD :doc:`example_notebooks/nb_index`
 API Reference
 -------------
 
-The :doc:`dowhy` guide contains a detailed description of the functions, modules, and objects included in NumPy.
+The :doc:`dowhy` guide contains a detailed description of the functions, modules, and objects included in DoWhy.
 The reference describes how the methods work and which parameters can be used. It assumes that you have an
 understanding of the key concepts.
 
