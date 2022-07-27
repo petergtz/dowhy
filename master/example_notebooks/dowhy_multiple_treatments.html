@@ -633,8 +633,8 @@ div.rendered_html tbody tr:hover {
 </style>
 <section id="Estimating-effect-of-multiple-treatments">
 <h1>Estimating effect of multiple treatments<a class="headerlink" href="#Estimating-effect-of-multiple-treatments" title="Permalink to this heading"></a></h1>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -651,16 +651,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">dowhy</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">linear_dataset</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">num_common_causes</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
@@ -675,107 +667,8 @@ keywords are unexpanded, not using
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>X0</th>
-      <th>X1</th>
-      <th>W0</th>
-      <th>W1</th>
-      <th>W2</th>
-      <th>W3</th>
-      <th>v0</th>
-      <th>v1</th>
-      <th>y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.388472</td>
-      <td>-1.593287</td>
-      <td>-0.778345</td>
-      <td>-2.642098</td>
-      <td>2</td>
-      <td>3</td>
-      <td>14.554867</td>
-      <td>12.556839</td>
-      <td>58.741399</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>-1.615834</td>
-      <td>0.868278</td>
-      <td>-0.449732</td>
-      <td>-1.909824</td>
-      <td>1</td>
-      <td>3</td>
-      <td>15.199434</td>
-      <td>9.679139</td>
-      <td>297.464015</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.894609</td>
-      <td>1.124776</td>
-      <td>-0.379171</td>
-      <td>0.635147</td>
-      <td>0</td>
-      <td>2</td>
-      <td>9.074197</td>
-      <td>6.726160</td>
-      <td>240.779596</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>-1.831029</td>
-      <td>-0.544511</td>
-      <td>-0.426042</td>
-      <td>-2.679323</td>
-      <td>0</td>
-      <td>0</td>
-      <td>-2.779016</td>
-      <td>-4.304510</td>
-      <td>-84.140123</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>-0.429290</td>
-      <td>-1.222575</td>
-      <td>-0.493349</td>
-      <td>-0.715928</td>
-      <td>3</td>
-      <td>0</td>
-      <td>5.678859</td>
-      <td>11.990518</td>
-      <td>98.218841</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">CausalModel</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;df&quot;</span><span class="p">],</span>
@@ -784,8 +677,8 @@ keywords are unexpanded, not using
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">view_model</span><span class="p">()</span>
@@ -794,15 +687,8 @@ keywords are unexpanded, not using
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/example_notebooks_dowhy_multiple_treatments_4_0.png" src="../_images/example_notebooks_dowhy_multiple_treatments_4_0.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">identified_estimand</span><span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">identify_effect</span><span class="p">(</span><span class="n">proceed_when_unidentifiable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -810,37 +696,12 @@ keywords are unexpanded, not using
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Estimand type: nonparametric-ate
-
-### Estimand : 1
-Estimand name: backdoor
-Estimand expression:
-    d
-─────────(E[y|W2,W1,W3,W0])
-d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W1,W3,W0,U) = P(y|v0,v1,W2,W1,W3,W0)
-
-### Estimand : 2
-Estimand name: iv
-No such variable(s) found!
-
-### Estimand : 3
-Estimand name: frontdoor
-No such variable(s) found!
-
-</pre></div></div>
-</div>
 <section id="Linear-model">
 <h2>Linear model<a class="headerlink" href="#Linear-model" title="Permalink to this heading"></a></h2>
 <p>Let us first see an example for a linear model. The control_value and treatment_value can be provided as a tuple/list when the treatment is multi-dimensional.</p>
 <p>The interpretation is change in y when v0 and v1 are changed from (0,0) to (1,1).</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linear_estimate</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span>
@@ -852,38 +713,9 @@ No such variable(s) found!
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-linear_regression
-{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X1&#39;, &#39;X0&#39;], &#39;need_conditional_estimates&#39;: False}
-*** Causal Estimate ***
-
-## Identified estimand
-Estimand type: nonparametric-ate
-
-### Estimand : 1
-Estimand name: backdoor
-Estimand expression:
-    d
-─────────(E[y|W2,W1,W3,W0])
-d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W1,W3,W0,U) = P(y|v0,v1,W2,W1,W3,W0)
-
-## Realized estimand
-b: y~v0+v1+W2+W1+W3+W0+v0*X1+v0*X0+v1*X1+v1*X0
-Target units: ate
-
-## Estimate
-Mean value: 12.818459687910186
-
-</pre></div></div>
-</div>
 <p>You can estimate conditional effects, based on effect modifiers.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linear_estimate</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span>
@@ -893,62 +725,6 @@ Mean value: 12.818459687910186
 <span class="nb">print</span><span class="p">(</span><span class="n">linear_estimate</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-linear_regression
-{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X1&#39;, &#39;X0&#39;]}
-*** Causal Estimate ***
-
-## Identified estimand
-Estimand type: nonparametric-ate
-
-### Estimand : 1
-Estimand name: backdoor
-Estimand expression:
-    d
-─────────(E[y|W2,W1,W3,W0])
-d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W1,W3,W0,U) = P(y|v0,v1,W2,W1,W3,W0)
-
-## Realized estimand
-b: y~v0+v1+W2+W1+W3+W0+v0*X1+v0*X0+v1*X1+v1*X0
-Target units: ate
-
-## Estimate
-Mean value: 12.818459687910186
-### Conditional Estimates
-__categorical__X1  __categorical__X0
-(-4.258, -1.21]    (-4.863, -1.525]     -7.957213
-                   (-1.525, -0.939]     -5.819038
-                   (-0.939, -0.425]     -2.747291
-                   (-0.425, 0.165]      -1.041661
-                   (0.165, 2.933]        2.320812
-(-1.21, -0.628]    (-4.863, -1.525]      1.108311
-                   (-1.525, -0.939]      4.663230
-                   (-0.939, -0.425]      6.746925
-                   (-0.425, 0.165]       9.040434
-                   (0.165, 2.933]       12.556377
-(-0.628, -0.121]   (-4.863, -1.525]      7.163375
-                   (-1.525, -0.939]     10.663176
-                   (-0.939, -0.425]     12.920824
-                   (-0.425, 0.165]      14.978413
-                   (0.165, 2.933]       18.483808
-(-0.121, 0.47]     (-4.863, -1.525]     13.074165
-                   (-1.525, -0.939]     16.657054
-                   (-0.939, -0.425]     18.874003
-                   (-0.425, 0.165]      20.925708
-                   (0.165, 2.933]       24.718124
-(0.47, 3.394]      (-4.863, -1.525]     22.810687
-                   (-1.525, -0.939]     26.459526
-                   (-0.939, -0.425]     28.971884
-                   (-0.425, 0.165]      30.796505
-                   (0.165, 2.933]       34.169630
-dtype: float64
-</pre></div></div>
 </div>
 </section>
 <section id="More-methods">

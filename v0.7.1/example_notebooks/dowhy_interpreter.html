@@ -667,7 +667,7 @@ div.rendered_html tbody tr:hover {
 <p>This is a quick introduction to the use of interpreters in the DoWhy causal inference library. We will load in a sample dataset, use different methods for estimating the causal effect of a (pre-specified)treatment variable on a (pre-specified) outcome variable and demonstrate how to interpret the obtained results.</p>
 <p>First, let us add the required path for Python to find the DoWhy code and load all required packages</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
@@ -675,8 +675,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -689,18 +689,10 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
-</div>
 <p>Now, let us load a dataset. For simplicity, we simulate a dataset with linear relationships between common causes and treatment, and common causes and outcome.</p>
 <p>Beta is the true causal effect.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">dowhy</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">linear_dataset</span><span class="p">(</span><span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
@@ -717,192 +709,12 @@ keywords are unexpanded, not using
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-9106
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Z0</th>
-      <th>Z1</th>
-      <th>W0</th>
-      <th>W1</th>
-      <th>W2</th>
-      <th>W3</th>
-      <th>W4</th>
-      <th>v0</th>
-      <th>y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1.0</td>
-      <td>0.911666</td>
-      <td>2.034568</td>
-      <td>-0.916744</td>
-      <td>-0.485372</td>
-      <td>-0.682627</td>
-      <td>0</td>
-      <td>True</td>
-      <td>-0.122617</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1.0</td>
-      <td>0.178290</td>
-      <td>0.280525</td>
-      <td>0.386795</td>
-      <td>0.327204</td>
-      <td>-1.021838</td>
-      <td>1</td>
-      <td>False</td>
-      <td>-0.286822</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1.0</td>
-      <td>0.071331</td>
-      <td>0.238329</td>
-      <td>-1.519050</td>
-      <td>1.059561</td>
-      <td>-0.101084</td>
-      <td>2</td>
-      <td>True</td>
-      <td>0.672153</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1.0</td>
-      <td>0.270652</td>
-      <td>-1.486595</td>
-      <td>-0.190290</td>
-      <td>-1.406827</td>
-      <td>-1.924531</td>
-      <td>3</td>
-      <td>True</td>
-      <td>-0.368811</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1.0</td>
-      <td>0.997211</td>
-      <td>0.022435</td>
-      <td>-0.727282</td>
-      <td>-0.314563</td>
-      <td>-1.436002</td>
-      <td>2</td>
-      <td>True</td>
-      <td>-0.259639</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>9995</th>
-      <td>1.0</td>
-      <td>0.660732</td>
-      <td>1.564319</td>
-      <td>-1.811185</td>
-      <td>-1.328025</td>
-      <td>-2.120146</td>
-      <td>1</td>
-      <td>True</td>
-      <td>-1.945343</td>
-    </tr>
-    <tr>
-      <th>9996</th>
-      <td>1.0</td>
-      <td>0.516135</td>
-      <td>2.239088</td>
-      <td>0.385106</td>
-      <td>-0.419515</td>
-      <td>0.606140</td>
-      <td>2</td>
-      <td>True</td>
-      <td>2.647852</td>
-    </tr>
-    <tr>
-      <th>9997</th>
-      <td>1.0</td>
-      <td>0.758656</td>
-      <td>-1.545891</td>
-      <td>0.505061</td>
-      <td>-0.223775</td>
-      <td>-0.594513</td>
-      <td>0</td>
-      <td>True</td>
-      <td>0.578718</td>
-    </tr>
-    <tr>
-      <th>9998</th>
-      <td>1.0</td>
-      <td>0.833339</td>
-      <td>1.197778</td>
-      <td>-1.320757</td>
-      <td>0.095081</td>
-      <td>-1.527468</td>
-      <td>2</td>
-      <td>True</td>
-      <td>-0.563957</td>
-    </tr>
-    <tr>
-      <th>9999</th>
-      <td>1.0</td>
-      <td>0.418815</td>
-      <td>1.131767</td>
-      <td>-1.385977</td>
-      <td>-1.333104</td>
-      <td>-1.298325</td>
-      <td>0</td>
-      <td>True</td>
-      <td>-1.258146</td>
-    </tr>
-  </tbody>
-</table>
-<p>10000 rows × 9 columns</p>
-</div></div>
-</div>
 <p>Note that we are using a pandas dataframe to load the data.</p>
 <section id="Identifying-the-causal-estimand">
 <h2>Identifying the causal estimand<a class="headerlink" href="#Identifying-the-causal-estimand" title="Permalink to this heading"></a></h2>
 <p>We now input a causal graph in the GML graph format.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># With graph</span>
@@ -917,15 +729,15 @@ keywords are unexpanded, not using
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">view_model</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
@@ -933,16 +745,9 @@ keywords are unexpanded, not using
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/example_notebooks_dowhy_interpreter_10_0.png" src="../_images/example_notebooks_dowhy_interpreter_10_0.png" />
-</div>
-</div>
 <p>We get a causal graph. Now identification and estimation is done.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">identified_estimand</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">identify_effect</span><span class="p">(</span><span class="n">proceed_when_unidentifiable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -950,43 +755,12 @@ keywords are unexpanded, not using
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Estimand type: nonparametric-ate
-
-### Estimand : 1
-Estimand name: backdoor
-Estimand expression:
-  d
-─────(E[y|W0,W4,W3,W2,W1])
-d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W4,W3,W2,W1,U) = P(y|v0,W0,W4,W3,W2,W1)
-
-### Estimand : 2
-Estimand name: iv
-Estimand expression:
- ⎡                              -1⎤
- ⎢    d        ⎛    d          ⎞  ⎥
-E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
-
-### Estimand : 3
-Estimand name: frontdoor
-No such variable(s) found!
-
-</pre></div></div>
-</div>
 </section>
 <section id="Method-1:-Propensity-Score-Stratification">
 <h2>Method 1: Propensity Score Stratification<a class="headerlink" href="#Method-1:-Propensity-Score-Stratification" title="Permalink to this heading"></a></h2>
 <p>We will be using propensity scores to stratify units in the data.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">causal_estimate_strat</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span>
@@ -997,56 +771,11 @@ No such variable(s) found!
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-propensity_score_stratification
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-*** Causal Estimate ***
-
-## Identified estimand
-Estimand type: nonparametric-ate
-
-### Estimand : 1
-Estimand name: backdoor
-Estimand expression:
-  d
-─────(E[y|W0,W4,W3,W2,W1])
-d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W4,W3,W2,W1,U) = P(y|v0,W0,W4,W3,W2,W1)
-
-## Realized estimand
-b: y~v0+W0+W4+W3+W2+W1
-Target units: att
-
-## Estimate
-Mean value: 0.9783438907951191
-
-Causal Estimate is 0.9783438907951191
-</pre></div></div>
-</div>
 <section id="Textual-Interpreter">
 <h3>Textual Interpreter<a class="headerlink" href="#Textual-Interpreter" title="Permalink to this heading"></a></h3>
 <p>The textual Interpreter describes (in words) the effect of unit change in the treatment variable on the outcome variable.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Textual Interpreter</span>
@@ -1054,34 +783,19 @@ Causal Estimate is 0.9783438907951191
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 0.9783438907951191 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
-</pre></div></div>
-</div>
 </section>
 <section id="Visual-Interpreter">
 <h3>Visual Interpreter<a class="headerlink" href="#Visual-Interpreter" title="Permalink to this heading"></a></h3>
 <p>The visual interpreter plots the change in the standardized mean difference (SMD) before and after Propensity Score based adjustment of the dataset. The formula for SMD is given below.</p>
 <p><span class="math notranslate nohighlight">\(SMD = \frac{\bar X_{1} - \bar X_{2}}{\sqrt{(S_{1}^{2} + S_{2}^{2})/2}}\)</span></p>
 <p>Here, <span class="math notranslate nohighlight">\(\bar X_{1}\)</span> and <span class="math notranslate nohighlight">\(\bar X_{2}\)</span> are the sample mean for the treated and control groups.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visual Interpreter</span>
 <span class="n">interpretation</span> <span class="o">=</span> <span class="n">causal_estimate_strat</span><span class="o">.</span><span class="n">interpret</span><span class="p">(</span><span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;propensity_balance_interpreter&quot;</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/example_notebooks_dowhy_interpreter_18_0.png" src="../_images/example_notebooks_dowhy_interpreter_18_0.png" />
 </div>
 </div>
 <p>This plot shows how the SMD decreases from the unadjusted to the stratified units.</p>
@@ -1090,8 +804,8 @@ Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 0.97
 <section id="Method-2:-Propensity-Score-Matching">
 <h2>Method 2: Propensity Score Matching<a class="headerlink" href="#Method-2:-Propensity-Score-Matching" title="Permalink to this heading"></a></h2>
 <p>We will be using propensity scores to match units in the data.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">causal_estimate_match</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span>
@@ -1102,53 +816,8 @@ Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 0.97
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-propensity_score_matching
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-*** Causal Estimate ***
-
-## Identified estimand
-Estimand type: nonparametric-ate
-
-### Estimand : 1
-Estimand name: backdoor
-Estimand expression:
-  d
-─────(E[y|W0,W4,W3,W2,W1])
-d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W4,W3,W2,W1,U) = P(y|v0,W0,W4,W3,W2,W1)
-
-## Realized estimand
-b: y~v0+W0+W4+W3+W2+W1
-Target units: atc
-
-## Estimate
-Mean value: 0.9518047836115658
-
-Causal Estimate is 0.9518047836115658
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Textual Interpreter</span>
@@ -1156,21 +825,13 @@ Causal Estimate is 0.9518047836115658
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 0.9518047836115658 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
-</pre></div></div>
-</div>
 <p>Cannot use propensity balance interpretor here since the interpreter method only supports propensity score stratification estimator.</p>
 </section>
 <section id="Method-3:-Weighting">
 <h2>Method 3: Weighting<a class="headerlink" href="#Method-3:-Weighting" title="Permalink to this heading"></a></h2>
 <p>We will be using (inverse) propensity scores to assign weights to units in the data. DoWhy supports a few different weighting schemes: 1. Vanilla Inverse Propensity Score weighting (IPS) (weighting_scheme=“ips_weight”) 2. Self-normalized IPS weighting (also known as the Hajek estimator) (weighting_scheme=“ips_normalized_weight”) 3. Stabilized IPS weighting (weighting_scheme = “ips_stabilized_weight”)</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">causal_estimate_ipw</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span>
@@ -1182,46 +843,8 @@ Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 0.95
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-propensity_score_weighting
-*** Causal Estimate ***
-
-## Identified estimand
-Estimand type: nonparametric-ate
-
-### Estimand : 1
-Estimand name: backdoor
-Estimand expression:
-  d
-─────(E[y|W0,W4,W3,W2,W1])
-d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W4,W3,W2,W1,U) = P(y|v0,W0,W4,W3,W2,W1)
-
-## Realized estimand
-b: y~v0+W0+W4+W3+W2+W1
-Target units: ate
-
-## Estimate
-Mean value: 1.1691688034559378
-
-Causal Estimate is 1.1691688034559378
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Textual Interpreter</span>
@@ -1229,27 +852,12 @@ Causal Estimate is 1.1691688034559378
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 1.1691688034559378 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interpretation</span> <span class="o">=</span> <span class="n">causal_estimate_ipw</span><span class="o">.</span><span class="n">interpret</span><span class="p">(</span><span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;confounder_distribution_interpreter&quot;</span><span class="p">,</span> <span class="n">fig_size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;W4&#39;</span><span class="p">,</span> <span class="n">var_type</span><span class="o">=</span><span class="s1">&#39;discrete&#39;</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/example_notebooks_dowhy_interpreter_27_0.png" src="../_images/example_notebooks_dowhy_interpreter_27_0.png" />
 </div>
 </div>
 <div class="nbinput nblast docutils container">

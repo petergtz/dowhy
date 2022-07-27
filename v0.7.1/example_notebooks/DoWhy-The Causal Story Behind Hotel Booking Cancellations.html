@@ -688,7 +688,7 @@ cancellations.</p>
 <p>The gold standard of finding this out would be to use experiments such as <em>Randomized Controlled Trials</em> wherein each customer is randomly assigned to one of the two categories i.e. each customer is either assigned a car parking or not. However, such an experiment can be too costly and also unethical in some cases (for example, a hotel would start losing its reputation if people learn that its randomly assigning people to different level of service).</p>
 <p>Can we somehow answer our query using only observational data or data that has been collected in the past?</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reload_ext</span> autoreload
@@ -696,8 +696,8 @@ cancellations.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Config dict to set the logging level</span>
@@ -728,19 +728,11 @@ cancellations.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
-</div>
 <section id="Data-Description">
 <h2>Data Description<a class="headerlink" href="#Data-Description" title="Permalink to this heading"></a></h2>
 <p>For a quick glance of the features and their descriptions the reader is referred here. <a class="reference external" href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-11/readme.md">https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-11/readme.md</a></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/Sid-darthvader/DoWhy-The-Causal-Story-Behind-Hotel-Booking-Cancellations/master/hotel_bookings.csv&#39;</span><span class="p">)</span>
@@ -748,212 +740,20 @@ keywords are unexpanded, not using
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>hotel</th>
-      <th>is_canceled</th>
-      <th>lead_time</th>
-      <th>arrival_date_year</th>
-      <th>arrival_date_month</th>
-      <th>arrival_date_week_number</th>
-      <th>arrival_date_day_of_month</th>
-      <th>stays_in_weekend_nights</th>
-      <th>stays_in_week_nights</th>
-      <th>adults</th>
-      <th>...</th>
-      <th>deposit_type</th>
-      <th>agent</th>
-      <th>company</th>
-      <th>days_in_waiting_list</th>
-      <th>customer_type</th>
-      <th>adr</th>
-      <th>required_car_parking_spaces</th>
-      <th>total_of_special_requests</th>
-      <th>reservation_status</th>
-      <th>reservation_status_date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Resort Hotel</td>
-      <td>0</td>
-      <td>342</td>
-      <td>2015</td>
-      <td>July</td>
-      <td>27</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2</td>
-      <td>...</td>
-      <td>No Deposit</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>Check-Out</td>
-      <td>2015-07-01</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Resort Hotel</td>
-      <td>0</td>
-      <td>737</td>
-      <td>2015</td>
-      <td>July</td>
-      <td>27</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2</td>
-      <td>...</td>
-      <td>No Deposit</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>Check-Out</td>
-      <td>2015-07-01</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Resort Hotel</td>
-      <td>0</td>
-      <td>7</td>
-      <td>2015</td>
-      <td>July</td>
-      <td>27</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>...</td>
-      <td>No Deposit</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>75.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>Check-Out</td>
-      <td>2015-07-02</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Resort Hotel</td>
-      <td>0</td>
-      <td>13</td>
-      <td>2015</td>
-      <td>July</td>
-      <td>27</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>...</td>
-      <td>No Deposit</td>
-      <td>304.0</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>75.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>Check-Out</td>
-      <td>2015-07-02</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Resort Hotel</td>
-      <td>0</td>
-      <td>14</td>
-      <td>2015</td>
-      <td>July</td>
-      <td>27</td>
-      <td>1</td>
-      <td>0</td>
-      <td>2</td>
-      <td>2</td>
-      <td>...</td>
-      <td>No Deposit</td>
-      <td>240.0</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>98.0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>Check-Out</td>
-      <td>2015-07-03</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 32 columns</p>
-</div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Index([&#39;hotel&#39;, &#39;is_canceled&#39;, &#39;lead_time&#39;, &#39;arrival_date_year&#39;,
-       &#39;arrival_date_month&#39;, &#39;arrival_date_week_number&#39;,
-       &#39;arrival_date_day_of_month&#39;, &#39;stays_in_weekend_nights&#39;,
-       &#39;stays_in_week_nights&#39;, &#39;adults&#39;, &#39;children&#39;, &#39;babies&#39;, &#39;meal&#39;,
-       &#39;country&#39;, &#39;market_segment&#39;, &#39;distribution_channel&#39;,
-       &#39;is_repeated_guest&#39;, &#39;previous_cancellations&#39;,
-       &#39;previous_bookings_not_canceled&#39;, &#39;reserved_room_type&#39;,
-       &#39;assigned_room_type&#39;, &#39;booking_changes&#39;, &#39;deposit_type&#39;, &#39;agent&#39;,
-       &#39;company&#39;, &#39;days_in_waiting_list&#39;, &#39;customer_type&#39;, &#39;adr&#39;,
-       &#39;required_car_parking_spaces&#39;, &#39;total_of_special_requests&#39;,
-       &#39;reservation_status&#39;, &#39;reservation_status_date&#39;],
-      dtype=&#39;object&#39;)
-</pre></div></div>
-</div>
 </section>
 <section id="Feature-Engineering">
 <h2>Feature Engineering<a class="headerlink" href="#Feature-Engineering" title="Permalink to this heading"></a></h2>
 <p>Lets create some new and meaningful features so as to reduce the dimensionality of the dataset. - <strong>Total Stay</strong> = stays_in_weekend_nights + stays_in_week_nights - <strong>Guests</strong> = adults + children + babies - <strong>Different_room_assigned</strong> = 1 if reserved_room_type &amp; assigned_room_type are different, 0 otherwise.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total stay in nights</span>
@@ -971,27 +771,9 @@ Index([&#39;hotel&#39;, &#39;is_canceled&#39;, &#39;lead_time&#39;, &#39;arrival
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Index([&#39;hotel&#39;, &#39;is_canceled&#39;, &#39;lead_time&#39;, &#39;arrival_date_year&#39;,
-       &#39;arrival_date_month&#39;, &#39;arrival_date_week_number&#39;,
-       &#39;arrival_date_day_of_month&#39;, &#39;meal&#39;, &#39;country&#39;, &#39;market_segment&#39;,
-       &#39;distribution_channel&#39;, &#39;is_repeated_guest&#39;, &#39;previous_cancellations&#39;,
-       &#39;previous_bookings_not_canceled&#39;, &#39;booking_changes&#39;, &#39;deposit_type&#39;,
-       &#39;agent&#39;, &#39;company&#39;, &#39;days_in_waiting_list&#39;, &#39;customer_type&#39;, &#39;adr&#39;,
-       &#39;required_car_parking_spaces&#39;, &#39;total_of_special_requests&#39;,
-       &#39;reservation_status&#39;, &#39;reservation_status_date&#39;, &#39;total_stay&#39;, &#39;guests&#39;,
-       &#39;different_room_assigned&#39;],
-      dtype=&#39;object&#39;)
-</pre></div></div>
-</div>
 <p>We also remove other columns that either contain NULL values or have too many unique values (e.g., agent ID). We also impute missing values of the <code class="docutils literal notranslate"><span class="pre">country</span></code> column with the most frequent country. We remove <code class="docutils literal notranslate"><span class="pre">distribution_channel</span></code> since it has a high overlap with <code class="docutils literal notranslate"><span class="pre">market_segment</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># Country,Agent,Company contain 488,16340,112593 missing entries</span>
@@ -1002,7 +784,7 @@ Index([&#39;hotel&#39;, &#39;is_canceled&#39;, &#39;lead_time&#39;, &#39;arrival
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;reservation_status&#39;</span><span class="p">,</span><span class="s1">&#39;reservation_status_date&#39;</span><span class="p">,</span><span class="s1">&#39;arrival_date_day_of_month&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1011,8 +793,8 @@ Index([&#39;hotel&#39;, &#39;is_canceled&#39;, &#39;lead_time&#39;, &#39;arrival
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replacing 1 by True and 0 by False for the experiment and outcome variables</span>
@@ -1026,267 +808,8 @@ Index([&#39;hotel&#39;, &#39;is_canceled&#39;, &#39;lead_time&#39;, &#39;arrival
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Index([&#39;hotel&#39;, &#39;is_canceled&#39;, &#39;lead_time&#39;, &#39;arrival_date_month&#39;,
-       &#39;arrival_date_week_number&#39;, &#39;meal&#39;, &#39;country&#39;, &#39;market_segment&#39;,
-       &#39;is_repeated_guest&#39;, &#39;previous_cancellations&#39;,
-       &#39;previous_bookings_not_canceled&#39;, &#39;booking_changes&#39;, &#39;deposit_type&#39;,
-       &#39;days_in_waiting_list&#39;, &#39;customer_type&#39;, &#39;adr&#39;,
-       &#39;required_car_parking_spaces&#39;, &#39;total_of_special_requests&#39;,
-       &#39;total_stay&#39;, &#39;guests&#39;, &#39;different_room_assigned&#39;],
-      dtype=&#39;object&#39;)
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>meal</th>
-      <th>country</th>
-      <th>market_segment</th>
-      <th>is_repeated_guest</th>
-      <th>previous_cancellations</th>
-      <th>previous_bookings_not_canceled</th>
-      <th>booking_changes</th>
-      <th>deposit_type</th>
-      <th>days_in_waiting_list</th>
-      <th>customer_type</th>
-      <th>adr</th>
-      <th>required_car_parking_spaces</th>
-      <th>total_of_special_requests</th>
-      <th>total_stay</th>
-      <th>guests</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>BB</td>
-      <td>PRT</td>
-      <td>Direct</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>3</td>
-      <td>No Deposit</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>BB</td>
-      <td>PRT</td>
-      <td>Direct</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>4</td>
-      <td>No Deposit</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>BB</td>
-      <td>GBR</td>
-      <td>Direct</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>No Deposit</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>75.00</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>BB</td>
-      <td>GBR</td>
-      <td>Corporate</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>No Deposit</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>75.00</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>BB</td>
-      <td>GBR</td>
-      <td>Online TA</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>No Deposit</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>98.00</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>95</th>
-      <td>BB</td>
-      <td>PRT</td>
-      <td>Online TA</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>No Deposit</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>73.80</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>96</th>
-      <td>BB</td>
-      <td>PRT</td>
-      <td>Online TA</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>No Deposit</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>117.00</td>
-      <td>0</td>
-      <td>1</td>
-      <td>7</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>97</th>
-      <td>HB</td>
-      <td>ESP</td>
-      <td>Offline TA/TO</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>No Deposit</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>196.54</td>
-      <td>0</td>
-      <td>1</td>
-      <td>7</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>BB</td>
-      <td>PRT</td>
-      <td>Online TA</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>No Deposit</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>99.30</td>
-      <td>1</td>
-      <td>2</td>
-      <td>7</td>
-      <td>3.0</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>BB</td>
-      <td>DEU</td>
-      <td>Direct</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>No Deposit</td>
-      <td>0</td>
-      <td>Transient</td>
-      <td>90.95</td>
-      <td>0</td>
-      <td>0</td>
-      <td>7</td>
-      <td>2.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>100 rows × 15 columns</p>
-</div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">deposit_type</span><span class="o">==</span><span class="s2">&quot;No Deposit&quot;</span><span class="p">]</span>
@@ -1294,126 +817,8 @@ Index([&#39;hotel&#39;, &#39;is_canceled&#39;, &#39;lead_time&#39;, &#39;arrival
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>hotel</th>
-      <th>lead_time</th>
-      <th>arrival_date_month</th>
-      <th>arrival_date_week_number</th>
-      <th>meal</th>
-      <th>country</th>
-      <th>market_segment</th>
-      <th>is_repeated_guest</th>
-      <th>previous_cancellations</th>
-      <th>previous_bookings_not_canceled</th>
-      <th>booking_changes</th>
-      <th>days_in_waiting_list</th>
-      <th>customer_type</th>
-      <th>adr</th>
-      <th>required_car_parking_spaces</th>
-      <th>total_of_special_requests</th>
-      <th>total_stay</th>
-      <th>guests</th>
-      <th>different_room_assigned</th>
-    </tr>
-    <tr>
-      <th>deposit_type</th>
-      <th>is_canceled</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="2" valign="top">No Deposit</th>
-      <th>False</th>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-      <td>74947</td>
-    </tr>
-    <tr>
-      <th>True</th>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-      <td>29690</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset_copy</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1424,8 +829,8 @@ Index([&#39;hotel&#39;, &#39;is_canceled&#39;, &#39;lead_time&#39;, &#39;arrival
 <h3>Calculating Expected Counts<a class="headerlink" href="#Calculating-Expected-Counts" title="Permalink to this heading"></a></h3>
 <p>Since the number of number of cancellations and the number of times a different room was assigned is heavily imbalanced, we first choose 1000 observations at random to see that in how many cases do the variables; <em>‘is_cancelled’</em> &amp; <em>‘different_room_assigned’</em> attain the same values. This whole process is then repeated 10000 times and the expected count turns out to be near 50% (i.e. the probability of these two variables attaining the same value at random). So statistically speaking, we have no
 definite conclusion at this stage. Thus assigning rooms different to what a customer had reserved during his booking earlier, may or may not lead to him/her cancelling that booking.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts_sum</span><span class="o">=</span><span class="mi">0</span>
@@ -1438,17 +843,9 @@ definite conclusion at this stage. Thus assigning rooms different to what a cust
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="math notranslate nohighlight">
-$\displaystyle 588.7588$</div></div>
-</div>
 <p>We now consider the scenario when there were no booking changes and recalculate the expected count.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Expected Count when there are no booking changes</span>
@@ -1462,17 +859,9 @@ $\displaystyle 588.7588$</div></div>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="math notranslate nohighlight">
-$\displaystyle 573.0273$</div></div>
-</div>
 <p>In the 2nd case, we take the scenario when there were booking changes(&gt;0) and recalculate the expected count.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Expected Count when there are booking changes = 66.4%</span>
@@ -1485,14 +874,6 @@ $\displaystyle 573.0273$</div></div>
 <span class="n">counts_sum</span><span class="o">/</span><span class="mi">10000</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="math notranslate nohighlight">
-$\displaystyle 665.839$</div></div>
 </div>
 <p>There is definitely some change happening when the number of booking changes are non-zero. So it gives us a hint that <em>Booking Changes</em> may be affecting room cancellation.</p>
 <p>But is <em>Booking Changes</em> the only confounding variable? What if there were some unobserved confounders, regarding which we have no information(feature) present in our dataset. Would we still be able to make the same claims as before?</p>
@@ -1515,7 +896,7 @@ $\displaystyle 665.839$</div></div>
 <li><p>Finally, the number of <em>Booking Changes</em> being the only variable affecting <em>Treatment</em> and <em>Outcome</em> is highly unlikely and its possible that there might be some <em>Unobsevered Confounders</em>, regarding which we have no information being captured in our data.</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pygraphviz</span>
@@ -1559,8 +940,8 @@ $\displaystyle 665.839$</div></div>
 <p>Here the <em>Treatment</em> is assigning the same type of room reserved by the customer during Booking. <em>Outcome</em> would be whether the booking was cancelled or not. <em>Common Causes</em> represent the variables that according to us have a causal affect on both <em>Outcome</em> and <em>Treatment</em>. As per our causal assumptions, the 2 variables satisfying this criteria are <em>Booking Changes</em> and the <em>Unobserved Confounders</em>. So if we are not specifying the graph explicitly (Not Recommended!), one can also provide these
 as parameters in the function mentioned below.</p>
 <p>To aid in identification of causal effect, we remove the unobserved confounder node from the graph. (To check, you can use the original graph and run the following code. The <code class="docutils literal notranslate"><span class="pre">identify_effect</span></code> method will find that the effect cannot be identified.)</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">=</span> <span class="n">dowhy</span><span class="o">.</span><span class="n">CausalModel</span><span class="p">(</span>
@@ -1574,19 +955,12 @@ as parameters in the function mentioned below.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/example_notebooks_DoWhy-The_Causal_Story_Behind_Hotel_Booking_Cancellations_26_0.png" src="../_images/example_notebooks_DoWhy-The_Causal_Story_Behind_Hotel_Booking_Cancellations_26_0.png" />
-</div>
-</div>
 </section>
 <section id="Step-2.-Identify-the-Causal-Effect">
 <h2>Step-2. Identify the Causal Effect<a class="headerlink" href="#Step-2.-Identify-the-Causal-Effect" title="Permalink to this heading"></a></h2>
 <p>We say that Treatment causes Outcome if changing Treatment leads to a change in Outcome keeping everything else constant. Thus in this step, by using properties of the causal graph, we identify the causal effect to be estimated</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Identify the causal effect</span>
@@ -1595,44 +969,11 @@ as parameters in the function mentioned below.</p>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Estimand type: nonparametric-ate
-
-### Estimand : 1
-Estimand name: backdoor
-Estimand expression:
-            d
-──────────────────────────(E[is_canceled|guests,total_of_special_requests,lead
-d[different_room_assigned]
-
-
-_time,hotel,total_stay,booking_changes,required_car_parking_spaces,days_in_wai
-
-
-
-ting_list,is_repeated_guest])
-
-Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,guests,total_of_special_requests,lead_time,hotel,total_stay,booking_changes,required_car_parking_spaces,days_in_waiting_list,is_repeated_guest,U) = P(is_canceled|different_room_assigned,guests,total_of_special_requests,lead_time,hotel,total_stay,booking_changes,required_car_parking_spaces,days_in_waiting_list,is_repeated_guest)
-
-### Estimand : 2
-Estimand name: iv
-No such variable(s) found!
-
-### Estimand : 3
-Estimand name: frontdoor
-No such variable(s) found!
-
-</pre></div></div>
-</div>
 </section>
 <section id="Step-3.-Estimate-the-identified-estimand">
 <h2>Step-3. Estimate the identified estimand<a class="headerlink" href="#Step-3.-Estimate-the-identified-estimand" title="Permalink to this heading"></a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimate</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span>
@@ -1643,42 +984,6 @@ No such variable(s) found!
 <span class="nb">print</span><span class="p">(</span><span class="n">estimate</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-propensity_score_weighting
-*** Causal Estimate ***
-
-## Identified estimand
-Estimand type: nonparametric-ate
-
-### Estimand : 1
-Estimand name: backdoor
-Estimand expression:
-            d
-──────────────────────────(E[is_canceled|guests,total_of_special_requests,lead
-d[different_room_assigned]
-
-
-_time,hotel,total_stay,booking_changes,required_car_parking_spaces,days_in_wai
-
-
-
-ting_list,is_repeated_guest])
-
-Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,guests,total_of_special_requests,lead_time,hotel,total_stay,booking_changes,required_car_parking_spaces,days_in_waiting_list,is_repeated_guest,U) = P(is_canceled|different_room_assigned,guests,total_of_special_requests,lead_time,hotel,total_stay,booking_changes,required_car_parking_spaces,days_in_waiting_list,is_repeated_guest)
-
-## Realized estimand
-b: is_canceled~different_room_assigned+guests+total_of_special_requests+lead_time+hotel+total_stay+booking_changes+required_car_parking_spaces+days_in_waiting_list+is_repeated_guest
-Target units: ate
-
-## Estimate
-Mean value: -0.2621042103417002
-
-</pre></div></div>
 </div>
 <p>The result is surprising. It means that having a different room assigned <em>decreases</em> the chances of a cancellation. There’s more to unpack here: is this the correct causal effect? Could it be that different rooms are assigned only when the booked room is unavailable, and therefore assigning a different room has a positive effect on the customer (as opposed to not assigning a room)?</p>
 <p>There could also be other mechanisms at play. Perhaps assigning a different room only happens at check-in, and the chances of a cancellation once the customer is already at the hotel are low? In that case, the graph is missing a critical variable on <em>when</em> these events happen. Does <code class="docutils literal notranslate"><span class="pre">different_room_assigned</span></code> happen mostly on the day of the booking? Knowing that variable can help improve the graph and our analysis.</p>
@@ -1691,8 +996,8 @@ Mean value: -0.2621042103417002
 <section id="Method-1">
 <h3>Method-1<a class="headerlink" href="#Method-1" title="Permalink to this heading"></a></h3>
 <p><strong>Random Common Cause:-</strong> <em>Adds randomly drawn covariates to data and re-runs the analysis to see if the causal estimate changes or not. If our assumption was originally correct then the causal estimate shouldn’t change by much.</em></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refute1_results</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span>
@@ -1701,24 +1006,12 @@ Mean value: -0.2621042103417002
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Refute: Add a random common cause
-Estimated effect:-0.2621042103417002
-New effect:-0.26221176920788286
-p value:0.28
-
-</pre></div></div>
-</div>
 </section>
 <section id="Method-2">
 <h3>Method-2<a class="headerlink" href="#Method-2" title="Permalink to this heading"></a></h3>
 <p><strong>Placebo Treatment Refuter:-</strong> <em>Randomly assigns any covariate as a treatment and re-runs the analysis. If our assumptions were correct then this newly found out estimate should go to 0.</em></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refute2_results</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span>
@@ -1727,24 +1020,12 @@ p value:0.28
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Refute: Use a Placebo Treatment
-Estimated effect:-0.2621042103417002
-New effect:-0.00013996307977616308
-p value:0.8600000000000001
-
-</pre></div></div>
-</div>
 </section>
 <section id="Method-3">
 <h3>Method-3<a class="headerlink" href="#Method-3" title="Permalink to this heading"></a></h3>
 <p><strong>Data Subset Refuter:-</strong> <em>Creates subsets of the data(similar to cross-validation) and checks whether the causal estimates vary across subsets. If our assumptions were correct there shouldn’t be much variation.</em></p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refute3_results</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span>
@@ -1752,18 +1033,6 @@ p value:0.8600000000000001
 <span class="nb">print</span><span class="p">(</span><span class="n">refute3_results</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Refute: Use a subset of data
-Estimated effect:-0.2621042103417002
-New effect:-0.26213777329280463
-p value:0.8799999999999999
-
-</pre></div></div>
 </div>
 <p>We can see that our estimate passes all three refutation tests. This does not prove its correctness, but it increases confidence in the estimate.</p>
 </section>

@@ -621,8 +621,8 @@ div.rendered_html tbody tr:hover {
 <p>A graphical causal model (GCM) describes the data generation process of the modeled variables. Therefore, after we fit a GCM, we can also generate completely new samples from it and, thus, can see it as data generator for synthetic data based on the underlying models. Generating new samples can generally be done by sorting the nodes in topological order, randomly sample from root-nodes and then propagate the data through the graph by evaluating the downstream causal mechanisms with randomly
 sampled noise. The <code class="docutils literal notranslate"><span class="pre">dowhy.gcm</span></code> package provides a simple helper function that does this automatically and, by this, offers a simple API to draw samples from a GCM.</p>
 <p>Lets take a look at the following example:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -635,72 +635,9 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>X</th>
-      <th>Y</th>
-      <th>Z</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1.273637</td>
-      <td>2.901692</td>
-      <td>9.119755</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>-0.366423</td>
-      <td>-0.006072</td>
-      <td>-0.078131</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.309656</td>
-      <td>0.178917</td>
-      <td>-0.239210</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1.080435</td>
-      <td>2.777895</td>
-      <td>8.610359</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.485681</td>
-      <td>1.105903</td>
-      <td>4.107553</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
 <p>Similar as in the introduction, we generate data for the simple linear DAG X→Y→Z. Lets define the GCM and fit it to the data:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
@@ -712,25 +649,9 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 544.41it/s]
-</pre></div></div>
-</div>
 <p>We now learned the generative models of the variables, based on the defined causal graph and the additive noise model assumption. To generate new samples from this model, we can now simply call:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">generated_data</span> <span class="o">=</span> <span class="n">gcm</span><span class="o">.</span><span class="n">draw_samples</span><span class="p">(</span><span class="n">causal_model</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
@@ -738,85 +659,14 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>X</th>
-      <th>Y</th>
-      <th>Z</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.945975</td>
-      <td>2.708722</td>
-      <td>8.230202</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1.343523</td>
-      <td>2.242169</td>
-      <td>6.194651</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.470687</td>
-      <td>0.798845</td>
-      <td>2.472813</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>-0.358873</td>
-      <td>-0.528470</td>
-      <td>-0.322559</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>-0.714489</td>
-      <td>-2.785846</td>
-      <td>-8.380662</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
 <p>If our modeling assumptions are correct, the generated data should now resemble the observed data distribution, i.e. the generated samples correspond to the joint distribution we defined for our example data at the beginning. A quick way to make sure of this is to estimate the KL-divergence between observed and generated distribution:</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gcm</span><span class="o">.</span><span class="n">divergence</span><span class="o">.</span><span class="n">auto_estimate_kl_divergence</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">generated_data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="math notranslate nohighlight">
-$\displaystyle 0$</div></div>
 </div>
 <p>Here, we expect the divergence to be (very) small.</p>
 <p><strong>Note</strong>: We <strong>cannot</strong> validate the correctness of a causal graph this way, since any graph from a Markov equivalence class would be sufficient to generate data that is consistent with the observed one, but only one particular graph would generate the correct interventional and counterfactual distributions. This is, seeing the example above, X→Y→Z and X←Y←Z would generate the same observational distribution (since they encode the same conditionals), but only X→Y→Z would generate the correct

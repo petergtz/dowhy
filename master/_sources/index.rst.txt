@@ -40,7 +40,7 @@ science you need to know when trying to solve non-trivial problems.
 Examples
 --------
 
-TBD :doc:`example_notebooks/nb_index`
+If you prefer to learn by example, we recommend our :doc:`example_notebooks/nb_index`.
 
 API Reference
 -------------
