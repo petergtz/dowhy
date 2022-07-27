@@ -260,10 +260,6 @@
             <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="dowhy_multiple_treatments.html">v0.7.1</a></dd>
         </dl>
-        <dl>
-            <dt>Branches</dt>
-            <dd><a href="../../master/index.html">master</a></dd>
-        </dl>
     </div>
 </div>
       </div>
@@ -711,63 +707,63 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.229855</td>
-      <td>-1.387555</td>
-      <td>0.786590</td>
-      <td>-1.258104</td>
-      <td>2</td>
-      <td>2</td>
-      <td>10.681952</td>
-      <td>9.116470</td>
-      <td>-340.432216</td>
+      <td>-0.147170</td>
+      <td>0.487015</td>
+      <td>0.260085</td>
+      <td>1.647214</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8.919495</td>
+      <td>7.461873</td>
+      <td>293.259800</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.217647</td>
-      <td>-0.292369</td>
-      <td>1.332640</td>
-      <td>0.427745</td>
-      <td>3</td>
-      <td>3</td>
-      <td>25.751394</td>
-      <td>21.262840</td>
-      <td>2503.603626</td>
+      <td>0.895047</td>
+      <td>-0.771738</td>
+      <td>0.307920</td>
+      <td>0.473028</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2.743867</td>
+      <td>2.138631</td>
+      <td>38.622871</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.443941</td>
-      <td>-0.899301</td>
-      <td>1.386052</td>
-      <td>0.891162</td>
-      <td>0</td>
+      <td>-0.314359</td>
+      <td>-1.857618</td>
+      <td>0.285799</td>
+      <td>1.622579</td>
       <td>1</td>
-      <td>8.015082</td>
-      <td>8.278448</td>
-      <td>335.424342</td>
+      <td>3</td>
+      <td>13.683791</td>
+      <td>8.880783</td>
+      <td>-837.710530</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.365480</td>
-      <td>-1.674638</td>
-      <td>1.329180</td>
-      <td>-0.756272</td>
+      <td>-0.006823</td>
+      <td>-1.014953</td>
+      <td>-0.000759</td>
+      <td>0.262722</td>
+      <td>2</td>
       <td>0</td>
-      <td>3</td>
-      <td>10.452418</td>
-      <td>10.171325</td>
-      <td>-240.715898</td>
+      <td>12.334034</td>
+      <td>2.246315</td>
+      <td>25.955211</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.619837</td>
-      <td>-1.523808</td>
-      <td>1.826222</td>
-      <td>-0.936644</td>
-      <td>0</td>
-      <td>3</td>
-      <td>9.680095</td>
-      <td>10.146091</td>
-      <td>-66.034346</td>
+      <td>1.565859</td>
+      <td>0.246499</td>
+      <td>1.712025</td>
+      <td>0.184645</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7.085734</td>
+      <td>9.085817</td>
+      <td>412.747339</td>
     </tr>
   </tbody>
 </table>
@@ -820,9 +816,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W1,W2,W3,W0])
+─────────(E[y|W3,W0,W2,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W1,W2,W3,W0,U) = P(y|v0,v1,W1,W2,W3,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W0,W2,W1,U) = P(y|v0,v1,W3,W0,W2,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -857,7 +853,7 @@ No such variable(s) found!
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 linear_regression
-{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X0&#39;, &#39;X1&#39;], &#39;need_conditional_estimates&#39;: False}
+{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X1&#39;, &#39;X0&#39;], &#39;need_conditional_estimates&#39;: False}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -867,16 +863,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W1,W2,W3,W0])
+─────────(E[y|W3,W0,W2,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W1,W2,W3,W0,U) = P(y|v0,v1,W1,W2,W3,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W0,W2,W1,U) = P(y|v0,v1,W3,W0,W2,W1)
 
 ## Realized estimand
-b: y~v0+v1+W1+W2+W3+W0+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W3+W0+W2+W1+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: 26.86085004713323
+Mean value: -21.951284016383525
 
 </pre></div></div>
 </div>
@@ -899,7 +895,7 @@ Mean value: 26.86085004713323
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 linear_regression
-{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X0&#39;, &#39;X1&#39;]}
+{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X1&#39;, &#39;X0&#39;]}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -909,43 +905,43 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W1,W2,W3,W0])
+─────────(E[y|W3,W0,W2,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W1,W2,W3,W0,U) = P(y|v0,v1,W1,W2,W3,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W0,W2,W1,U) = P(y|v0,v1,W3,W0,W2,W1)
 
 ## Realized estimand
-b: y~v0+v1+W1+W2+W3+W0+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W3+W0+W2+W1+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: 26.86085004713323
+Mean value: -21.951284016383525
 ### Conditional Estimates
-__categorical__X0             __categorical__X1
-(-3.1799999999999997, -0.29]  (-4.503, -1.301]    -116.482456
-                              (-1.301, -0.718]     -76.650038
-                              (-0.718, -0.221]     -53.909801
-                              (-0.221, 0.359]      -26.819140
-                              (0.359, 3.237]        17.790253
-(-0.29, 0.289]                (-4.503, -1.301]     -69.921253
-                              (-1.301, -0.718]     -29.105215
-                              (-0.718, -0.221]      -1.908857
-                              (-0.221, 0.359]       22.869251
-                              (0.359, 3.237]        68.123504
-(0.289, 0.808]                (-4.503, -1.301]     -40.137340
-                              (-1.301, -0.718]       1.387250
-                              (-0.718, -0.221]      26.850668
-                              (-0.221, 0.359]       52.671652
-                              (0.359, 3.237]        93.163625
-(0.808, 1.388]                (-4.503, -1.301]     -14.175685
-                              (-1.301, -0.718]      30.536568
-                              (-0.718, -0.221]      56.208760
-                              (-0.221, 0.359]       81.355808
-                              (0.359, 3.237]       125.333095
-(1.388, 4.326]                (-4.503, -1.301]      36.896196
-                              (-1.301, -0.718]      80.947157
-                              (-0.718, -0.221]     104.340820
-                              (-0.221, 0.359]      130.158929
-                              (0.359, 3.237]       171.437686
+__categorical__X1            __categorical__X0
+(-4.465000000000001, -1.51]  (-3.7199999999999998, -0.698]   -146.120687
+                             (-0.698, -0.105]                -123.155953
+                             (-0.105, 0.391]                 -113.761007
+                             (0.391, 0.999]                   -99.478141
+                             (0.999, 3.945]                   -80.560569
+(-1.51, -0.911]              (-3.7199999999999998, -0.698]    -89.372319
+                             (-0.698, -0.105]                 -69.475544
+                             (-0.105, 0.391]                  -56.726560
+                             (0.391, 0.999]                   -43.202506
+                             (0.999, 3.945]                   -20.577502
+(-0.911, -0.417]             (-3.7199999999999998, -0.698]    -55.660644
+                             (-0.698, -0.105]                 -35.379669
+                             (-0.105, 0.391]                  -21.959967
+                             (0.391, 0.999]                    -9.846403
+                             (0.999, 3.945]                    12.079613
+(-0.417, 0.196]              (-3.7199999999999998, -0.698]    -22.224870
+                             (-0.698, -0.105]                  -0.110411
+                             (-0.105, 0.391]                   11.024007
+                             (0.391, 0.999]                    25.027646
+                             (0.999, 3.945]                    45.281742
+(0.196, 3.431]               (-3.7199999999999998, -0.698]     35.646643
+                             (-0.698, -0.105]                  56.140924
+                             (-0.105, 0.391]                   70.832945
+                             (0.391, 0.999]                    79.605446
+                             (0.999, 3.945]                   103.024634
 dtype: float64
 </pre></div></div>
 </div>
