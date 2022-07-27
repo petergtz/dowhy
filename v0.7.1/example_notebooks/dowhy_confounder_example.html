@@ -260,6 +260,10 @@
             <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="dowhy_confounder_example.html">v0.7.1</a></dd>
         </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../master/index.html">master</a></dd>
+        </dl>
     </div>
 </div>
       </div>
@@ -742,11 +746,11 @@ keywords are unexpanded, not using
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0
-0   9.024648  18.408830  3.263880
-1   4.312327   8.946467 -1.450466
-2   9.315333  18.498928  3.513082
-3   6.144640  11.713959 -0.038672
-4   7.803820  15.613758  1.927355
+0   3.475146   6.138014 -2.879762
+1   9.673000  19.071258  3.674707
+2   7.658905  15.589276  1.672512
+3   4.377472   9.105979 -1.271358
+4   7.487306  15.069229  1.304861
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -865,7 +869,7 @@ No such variable(s) found!
 <div class="highlight"><pre>
 linear_regression
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-Causal Estimate is 0.011535601377673288
+Causal Estimate is 0.9901716023021745
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -892,8 +896,8 @@ Causal Estimate is 0.011535601377673288
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DoWhy estimate is 0.011535601377673288
-Actual true causal effect was 0
+DoWhy estimate is 0.9901716023021745
+Actual true causal effect was 1
 </pre></div></div>
 </div>
 </section>
@@ -1018,9 +1022,9 @@ Actual true causal effect was 0
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 Refute: Add a random common cause
-Estimated effect:0.011535601377673288
-New effect:0.011548097978076922
-p value:0.9
+Estimated effect:0.9901716023021745
+New effect:0.9901652091509183
+p value:0.9199999999999999
 
 </pre></div></div>
 </div>
@@ -1143,9 +1147,9 @@ p value:0.9
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 Refute: Use a Placebo Treatment
-Estimated effect:0.011535601377673288
-New effect:-3.505303341066579e-05
-p value:0.98
+Estimated effect:0.9901716023021745
+New effect:-8.299350144303829e-05
+p value:0.9199999999999999
 
 </pre></div></div>
 </div>
@@ -1268,9 +1272,9 @@ p value:0.98
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 Refute: Use a subset of data
-Estimated effect:0.011535601377673288
-New effect:0.011245289571548937
-p value:0.8200000000000001
+Estimated effect:0.9901716023021745
+New effect:0.9899701852378664
+p value:0.98
 
 </pre></div></div>
 </div>

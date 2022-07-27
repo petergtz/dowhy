@@ -1,0 +1,573 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>dowhy.causal_identifiers package &#8212; DoWhy  documentation</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="dowhy.causal_refuters package" href="dowhy.causal_refuters.html" />
+    <link rel="prev" title="dowhy.causal_estimators package" href="dowhy.causal_estimators.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
+
+    
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">DoWhy  documentation</p>
+  
+</a>
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fas fa-bars"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="getting_started/index.html">
+  Getting started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="user_guide/index.html">
+  User Guide
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="example_notebooks/nb_index.html">
+  Examples
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="dowhy.html">
+  API reference
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="contributing.html">
+  Contributing
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="code_repo.html">
+  Release notes
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+      <div class="navbar-end-item">
+        
+<div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        master-branch
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+        <dl>
+            <dt>Releases</dt>
+            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../v0.7/dowhy.causal_identifiers.html">v0.7</a></dd>
+            <dd><a href="../v0.7.1/dowhy.causal_identifiers.html">v0.7.1</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="dowhy.causal_identifiers.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
+          
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy.api.html">
+   dowhy.api package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy.causal_estimators.html">
+   dowhy.causal_estimators package
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   dowhy.causal_identifiers package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy.causal_refuters.html">
+   dowhy.causal_refuters package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy.data_transformers.html">
+   dowhy.data_transformers package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy.do_samplers.html">
+   dowhy.do_samplers package
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="dowhy.gcm.html">
+   dowhy.gcm package
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dowhy.gcm.independence_test.html">
+     dowhy.gcm.independence_test package
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dowhy.gcm.ml.html">
+     dowhy.gcm.ml package
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dowhy.gcm.util.html">
+     dowhy.gcm.util package
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy.graph_learners.html">
+   dowhy.graph_learners package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy.interpreters.html">
+   dowhy.interpreters package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy.utils.html">
+   dowhy.utils package
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
+
+          
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-dowhy.causal_identifiers.backdoor">
+   dowhy.causal_identifiers.backdoor module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-dowhy.causal_identifiers.id_identifier">
+   dowhy.causal_identifiers.id_identifier module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-dowhy.causal_identifiers">
+   Module contents
+  </a>
+ </li>
+</ul>
+
+</nav>
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
+
+          
+          
+          <div class="bd-content col-12 col-md-9 col-xl-7">
+              
+              <article class="bd-article" role="main">
+                
+  <section id="dowhy-causal-identifiers-package">
+<h1>dowhy.causal_identifiers package<a class="headerlink" href="#dowhy-causal-identifiers-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-dowhy.causal_identifiers.backdoor">
+<span id="dowhy-causal-identifiers-backdoor-module"></span><h2>dowhy.causal_identifiers.backdoor module<a class="headerlink" href="#module-dowhy.causal_identifiers.backdoor" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.Backdoor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_identifiers.backdoor.</span></span><span class="sig-name descname"><span class="pre">Backdoor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#Backdoor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.Backdoor" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for optimized implementation of Backdoor variable search between the source nodes and the target nodes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.Backdoor.get_backdoor_vars">
+<span class="sig-name descname"><span class="pre">get_backdoor_vars</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#Backdoor.get_backdoor_vars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.Backdoor.get_backdoor_vars" title="Permalink to this definition"></a></dt>
+<dd><p>Obtains sets of backdoor variable to condition on for each node pair.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of sets with each set containing backdoor variable corresponding to a given node pair.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.Backdoor.is_backdoor">
+<span class="sig-name descname"><span class="pre">is_backdoor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#Backdoor.is_backdoor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.Backdoor.is_backdoor" title="Permalink to this definition"></a></dt>
+<dd><p>Check if path is a backdoor path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> – List of nodes comprising the path.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.HittingSetAlgorithm">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_identifiers.backdoor.</span></span><span class="sig-name descname"><span class="pre">HittingSetAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_sets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colliders</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#HittingSetAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.HittingSetAlgorithm" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for the Hitting Set Algorithm to obtain a approximate minimal set of backdoor variables 
+to condition on for each node pair.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list_of_sets</strong> – List of sets such that each set comprises nodes representing a single backdoor path between a source node and a target node.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.HittingSetAlgorithm.find_set">
+<span class="sig-name descname"><span class="pre">find_set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#HittingSetAlgorithm.find_set"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.HittingSetAlgorithm.find_set" title="Permalink to this definition"></a></dt>
+<dd><p>Find approximate minimal set of nodes such that there is atleast one node from each set in list_of_sets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Approximate minimal set of nodes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.HittingSetAlgorithm.num_sets">
+<span class="sig-name descname"><span class="pre">num_sets</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#HittingSetAlgorithm.num_sets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.HittingSetAlgorithm.num_sets" title="Permalink to this definition"></a></dt>
+<dd><p>Obtain number of backdoor paths between a node pair.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.NodePair">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_identifiers.backdoor.</span></span><span class="sig-name descname"><span class="pre">NodePair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#NodePair"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.NodePair" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data structure to store backdoor variables between 2 nodes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.NodePair.get_condition_vars">
+<span class="sig-name descname"><span class="pre">get_condition_vars</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#NodePair.get_condition_vars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.NodePair.get_condition_vars" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.NodePair.is_complete">
+<span class="sig-name descname"><span class="pre">is_complete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#NodePair.is_complete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.NodePair.is_complete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.NodePair.set_complete">
+<span class="sig-name descname"><span class="pre">set_complete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#NodePair.set_complete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.NodePair.set_complete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.NodePair.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition_vars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#NodePair.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.NodePair.update" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.Path">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_identifiers.backdoor.</span></span><span class="sig-name descname"><span class="pre">Path</span></span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#Path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.Path" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Data structure to store a particular path between 2 nodes.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.Path.get_condition_vars">
+<span class="sig-name descname"><span class="pre">get_condition_vars</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#Path.get_condition_vars"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.Path.get_condition_vars" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.Path.is_blocked">
+<span class="sig-name descname"><span class="pre">is_blocked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#Path.is_blocked"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.Path.is_blocked" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.backdoor.Path.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_blocked</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/backdoor.html#Path.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.backdoor.Path.update" title="Permalink to this definition"></a></dt>
+<dd><p>path is a list</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dowhy.causal_identifiers.id_identifier">
+<span id="dowhy-causal-identifiers-id-identifier-module"></span><h2>dowhy.causal_identifiers.id_identifier module<a class="headerlink" href="#module-dowhy.causal_identifiers.id_identifier" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.id_identifier.IDExpression">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_identifiers.id_identifier.</span></span><span class="sig-name descname"><span class="pre">IDExpression</span></span><a class="reference internal" href="_modules/dowhy/causal_identifiers/id_identifier.html#IDExpression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.id_identifier.IDExpression" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for storing a causal estimand, as a result of the identification step using the ID algorithm.
+The object stores a list of estimators(self._product) whose porduct must be obtained and a list of variables (self._sum) over which the product must be marginalized.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.id_identifier.IDExpression.add_product">
+<span class="sig-name descname"><span class="pre">add_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/id_identifier.html#IDExpression.add_product"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.id_identifier.IDExpression.add_product" title="Permalink to this definition"></a></dt>
+<dd><p>Add an estimator to the list of product.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>element</strong> – Estimator to append to the product list.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.id_identifier.IDExpression.add_sum">
+<span class="sig-name descname"><span class="pre">add_sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/id_identifier.html#IDExpression.add_sum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.id_identifier.IDExpression.add_sum" title="Permalink to this definition"></a></dt>
+<dd><p>Add variables to the list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>element</strong> – Set of variables to append to the list self._sum.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.id_identifier.IDExpression.get_val">
+<span class="sig-name descname"><span class="pre">get_val</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/id_identifier.html#IDExpression.get_val"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.id_identifier.IDExpression.get_val" title="Permalink to this definition"></a></dt>
+<dd><p>Get either the list of estimators (for product) or list of variables (for the marginalization).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>return_type</strong> – “prod” to return the list of estimators or “sum” to return the list of variables.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.id_identifier.IDIdentifier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_identifiers.id_identifier.</span></span><span class="sig-name descname"><span class="pre">IDIdentifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimand_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proceed_when_unidentifiable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/id_identifier.html#IDIdentifier"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.id_identifier.IDIdentifier" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="dowhy.html#dowhy.causal_identifier.CausalIdentifier" title="dowhy.causal_identifier.CausalIdentifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">CausalIdentifier</span></code></a></p>
+<p>Class to perform identification using the ID algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – instance of the IDIdentifier class.</p></li>
+<li><p><strong>estimand_type</strong> – Type of estimand (“nonparametric-ate”, “nonparametric-nde” or “nonparametric-nie”).</p></li>
+<li><p><strong>method_name</strong> – Identification method (“id-algorithm” in this case).</p></li>
+<li><p><strong>proceed_when_unidentifiable</strong> – If True, proceed with identification even in the presence of unobserved/missing variables.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifiers.id_identifier.IDIdentifier.identify_effect">
+<span class="sig-name descname"><span class="pre">identify_effect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">treatment_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outcome_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjacency_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifiers/id_identifier.html#IDIdentifier.identify_effect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifiers.id_identifier.IDIdentifier.identify_effect" title="Permalink to this definition"></a></dt>
+<dd><p>Implementation of the ID algorithm.
+Link - <a class="reference external" href="https://ftp.cs.ucla.edu/pub/stat_ser/shpitser-thesis.pdf">https://ftp.cs.ucla.edu/pub/stat_ser/shpitser-thesis.pdf</a>
+The pseudo code has been provided on Pg 40.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – instance of the IDIdentifier class.</p></li>
+<li><p><strong>treatment_names</strong> – OrderedSet comprising names of treatment variables.</p></li>
+</ul>
+</dd>
+</dl>
+<p>:param outcome_names:OrderedSet comprising names of outcome variables.
+:param adjacency_matrix: Graph adjacency matrix.
+:param node_names: OrderedSet comprising names of all nodes in the graph</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>target estimand, an instance of the IDExpression class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-dowhy.causal_identifiers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-dowhy.causal_identifiers" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+              </article>
+              
+
+              
+              <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="dowhy.causal_estimators.html" title="previous page">
+      <i class="fas fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">dowhy.causal_estimators package</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="dowhy.causal_refuters.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">dowhy.causal_refuters package</p>
+  </div>
+  <i class="fas fa-angle-right"></i>
+  </a>
+</div>
+              </footer>
+              
+          </div>
+          
+      </div>
+    </div>
+
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    &copy; Copyright 2022, PyWhy contributors.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
+  </body>
+</html>
