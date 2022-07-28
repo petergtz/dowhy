@@ -660,8 +660,8 @@ div.rendered_html tbody tr:hover {
 </style>
 <section id="Mediation-analysis-with-DoWhy:-Direct-and-Indirect-Effects">
 <h1>Mediation analysis with DoWhy: Direct and Indirect Effects<a class="headerlink" href="#Mediation-analysis-with-DoWhy:-Direct-and-Indirect-Effects" title="Permalink to this heading"></a></h1>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -676,10 +676,18 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+keywords are unexpanded, not using
+</pre></div></div>
+</div>
 <section id="Creating-a-dataset">
 <h2>Creating a dataset<a class="headerlink" href="#Creating-a-dataset" title="Permalink to this heading"></a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a dataset with a single confounder and a single mediator (num_frontdoor_variables)</span>
@@ -694,12 +702,25 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+         FD0        W0         v0          y
+0  -0.568792 -0.186066  -0.741571  -0.438513
+1  41.121842  3.095660  17.293193  14.510519
+2  22.338441  1.418912   9.627674   7.468381
+3   7.236358  0.788621   3.796869   2.946726
+4  24.219273  1.820384  10.196649   8.533271
+</pre></div></div>
+</div>
 </section>
 <section id="Step-1:-Modeling-the-causal-mechanism">
 <h2>Step 1: Modeling the causal mechanism<a class="headerlink" href="#Step-1:-Modeling-the-causal-mechanism" title="Permalink to this heading"></a></h2>
 <p>We create a dataset following a causal graph based on the frontdoor criterion. That is, there is no direct effect of the treatment on outcome; all effect is mediated through the frontdoor variable FD0.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">CausalModel</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>
@@ -713,14 +734,21 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/example_notebooks_dowhy_mediation_analysis_5_0.png" src="../_images/example_notebooks_dowhy_mediation_analysis_5_0.png" />
+</div>
+</div>
 </section>
 <section id="Step-2:-Identifying-the-natural-direct-and-indirect-effects">
 <h2>Step 2: Identifying the natural direct and indirect effects<a class="headerlink" href="#Step-2:-Identifying-the-natural-direct-and-indirect-effects" title="Permalink to this heading"></a></h2>
 <p>We use the <code class="docutils literal notranslate"><span class="pre">estimand_type</span></code> argument to specify that the target estimand should be for a <strong>natural direct effect</strong> or the <strong>natural indirect effect</strong>. For definitions, see <a class="reference external" href="https://ftp.cs.ucla.edu/pub/stat_ser/r389-imai-etal-commentary-r421-reprint.pdf">Interpretation and Identification of Causal Mediation</a> by Judea Pearl.</p>
 <p><strong>Natural direct effect</strong>: Effect due to the path v0-&gt;y</p>
 <p><strong>Natural indirect effect</strong>: Effect due to the path v0-&gt;FD0-&gt;y (mediated by FD0).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Natural direct effect (nde)</span>
@@ -730,8 +758,27 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Estimand type: nonparametric-nde
+
+### Estimand : 1
+Estimand name: mediation
+Estimand expression:
+ ⎡  d         ⎤
+E⎢─────(y|FD0)⎥
+ ⎣d[v₀]       ⎦
+Estimand assumption 1, Mediation: FD0 intercepts (blocks) all directed paths from v0 to y except the path {v0}→{y}.
+Estimand assumption 2, First-stage-unconfoundedness: If U→{v0} and U→{FD0} then P(FD0|v0,U) = P(FD0|v0)
+Estimand assumption 3, Second-stage-unconfoundedness: If U→{FD0} and U→y then P(y|FD0, v0, U) = P(y|FD0, v0)
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Natural indirect effect (nie)</span>
@@ -741,6 +788,25 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Estimand type: nonparametric-nie
+
+### Estimand : 1
+Estimand name: mediation
+Estimand expression:
+ ⎡  d         d         ⎤
+E⎢──────(y)⋅─────([FD₀])⎥
+ ⎣d[FD₀]    d[v₀]       ⎦
+Estimand assumption 1, Mediation: FD0 intercepts (blocks) all directed paths from v0 to y except the path {v0}→{y}.
+Estimand assumption 2, First-stage-unconfoundedness: If U→{v0} and U→{FD0} then P(FD0|v0,U) = P(FD0|v0)
+Estimand assumption 3, Second-stage-unconfoundedness: If U→{FD0} and U→y then P(y|FD0, v0, U) = P(y|FD0, v0)
+
+</pre></div></div>
+</div>
 </section>
 <section id="Step-3:-Estimation-of-the-effect">
 <h2>Step 3: Estimation of the effect<a class="headerlink" href="#Step-3:-Estimation-of-the-effect" title="Permalink to this heading"></a></h2>
@@ -748,8 +814,8 @@ div.rendered_html tbody tr:hover {
 <section id="Natural-Indirect-Effect">
 <h3>Natural Indirect Effect<a class="headerlink" href="#Natural-Indirect-Effect" title="Permalink to this heading"></a></h3>
 <p>The estimator converts the mediation effect estimation to a series of backdoor effect estimations. 1. The first-stage model estimates the effect from treatment (v0) to the mediator (FD0). 2. The second-stage model estimates the effect from mediator (FD0) to the outcome (Y).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dowhy.causal_estimators.linear_regression_estimator</span>
@@ -766,22 +832,62 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+two_stage_regression
+{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [], &#39;first_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;, &#39;second_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;}
+{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [], &#39;first_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;, &#39;second_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;}
+*** Causal Estimate ***
+
+## Identified estimand
+Estimand type: nonparametric-nie
+
+### Estimand : 1
+Estimand name: mediation
+Estimand expression:
+ ⎡  d         d         ⎤
+E⎢──────(y)⋅─────([FD₀])⎥
+ ⎣d[FD₀]    d[v₀]       ⎦
+Estimand assumption 1, Mediation: FD0 intercepts (blocks) all directed paths from v0 to y except the path {v0}→{y}.
+Estimand assumption 2, First-stage-unconfoundedness: If U→{v0} and U→{FD0} then P(FD0|v0,U) = P(FD0|v0)
+Estimand assumption 3, Second-stage-unconfoundedness: If U→{FD0} and U→y then P(y|FD0, v0, U) = P(y|FD0, v0)
+
+## Realized estimand
+(b: FD0~v0+W0)*(b: y~FD0+W0)
+Target units: ate
+
+## Estimate
+Mean value: 0.5448427559391349
+
+</pre></div></div>
+</div>
 <p>Note that the value equals the true value of the natural indirect effect (up to random noise).</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">causal_estimate_nie</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;ate&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.5448427559391349 0.5417170031773584
+</pre></div></div>
+</div>
 <p>The parameter is called <code class="docutils literal notranslate"><span class="pre">ate</span></code> because in the simulated dataset, the direct effect is set to be zero.</p>
 </section>
 <section id="Natural-Direct-Effect">
 <h3>Natural Direct Effect<a class="headerlink" href="#Natural-Direct-Effect" title="Permalink to this heading"></a></h3>
 <p>Now let us check whether the direct effect estimator returns the (correct) estimate of zero.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">causal_estimate_nde</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand_nde</span><span class="p">,</span>
@@ -796,6 +902,39 @@ div.rendered_html tbody tr:hover {
 <span class="nb">print</span><span class="p">(</span><span class="n">causal_estimate_nde</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+two_stage_regression
+{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [], &#39;first_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;, &#39;second_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;}
+{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [], &#39;first_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;, &#39;second_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;}
+{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [], &#39;first_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;, &#39;second_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;}
+*** Causal Estimate ***
+
+## Identified estimand
+Estimand type: nonparametric-nde
+
+### Estimand : 1
+Estimand name: mediation
+Estimand expression:
+ ⎡  d         ⎤
+E⎢─────(y|FD0)⎥
+ ⎣d[v₀]       ⎦
+Estimand assumption 1, Mediation: FD0 intercepts (blocks) all directed paths from v0 to y except the path {v0}→{y}.
+Estimand assumption 2, First-stage-unconfoundedness: If U→{v0} and U→{FD0} then P(FD0|v0,U) = P(FD0|v0)
+Estimand assumption 3, Second-stage-unconfoundedness: If U→{FD0} and U→y then P(y|FD0, v0, U) = P(y|FD0, v0)
+
+## Realized estimand
+(b: y~v0+W0) - ((b: FD0~v0+W0)*(b: y~FD0+W0))
+Target units: ate
+
+## Estimate
+Mean value: 4.959315431807276e-05
+
+</pre></div></div>
 </div>
 </section>
 </section>

@@ -629,8 +629,8 @@ div.rendered_html tbody tr:hover {
 <section id="Demo-for-the-DoWhy-causal-API">
 <h1>Demo for the DoWhy causal API<a class="headerlink" href="#Demo-for-the-DoWhy-causal-API" title="Permalink to this heading"></a></h1>
 <p>We show a simple example of adding a causal extension to any dataframe.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dowhy.datasets</span>
@@ -643,8 +643,16 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+keywords are unexpanded, not using
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">dowhy</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">linear_dataset</span><span class="p">(</span><span class="n">beta</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
@@ -663,8 +671,108 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>W0</th>
+      <th>v0</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.563128</td>
+      <td>False</td>
+      <td>1.619841</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.757476</td>
+      <td>True</td>
+      <td>6.361084</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.082374</td>
+      <td>True</td>
+      <td>7.954855</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-1.519214</td>
+      <td>False</td>
+      <td>0.634509</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.501509</td>
+      <td>True</td>
+      <td>4.896844</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>-0.182129</td>
+      <td>True</td>
+      <td>1.881910</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>0.890710</td>
+      <td>True</td>
+      <td>5.868430</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>-0.913784</td>
+      <td>False</td>
+      <td>-0.974408</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>-0.395729</td>
+      <td>False</td>
+      <td>0.006747</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>-1.087626</td>
+      <td>False</td>
+      <td>-0.526005</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 3 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data[&#39;df&#39;] is just a regular pandas.DataFrame</span>
@@ -676,8 +784,24 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;AxesSubplot:xlabel=&#39;v0&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/example_notebooks_dowhy_causal_api_3_1.png" src="../_images/example_notebooks_dowhy_causal_api_3_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">causal</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">{</span><span class="n">treatment</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
@@ -689,8 +813,24 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;AxesSubplot:xlabel=&#39;v0&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/example_notebooks_dowhy_causal_api_4_1.png" src="../_images/example_notebooks_dowhy_causal_api_4_1.png" />
+</div>
+</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdf_1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">causal</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">{</span><span class="n">treatment</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
@@ -707,44 +847,308 @@ div.rendered_html tbody tr:hover {
 <br/></pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdf_0</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>W0</th>
+      <th>v0</th>
+      <th>y</th>
+      <th>propensity_score</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.322864</td>
+      <td>False</td>
+      <td>0.506619</td>
+      <td>0.446723</td>
+      <td>2.238524</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.681457</td>
+      <td>False</td>
+      <td>-1.052059</td>
+      <td>0.388708</td>
+      <td>2.572628</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.425276</td>
+      <td>False</td>
+      <td>0.550296</td>
+      <td>0.429932</td>
+      <td>2.325949</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.470577</td>
+      <td>False</td>
+      <td>-0.219838</td>
+      <td>0.422554</td>
+      <td>2.366563</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.277876</td>
+      <td>False</td>
+      <td>-0.536746</td>
+      <td>0.454140</td>
+      <td>2.201965</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>0.571028</td>
+      <td>False</td>
+      <td>-0.206884</td>
+      <td>0.406320</td>
+      <td>2.461116</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>-0.959486</td>
+      <td>False</td>
+      <td>-0.461943</td>
+      <td>0.654785</td>
+      <td>1.527219</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>-0.491078</td>
+      <td>False</td>
+      <td>-2.497981</td>
+      <td>0.581315</td>
+      <td>1.720238</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>0.079449</td>
+      <td>False</td>
+      <td>0.866081</td>
+      <td>0.487052</td>
+      <td>2.053169</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>-1.113819</td>
+      <td>False</td>
+      <td>0.472829</td>
+      <td>0.677636</td>
+      <td>1.475719</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 5 columns</p>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdf_1</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>W0</th>
+      <th>v0</th>
+      <th>y</th>
+      <th>propensity_score</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-2.702730</td>
+      <td>True</td>
+      <td>4.603872</td>
+      <td>0.141710</td>
+      <td>7.056664</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.047163</td>
+      <td>True</td>
+      <td>4.457430</td>
+      <td>0.507575</td>
+      <td>1.970154</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-1.482347</td>
+      <td>True</td>
+      <td>3.814479</td>
+      <td>0.271234</td>
+      <td>3.686853</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-1.651699</td>
+      <td>True</td>
+      <td>4.206534</td>
+      <td>0.249522</td>
+      <td>4.007655</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.969559</td>
+      <td>True</td>
+      <td>4.386705</td>
+      <td>0.343700</td>
+      <td>2.909512</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>995</th>
+      <td>-0.837337</td>
+      <td>True</td>
+      <td>6.062797</td>
+      <td>0.363828</td>
+      <td>2.748549</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>-0.541915</td>
+      <td>True</td>
+      <td>5.009058</td>
+      <td>0.410468</td>
+      <td>2.436245</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>-0.615884</td>
+      <td>True</td>
+      <td>4.172003</td>
+      <td>0.398601</td>
+      <td>2.508772</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>1.351525</td>
+      <td>True</td>
+      <td>6.892360</td>
+      <td>0.710748</td>
+      <td>1.406968</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>-0.163235</td>
+      <td>True</td>
+      <td>4.804363</td>
+      <td>0.472571</td>
+      <td>2.116085</td>
+    </tr>
+  </tbody>
+</table>
+<p>1000 rows × 5 columns</p>
+</div></div>
+</div>
 <section id="Comparing-the-estimate-to-Linear-Regression">
 <h2>Comparing the estimate to Linear Regression<a class="headerlink" href="#Comparing-the-estimate-to-Linear-Regression" title="Permalink to this heading"></a></h2>
 <p>First, estimating the effect using the causal data frame, and the 95% confidence interval.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">cdf_1</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">cdf_0</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\displaystyle 4.96136148437384$</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">1.96</span><span class="o">*</span><span class="p">(</span><span class="n">cdf_1</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">cdf_0</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="math notranslate nohighlight">
+$\displaystyle 0.0852835890334193$</div></div>
+</div>
 <p>Comparing to the estimate from OLS.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">OLS</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">outcome</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="n">common_cause</span><span class="p">,</span> <span class="n">treatment</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">))</span>
@@ -752,6 +1156,67 @@ div.rendered_html tbody tr:hover {
 <span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>            <td>y</td>        <th>  R-squared (uncentered):</th>      <td>   0.925</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared (uncentered):</th> <td>   0.925</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th>          <td>   6137.</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Thu, 28 Jul 2022</td> <th>  Prob (F-statistic):</th>           <td>  0.00</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>08:38:55</td>     <th>  Log-Likelihood:    </th>          <td> -1399.1</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>  1000</td>      <th>  AIC:               </th>          <td>   2802.</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>   998</td>      <th>  BIC:               </th>          <td>   2812.</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     2</td>      <th>                     </th>              <td> </td>
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>              <td> </td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+   <td></td>     <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
+</tr>
+<tr>
+  <th>x1</th> <td>    0.0870</td> <td>    0.031</td> <td>    2.814</td> <td> 0.005</td> <td>    0.026</td> <td>    0.148</td>
+</tr>
+<tr>
+  <th>x2</th> <td>    5.0149</td> <td>    0.045</td> <td>  110.281</td> <td> 0.000</td> <td>    4.926</td> <td>    5.104</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td> 0.911</td> <th>  Durbin-Watson:     </th> <td>   2.096</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.634</td> <th>  Jarque-Bera (JB):  </th> <td>   0.866</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td>-0.072</td> <th>  Prob(JB):          </th> <td>   0.649</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 3.015</td> <th>  Cond. No.          </th> <td>    1.48</td>
+</tr>
+</table><br/><br/>Notes:<br/>[1] R² is computed without centering (uncentered) since the model does not contain a constant.<br/>[2] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div>
 </div>
 </section>
 </section>

@@ -524,8 +524,8 @@ and outcome in order to change the conclusions. Robustness value close to 1 mean
 <a class="reference external" href="https://carloscinelli.com/files/Cinelli%20and%20Hazlett%20(2020)%20-%20Making%20Sense%20of%20Sensitivity.pdf">https://carloscinelli.com/files/Cinelli%20and%20Hazlett%20(2020)%20-%20Making%20Sense%20of%20Sensitivity.pdf</a></p>
 <section id="Step-1:-Load-required-packages">
 <h2>Step 1: Load required packages<a class="headerlink" href="#Step-1:-Load-required-packages" title="Permalink to this heading"></a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
@@ -556,12 +556,20 @@ and outcome in order to change the conclusions. Robustness value close to 1 mean
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+keywords are unexpanded, not using
+</pre></div></div>
+</div>
 </section>
 <section id="Step-2:-Load-the-dataset">
 <h2>Step 2: Load the dataset<a class="headerlink" href="#Step-2:-Load-the-dataset" title="Permalink to this heading"></a></h2>
 <p>We create a dataset with linear relationships between common causes and treatment, and common causes and outcome. Beta is the true causal effect.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -575,8 +583,8 @@ and outcome in order to change the conclusions. Robustness value close to 1 mean
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">CausalModel</span><span class="p">(</span>
@@ -593,12 +601,118 @@ and outcome in order to change the conclusions. Robustness value close to 1 mean
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/example_notebooks_sensitivity_analysis_testing_5_0.png" src="../_images/example_notebooks_sensitivity_analysis_testing_5_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>W0</th>
+      <th>W1</th>
+      <th>W2</th>
+      <th>W3</th>
+      <th>W4</th>
+      <th>W5</th>
+      <th>W6</th>
+      <th>v0</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.145062</td>
+      <td>-0.235286</td>
+      <td>0.784843</td>
+      <td>0.869131</td>
+      <td>-1.567724</td>
+      <td>-1.290234</td>
+      <td>0.116096</td>
+      <td>True</td>
+      <td>1.386517</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.228109</td>
+      <td>-0.020264</td>
+      <td>-0.589792</td>
+      <td>0.188139</td>
+      <td>-2.649265</td>
+      <td>-1.764439</td>
+      <td>-0.167236</td>
+      <td>False</td>
+      <td>-16.159402</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.868298</td>
+      <td>-1.097642</td>
+      <td>-0.109792</td>
+      <td>0.487635</td>
+      <td>-1.861375</td>
+      <td>-0.527930</td>
+      <td>-0.066542</td>
+      <td>False</td>
+      <td>-0.702560</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.017115</td>
+      <td>1.123918</td>
+      <td>0.346060</td>
+      <td>1.845425</td>
+      <td>0.848049</td>
+      <td>0.778865</td>
+      <td>0.596496</td>
+      <td>True</td>
+      <td>27.714465</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.757347</td>
+      <td>-1.426205</td>
+      <td>-0.457063</td>
+      <td>1.528053</td>
+      <td>-2.681410</td>
+      <td>0.394312</td>
+      <td>-0.687839</td>
+      <td>False</td>
+      <td>-20.082633</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
 </section>
 <section id="Step-3:-Create-Causal-Model">
 <h2>Step 3: Create Causal Model<a class="headerlink" href="#Step-3:-Create-Causal-Model" title="Permalink to this heading"></a></h2>
 <p>Remove one of the common causes to simulate unobserved confounding</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;df&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;df&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;W4&quot;</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
@@ -617,11 +731,111 @@ and outcome in order to change the conclusions. Robustness value close to 1 mean
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/example_notebooks_sensitivity_analysis_testing_7_0.png" src="../_images/example_notebooks_sensitivity_analysis_testing_7_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>W0</th>
+      <th>W1</th>
+      <th>W2</th>
+      <th>W3</th>
+      <th>W5</th>
+      <th>W6</th>
+      <th>v0</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.145062</td>
+      <td>-0.235286</td>
+      <td>0.784843</td>
+      <td>0.869131</td>
+      <td>-1.290234</td>
+      <td>0.116096</td>
+      <td>True</td>
+      <td>1.386517</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.228109</td>
+      <td>-0.020264</td>
+      <td>-0.589792</td>
+      <td>0.188139</td>
+      <td>-1.764439</td>
+      <td>-0.167236</td>
+      <td>False</td>
+      <td>-16.159402</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.868298</td>
+      <td>-1.097642</td>
+      <td>-0.109792</td>
+      <td>0.487635</td>
+      <td>-0.527930</td>
+      <td>-0.066542</td>
+      <td>False</td>
+      <td>-0.702560</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.017115</td>
+      <td>1.123918</td>
+      <td>0.346060</td>
+      <td>1.845425</td>
+      <td>0.778865</td>
+      <td>0.596496</td>
+      <td>True</td>
+      <td>27.714465</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.757347</td>
+      <td>-1.426205</td>
+      <td>-0.457063</td>
+      <td>1.528053</td>
+      <td>0.394312</td>
+      <td>-0.687839</td>
+      <td>False</td>
+      <td>-20.082633</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
 </section>
 <section id="Step-4:-Identification">
 <h2>Step 4: Identification<a class="headerlink" href="#Step-4:-Identification" title="Permalink to this heading"></a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">identified_estimand</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">identify_effect</span><span class="p">(</span><span class="n">proceed_when_unidentifiable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -629,18 +843,72 @@ and outcome in order to change the conclusions. Robustness value close to 1 mean
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Estimand type: nonparametric-ate
+
+### Estimand : 1
+Estimand name: backdoor
+Estimand expression:
+  d
+─────(E[y|W6,W3,W1,W2,W0,W5])
+d[v₀]
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W6,W3,W1,W2,W0,W5,U) = P(y|v0,W6,W3,W1,W2,W0,W5)
+
+### Estimand : 2
+Estimand name: iv
+No such variable(s) found!
+
+### Estimand : 3
+Estimand name: frontdoor
+No such variable(s) found!
+
+</pre></div></div>
+</div>
 </section>
 <section id="Step-5:-Estimation">
 <h2>Step 5: Estimation<a class="headerlink" href="#Step-5:-Estimation" title="Permalink to this heading"></a></h2>
 <p>Currently only Linear Regression estimator is supported for Linear Sensitivity Analysis</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimate</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span><span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;backdoor.linear_regression&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">estimate</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+linear_regression
+{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
+*** Causal Estimate ***
+
+## Identified estimand
+Estimand type: nonparametric-ate
+
+### Estimand : 1
+Estimand name: backdoor
+Estimand expression:
+  d
+─────(E[y|W6,W3,W1,W2,W0,W5])
+d[v₀]
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W6,W3,W1,W2,W0,W5,U) = P(y|v0,W6,W3,W1,W2,W0,W5)
+
+## Realized estimand
+b: y~v0+W6+W3+W1+W2+W0+W5
+Target units: ate
+
+## Estimate
+Mean value: 10.697677486880922
+
+</pre></div></div>
 </div>
 </section>
 <section id="Step-6:-Refutation-and-Sensitivity-Analysis">
@@ -649,8 +917,8 @@ and outcome in order to change the conclusions. Robustness value close to 1 mean
 confounder percent_change_estimate: It is the percentage of reduction of treatment estimate that could alter the results (default = 1) if percent_change_estimate = 1, the robustness value describes the strength of association of confounders with treatment and outcome in order to reduce the estimate by 100% i.e bring it down to 0. confounder_increases_estimate: confounder_increases_estimate = True implies that confounder increases the absolute value of estimate and vice versa. Default is
 confounder_increases_estimate = False i.e. the considered confounders pull estimate towards zero effect_fraction_on_treatment: Strength of association between unobserved confounder and treatment compared to benchmark covariate effect_fraction_on_outcome: Strength of association between unobserved confounder and outcome compared to benchmark covariate null_hypothesis_effect: assumed effect under the null hypothesis (default = 0) plot_estimate: Generate contour plot for estimate while performing
 sensitivity analysis. (default = True). To override the setting, set plot_estimate = False.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refute</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span> <span class="n">estimate</span> <span class="p">,</span>
@@ -662,22 +930,112 @@ sensitivity analysis. (default = True). To override the setting, set plot_estima
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/example_notebooks_sensitivity_analysis_testing_13_0.png" src="../_images/example_notebooks_sensitivity_analysis_testing_13_0.png" />
+</div>
+</div>
 <p>The x axis shows hypothetical partial R2 values of unobserved confounder(s) with the treatment. The y axis shows hypothetical partial R2 of unobserved confounder(s) with the outcome. The contour levels represent adjusted t-values or estimates for unobserved confounders with hypothetical partialR2 values when these would be included in full regression model. The red line is the critical threshold: confounders with such strength or stronger are sufficient to invalidate the research conclusions.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refute</span><span class="o">.</span><span class="n">stats</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;estimate&#39;: 10.697677486880922,
+ &#39;standard_error&#39;: 0.593873566128295,
+ &#39;degree of freedom&#39;: 492,
+ &#39;t_statistic&#39;: 18.01339223872762,
+ &#39;r2yt_w&#39;: 0.39741498372666806,
+ &#39;partial_f2&#39;: 0.6595168698094561,
+ &#39;robustness_value&#39;: 0.5467445572181009,
+ &#39;robustness_value_alpha&#39;: 0.5076289101030926}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refute</span><span class="o">.</span><span class="n">benchmarking_results</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>r2tu_w</th>
+      <th>r2yu_tw</th>
+      <th>bias_adjusted_estimate</th>
+      <th>bias_adjusted_se</th>
+      <th>bias_adjusted_t</th>
+      <th>bias_adjusted_lower_CI</th>
+      <th>bias_adjusted_upper_CI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.032677</td>
+      <td>0.230238</td>
+      <td>9.535964</td>
+      <td>0.530308</td>
+      <td>17.981928</td>
+      <td>8.494016</td>
+      <td>10.577912</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.065354</td>
+      <td>0.461490</td>
+      <td>8.331381</td>
+      <td>0.451241</td>
+      <td>18.463243</td>
+      <td>7.444783</td>
+      <td>9.217979</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.098031</td>
+      <td>0.693855</td>
+      <td>7.080284</td>
+      <td>0.346341</td>
+      <td>20.443123</td>
+      <td>6.399795</td>
+      <td>7.760773</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <section id="Parameter-List-for-plot-function">
 <h3>Parameter List for plot function<a class="headerlink" href="#Parameter-List-for-plot-function" title="Permalink to this heading"></a></h3>
@@ -685,28 +1043,62 @@ sensitivity analysis. (default = True). To override the setting, set plot_estima
 be plotted with the specific color in ascending order. critical_contour_color: color of threshold line (default = red) label_fontsize: fontsize for labelling contours (default = 9) contour_linewidths: linewidths for contours (default = 0.75) contour_linestyles: linestyles for contours (default = “solid”) See : <a class="reference external" href="https://matplotlib.org/3.5.0/gallery/lines_bars_and_markers/linestyles.html">https://matplotlib.org/3.5.0/gallery/lines_bars_and_markers/linestyles.html</a> contours_label_color: color of contour line label (default = black) critical_label_color: color of threshold
 line label (default = red) unadjusted_estimate_marker: marker type for unadjusted estimate in the plot (default = ‘D’) See: <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html">https://matplotlib.org/stable/api/markers_api.html</a> unadjusted_estimate_color: marker color for unadjusted estimate in the plot (default = “black”) adjusted_estimate_marker: marker type for bias adjusted estimates in the plot (default = ‘^’)adjusted_estimate_color: marker color for bias adjusted estimates in the plot (default = “red”) legend_position:tuple denoting the
 position of the legend (default = (1.6, 0.6))</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refute</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_type</span> <span class="o">=</span> <span class="s1">&#39;t-value&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/example_notebooks_sensitivity_analysis_testing_18_0.png" src="../_images/example_notebooks_sensitivity_analysis_testing_18_0.png" />
+</div>
+</div>
 <p>The t statistic is the coefficient divided by its standard error. The higher the t-value, the greater the evidence to reject the null hypothesis. According to the above plot,at 5% significance level, the null hypothesis of zero effect would be rejected given the above confounders.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">refute</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sensitivity Analysis to Unobserved Confounding using R^2 paramterization
+
+Unadjusted Estimates of Treatment [&#39;v0&#39;] :
+Coefficient Estimate : 10.697677486880922
+Degree of Freedom : 492
+Standard Error : 0.593873566128295
+t-value : 18.01339223872762
+F^2 value : 0.6595168698094561
+
+Sensitivity Statistics :
+Partial R2 of treatment with outcome : 0.39741498372666806
+Robustness Value : 0.5467445572181009
+
+Interpretation of results :
+Any confounder explaining less than 54.67% percent of the residual variance of both the treatment and the outcome would not be strong enough to explain away the observed effect i.e bring down the estimate to 0
+
+For a significance level of 5.0%, any confounder explaining more than 50.76% percent of the residual variance of both the treatment and the outcome would be strong enough to make the estimated effect not &#39;statistically significant&#39;
+
+If confounders explained 100% of the residual variance of the outcome, they would need to explain at least 39.74% of the residual variance of the treatment to bring down the estimated effect to 0
+
+</pre></div></div>
+</div>
 <section id="Sensitivity-Analysis-for-dataset-with-no-confounders">
 <h4>Sensitivity Analysis for dataset with no confounders<a class="headerlink" href="#Sensitivity-Analysis-for-dataset-with-no-confounders" title="Permalink to this heading"></a></h4>
 <p>We now run the sensitivity analysis for the same dataset but without dropping any variable. We get a robustness value goes from 0.55 to 0.95 which means that treatment effect can handle strong confounders explaining almost all residual variation of the treatment and the outcome.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -720,8 +1112,8 @@ position of the legend (default = (1.6, 0.6))</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">CausalModel</span><span class="p">(</span>
@@ -738,8 +1130,114 @@ position of the legend (default = (1.6, 0.6))</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/example_notebooks_sensitivity_analysis_testing_23_0.png" src="../_images/example_notebooks_sensitivity_analysis_testing_23_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>W0</th>
+      <th>W1</th>
+      <th>W2</th>
+      <th>W3</th>
+      <th>W4</th>
+      <th>W5</th>
+      <th>W6</th>
+      <th>v0</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.145062</td>
+      <td>-0.235286</td>
+      <td>0.784843</td>
+      <td>0.869131</td>
+      <td>-1.567724</td>
+      <td>-1.290234</td>
+      <td>0.116096</td>
+      <td>True</td>
+      <td>6.311809</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.228109</td>
+      <td>-0.020264</td>
+      <td>-0.589792</td>
+      <td>0.188139</td>
+      <td>-2.649265</td>
+      <td>-1.764439</td>
+      <td>-0.167236</td>
+      <td>False</td>
+      <td>-12.274406</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.868298</td>
+      <td>-1.097642</td>
+      <td>-0.109792</td>
+      <td>0.487635</td>
+      <td>-1.861375</td>
+      <td>-0.527930</td>
+      <td>-0.066542</td>
+      <td>False</td>
+      <td>-6.487561</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.017115</td>
+      <td>1.123918</td>
+      <td>0.346060</td>
+      <td>1.845425</td>
+      <td>0.848049</td>
+      <td>0.778865</td>
+      <td>0.596496</td>
+      <td>True</td>
+      <td>24.653183</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.757347</td>
+      <td>-1.426205</td>
+      <td>-0.457063</td>
+      <td>1.528053</td>
+      <td>-2.681410</td>
+      <td>0.394312</td>
+      <td>-0.687839</td>
+      <td>False</td>
+      <td>-13.770396</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">identified_estimand</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">identify_effect</span><span class="p">(</span><span class="n">proceed_when_unidentifiable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -747,8 +1245,33 @@ position of the legend (default = (1.6, 0.6))</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Estimand type: nonparametric-ate
+
+### Estimand : 1
+Estimand name: backdoor
+Estimand expression:
+  d
+─────(E[y|W6,W3,W1,W2,W0,W5,W4])
+d[v₀]
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W6,W3,W1,W2,W0,W5,W4,U) = P(y|v0,W6,W3,W1,W2,W0,W5,W4)
+
+### Estimand : 2
+Estimand name: iv
+No such variable(s) found!
+
+### Estimand : 3
+Estimand name: frontdoor
+No such variable(s) found!
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimate</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span><span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;backdoor.linear_regression&quot;</span><span class="p">)</span>
@@ -756,8 +1279,37 @@ position of the legend (default = (1.6, 0.6))</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+linear_regression
+{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
+*** Causal Estimate ***
+
+## Identified estimand
+Estimand type: nonparametric-ate
+
+### Estimand : 1
+Estimand name: backdoor
+Estimand expression:
+  d
+─────(E[y|W6,W3,W1,W2,W0,W5,W4])
+d[v₀]
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W6,W3,W1,W2,W0,W5,W4,U) = P(y|v0,W6,W3,W1,W2,W0,W5,W4)
+
+## Realized estimand
+b: y~v0+W6+W3+W1+W2+W0+W5+W4
+Target units: ate
+
+## Estimate
+Mean value: 10.081924375588322
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refute</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span> <span class="n">estimate</span> <span class="p">,</span>
@@ -768,37 +1320,172 @@ position of the legend (default = (1.6, 0.6))</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/__w/dowhy/dowhy/dowhy/causal_refuters/linear_sensitivity_analyzer.py:178: RuntimeWarning: divide by zero encountered in true_divide
+  bias_adjusted_t = (bias_adjusted_estimate - self.null_hypothesis_effect) / bias_adjusted_se
+/__w/dowhy/dowhy/dowhy/causal_refuters/linear_sensitivity_analyzer.py:180: RuntimeWarning: invalid value encountered in true_divide
+  bias_adjusted_partial_r2 = bias_adjusted_t ** 2 / (bias_adjusted_t ** 2 + (self.degree_of_freedom - 1)) #partial r2 formula used with new t value and dof - 1
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/example_notebooks_sensitivity_analysis_testing_26_1.png" src="../_images/example_notebooks_sensitivity_analysis_testing_26_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refute</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_type</span> <span class="o">=</span> <span class="s1">&#39;t-value&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/example_notebooks_sensitivity_analysis_testing_27_0.png" src="../_images/example_notebooks_sensitivity_analysis_testing_27_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">refute</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Sensitivity Analysis to Unobserved Confounding using R^2 paramterization
+
+Unadjusted Estimates of Treatment [&#39;v0&#39;] :
+Coefficient Estimate : 10.081924375588322
+Degree of Freedom : 491
+Standard Error : 0.10446229543424758
+t-value : 96.51256784735557
+F^2 value : 18.970826379817538
+
+Sensitivity Statistics :
+Partial R2 of treatment with outcome : 0.9499269594066174
+Robustness Value : 0.9522057801012398
+
+Interpretation of results :
+Any confounder explaining less than 95.22% percent of the residual variance of both the treatment and the outcome would not be strong enough to explain away the observed effect i.e bring down the estimate to 0
+
+For a significance level of 5.0%, any confounder explaining more than 95.04% percent of the residual variance of both the treatment and the outcome would be strong enough to make the estimated effect not &#39;statistically significant&#39;
+
+If confounders explained 100% of the residual variance of the outcome, they would need to explain at least 94.99% of the residual variance of the treatment to bring down the estimated effect to 0
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refute</span><span class="o">.</span><span class="n">stats</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;estimate&#39;: 10.081924375588322,
+ &#39;standard_error&#39;: 0.10446229543424758,
+ &#39;degree of freedom&#39;: 491,
+ &#39;t_statistic&#39;: 96.51256784735557,
+ &#39;r2yt_w&#39;: 0.9499269594066174,
+ &#39;partial_f2&#39;: 18.970826379817538,
+ &#39;robustness_value&#39;: 0.9522057801012398,
+ &#39;robustness_value_alpha&#39;: 0.950386691319526}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">refute</span><span class="o">.</span><span class="n">benchmarking_results</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>r2tu_w</th>
+      <th>r2yu_tw</th>
+      <th>bias_adjusted_estimate</th>
+      <th>bias_adjusted_se</th>
+      <th>bias_adjusted_t</th>
+      <th>bias_adjusted_lower_CI</th>
+      <th>bias_adjusted_upper_CI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.031976</td>
+      <td>1.0</td>
+      <td>9.661229</td>
+      <td>0.0</td>
+      <td>inf</td>
+      <td>9.661229</td>
+      <td>9.661229</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.063952</td>
+      <td>1.0</td>
+      <td>9.476895</td>
+      <td>0.0</td>
+      <td>inf</td>
+      <td>9.476895</td>
+      <td>9.476895</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.095927</td>
+      <td>1.0</td>
+      <td>9.327927</td>
+      <td>0.0</td>
+      <td>inf</td>
+      <td>9.327927</td>
+      <td>9.327927</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:

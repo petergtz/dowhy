@@ -642,7 +642,7 @@ div.rendered_html tbody tr:hover {
 <h2>Step 1: Modeling cause-effect relationships as a structural causal model (SCM)<a class="headerlink" href="#Step-1:-Modeling-cause-effect-relationships-as-a-structural-causal-model-(SCM)" title="Permalink to this heading"></a></h2>
 <p>The first step is to model the cause-effect relationships between variables relevant to our use case. We do that in form of a causal graph. A causal graph is a directed acyclic graph (DAG) where an edge X→Y implies that X causes Y. Statistically, a causal graph encodes the conditional independence relations between variables. Using the <a class="reference external" href="https://networkx.org/">NetworkX</a> library, we can create causal graphs. In the snippet below, we create a chain X→Y→Z:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
@@ -651,8 +651,8 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>To answer causal questions using causal graphs, we also have to know the nature of underlying data-generating process of variables. A causal graph by itself, being a diagram, does not have any information about the data-generating process. To introduce this data-generating process, we use an SCM that’s built on top of our causal graph:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dowhy</span> <span class="kn">import</span> <span class="n">gcm</span>
@@ -660,9 +660,17 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+keywords are unexpanded, not using
+</pre></div></div>
+</div>
 <p>At this point we would normally load our dataset. For this introduction, we generate some synthetic data instead. The API takes data in form of Pandas DataFrames:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -675,10 +683,73 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.571045</td>
+      <td>-0.090523</td>
+      <td>0.262743</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.726031</td>
+      <td>0.462598</td>
+      <td>1.924793</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1.125902</td>
+      <td>1.797966</td>
+      <td>8.986520</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.217060</td>
+      <td>-0.965127</td>
+      <td>-3.655210</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.189266</td>
+      <td>-0.680547</td>
+      <td>-3.326963</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
 <p>Note how the columns X, Y, Z correspond to our nodes X, Y, Z in the graph constructed above. We can also see how the values of X influence the values of Y and how the values of Y influence the values of Z in that data set.</p>
 <p>The causal model created above allows us now to assign causal mechanisms to each node in the form of functional causal models. Here, these mechanism can either be assigned manually if, for instance, prior knowledge about certain causal relationships are known or they can be assigned automatically using the <code class="docutils literal notranslate"><span class="pre">auto</span></code> module. For the latter, we simply call:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gcm</span><span class="o">.</span><span class="n">auto</span><span class="o">.</span><span class="n">assign_causal_mechanisms</span><span class="p">(</span><span class="n">causal_model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
@@ -687,7 +758,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <p>In case we want to have more control over the assigned mechanisms, we can do this manually as well. For instance, we can can assign an empirical distribution to the root node X and linear additive noise models to nodes Y and Z:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">causal_model</span><span class="o">.</span><span class="n">set_causal_mechanism</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">gcm</span><span class="o">.</span><span class="n">EmpiricalDistribution</span><span class="p">())</span>
@@ -701,13 +772,21 @@ div.rendered_html tbody tr:hover {
 <section id="Step-2:-Fitting-the-SCM-to-the-data">
 <h2>Step 2: Fitting the SCM to the data<a class="headerlink" href="#Step-2:-Fitting-the-SCM-to-the-data" title="Permalink to this heading"></a></h2>
 <p>With the data at hand and the graph constructed earlier, we can now train the SCM using <code class="docutils literal notranslate"><span class="pre">fit</span></code>:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gcm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">causal_model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 481.18it/s]
+</pre></div></div>
 </div>
 <p>Fitting means, we learn the generative models of the variables in the SCM according to the data.</p>
 </section>
@@ -718,8 +797,8 @@ div.rendered_html tbody tr:hover {
 <div><p>What will happen to the variable Z if I intervene on Y?</p>
 </div></blockquote>
 <p>This can be done via the <code class="docutils literal notranslate"><span class="pre">interventional_samples</span></code> function. Here’s how:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="n">gcm</span><span class="o">.</span><span class="n">interventional_samples</span><span class="p">(</span><span class="n">causal_model</span><span class="p">,</span>
@@ -728,6 +807,69 @@ div.rendered_html tbody tr:hover {
 <span class="n">samples</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.192131</td>
+      <td>2.34</td>
+      <td>7.028012</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-1.070275</td>
+      <td>2.34</td>
+      <td>8.637424</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.401833</td>
+      <td>2.34</td>
+      <td>7.681202</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.811774</td>
+      <td>2.34</td>
+      <td>7.486946</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.031043</td>
+      <td>2.34</td>
+      <td>6.661935</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
 </div>
 <p>This intervention says: “I’ll ignore any causal effects of X on Y, and set every value of Y to 2.34.” So the distribution of X will remain unchanged, whereas values of Y will be at a fixed value and Z will respond according to its causal model.</p>
 </section>
