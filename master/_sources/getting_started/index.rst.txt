@@ -12,11 +12,11 @@ and identifying a non-parametric causal effect.
 
 For estimation, it switches to methods based primarily on potential outcomes and the best place to learn more about
 this is the user guide's :doc:`../user_guide/effect_inference/index` chapter. Alternatively, learn about its basic
-features in :doc:`../examples_notebooks/dowhy_simple_example`.
+features in :doc:`../example_notebooks/dowhy_simple_example`.
 
 For root cause analysis features and structural analysis it uses graphical causal models and we recommend starting
 with :doc:`../user_guide/gcm_based_inference/index` in the user guide or check out
-:doc:`../examples_notebooks/gcm_basic_example`.
+:doc:`../example_notebooks/gcm_basic_example`.
 
 Finally, there's further resources available:
 
