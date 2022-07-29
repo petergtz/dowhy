@@ -1,384 +1,125 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>Demo for the DoWhy causal API &#8212; DoWhy  documentation</title>
-<script>
-  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
-</script>
-
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
-
-
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
-
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo for the DoWhy causal API &mdash; DoWhy  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Do-sampler Introduction" href="do_sampler_demo.html" />
-    <link rel="prev" title="DoWhy: Interpreters for Causal Estimators" href="dowhy_interpreter.html" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="docsearch:language" content="en">
-  </head>
-  
-  
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
-    <div class="bd-header-announcement container-fluid" id="banner">
-      
+    <link rel="prev" title="DoWhy: Interpreters for Causal Estimators" href="dowhy_interpreter.html" /> 
+</head>
 
-    </div>
-
-    
-    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
-
-  <div id="navbar-start">
-    
-    
-  
-
-
-<a class="navbar-brand logo" href="../index.html">
-  
-  
-  
-  
-  
-    <p class="title logo__title">DoWhy  documentation</p>
-  
-</a>
-    
-  </div>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="fas fa-bars"></span>
-  </button>
-
-  
-  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
-    <div id="navbar-center" class="mr-auto">
-      
-      <div class="navbar-center-item">
-        <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../readme.html">
-  DoWhy | An end-to-end library for causal inference
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">
-  Tutorial on Causal Inference and its Connections to Machine Learning (Using DoWhy+EconML)
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy_simple_example.html">
-  Getting started with DoWhy: A simple example
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy_confounder_example.html">
-  Confounding Example: Finding causal effects from observed data
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy_estimation_methods.html">
-  DoWhy: Different estimation methods for causal inference
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy-simple-iv-example.html">
-  Simple example on using Instrumental Variables method for estimation
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="load_graph_example.html">
-  Different ways to load an input graph
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy_interpreter.html">
-  DoWhy: Interpreters for Causal Estimators
- </a>
-</li>
-
-<li class="toctree-l1 current active nav-item">
- <a class="current reference internal nav-link" href="#">
-  Demo for the DoWhy causal API
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="do_sampler_demo.html">
-  Do-sampler Introduction
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
-  DoWhy-The Causal Story Behind Hotel Booking Cancellations
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy_example_effect_of_memberrewards_program.html">
-  Estimating the effect of a Member Rewards program
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy_ihdp_data_example.html">
-  DoWhy example on ihdp (Infant Health and Development Program) dataset
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy_lalonde_example.html">
-  DoWhy example on the Lalonde dataset
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy_refutation_testing.html">
-  Applying refutation tests to the Lalonde and IHDP datasets
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="lalonde_pandas_api.html">
-  Lalonde Pandas API Example
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy-conditional-treatment-effects.html">
-  Conditional Average Treatment Effects (CATE) with DoWhy and EconML
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy_mediation_analysis.html">
-  Mediation analysis with DoWhy: Direct and Indirect Effects
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy_demo_dummy_outcome_refuter.html">
-  A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy_multiple_treatments.html">
-  Estimating effect of multiple treatments
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="dowhy_refuter_notebook.html">
-  Iterating over multiple refutation tests
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="identifying_effects_using_id_algorithm.html">
-  Identifying Effect using ID Algorithm
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../code_repo.html">
-  Code repository &amp; Versions
- </a>
-</li>
-
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../dowhy.html">
-  dowhy package
- </a>
-</li>
-
-    
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> DoWhy
+          </a>
+              <div class="version">
+                v0.7.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introducing DoWhy</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">DoWhy | An end-to-end library for causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#graphical-models-and-potential-outcomes-best-of-both-worlds">Graphical Models and Potential Outcomes: Best of both worlds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#four-steps-of-causal-inference">Four steps of causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#citing-this-package">Citing this package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#roadmap">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../readme.html#contributing">Contributing</a></li>
 </ul>
-      </div>
-      
-    </div>
+<p class="caption" role="heading"><span class="caption-text">Quick-Start Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">Tutorial on Causal Inference and its Connections to Machine Learning (Using DoWhy+EconML)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Starter Notebooks</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dowhy_simple_example.html">Getting started with DoWhy: A simple example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_confounder_example.html">Confounding Example: Finding causal effects from observed data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_estimation_methods.html">DoWhy: Different estimation methods for causal inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy-simple-iv-example.html">Simple example on using Instrumental Variables method for estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_graph_example.html">Different ways to load an input graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_interpreter.html">DoWhy: Interpreters for Causal Estimators</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Demo for the DoWhy causal API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Comparing-the-estimate-to-Linear-Regression">Comparing the estimate to Linear Regression</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="do_sampler_demo.html">Do-sampler Introduction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Case Study Notebooks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">DoWhy-The Causal Story Behind Hotel Booking Cancellations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">Estimating the effect of a Member Rewards program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_ihdp_data_example.html">DoWhy example on ihdp (Infant Health and Development Program) dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_lalonde_example.html">DoWhy example on the Lalonde dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_refutation_testing.html">Applying refutation tests to the Lalonde and IHDP datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lalonde_pandas_api.html">Lalonde Pandas API Example</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Notebooks</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dowhy-conditional-treatment-effects.html">Conditional Average Treatment Effects (CATE) with DoWhy and EconML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_mediation_analysis.html">Mediation analysis with DoWhy: Direct and Indirect Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_demo_dummy_outcome_refuter.html">A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_multiple_treatments.html">Estimating effect of multiple treatments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dowhy_refuter_notebook.html">Iterating over multiple refutation tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="identifying_effects_using_id_algorithm.html">Identifying Effect using ID Algorithm</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../code_repo.html">Code repository &amp; Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dowhy.html">dowhy package</a></li>
+</ul>
 
-    <div id="navbar-end">
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-      </ul>
+        </div>
       </div>
-      
-      <div class="navbar-end-item">
-        
-<div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
-        v0.7.1
-        <span class="caret"></span>
-    </button>
-    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
-        <dl>
-            <dt>Releases</dt>
-            <dd><a href="../../v0.1-alpha/index.html">v0.1-alpha</a></dd>
-            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
-            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
-            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
-            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
-            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
-            <dd><a href="dowhy_causal_api.html">v0.7.1</a></dd>
-        </dl>
-        <dl>
-            <dt>Branches</dt>
-            <dd><a href="../../master/index.html">master</a></dd>
-        </dl>
-    </div>
-</div>
-      </div>
-      
-    </div>
-  </div>
-</div>
     </nav>
-    
 
-    <div class="bd-container container-xl">
-      <div class="bd-container__inner row">
-          
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DoWhy</a>
+      </nav>
 
-<!-- Only show if we have sidebars configured, else just a small margin  -->
-<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
-  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <div class="bd-toc-item active">
-    <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Getting Started
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="dowhy_simple_example.html">
-   Getting started with DoWhy: A simple example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="dowhy_confounder_example.html">
-   Confounding Example: Finding causal effects from observed data
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="dowhy_estimation_methods.html">
-   DoWhy: Different estimation methods for causal inference
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="dowhy-simple-iv-example.html">
-   Simple example on using Instrumental Variables method for estimation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="load_graph_example.html">
-   Different ways to load an input graph
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="dowhy_interpreter.html">
-   DoWhy: Interpreters for Causal Estimators
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Demo for the DoWhy causal API
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="do_sampler_demo.html">
-   Do-sampler Introduction
-  </a>
- </li>
-</ul>
-
-  </div>
-</nav>
-  </div>
-  <div class="sidebar-end-items">
-  </div>
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="nb_index.html">&lt;no title&gt;</a> &raquo;</li>
+      <li>Demo for the DoWhy causal API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/example_notebooks/dowhy_causal_api.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
 </div>
-
-
-          
-
-
-<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
-  
-    
-    <div class="toc-item">
-      
-<div class="tocsection onthispage mt-5 pt-1 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
-
-<nav id="bd-toc-nav">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#Comparing-the-estimate-to-Linear-Regression">
-   Comparing the estimate to Linear Regression
-  </a>
- </li>
-</ul>
-
-</nav>
-    </div>
-    
-    <div class="toc-item">
-      
-    </div>
-    
-  
-</div>
-
-
-          
-          
-          <div class="bd-content col-12 col-md-9 col-xl-7">
-              
-              <article class="bd-article" role="main">
-                
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   
 <style>
 /* CSS for nbsphinx extension */
@@ -634,6 +375,28 @@ div.rendered_html tbody tr:nth-child(odd) {
 div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
 </style>
 <section id="Demo-for-the-DoWhy-causal-API">
 <h1>Demo for the DoWhy causal API<a class="headerlink" href="#Demo-for-the-DoWhy-causal-API" title="Permalink to this heading"></a></h1>
@@ -711,33 +474,33 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.627622</td>
-      <td>True</td>
-      <td>7.885050</td>
+      <td>-1.458611</td>
+      <td>False</td>
+      <td>-2.972597</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.334633</td>
+      <td>-1.542767</td>
       <td>False</td>
-      <td>-0.965668</td>
+      <td>-3.271322</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.550505</td>
+      <td>1.472805</td>
       <td>True</td>
-      <td>5.588215</td>
+      <td>5.484167</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.006640</td>
-      <td>True</td>
-      <td>4.198246</td>
+      <td>-0.838632</td>
+      <td>False</td>
+      <td>-3.090955</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-1.623852</td>
-      <td>False</td>
-      <td>-3.253077</td>
+      <td>-1.639997</td>
+      <td>True</td>
+      <td>2.729702</td>
     </tr>
     <tr>
       <th>...</th>
@@ -747,33 +510,33 @@ keywords are unexpanded, not using
     </tr>
     <tr>
       <th>995</th>
-      <td>-0.002712</td>
+      <td>-1.943703</td>
       <td>False</td>
-      <td>0.084613</td>
+      <td>-4.289895</td>
     </tr>
     <tr>
       <th>996</th>
-      <td>0.675572</td>
+      <td>1.256829</td>
       <td>True</td>
-      <td>6.023857</td>
+      <td>7.052963</td>
     </tr>
     <tr>
       <th>997</th>
-      <td>0.776131</td>
-      <td>False</td>
-      <td>2.193610</td>
+      <td>0.299659</td>
+      <td>True</td>
+      <td>6.813267</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>0.286208</td>
+      <td>1.306189</td>
       <td>True</td>
-      <td>4.171823</td>
+      <td>6.999650</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>2.677168</td>
-      <td>True</td>
-      <td>8.826237</td>
+      <td>-1.087762</td>
+      <td>False</td>
+      <td>-0.914769</td>
     </tr>
   </tbody>
 </table>
@@ -897,43 +660,43 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.008104</td>
+      <td>-1.422722</td>
       <td>False</td>
-      <td>0.226007</td>
-      <td>0.515897</td>
-      <td>1.938370</td>
+      <td>-2.114200</td>
+      <td>0.919434</td>
+      <td>1.087626</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.392089</td>
+      <td>-1.470616</td>
       <td>False</td>
-      <td>2.505784</td>
-      <td>0.063560</td>
-      <td>15.733115</td>
+      <td>-2.728382</td>
+      <td>0.925490</td>
+      <td>1.080508</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.377061</td>
+      <td>-1.418728</td>
       <td>False</td>
-      <td>-1.473656</td>
-      <td>0.687665</td>
-      <td>1.454196</td>
+      <td>-3.744910</td>
+      <td>0.918909</td>
+      <td>1.088247</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.030072</td>
+      <td>-1.083979</td>
       <td>False</td>
-      <td>-1.772441</td>
-      <td>0.888299</td>
-      <td>1.125747</td>
+      <td>0.298700</td>
+      <td>0.862420</td>
+      <td>1.159528</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.306722</td>
+      <td>-0.508073</td>
       <td>False</td>
-      <td>2.138904</td>
-      <td>0.074316</td>
-      <td>13.456103</td>
+      <td>0.899215</td>
+      <td>0.693581</td>
+      <td>1.441792</td>
     </tr>
     <tr>
       <th>...</th>
@@ -945,43 +708,43 @@ keywords are unexpanded, not using
     </tr>
     <tr>
       <th>995</th>
-      <td>0.185086</td>
+      <td>-1.295315</td>
       <td>False</td>
-      <td>-0.277756</td>
-      <td>0.421571</td>
-      <td>2.372079</td>
+      <td>-2.984849</td>
+      <td>0.901085</td>
+      <td>1.109774</td>
     </tr>
     <tr>
       <th>996</th>
-      <td>0.156563</td>
+      <td>-0.045899</td>
       <td>False</td>
-      <td>-1.130665</td>
-      <td>0.435307</td>
-      <td>2.297232</td>
+      <td>-0.026670</td>
+      <td>0.499863</td>
+      <td>2.000547</td>
     </tr>
     <tr>
       <th>997</th>
-      <td>0.856506</td>
+      <td>1.153602</td>
       <td>False</td>
-      <td>2.438818</td>
-      <td>0.162903</td>
-      <td>6.138632</td>
+      <td>2.744859</td>
+      <td>0.106963</td>
+      <td>9.349003</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>1.113007</td>
+      <td>-0.949116</td>
       <td>False</td>
-      <td>1.102145</td>
-      <td>0.105153</td>
-      <td>9.509964</td>
+      <td>-2.424427</td>
+      <td>0.831599</td>
+      <td>1.202503</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>0.225521</td>
+      <td>-1.274300</td>
       <td>False</td>
-      <td>-0.972995</td>
-      <td>0.402310</td>
-      <td>2.485647</td>
+      <td>-2.630482</td>
+      <td>0.897722</td>
+      <td>1.113931</td>
     </tr>
   </tbody>
 </table>
@@ -1029,43 +792,43 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.457884</td>
+      <td>-1.138906</td>
       <td>True</td>
-      <td>8.845743</td>
-      <td>0.943720</td>
-      <td>1.059636</td>
+      <td>2.283783</td>
+      <td>0.126453</td>
+      <td>7.908060</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2.155559</td>
+      <td>0.541448</td>
       <td>True</td>
-      <td>11.465383</td>
-      <td>0.985103</td>
-      <td>1.015122</td>
+      <td>6.151780</td>
+      <td>0.738736</td>
+      <td>1.353664</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.289358</td>
+      <td>0.394274</td>
       <td>True</td>
-      <td>7.711589</td>
-      <td>0.923301</td>
-      <td>1.083071</td>
+      <td>5.144971</td>
+      <td>0.685485</td>
+      <td>1.458821</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2.246441</td>
+      <td>1.641043</td>
       <td>True</td>
-      <td>7.854718</td>
-      <td>0.987511</td>
-      <td>1.012647</td>
+      <td>7.709163</td>
+      <td>0.951860</td>
+      <td>1.050575</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.094905</td>
+      <td>-0.093108</td>
       <td>True</td>
-      <td>5.851307</td>
-      <td>0.891450</td>
-      <td>1.121768</td>
+      <td>6.130707</td>
+      <td>0.479274</td>
+      <td>2.086490</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1077,43 +840,43 @@ keywords are unexpanded, not using
     </tr>
     <tr>
       <th>995</th>
-      <td>1.882233</td>
+      <td>-0.278227</td>
       <td>True</td>
-      <td>5.346720</td>
-      <td>0.974767</td>
-      <td>1.025886</td>
+      <td>3.525537</td>
+      <td>0.398821</td>
+      <td>2.507389</td>
     </tr>
     <tr>
       <th>996</th>
-      <td>0.672204</td>
+      <td>0.657151</td>
       <td>True</td>
-      <td>4.895083</td>
-      <td>0.781482</td>
-      <td>1.279619</td>
+      <td>6.239023</td>
+      <td>0.776269</td>
+      <td>1.288214</td>
     </tr>
     <tr>
       <th>997</th>
-      <td>-0.851549</td>
+      <td>-0.527790</td>
       <td>True</td>
-      <td>3.333244</td>
-      <td>0.151564</td>
-      <td>6.597871</td>
+      <td>3.105656</td>
+      <td>0.299058</td>
+      <td>3.343834</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>0.638387</td>
+      <td>-1.131235</td>
       <td>True</td>
-      <td>5.844696</td>
-      <td>0.769913</td>
-      <td>1.298848</td>
+      <td>3.669502</td>
+      <td>0.127960</td>
+      <td>7.814965</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>-1.196006</td>
+      <td>-0.130264</td>
       <td>True</td>
-      <td>2.934026</td>
-      <td>0.083187</td>
-      <td>12.021157</td>
+      <td>6.126615</td>
+      <td>0.462900</td>
+      <td>2.160292</td>
     </tr>
   </tbody>
 </table>
@@ -1137,7 +900,7 @@ keywords are unexpanded, not using
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 4.98463537698712$</div></div>
+$\displaystyle 5.10239818425547$</div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -1153,7 +916,7 @@ $\displaystyle 4.98463537698712$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 0.149488620281007$</div></div>
+$\displaystyle 0.162516496261713$</div></div>
 </div>
 <p>Comparing to the estimate from OLS.</p>
 <div class="nbinput docutils container">
@@ -1174,25 +937,25 @@ $\displaystyle 0.149488620281007$</div></div>
 <table class="simpletable">
 <caption>OLS Regression Results</caption>
 <tr>
-  <th>Dep. Variable:</th>            <td>y</td>        <th>  R-squared (uncentered):</th>      <td>   0.973</td>
+  <th>Dep. Variable:</th>            <td>y</td>        <th>  R-squared (uncentered):</th>      <td>   0.940</td>
 </tr>
 <tr>
-  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared (uncentered):</th> <td>   0.973</td>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared (uncentered):</th> <td>   0.939</td>
 </tr>
 <tr>
-  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th>          <td>1.814e+04</td>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th>          <td>   7760.</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Thu, 28 Jul 2022</td> <th>  Prob (F-statistic):</th>           <td>  0.00</td>
+  <th>Date:</th>             <td>Fri, 29 Jul 2022</td> <th>  Prob (F-statistic):</th>           <td>  0.00</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>11:44:36</td>     <th>  Log-Likelihood:    </th>          <td> -1415.2</td>
+  <th>Time:</th>                 <td>15:14:20</td>     <th>  Log-Likelihood:    </th>          <td> -1397.8</td>
 </tr>
 <tr>
-  <th>No. Observations:</th>      <td>  1000</td>      <th>  AIC:               </th>          <td>   2834.</td>
+  <th>No. Observations:</th>      <td>  1000</td>      <th>  AIC:               </th>          <td>   2800.</td>
 </tr>
 <tr>
-  <th>Df Residuals:</th>          <td>   998</td>      <th>  BIC:               </th>          <td>   2844.</td>
+  <th>Df Residuals:</th>          <td>   998</td>      <th>  BIC:               </th>          <td>   2809.</td>
 </tr>
 <tr>
   <th>Df Model:</th>              <td>     2</td>      <th>                     </th>              <td> </td>
@@ -1206,24 +969,24 @@ $\displaystyle 0.149488620281007$</div></div>
    <td></td>     <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
 </tr>
 <tr>
-  <th>x1</th> <td>    1.4639</td> <td>    0.038</td> <td>   38.169</td> <td> 0.000</td> <td>    1.389</td> <td>    1.539</td>
+  <th>x1</th> <td>    1.6290</td> <td>    0.029</td> <td>   56.562</td> <td> 0.000</td> <td>    1.572</td> <td>    1.686</td>
 </tr>
 <tr>
-  <th>x2</th> <td>    4.9882</td> <td>    0.059</td> <td>   84.107</td> <td> 0.000</td> <td>    4.872</td> <td>    5.105</td>
+  <th>x2</th> <td>    4.9986</td> <td>    0.050</td> <td>   99.433</td> <td> 0.000</td> <td>    4.900</td> <td>    5.097</td>
 </tr>
 </table>
 <table class="simpletable">
 <tr>
-  <th>Omnibus:</th>       <td> 7.555</td> <th>  Durbin-Watson:     </th> <td>   2.025</td>
+  <th>Omnibus:</th>       <td> 0.568</td> <th>  Durbin-Watson:     </th> <td>   1.980</td>
 </tr>
 <tr>
-  <th>Prob(Omnibus):</th> <td> 0.023</td> <th>  Jarque-Bera (JB):  </th> <td>   9.160</td>
+  <th>Prob(Omnibus):</th> <td> 0.753</td> <th>  Jarque-Bera (JB):  </th> <td>   0.443</td>
 </tr>
 <tr>
-  <th>Skew:</th>          <td> 0.102</td> <th>  Prob(JB):          </th> <td>  0.0103</td>
+  <th>Skew:</th>          <td>-0.016</td> <th>  Prob(JB):          </th> <td>   0.801</td>
 </tr>
 <tr>
-  <th>Kurtosis:</th>      <td> 3.422</td> <th>  Cond. No.          </th> <td>    3.28</td>
+  <th>Kurtosis:</th>      <td> 3.098</td> <th>  Cond. No.          </th> <td>    1.80</td>
 </tr>
 </table><br/><br/>Notes:<br/>[1] R² is computed without centering (uncentered) since the model does not contain a constant.<br/>[2] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div>
 </div>
@@ -1231,55 +994,59 @@ $\displaystyle 0.149488620281007$</div></div>
 </section>
 
 
-              </article>
-              
-
-              
-              <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="dowhy_interpreter.html" title="previous page">
-      <i class="fas fa-angle-left"></i>
-      <div class="prev-next-info">
-          <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">DoWhy: Interpreters for Causal Estimators</p>
-      </div>
-  </a>
-  <a class='right-next' id="next-link" href="do_sampler_demo.html" title="next page">
-  <div class="prev-next-info">
-      <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Do-sampler Introduction</p>
-  </div>
-  <i class="fas fa-angle-right"></i>
-  </a>
-</div>
-              </footer>
-              
+           </div>
           </div>
-          
-      </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dowhy_interpreter.html" class="btn btn-neutral float-left" title="DoWhy: Interpreters for Causal Estimators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="do_sampler_demo.html" class="btn btn-neutral float-right" title="Do-sampler Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
-  
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+  <hr/>
 
-<footer class="bd-footer"><div class="bd-footer__inner container">
-  
-  <div class="footer-item">
-    <p class="copyright">
-    &copy; Copyright 2022, PyWhy contributors.<br>
-</p>
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, PyWhy contributors.</p>
   </div>
-  
-  <div class="footer-item">
-    <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
-</p>
-  </div>
-  
-</div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
 </footer>
-  </body>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: v0.7.1
+    <span class="fa fa-caret-down"></span>
+  </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Releases</dt>
+            <dd><a href="../../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../../v0.7/index.html">v0.7</a></dd>
+            <dd><a href="dowhy_causal_api.html">v0.7.1</a></dd>
+            <!-- TODO: add mechanism to add new version here. Probably just render them in from generate_docs.sh. -->
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../main/index.html">main</a></dd>
+        </dl>
+    </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>
