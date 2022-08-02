@@ -5,18 +5,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<script type="text/javascript">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'G-0HH0QE0T1M']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+  gtag('config', 'G-0HH0QE0T1M');
+</script>
     <title>Confounding Example: Finding causal effects from observed data &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -752,11 +749,11 @@ keywords are unexpanded, not using
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0
-0   5.362965   9.821958 -1.029050
-1   8.895429  17.533980  2.809131
-2   6.823488  13.347719  0.837087
-3   1.830965   3.640825 -4.318474
-4   8.163645  16.533868  2.397637
+0   9.582542  19.276665  3.592425
+1   4.351898   9.047557 -1.706856
+2   7.504962  14.433786  1.116036
+3   6.281528  12.498891  0.193345
+4   9.285613  19.403150  3.628760
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -875,7 +872,7 @@ No such variable(s) found!
 <div class="highlight"><pre>
 linear_regression
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-Causal Estimate is -0.001334201838007587
+Causal Estimate is -0.002247462171681036
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -902,7 +899,7 @@ Causal Estimate is -0.001334201838007587
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DoWhy estimate is -0.001334201838007587
+DoWhy estimate is -0.002247462171681036
 Actual true causal effect was 0
 </pre></div></div>
 </div>
@@ -1028,9 +1025,9 @@ Actual true causal effect was 0
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 Refute: Add a random common cause
-Estimated effect:-0.001334201838007587
-New effect:-0.0013392080120712357
-p value:0.8999999999999999
+Estimated effect:-0.002247462171681036
+New effect:-0.0022547696738323885
+p value:0.9199999999999999
 
 </pre></div></div>
 </div>
@@ -1153,9 +1150,9 @@ p value:0.8999999999999999
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 Refute: Use a Placebo Treatment
-Estimated effect:-0.001334201838007587
-New effect:1.741116089776895e-05
-p value:0.98
+Estimated effect:-0.002247462171681036
+New effect:-3.7033353074029665e-05
+p value:0.8400000000000001
 
 </pre></div></div>
 </div>
@@ -1278,9 +1275,9 @@ p value:0.98
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 Refute: Use a subset of data
-Estimated effect:-0.001334201838007587
-New effect:-0.001181722708880315
-p value:0.96
+Estimated effect:-0.002247462171681036
+New effect:-0.0018800302324321727
+p value:0.86
 
 </pre></div></div>
 </div>

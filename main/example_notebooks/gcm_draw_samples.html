@@ -5,18 +5,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<script type="text/javascript">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'G-0HH0QE0T1M']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+  gtag('config', 'G-0HH0QE0T1M');
+</script>
     <title>Basic Example for generating samples from a GCM &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -681,33 +678,33 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.238478</td>
-      <td>0.807975</td>
-      <td>1.980538</td>
+      <td>-0.309683</td>
+      <td>-1.640725</td>
+      <td>-4.581625</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-1.146694</td>
-      <td>-2.672721</td>
-      <td>-7.264561</td>
+      <td>-0.811100</td>
+      <td>-1.043449</td>
+      <td>-2.612828</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.243336</td>
-      <td>-0.917779</td>
-      <td>-3.811319</td>
+      <td>1.348083</td>
+      <td>0.563424</td>
+      <td>3.400653</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.835257</td>
-      <td>-1.020243</td>
-      <td>-3.914439</td>
+      <td>-2.065428</td>
+      <td>-6.014709</td>
+      <td>-20.290706</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.726468</td>
-      <td>1.062488</td>
-      <td>1.582353</td>
+      <td>0.461424</td>
+      <td>1.198596</td>
+      <td>2.575685</td>
     </tr>
   </tbody>
 </table>
@@ -740,7 +737,7 @@ keywords are unexpanded, not using
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 348.90it/s]
+Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 521.14it/s]
 </pre></div></div>
 </div>
 <p>We now learned the generative models of the variables, based on the defined causal graph and the additive noise model assumption. To generate new samples from this model, we can now simply call:</p>
@@ -784,33 +781,33 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.954450</td>
-      <td>-2.277764</td>
-      <td>-6.330806</td>
+      <td>2.206173</td>
+      <td>5.669852</td>
+      <td>17.016719</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.058622</td>
-      <td>-0.716678</td>
-      <td>-1.713022</td>
+      <td>-1.008078</td>
+      <td>-1.684943</td>
+      <td>-4.957481</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.977693</td>
-      <td>3.707711</td>
-      <td>11.902420</td>
+      <td>1.302515</td>
+      <td>4.091775</td>
+      <td>12.495544</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.563500</td>
-      <td>3.704171</td>
-      <td>12.182103</td>
+      <td>-0.356584</td>
+      <td>0.189730</td>
+      <td>0.311426</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.121654</td>
-      <td>3.252169</td>
-      <td>11.938977</td>
+      <td>-0.154061</td>
+      <td>-0.705548</td>
+      <td>-3.793652</td>
     </tr>
   </tbody>
 </table>
@@ -831,7 +828,7 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 0.032305820217173$</div></div>
+$\displaystyle 0$</div></div>
 </div>
 <p>Here, we expect the divergence to be (very) small.</p>
 <p><strong>Note</strong>: We <strong>cannot</strong> validate the correctness of a causal graph this way, since any graph from a Markov equivalence class would be sufficient to generate data that is consistent with the observed one, but only one particular graph would generate the correct interventional and counterfactual distributions. This is, seeing the example above, X→Y→Z and X←Y←Z would generate the same observational distribution (since they encode the same conditionals), but only X→Y→Z would generate the correct
