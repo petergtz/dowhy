@@ -5,7 +5,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'G-0HH0QE0T1M']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
     <title>Root causes of changes in a supply chain &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -143,16 +154,18 @@
         <dl>
             <dt>Releases</dt>
             <!-- hard-coding the old versions, as no further old version will be added -->
-            <dd><a href="../v0.8/index.html">v0.8</a></dd>
-            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="../v0.7/index.html">v0.7</a></dd>
-            <dd><a href="../v0.6/index.html">v0.6</a></dd>
-            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="../v0.5/index.html">v0.5</a></dd>
-            <dd><a href="../v0.4/index.html">v0.4</a></dd>
-            <dd><a href="../v0.2/index.html">v0.2</a></dd>
-            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <!-- It would be nice if this opened the same page in an older version, but that seems to be overkill
+                 right now. Therefore defaulting to the starting page (index). -->
+            <dd><a href="/dowhy/v0.8/index.html">v0.8</a></dd>
+            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
+            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
+            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
+            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
+            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
+            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="/dowhy/v0.1-alpha/index.html">v0.1-alpha</a></dd>
         </dl>
         <dl>
             <dt>Branches</dt>
@@ -672,7 +685,7 @@ div.rendered_html tbody tr:hover {
 <h1>Root causes of changes in a supply chain<a class="headerlink" href="#Root-causes-of-changes-in-a-supply-chain" title="Permalink to this heading"></a></h1>
 <p>In a supply chain, the number of units of each product in the inventory that is available for shipment is crucial to fulfill customers’ demand faster. For this reason, retailers continuously buy products anticipating customers’ demand in the future.</p>
 <p>Suppose that each week a retailer submits purchase orders (POs) to vendors taking into account future demands for products and capacity constraints to consider for demands. The vendors will then confirm whether they can fulfill some or all of the retailer’s purchase orders. Once confirmed by the vendors and agreed by the retailer, products are then sent to the retailer. All of the confirmed POs, however, may not arrive at once.</p>
-<p><img alt="61e41bb29c1b48dc8e376162b4d248ff" class="no-scaled-link" src="../_images/supply-chain.png" style="width: 800px;" /></p>
+<p><img alt="3cfd6d1a06634ef589456ca9a0825083" class="no-scaled-link" src="../_images/supply-chain.png" style="width: 800px;" /></p>
 <section id="Week-over-week-changes">
 <h2>Week-over-week changes<a class="headerlink" href="#Week-over-week-changes" title="Permalink to this heading"></a></h2>
 <p>For this case study, we consider synthetic data inspired from a real-world use case in supply chain. Let us look at data over two weeks, <em>w1</em> and <em>w2</em> in particular.</p>
@@ -1095,7 +1108,7 @@ value of demand mean from <span class="math notranslate nohighlight">\(2\)</span
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_20427/2721469738.py:26: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+/tmp/ipykernel_20439/2721469738.py:26: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
   data = data_week1.append(data_week2, ignore_index=True)
 </pre></div></div>
 </div>

@@ -5,7 +5,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'G-0HH0QE0T1M']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
     <title>Basic Example for generating samples from a GCM &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -143,16 +154,18 @@
         <dl>
             <dt>Releases</dt>
             <!-- hard-coding the old versions, as no further old version will be added -->
-            <dd><a href="../v0.8/index.html">v0.8</a></dd>
-            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="../v0.7/index.html">v0.7</a></dd>
-            <dd><a href="../v0.6/index.html">v0.6</a></dd>
-            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="../v0.5/index.html">v0.5</a></dd>
-            <dd><a href="../v0.4/index.html">v0.4</a></dd>
-            <dd><a href="../v0.2/index.html">v0.2</a></dd>
-            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <!-- It would be nice if this opened the same page in an older version, but that seems to be overkill
+                 right now. Therefore defaulting to the starting page (index). -->
+            <dd><a href="/dowhy/v0.8/index.html">v0.8</a></dd>
+            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
+            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
+            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
+            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
+            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
+            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="/dowhy/v0.1-alpha/index.html">v0.1-alpha</a></dd>
         </dl>
         <dl>
             <dt>Branches</dt>
@@ -668,33 +681,33 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.326542</td>
-      <td>1.633819</td>
-      <td>5.544171</td>
+      <td>-0.238478</td>
+      <td>0.807975</td>
+      <td>1.980538</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.408304</td>
-      <td>2.279425</td>
-      <td>7.936879</td>
+      <td>-1.146694</td>
+      <td>-2.672721</td>
+      <td>-7.264561</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.400612</td>
-      <td>-0.436243</td>
-      <td>-2.211875</td>
+      <td>-0.243336</td>
+      <td>-0.917779</td>
+      <td>-3.811319</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.015246</td>
-      <td>4.635860</td>
-      <td>14.590374</td>
+      <td>-0.835257</td>
+      <td>-1.020243</td>
+      <td>-3.914439</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.679918</td>
-      <td>2.142017</td>
-      <td>6.787962</td>
+      <td>0.726468</td>
+      <td>1.062488</td>
+      <td>1.582353</td>
     </tr>
   </tbody>
 </table>
@@ -727,7 +740,7 @@ keywords are unexpanded, not using
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 562.26it/s]
+Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 348.90it/s]
 </pre></div></div>
 </div>
 <p>We now learned the generative models of the variables, based on the defined causal graph and the additive noise model assumption. To generate new samples from this model, we can now simply call:</p>
@@ -771,33 +784,33 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.264497</td>
-      <td>2.327429</td>
-      <td>6.377783</td>
+      <td>-0.954450</td>
+      <td>-2.277764</td>
+      <td>-6.330806</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.160832</td>
-      <td>0.660065</td>
-      <td>2.116780</td>
+      <td>0.058622</td>
+      <td>-0.716678</td>
+      <td>-1.713022</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.959991</td>
-      <td>1.173522</td>
-      <td>3.646060</td>
+      <td>1.977693</td>
+      <td>3.707711</td>
+      <td>11.902420</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.689539</td>
-      <td>-0.507712</td>
-      <td>-0.194490</td>
+      <td>1.563500</td>
+      <td>3.704171</td>
+      <td>12.182103</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.743814</td>
-      <td>4.915273</td>
-      <td>15.225844</td>
+      <td>1.121654</td>
+      <td>3.252169</td>
+      <td>11.938977</td>
     </tr>
   </tbody>
 </table>
@@ -818,7 +831,7 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 0$</div></div>
+$\displaystyle 0.032305820217173$</div></div>
 </div>
 <p>Here, we expect the divergence to be (very) small.</p>
 <p><strong>Note</strong>: We <strong>cannot</strong> validate the correctness of a causal graph this way, since any graph from a Markov equivalence class would be sufficient to generate data that is consistent with the observed one, but only one particular graph would generate the correct interventional and counterfactual distributions. This is, seeing the example above, X→Y→Z and X←Y←Z would generate the same observational distribution (since they encode the same conditionals), but only X→Y→Z would generate the correct

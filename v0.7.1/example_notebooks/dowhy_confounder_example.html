@@ -470,11 +470,11 @@ keywords are unexpanded, not using
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0
-0   1.101495   2.913476 -4.508750
-1   8.615522  17.138855  2.585422
-2   9.209093  19.015114  3.378764
-3   3.884329   7.780023 -2.052358
-4   2.695330   6.188443 -2.910348
+0   2.265901   4.546840 -3.532172
+1   2.855556   4.937349 -3.591025
+2   4.416740   7.939758 -1.859140
+3   3.504380   7.384135 -2.280215
+4   9.507009  19.994926  3.998243
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -593,7 +593,7 @@ No such variable(s) found!
 <div class="highlight"><pre>
 linear_regression
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
-Causal Estimate is -0.00996935797277132
+Causal Estimate is -0.01314878088498972
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -620,7 +620,7 @@ Causal Estimate is -0.00996935797277132
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DoWhy estimate is -0.00996935797277132
+DoWhy estimate is -0.01314878088498972
 Actual true causal effect was 0
 </pre></div></div>
 </div>
@@ -746,9 +746,9 @@ Actual true causal effect was 0
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 Refute: Add a random common cause
-Estimated effect:-0.00996935797277132
-New effect:-0.009962105250230523
-p value:0.86
+Estimated effect:-0.01314878088498972
+New effect:-0.013153194390219216
+p value:0.8999999999999999
 
 </pre></div></div>
 </div>
@@ -871,8 +871,8 @@ p value:0.86
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 Refute: Use a Placebo Treatment
-Estimated effect:-0.00996935797277132
-New effect:1.4119512774470878e-05
+Estimated effect:-0.01314878088498972
+New effect:-1.7451218927000412e-05
 p value:0.98
 
 </pre></div></div>
@@ -996,9 +996,9 @@ p value:0.98
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 {&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 Refute: Use a subset of data
-Estimated effect:-0.00996935797277132
-New effect:-0.01011840013700157
-p value:0.8999999999999999
+Estimated effect:-0.01314878088498972
+New effect:-0.01301952244391181
+p value:0.96
 
 </pre></div></div>
 </div>
@@ -1053,7 +1053,10 @@ p value:0.8999999999999999
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../main/index.html">main</a></dd>
+            <!-- hard-coding the link to main -->
+            <!-- It would be nice if this opened the same page on main branch, but that seems to be overkill
+                 right now. Therefore defaulting to the starting page (index). -->
+            <dd><a href="/dowhy/main/index.html">main</a></dd>
         </dl>
     </div>
 </div><script>

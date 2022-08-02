@@ -682,71 +682,71 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>20</td>
-      <td>9</td>
+      <td>32</td>
+      <td>11</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>0.0</td>
       <td>0.000</td>
-      <td>2035.91</td>
+      <td>0.00</td>
+      <td>8472.16</td>
       <td>1</td>
       <td>1</td>
-      <td>0</td>
-      <td>0.621841</td>
-      <td>1.608127</td>
+      <td>1</td>
+      <td>0.373304</td>
+      <td>2.678784</td>
     </tr>
     <tr>
       <th>1</th>
       <td>27</td>
-      <td>12</td>
+      <td>13</td>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
       <td>0</td>
-      <td>0.0</td>
-      <td>752.390</td>
+      <td>0</td>
+      <td>0.000</td>
       <td>0.00</td>
+      <td>7609.52</td>
+      <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td>0</td>
-      <td>0.406416</td>
-      <td>2.460532</td>
+      <td>0.470501</td>
+      <td>2.125393</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>25</td>
-      <td>9</td>
-      <td>0</td>
+      <td>27</td>
+      <td>13</td>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
-      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
       <td>0.000</td>
-      <td>15791.10</td>
+      <td>0.00</td>
+      <td>7609.52</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td>0.721290</td>
-      <td>1.386406</td>
+      <td>0.470501</td>
+      <td>2.125393</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>20</td>
-      <td>12</td>
+      <td>17</td>
+      <td>9</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>591.815</td>
-      <td>4159.92</td>
       <td>1</td>
+      <td>1716.510</td>
+      <td>1253.44</td>
+      <td>5445.20</td>
       <td>0</td>
       <td>0</td>
-      <td>0.469598</td>
-      <td>2.129482</td>
+      <td>1</td>
+      <td>0.373445</td>
+      <td>2.677772</td>
     </tr>
     <tr>
       <th>4</th>
@@ -756,14 +756,14 @@ keywords are unexpanded, not using
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>0.0</td>
-      <td>0.000</td>
-      <td>0.00</td>
-      <td>1</td>
-      <td>1</td>
+      <td>721.341</td>
+      <td>2445.59</td>
+      <td>9772.28</td>
       <td>0</td>
-      <td>0.646854</td>
-      <td>1.545943</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.646855</td>
+      <td>1.545941</td>
     </tr>
   </tbody>
 </table>
@@ -804,7 +804,7 @@ $\displaystyle 1794.34308487526$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 2627.74443710806$</div></div>
+$\displaystyle 1935.19366429322$</div></div>
 </div>
 <p>We could get some rough error bars on the outcome using the normal approximation for a 95% confidence interval, like</p>
 <div class="nbinput docutils container">
@@ -823,7 +823,7 @@ $\displaystyle 2627.74443710806$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1496.83449934219$</div></div>
+$\displaystyle 1175.22415531483$</div></div>
 </div>
 <p>but note that these DO NOT contain propensity score estimation error. For that, a bootstrapping procedure might be more appropriate.</p>
 <p>This is just one statistic we can compute from the interventional distribution of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can get all of the interventional moments as well, including functions of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can leverage the full power of pandas, like</p>
@@ -842,8 +842,8 @@ $\displaystyle 1496.83449934219$</div></div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 count      445.000000
-mean      5437.687144
-std       7959.481666
+mean      5079.458570
+std       6395.371143
 min          0.000000
 25%          0.000000
 50%       3196.570000
@@ -1003,88 +1003,88 @@ Name: re78, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>17</td>
-      <td>10</td>
-      <td>1</td>
+      <td>21</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3670.87</td>
+      <td>334.049</td>
+      <td>12558.000</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>1291.47</td>
-      <td>5793.85</td>
-      <td>5522.79</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.361682</td>
-      <td>2.764862</td>
+      <td>0.572421</td>
+      <td>1.746967</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>19</td>
-      <td>8</td>
+      <td>40</td>
+      <td>11</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>2636.35</td>
-      <td>2937.26</td>
-      <td>7535.94</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.00</td>
+      <td>0.000</td>
+      <td>23005.600</td>
       <td>1</td>
-      <td>0.388530</td>
-      <td>2.573804</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.385937</td>
+      <td>2.591099</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>45</td>
-      <td>5</td>
+      <td>21</td>
+      <td>9</td>
       <td>1</td>
       <td>0</td>
+      <td>0</td>
       <td>1</td>
+      <td>6416.47</td>
+      <td>5749.330</td>
+      <td>743.667</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>8546.72</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0.520667</td>
-      <td>1.920612</td>
+      <td>0.379742</td>
+      <td>2.633368</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>18</td>
+      <td>23</td>
       <td>10</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>936.439</td>
+      <td>11233.300</td>
+      <td>1</td>
       <td>0</td>
       <td>1</td>
-      <td>2143.41</td>
-      <td>1784.27</td>
-      <td>11141.40</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.363232</td>
-      <td>2.753065</td>
+      <td>0.421233</td>
+      <td>2.373983</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>18</td>
-      <td>8</td>
+      <td>27</td>
+      <td>11</td>
+      <td>1</td>
+      <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
       <td>0.00</td>
-      <td>0.00</td>
-      <td>2787.96</td>
+      <td>0.000</td>
+      <td>549.298</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>0.323630</td>
-      <td>3.089945</td>
+      <td>0.365494</td>
+      <td>2.736025</td>
     </tr>
   </tbody>
 </table>
@@ -1202,7 +1202,10 @@ do(x, method=&#39;weighting&#39;, num_cores=1, variable_types={}, outcome=None, 
         </dl>
         <dl>
             <dt>Branches</dt>
-            <dd><a href="../main/index.html">main</a></dd>
+            <!-- hard-coding the link to main -->
+            <!-- It would be nice if this opened the same page on main branch, but that seems to be overkill
+                 right now. Therefore defaulting to the starting page (index). -->
+            <dd><a href="/dowhy/main/index.html">main</a></dd>
         </dl>
     </div>
 </div><script>

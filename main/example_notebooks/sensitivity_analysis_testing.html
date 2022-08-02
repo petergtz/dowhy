@@ -5,7 +5,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'G-0HH0QE0T1M']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
     <title>Sensitivity Analysis for Linear Regression Models &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -141,16 +152,18 @@
         <dl>
             <dt>Releases</dt>
             <!-- hard-coding the old versions, as no further old version will be added -->
-            <dd><a href="../v0.8/index.html">v0.8</a></dd>
-            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="../v0.7/index.html">v0.7</a></dd>
-            <dd><a href="../v0.6/index.html">v0.6</a></dd>
-            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="../v0.5/index.html">v0.5</a></dd>
-            <dd><a href="../v0.4/index.html">v0.4</a></dd>
-            <dd><a href="../v0.2/index.html">v0.2</a></dd>
-            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <!-- It would be nice if this opened the same page in an older version, but that seems to be overkill
+                 right now. Therefore defaulting to the starting page (index). -->
+            <dd><a href="/dowhy/v0.8/index.html">v0.8</a></dd>
+            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
+            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
+            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
+            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
+            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
+            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="/dowhy/v0.1-alpha/index.html">v0.1-alpha</a></dd>
         </dl>
         <dl>
             <dt>Branches</dt>
@@ -856,9 +869,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W6,W2,W5,W0,W3,W1])
+─────(E[y|W3,W6,W5,W1,W0,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W6,W2,W5,W0,W3,W1,U) = P(y|v0,W6,W2,W5,W0,W3,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W6,W5,W1,W0,W2,U) = P(y|v0,W3,W6,W5,W1,W0,W2)
 
 ### Estimand : 2
 Estimand name: iv
@@ -899,16 +912,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W6,W2,W5,W0,W3,W1])
+─────(E[y|W3,W6,W5,W1,W0,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W6,W2,W5,W0,W3,W1,U) = P(y|v0,W6,W2,W5,W0,W3,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W6,W5,W1,W0,W2,U) = P(y|v0,W3,W6,W5,W1,W0,W2)
 
 ## Realized estimand
-b: y~v0+W6+W2+W5+W0+W3+W1
+b: y~v0+W3+W6+W5+W1+W0+W2
 Target units: ate
 
 ## Estimate
-Mean value: 10.697677486880917
+Mean value: 10.697677486880918
 
 </pre></div></div>
 </div>
@@ -954,14 +967,14 @@ sensitivity analysis. (default = True). To override the setting, set plot_estima
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;estimate&#39;: 10.697677486880917,
- &#39;standard_error&#39;: 0.5938735661282951,
+{&#39;estimate&#39;: 10.697677486880918,
+ &#39;standard_error&#39;: 0.5938735661282947,
  &#39;degree of freedom&#39;: 492,
- &#39;t_statistic&#39;: 18.013392238727604,
- &#39;r2yt_w&#39;: 0.3974149837266678,
- &#39;partial_f2&#39;: 0.659516869809455,
- &#39;robustness_value&#39;: 0.5467445572181007,
- &#39;robustness_value_alpha&#39;: 0.5076289101030922}
+ &#39;t_statistic&#39;: 18.013392238727622,
+ &#39;r2yt_w&#39;: 0.3974149837266681,
+ &#39;partial_f2&#39;: 0.6595168698094563,
+ &#39;robustness_value&#39;: 0.5467445572181009,
+ &#39;robustness_value_alpha&#39;: 0.5076289101030926}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1077,15 +1090,15 @@ position of the legend (default = (1.6, 0.6))</p>
 Sensitivity Analysis to Unobserved Confounding using R^2 paramterization
 
 Unadjusted Estimates of Treatment [&#39;v0&#39;] :
-Coefficient Estimate : 10.697677486880917
+Coefficient Estimate : 10.697677486880918
 Degree of Freedom : 492
-Standard Error : 0.5938735661282951
-t-value : 18.013392238727604
-F^2 value : 0.659516869809455
+Standard Error : 0.5938735661282947
+t-value : 18.013392238727622
+F^2 value : 0.6595168698094563
 
 Sensitivity Statistics :
-Partial R2 of treatment with outcome : 0.3974149837266678
-Robustness Value : 0.5467445572181007
+Partial R2 of treatment with outcome : 0.3974149837266681
+Robustness Value : 0.5467445572181009
 
 Interpretation of results :
 Any confounder explaining less than 54.67% percent of the residual variance of both the treatment and the outcome would not be strong enough to explain away the observed effect i.e bring down the estimate to 0
@@ -1258,9 +1271,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W6,W4,W2,W5,W0,W3,W1])
+─────(E[y|W3,W6,W4,W5,W1,W0,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W6,W4,W2,W5,W0,W3,W1,U) = P(y|v0,W6,W4,W2,W5,W0,W3,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W6,W4,W5,W1,W0,W2,U) = P(y|v0,W3,W6,W4,W5,W1,W0,W2)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1297,16 +1310,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W6,W4,W2,W5,W0,W3,W1])
+─────(E[y|W3,W6,W4,W5,W1,W0,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W6,W4,W2,W5,W0,W3,W1,U) = P(y|v0,W6,W4,W2,W5,W0,W3,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W6,W4,W5,W1,W0,W2,U) = P(y|v0,W3,W6,W4,W5,W1,W0,W2)
 
 ## Realized estimand
-b: y~v0+W6+W4+W2+W5+W0+W3+W1
+b: y~v0+W3+W6+W4+W5+W1+W0+W2
 Target units: ate
 
 ## Estimate
-Mean value: 10.081924375588308
+Mean value: 10.08192437558829
 
 </pre></div></div>
 </div>
@@ -1371,11 +1384,11 @@ Mean value: 10.081924375588308
 Sensitivity Analysis to Unobserved Confounding using R^2 paramterization
 
 Unadjusted Estimates of Treatment [&#39;v0&#39;] :
-Coefficient Estimate : 10.081924375588308
+Coefficient Estimate : 10.08192437558829
 Degree of Freedom : 491
-Standard Error : 0.1044622954342476
-t-value : 96.51256784735541
-F^2 value : 18.970826379817478
+Standard Error : 0.10446229543424741
+t-value : 96.51256784735543
+F^2 value : 18.970826379817485
 
 Sensitivity Statistics :
 Partial R2 of treatment with outcome : 0.9499269594066172
@@ -1404,12 +1417,12 @@ If confounders explained 100% of the residual variance of the outcome, they woul
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;estimate&#39;: 10.081924375588308,
- &#39;standard_error&#39;: 0.1044622954342476,
+{&#39;estimate&#39;: 10.08192437558829,
+ &#39;standard_error&#39;: 0.10446229543424741,
  &#39;degree of freedom&#39;: 491,
- &#39;t_statistic&#39;: 96.51256784735541,
+ &#39;t_statistic&#39;: 96.51256784735543,
  &#39;r2yt_w&#39;: 0.9499269594066172,
- &#39;partial_f2&#39;: 18.970826379817478,
+ &#39;partial_f2&#39;: 18.970826379817485,
  &#39;robustness_value&#39;: 0.9522057801012398,
  &#39;robustness_value_alpha&#39;: 0.950386691319526}
 </pre></div></div>

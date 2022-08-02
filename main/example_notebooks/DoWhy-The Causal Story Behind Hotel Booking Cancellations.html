@@ -5,7 +5,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'G-0HH0QE0T1M']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
     <title>DoWhy-The Causal Story Behind Hotel Booking Cancellations &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -141,16 +152,18 @@
         <dl>
             <dt>Releases</dt>
             <!-- hard-coding the old versions, as no further old version will be added -->
-            <dd><a href="../v0.8/index.html">v0.8</a></dd>
-            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="../v0.7/index.html">v0.7</a></dd>
-            <dd><a href="../v0.6/index.html">v0.6</a></dd>
-            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="../v0.5/index.html">v0.5</a></dd>
-            <dd><a href="../v0.4/index.html">v0.4</a></dd>
-            <dd><a href="../v0.2/index.html">v0.2</a></dd>
-            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <!-- It would be nice if this opened the same page in an older version, but that seems to be overkill
+                 right now. Therefore defaulting to the starting page (index). -->
+            <dd><a href="/dowhy/v0.8/index.html">v0.8</a></dd>
+            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
+            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
+            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
+            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
+            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
+            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="/dowhy/v0.1-alpha/index.html">v0.1-alpha</a></dd>
         </dl>
         <dl>
             <dt>Branches</dt>
@@ -1299,7 +1312,7 @@ definite conclusion at this stage. Thus assigning rooms different to what a cust
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 588.5817$</div></div>
+$\displaystyle 588.824$</div></div>
 </div>
 <p>We now consider the scenario when there were no booking changes and recalculate the expected count.</p>
 <div class="nbinput docutils container">
@@ -1323,7 +1336,7 @@ $\displaystyle 588.5817$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 572.784$</div></div>
+$\displaystyle 573.267$</div></div>
 </div>
 <p>In the 2nd case, we take the scenario when there were booking changes(&gt;0) and recalculate the expected count.</p>
 <div class="nbinput docutils container">
@@ -1347,7 +1360,7 @@ $\displaystyle 572.784$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 665.5645$</div></div>
+$\displaystyle 665.8969$</div></div>
 </div>
 <p>There is definitely some change happening when the number of booking changes are non-zero. So it gives us a hint that <em>Booking Changes</em> may be affecting room cancellation.</p>
 <p>But is <em>Booking Changes</em> the only confounding variable? What if there were some unobserved confounders, regarding which we have no information(feature) present in our dataset. Would we still be able to make the same claims as before?</p>
@@ -1461,17 +1474,17 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
             d
-──────────────────────────(E[is_canceled|booking_changes,total_stay,lead_time,
+──────────────────────────(E[is_canceled|booking_changes,hotel,required_car_pa
 d[different_room_assigned]
 
 
-total_of_special_requests,guests,hotel,required_car_parking_spaces,days_in_wai
+rking_spaces,days_in_waiting_list,total_stay,guests,is_repeated_guest,total_of
 
 
 
-ting_list,is_repeated_guest])
+_special_requests,lead_time])
 
-Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,booking_changes,total_stay,lead_time,total_of_special_requests,guests,hotel,required_car_parking_spaces,days_in_waiting_list,is_repeated_guest,U) = P(is_canceled|different_room_assigned,booking_changes,total_stay,lead_time,total_of_special_requests,guests,hotel,required_car_parking_spaces,days_in_waiting_list,is_repeated_guest)
+Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,booking_changes,hotel,required_car_parking_spaces,days_in_waiting_list,total_stay,guests,is_repeated_guest,total_of_special_requests,lead_time,U) = P(is_canceled|different_room_assigned,booking_changes,hotel,required_car_parking_spaces,days_in_waiting_list,total_stay,guests,is_repeated_guest,total_of_special_requests,lead_time)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1514,24 +1527,24 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
             d
-──────────────────────────(E[is_canceled|booking_changes,total_stay,lead_time,
+──────────────────────────(E[is_canceled|booking_changes,hotel,required_car_pa
 d[different_room_assigned]
 
 
-total_of_special_requests,guests,hotel,required_car_parking_spaces,days_in_wai
+rking_spaces,days_in_waiting_list,total_stay,guests,is_repeated_guest,total_of
 
 
 
-ting_list,is_repeated_guest])
+_special_requests,lead_time])
 
-Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,booking_changes,total_stay,lead_time,total_of_special_requests,guests,hotel,required_car_parking_spaces,days_in_waiting_list,is_repeated_guest,U) = P(is_canceled|different_room_assigned,booking_changes,total_stay,lead_time,total_of_special_requests,guests,hotel,required_car_parking_spaces,days_in_waiting_list,is_repeated_guest)
+Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,booking_changes,hotel,required_car_parking_spaces,days_in_waiting_list,total_stay,guests,is_repeated_guest,total_of_special_requests,lead_time,U) = P(is_canceled|different_room_assigned,booking_changes,hotel,required_car_parking_spaces,days_in_waiting_list,total_stay,guests,is_repeated_guest,total_of_special_requests,lead_time)
 
 ## Realized estimand
-b: is_canceled~different_room_assigned+booking_changes+total_stay+lead_time+total_of_special_requests+guests+hotel+required_car_parking_spaces+days_in_waiting_list+is_repeated_guest
+b: is_canceled~different_room_assigned+booking_changes+hotel+required_car_parking_spaces+days_in_waiting_list+total_stay+guests+is_repeated_guest+total_of_special_requests+lead_time
 Target units: ate
 
 ## Estimate
-Mean value: -0.2622300730171891
+Mean value: -0.2622172296404577
 
 </pre></div></div>
 </div>
@@ -1562,9 +1575,9 @@ Mean value: -0.2622300730171891
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:-0.2622300730171891
-New effect:-0.26220206539922414
-p value:0.78
+Estimated effect:-0.2622172296404577
+New effect:-0.2622244125036454
+p value:0.8799999999999999
 
 </pre></div></div>
 </div>
@@ -1588,9 +1601,9 @@ p value:0.78
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:-0.2622300730171891
-New effect:1.2203732371917075e-05
-p value:0.96
+Estimated effect:-0.2622172296404577
+New effect:0.00018797590745034732
+p value:0.94
 
 </pre></div></div>
 </div>
@@ -1614,9 +1627,9 @@ p value:0.96
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:-0.2622300730171891
-New effect:-0.26236892333520245
-p value:0.8799999999999999
+Estimated effect:-0.2622172296404577
+New effect:-0.2620369841167697
+p value:0.8
 
 </pre></div></div>
 </div>

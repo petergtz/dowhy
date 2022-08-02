@@ -5,7 +5,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'G-0HH0QE0T1M']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
     <title>Basic Example for GCM-Based Inference &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -143,16 +154,18 @@
         <dl>
             <dt>Releases</dt>
             <!-- hard-coding the old versions, as no further old version will be added -->
-            <dd><a href="../v0.8/index.html">v0.8</a></dd>
-            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="../v0.7/index.html">v0.7</a></dd>
-            <dd><a href="../v0.6/index.html">v0.6</a></dd>
-            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="../v0.5/index.html">v0.5</a></dd>
-            <dd><a href="../v0.4/index.html">v0.4</a></dd>
-            <dd><a href="../v0.2/index.html">v0.2</a></dd>
-            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <!-- It would be nice if this opened the same page in an older version, but that seems to be overkill
+                 right now. Therefore defaulting to the starting page (index). -->
+            <dd><a href="/dowhy/v0.8/index.html">v0.8</a></dd>
+            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
+            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
+            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
+            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
+            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
+            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="/dowhy/v0.1-alpha/index.html">v0.1-alpha</a></dd>
         </dl>
         <dl>
             <dt>Branches</dt>
@@ -716,33 +729,33 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.732477</td>
-      <td>1.038083</td>
-      <td>3.995687</td>
+      <td>1.053153</td>
+      <td>5.505478</td>
+      <td>15.768456</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.507053</td>
-      <td>3.767394</td>
-      <td>12.303904</td>
+      <td>0.832309</td>
+      <td>0.774601</td>
+      <td>3.662441</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.838295</td>
-      <td>-0.767417</td>
-      <td>-3.350593</td>
+      <td>0.967938</td>
+      <td>0.633918</td>
+      <td>1.427060</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.499660</td>
-      <td>3.597142</td>
-      <td>9.793199</td>
+      <td>-1.687075</td>
+      <td>-3.562553</td>
+      <td>-10.941826</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.820253</td>
-      <td>2.122852</td>
-      <td>5.596233</td>
+      <td>-0.936516</td>
+      <td>-2.677503</td>
+      <td>-9.475485</td>
     </tr>
   </tbody>
 </table>
@@ -787,7 +800,7 @@ keywords are unexpanded, not using
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 542.20it/s]
+Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 371.74it/s]
 </pre></div></div>
 </div>
 <p>Fitting means, we learn the generative models of the variables in the SCM according to the data.</p>
@@ -841,33 +854,33 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.936249</td>
+      <td>-0.769394</td>
       <td>2.34</td>
-      <td>6.353482</td>
+      <td>7.239891</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-1.443699</td>
+      <td>1.925053</td>
       <td>2.34</td>
-      <td>9.245584</td>
+      <td>7.788309</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.613472</td>
+      <td>0.532929</td>
       <td>2.34</td>
-      <td>6.840417</td>
+      <td>8.026345</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.669066</td>
+      <td>-1.465742</td>
       <td>2.34</td>
-      <td>7.113716</td>
+      <td>7.393916</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.970598</td>
+      <td>1.698127</td>
       <td>2.34</td>
-      <td>7.000807</td>
+      <td>5.877292</td>
     </tr>
   </tbody>
 </table>

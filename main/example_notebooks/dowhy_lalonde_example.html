@@ -5,7 +5,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<script type="text/javascript">
 
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'G-0HH0QE0T1M']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
     <title>DoWhy example on the Lalonde dataset &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -143,16 +154,18 @@
         <dl>
             <dt>Releases</dt>
             <!-- hard-coding the old versions, as no further old version will be added -->
-            <dd><a href="../v0.8/index.html">v0.8</a></dd>
-            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="../v0.7/index.html">v0.7</a></dd>
-            <dd><a href="../v0.6/index.html">v0.6</a></dd>
-            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="../v0.5/index.html">v0.5</a></dd>
-            <dd><a href="../v0.4/index.html">v0.4</a></dd>
-            <dd><a href="../v0.2/index.html">v0.2</a></dd>
-            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <!-- It would be nice if this opened the same page in an older version, but that seems to be overkill
+                 right now. Therefore defaulting to the starting page (index). -->
+            <dd><a href="/dowhy/v0.8/index.html">v0.8</a></dd>
+            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
+            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
+            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
+            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
+            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
+            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="/dowhy/v0.1-alpha/index.html">v0.1-alpha</a></dd>
         </dl>
         <dl>
             <dt>Branches</dt>
@@ -774,19 +787,19 @@ R[write to console]: ##
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area stderr docutils container">
+<div class="output_area docutils container">
 <div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
+propensity_score_weighting
+Causal Estimate is 1639.8542877687487
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-propensity_score_weighting
-Causal Estimate is 1639.8511731151611
+/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
+  y = column_or_1d(y, warn=True)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -806,10 +819,10 @@ Causal Estimate is 1639.8511731151611
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   6.743</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Fri, 29 Jul 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00972</td>
+  <th>Date:</th>             <td>Tue, 02 Aug 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00972</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>15:41:45</td>     <th>  Log-Likelihood:    </th> <td> -4544.7</td>
+  <th>Time:</th>                 <td>08:18:55</td>     <th>  Log-Likelihood:    </th> <td> -4544.7</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   445</td>      <th>  AIC:               </th> <td>   9093.</td>
@@ -829,10 +842,10 @@ Causal Estimate is 1639.8511731151611
         <td></td>           <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
 </tr>
 <tr>
-  <th>Intercept</th>     <td> 4555.0741</td> <td>  406.707</td> <td>   11.200</td> <td> 0.000</td> <td> 3755.760</td> <td> 5354.388</td>
+  <th>Intercept</th>     <td> 4555.0723</td> <td>  406.707</td> <td>   11.200</td> <td> 0.000</td> <td> 3755.758</td> <td> 5354.386</td>
 </tr>
 <tr>
-  <th>treat[T.True]</th> <td> 1639.8512</td> <td>  631.498</td> <td>    2.597</td> <td> 0.010</td> <td>  398.746</td> <td> 2880.956</td>
+  <th>treat[T.True]</th> <td> 1639.8543</td> <td>  631.498</td> <td>    2.597</td> <td> 0.010</td> <td>  398.750</td> <td> 2880.959</td>
 </tr>
 </table>
 <table class="simpletable">
@@ -840,7 +853,7 @@ Causal Estimate is 1639.8511731151611
   <th>Omnibus:</th>       <td>303.267</td> <th>  Durbin-Watson:     </th> <td>   2.085</td>
 </tr>
 <tr>
-  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>4770.846</td>
+  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>4770.835</td>
 </tr>
 <tr>
   <th>Skew:</th>          <td> 2.709</td>  <th>  Prob(JB):          </th> <td>    0.00</td>
@@ -896,7 +909,7 @@ Causal Estimate is 1639.8511731151611
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Causal Estimate is 1639.8511731151575
+Causal Estimate is 1639.8542877687378
 </pre></div></div>
 </div>
 </section>
