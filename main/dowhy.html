@@ -6,13 +6,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-0HH0QE0T1M');
+  gtag('config', 'G-B139P18WHM');
 </script>
     <title>API reference &#8212; DoWhy  documentation</title>
 <script>
@@ -33,6 +33,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -42,7 +43,10 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="dowhy.api package" href="dowhy.api.html" />
@@ -1004,8 +1008,23 @@ the second is the outcome, and the third is the candidate backdoor set</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_graph.CausalGraph.do_surgery">
-<span class="sig-name descname"><span class="pre">do_surgery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_outgoing_edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_incoming_edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_graph.html#CausalGraph.do_surgery"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_graph.CausalGraph.do_surgery" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">do_surgery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_outgoing_edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_incoming_edges</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_node_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_only_direct_edges_to_target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_graph.html#CausalGraph.do_surgery"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_graph.CausalGraph.do_surgery" title="Permalink to this definition"></a></dt>
+<dd><p>Method to create a new graph based on the concept of do-surgery.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_names</strong> – focal nodes for the surgery</p></li>
+<li><p><strong>remove_outgoing_edges</strong> – whether to remove outgoing edges from the focal nodes</p></li>
+<li><p><strong>remove_incoming_edges</strong> – whether to remove incoming edges to the focal nodes</p></li>
+<li><p><strong>target_node_names</strong> – target nodes (optional) for the surgery, only used when remove_only_direct_edges_to_target is True</p></li>
+<li><p><strong>remove_only_direct_edges_to_target</strong> – whether to remove only the direct edges from focal nodes to the target nodes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a new networkx graph after the specified removal of edges</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_graph.CausalGraph.filter_unobserved_variables">
@@ -1111,6 +1130,11 @@ the second is the outcome, and the third is the candidate backdoor set</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.BACKDOOR_EFFICIENT">
+<span class="sig-name descname"><span class="pre">BACKDOOR_EFFICIENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'efficient-adjustment'</span></em><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.BACKDOOR_EFFICIENT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.BACKDOOR_EXHAUSTIVE">
 <span class="sig-name descname"><span class="pre">BACKDOOR_EXHAUSTIVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'exhaustive-search'</span></em><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.BACKDOOR_EXHAUSTIVE" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -1126,8 +1150,23 @@ the second is the outcome, and the third is the candidate backdoor set</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.BACKDOOR_MINCOST_EFFICIENT">
+<span class="sig-name descname"><span class="pre">BACKDOOR_MINCOST_EFFICIENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'efficient-mincost-adjustment'</span></em><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.BACKDOOR_MINCOST_EFFICIENT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.BACKDOOR_MIN_EFFICIENT">
+<span class="sig-name descname"><span class="pre">BACKDOOR_MIN_EFFICIENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'efficient-minimal-adjustment'</span></em><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.BACKDOOR_MIN_EFFICIENT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.DEFAULT_BACKDOOR_METHOD">
 <span class="sig-name descname"><span class="pre">DEFAULT_BACKDOOR_METHOD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'default'</span></em><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.DEFAULT_BACKDOOR_METHOD" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.EFFICIENT_METHODS">
+<span class="sig-name descname"><span class="pre">EFFICIENT_METHODS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'efficient-adjustment',</span> <span class="pre">'efficient-mincost-adjustment',</span> <span class="pre">'efficient-minimal-adjustment'}</span></em><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.EFFICIENT_METHODS" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1137,12 +1176,17 @@ the second is the outcome, and the third is the candidate backdoor set</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.METHOD_NAMES">
-<span class="sig-name descname"><span class="pre">METHOD_NAMES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'default',</span> <span class="pre">'exhaustive-search',</span> <span class="pre">'maximal-adjustment',</span> <span class="pre">'minimal-adjustment'}</span></em><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.METHOD_NAMES" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">METHOD_NAMES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'default',</span> <span class="pre">'efficient-adjustment',</span> <span class="pre">'efficient-mincost-adjustment',</span> <span class="pre">'efficient-minimal-adjustment',</span> <span class="pre">'exhaustive-search',</span> <span class="pre">'maximal-adjustment',</span> <span class="pre">'minimal-adjustment'}</span></em><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.METHOD_NAMES" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.NONPARAMETRIC_ATE">
 <span class="sig-name descname"><span class="pre">NONPARAMETRIC_ATE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'nonparametric-ate'</span></em><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.NONPARAMETRIC_ATE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.NONPARAMETRIC_CDE">
+<span class="sig-name descname"><span class="pre">NONPARAMETRIC_CDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'nonparametric-cde'</span></em><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.NONPARAMETRIC_CDE" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1193,27 +1237,88 @@ the second is the outcome, and the third is the candidate backdoor set</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.identify_ate_effect">
-<span class="sig-name descname"><span class="pre">identify_ate_effect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimize_backdoor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifier.html#CausalIdentifier.identify_ate_effect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.identify_ate_effect" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">identify_ate_effect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimize_backdoor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">costs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_node_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifier.html#CausalIdentifier.identify_ate_effect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.identify_ate_effect" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.identify_backdoor">
-<span class="sig-name descname"><span class="pre">identify_backdoor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">treatment_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outcome_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_unobserved</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dseparation_algo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifier.html#CausalIdentifier.identify_backdoor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.identify_backdoor" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">identify_backdoor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">treatment_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outcome_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_unobserved</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dseparation_algo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direct_effect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifier.html#CausalIdentifier.identify_backdoor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.identify_backdoor" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.identify_cde_effect">
+<span class="sig-name descname"><span class="pre">identify_cde_effect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifier.html#CausalIdentifier.identify_cde_effect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.identify_cde_effect" title="Permalink to this definition"></a></dt>
+<dd><p>Identify controlled direct effect. For a definition, see Vanderwheele (2011).
+Controlled direct and mediated effects: definition, identification and bounds.
+<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4193506/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4193506/</a></p>
+<p>Using do-calculus rules, identification yields a adjustment set.
+It is based on the principle that under a graph where the direct edge from treatment
+to outcome is removed, conditioning on the adjustment set should d-separate
+treatment and outcome.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.identify_effect">
-<span class="sig-name descname"><span class="pre">identify_effect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimize_backdoor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifier.html#CausalIdentifier.identify_effect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.identify_effect" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">identify_effect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimize_backdoor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">costs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_node_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifier.html#CausalIdentifier.identify_effect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.identify_effect" title="Permalink to this definition"></a></dt>
 <dd><p>Main method that returns an identified estimand (if one exists).</p>
 <p>If estimand_type is non-parametric ATE, then  uses backdoor, instrumental variable and frontdoor identification methods,  to check if an identified estimand exists, based on the causal graph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> – instance of the CausalIdentifier class (or its subclass)</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>target estimand, an instance of the IdentifiedEstimand class</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – instance of the CausalIdentifier class (or its subclass)</p></li>
+<li><p><strong>optimize_backdoor</strong> – if True, uses an optimised algorithm to compute the backdoor sets</p></li>
+<li><p><strong>costs</strong> – non-negative costs associated with variables in the graph. Only used</p></li>
+</ul>
 </dd>
 </dl>
+<p>for estimand_type=’non-parametric-ate’ and method_name=’efficient-mincost-adjustment’. If
+no costs are provided by the user, and method_name=’efficient-mincost-adjustment’, costs
+are assumed to be equal to one for all variables in the graph.
+:param conditional_node_names: variables that are used to determine treatment. If none are
+provided, it is assumed that the intervention is static.
+:returns:  target estimand, an instance of the IdentifiedEstimand class</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_identifier.CausalIdentifier.identify_efficient_backdoor">
+<span class="sig-name descname"><span class="pre">identify_efficient_backdoor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">costs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conditional_node_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_identifier.html#CausalIdentifier.identify_efficient_backdoor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_identifier.CausalIdentifier.identify_efficient_backdoor" title="Permalink to this definition"></a></dt>
+<dd><p>Method implementing algorithms to compute efficient backdoor sets, as
+described in Rotnitzky and Smucler (2020), Smucler, Sapienza and Rotnitzky (2021)
+and Smucler and Rotnitzky (2022).</p>
+<p>For method_name=’efficient-adjustment’, computes an optimal backdoor set,
+that is, a backdoor set comprised of observable variables that yields non-parametric
+estimators of the interventional mean with the smallest asymptotic variance
+among those that are based on observable backdoor sets. This optimal backdoor
+set always exists when no variables are latent, and the algorithm is guaranteed to compute
+it in this case. Under a non-parametric graphical model with latent variables,
+such a backdoor set can fail to exist. When certain sufficient conditions under which it is
+known that such a backdoor set exists are not satisfied, an error is raised.</p>
+<p>For method_name=’efficient-minimal-adjustment’, computes an optimal minimal backdoor set,
+that is, a minimal backdoor set comprised of observable variables that yields non-parametric
+estimators of the interventional mean with the smallest asymptotic variance
+among those that are based on observable minimal backdoor sets.</p>
+<p>For method_name=’efficient-mincost-adjustment’, computes an optimal minimum cost backdoor set,
+that is, a minimum cost backdoor set comprised of observable variables that yields non-parametric
+estimators of the interventional mean with the smallest asymptotic variance
+among those that are based on observable minimum cost backdoor sets. The cost
+of a backdoor set is defined as the sum of the costs of the variables that comprise it.</p>
+<p>The various optimal backdoor sets computed by this method are not only optimal under
+non-parametric graphical models and non-parametric estimators of interventional mean,
+but also under linear graphical models and OLS estimators, per results in Henckel, Perkovic
+and Maathuis (2020).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>costs</strong> – a list with non-negative costs associated with variables in the graph. Only used</p>
+</dd>
+</dl>
+<p>for estimatand_type=’non-parametric-ate’ and method_name=’efficient-mincost-adjustment’. If
+not costs are provided by the user, and method_name=’efficient-mincost-adjustment’, costs
+are assumed to be equal to one for all variables in the graph. The structure of the list should
+be of the form [(node, {“cost”: x}) for node in nodes].
+:param conditional_node_names: variables that are used to determine treatment. If none are
+provided, it is assumed that the intervention sets the treatment to a constant.
+:returns:  backdoor_sets, a list of dictionaries, with each dictionary
+having as values a backdoor set.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1475,7 +1580,7 @@ causal graph object using the learnt graph.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_model.CausalModel.refute_estimate">
-<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_model.html#CausalModel.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_model.CausalModel.refute_estimate" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_model.html#CausalModel.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_model.CausalModel.refute_estimate" title="Permalink to this definition"></a></dt>
 <dd><p>Refute an estimated causal effect.</p>
 <dl class="simple">
 <dt>If method_name is provided, uses the provided method. In the future, we may support automatic selection of suitable refutation tests. Following refutation methods are supported.</dt><dd><ul class="simple">
@@ -1492,6 +1597,7 @@ causal graph object using the learnt graph.</p>
 <li><p><strong>estimand</strong> – target estimand, an instance of the IdentifiedEstimand class (typically, the output of identify_effect)</p></li>
 <li><p><strong>estimate</strong> – estimate to be refuted, an instance of the CausalEstimate class (typically, the output of estimate_effect)</p></li>
 <li><p><strong>method_name</strong> – name of the refutation method</p></li>
+<li><p><strong>show_progress_bar</strong> – Boolean flag on whether to show a progress bar</p></li>
 <li><p><strong>kwargs</strong> – (optional) additional arguments that are passed directly to the refutation method. Can specify a random seed here to ensure reproducible results (‘random_seed’ parameter). For method-specific parameters, consult the documentation for the specific method. All refutation methods are in the causal_refuters subpackage.</p></li>
 </ul>
 </dd>
@@ -1596,6 +1702,11 @@ Z can have multiple variables
 <span class="sig-name descname"><span class="pre">DEFAULT_NUM_SIMULATIONS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100</span></em><a class="headerlink" href="#dowhy.causal_refuter.CausalRefuter.DEFAULT_NUM_SIMULATIONS" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dowhy.causal_refuter.CausalRefuter.PROGRESS_BAR_COLOR">
+<span class="sig-name descname"><span class="pre">PROGRESS_BAR_COLOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'green'</span></em><a class="headerlink" href="#dowhy.causal_refuter.CausalRefuter.PROGRESS_BAR_COLOR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_refuter.CausalRefuter.choose_variables">
 <span class="sig-name descname"><span class="pre">choose_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">required_variables</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuter.html#CausalRefuter.choose_variables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuter.CausalRefuter.choose_variables" title="Permalink to this definition"></a></dt>
@@ -1615,7 +1726,7 @@ modify for finding its effect on the ability of the treatment to affect the outc
 
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_refuter.CausalRefuter.refute_estimate">
-<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuter.html#CausalRefuter.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuter.CausalRefuter.refute_estimate" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuter.html#CausalRefuter.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuter.CausalRefuter.refute_estimate" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1715,7 +1826,7 @@ size</p>
 </dd>
 </dl>
 <p>randint, shuffle, permutation
-Generator.choice: which should be used in new code</p>
+random.Generator.choice: which should be used in new code</p>
 <p>Setting user-specified probabilities through <code class="docutils literal notranslate"><span class="pre">p</span></code> uses a more general but less
 efficient sampler than the default. The general sampler produces a different sample
 than the optimized sampler even if each element of <code class="docutils literal notranslate"><span class="pre">p</span></code> is 1 / len(a).</p>
@@ -2061,7 +2172,7 @@ Override this method if you want to use a different approach to sampling.
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

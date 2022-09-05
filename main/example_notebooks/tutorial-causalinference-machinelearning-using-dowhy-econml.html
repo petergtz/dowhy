@@ -6,13 +6,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-0HH0QE0T1M');
+  gtag('config', 'G-B139P18WHM');
 </script>
     <title>Tutorial on Causal Inference and its Connections to Machine Learning (Using DoWhy+EconML) &#8212; DoWhy  documentation</title>
 <script>
@@ -33,6 +33,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -42,7 +43,10 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -684,7 +688,7 @@ been more likely to receive the new drug, and so on. The goal of causal inferenc
 <h2>The four steps of causal inference<a class="headerlink" href="#The-four-steps-of-causal-inference" title="Permalink to this heading"></a></h2>
 <p>Since there is no ground-truth test dataset available that an estimate can be compared to, causal inference requires a series of principled steps to achieve a good estimator.</p>
 <p>Let us illustrate the four steps through a sample dataset. This tutorial requires you to download two libraries: DoWhy and EconML. Both can be installed by the following command: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">dowhy</span> <span class="pre">econml</span></code>.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -710,14 +714,6 @@ been more likely to receive the new drug, and so on. The goal of causal inferenc
     <span class="n">stddev_treatment_noise</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
 </div>
 <p><strong>I. Modeling</strong></p>
 <p>The first step is to encode our domain knowledge into a causal model, often represented as a graph. The final outcome of a causal inference analysis depends largely on the input assumptions, so this step is quite important. To estimate the causal effect, most common problems involve specifying two types of variables:</p>
@@ -809,9 +805,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W3,W0,W2])
+─────(E[y|W2,W0,W4,W1,W3])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W3,W0,W2,U) = P(y|v0,W1,W4,W3,W0,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W0,W4,W1,W3,U) = P(y|v0,W2,W0,W4,W1,W3)
 
 ### Estimand : 2
 Estimand name: iv
@@ -858,16 +854,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W3,W0,W2])
+─────(E[y|W2,W0,W4,W1,W3])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W3,W0,W2,U) = P(y|v0,W1,W4,W3,W0,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W0,W4,W1,W3,U) = P(y|v0,W2,W0,W4,W1,W3)
 
 ## Realized estimand
-b: y~v0+W1+W4+W3+W0+W2
+b: y~v0+W2+W0+W4+W1+W3
 Target units: ate
 
 ## Estimate
-Mean value: 9.880965600310716
+Mean value: 9.964614548173714
 
 </pre></div></div>
 </div>
@@ -891,6 +887,15 @@ Mean value: 9.880965600310716
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2022-09-05 19:16:38.700131: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-09-05 19:16:38.700179: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
@@ -905,17 +910,17 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W3,W0,W2])
+─────(E[y|W2,W0,W4,W1,W3])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W3,W0,W2,U) = P(y|v0,W1,W4,W3,W0,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W0,W4,W1,W3,U) = P(y|v0,W2,W0,W4,W1,W3)
 
 ## Realized estimand
-b: y~v0+W1+W4+W3+W0+W2 |
+b: y~v0+W2+W0+W4+W1+W3 |
 Target units: ate
 
 ## Estimate
-Mean value: 9.96749424604614
-Effect estimates: [9.96749425 9.96749425 9.96749425 ... 9.96749425 9.96749425 9.96749425]
+Mean value: 9.877486392224409
+Effect estimates: [9.87748639 9.87748639 9.87748639 ... 9.87748639 9.87748639 9.87748639]
 
 </pre></div></div>
 </div>
@@ -939,9 +944,9 @@ estimate value of 0 when the action variable is replaced by a random variable, i
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:9.880965600310716
-New effect:-0.00044256529493073106
-p value:0.9
+Estimated effect:9.964614548173714
+New effect:-0.007859506875934834
+p value:0.8799999999999999
 
 </pre></div></div>
 </div>
@@ -993,11 +998,11 @@ than learning a new toolkit. The power of EconML is that you can now implement t
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0         s        w1
-0   9.412959  17.809913  1.742735  1.497580  0.792265
-1  14.573160  23.144313  3.016844  3.991542 -1.046030
-2   6.809624  12.832499 -0.580429  5.150792  1.363679
-3  12.171031  15.376142 -2.555150  0.439697 -0.969596
-4  19.099950  28.783321  3.647339  3.593852 -0.305756
+0  30.250178  60.049919  4.865200  9.977449  0.583154
+1   6.039614  12.137952  0.299850  4.923577  0.750932
+2   6.869965  13.665499 -0.765653  8.798429  0.607789
+3  10.126903  20.156774  1.969220  4.425054  0.581375
+4  22.021680  43.312179 -3.882097  6.656630  1.996058
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1083,8 +1088,6 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-linear_regression
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -1103,9 +1106,9 @@ b: Outcome~Treatment+w0+w1
 Target units: ate
 
 ## Estimate
-Mean value: 0.9982450514691461
+Mean value: 1.9993908154568336
 
-Causal Estimate is 0.9982450514691461
+Causal Estimate is 1.9993908154568336
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1161,8 +1164,8 @@ b: Outcome~Treatment+w0+w1 |
 Target units: ate
 
 ## Estimate
-Mean value: 0.17809630255202175
-Effect estimates: [0.1780963 0.1780963 0.1780963 ... 0.1780963 0.1780963 0.1780963]
+Mean value: 1.046338203446684
+Effect estimates: [1.0463382 1.0463382 1.0463382 ... 1.0463382 1.0463382 1.0463382]
 
 </pre></div></div>
 </div>
@@ -1185,9 +1188,9 @@ Effect estimates: [0.1780963 0.1780963 0.1780963 ... 0.1780963 0.1780963 0.17809
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:0.17809630255202175
-New effect:0.18084110614575574
-p value:0.84
+Estimated effect:1.046338203446684
+New effect:1.0532941341141075
+p value:0.82
 
 </pre></div></div>
 </div>
@@ -1208,9 +1211,9 @@ p value:0.84
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:0.17809630255202175
-New effect:-0.00012142489827476114
-p value:0.3760625806208393
+Estimated effect:1.046338203446684
+New effect:4.6655589542072054e-05
+p value:0.46014790097407016
 
 </pre></div></div>
 </div>
@@ -1222,23 +1225,23 @@ p value:0.3760625806208393
 <p>In practice, as the data becomes high-dimensional, simple estimators will not estimate the correct causal effect. More advanced supervised machine learning models also do not work and often are worse than simple regression, because they include additional regularization techniques that help in minimizing predictive error, but can have unwanted effects on estimating the causal effect. Therefore, we need methods targeted to estimate the causal effect. At the same time, we also need suitable
 refutation methods that can check the robustness of the estimate.</p>
 <p>Here is an example of using DoWhy+EconML for a high-dimensional dataset.</p>
-<p>More details are in this <a class="reference external" href="https://github.com/microsoft/dowhy/blob/master/docs/source/example_notebooks/dowhy-conditional-treatment-effects.ipynb">notebook</a>.</p>
+<p>More details are in this <a class="reference external" href="https://github.com/microsoft/dowhy/blob/main/docs/source/example_notebooks/dowhy-conditional-treatment-effects.ipynb">notebook</a>.</p>
 <p>Below we provide links to case studies that illustrate the use of DoWhy+EconML.</p>
 <section id="Estimating-the-impact-of-a-customer-loyalty-program">
 <h3>Estimating the impact of a customer loyalty program<a class="headerlink" href="#Estimating-the-impact-of-a-customer-loyalty-program" title="Permalink to this heading"></a></h3>
-<p><a class="reference external" href="https://github.com/microsoft/dowhy/blob/master/docs/source/example_notebooks/dowhy_example_effect_of_memberrewards_program.ipynb">Link to full notebook</a></p>
+<p><a class="reference external" href="https://github.com/microsoft/dowhy/blob/main/docs/source/example_notebooks/dowhy_example_effect_of_memberrewards_program.ipynb">Link to full notebook</a></p>
 </section>
 <section id="Recommendation-A/B-testing-at-an-online-company">
 <h3>Recommendation A/B testing at an online company<a class="headerlink" href="#Recommendation-A/B-testing-at-an-online-company" title="Permalink to this heading"></a></h3>
-<p><a class="reference external" href="https://github.com/microsoft/EconML/blob/master/notebooks/CustomerScenarios/Case%20Study%20-%20Recommendation%20AB%20Testing%20at%20An%20Online%20Travel%20Company%20-%20EconML%20%2B%20DoWhy.ipynb">Link to full notebook</a></p>
+<p><a class="reference external" href="https://github.com/microsoft/EconML/blob/main/notebooks/CustomerScenarios/Case%20Study%20-%20Recommendation%20AB%20Testing%20at%20An%20Online%20Travel%20Company%20-%20EconML%20%2B%20DoWhy.ipynb">Link to full notebook</a></p>
 </section>
 <section id="User-segmentation-for-targeting-interventions">
 <h3>User segmentation for targeting interventions<a class="headerlink" href="#User-segmentation-for-targeting-interventions" title="Permalink to this heading"></a></h3>
-<p><a class="reference external" href="https://github.com/microsoft/EconML/blob/master/notebooks/CustomerScenarios/Case%20Study%20-%20Customer%20Segmentation%20at%20An%20Online%20Media%20Company%20-%20EconML%20%2B%20DoWhy.ipynb">Link to full notebook</a></p>
+<p><a class="reference external" href="https://github.com/microsoft/EconML/blob/main/notebooks/CustomerScenarios/Case%20Study%20-%20Customer%20Segmentation%20at%20An%20Online%20Media%20Company%20-%20EconML%20%2B%20DoWhy.ipynb">Link to full notebook</a></p>
 </section>
 <section id="Multi-investment-attribution-at-a-software-company">
 <h3>Multi-investment attribution at a software company<a class="headerlink" href="#Multi-investment-attribution-at-a-software-company" title="Permalink to this heading"></a></h3>
-<p><a class="reference external" href="https://github.com/microsoft/EconML/blob/master/notebooks/CustomerScenarios/Case%20Study%20-%20Multi-investment%20Attribution%20at%20A%20Software%20Company%20-%20EconML%20%2B%20DoWhy.ipynb">Link to full notebook</a></p>
+<p><a class="reference external" href="https://github.com/microsoft/EconML/blob/main/notebooks/CustomerScenarios/Case%20Study%20-%20Multi-investment%20Attribution%20at%20A%20Software%20Company%20-%20EconML%20%2B%20DoWhy.ipynb">Link to full notebook</a></p>
 </section>
 </section>
 <section id="Connections-to-fundamental-machine-learning-challenges">
@@ -1252,9 +1255,9 @@ refutation methods that can check the robustness of the estimate.</p>
 <section id="DoWhy+EconML-libraries">
 <h3>DoWhy+EconML libraries<a class="headerlink" href="#DoWhy+EconML-libraries" title="Permalink to this heading"></a></h3>
 <p>DoWhy code: <a class="reference external" href="https://github.com/microsoft/dowhy">https://github.com/microsoft/dowhy</a></p>
-<p>DoWhy notebooks: <a class="reference external" href="https://github.com/microsoft/dowhy/tree/master/docs/source/example_notebooks">https://github.com/microsoft/dowhy/tree/master/docs/source/example_notebooks</a></p>
+<p>DoWhy notebooks: <a class="reference external" href="https://github.com/microsoft/dowhy/tree/main/docs/source/example_notebooks">https://github.com/microsoft/dowhy/tree/main/docs/source/example_notebooks</a></p>
 <p>EconML code: <a class="reference external" href="https://github.com/microsoft/econml">https://github.com/microsoft/econml</a></p>
-<p>EconML notebooks: <a class="reference external" href="https://github.com/microsoft/EconML/tree/master/notebooks">https://github.com/microsoft/EconML/tree/master/notebooks</a></p>
+<p>EconML notebooks: <a class="reference external" href="https://github.com/microsoft/EconML/tree/main/notebooks">https://github.com/microsoft/EconML/tree/main/notebooks</a></p>
 </section>
 <section id="Video-Lecture-on-causal-inference-and-its-connections-to-machine-learning">
 <h3>Video Lecture on causal inference and its connections to machine learning<a class="headerlink" href="#Video-Lecture-on-causal-inference-and-its-connections-to-machine-learning" title="Permalink to this heading"></a></h3>
@@ -1306,7 +1309,7 @@ refutation methods that can check the robustness of the estimate.</p>
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

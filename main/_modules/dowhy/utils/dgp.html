@@ -5,13 +5,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-0HH0QE0T1M');
+  gtag('config', 'G-B139P18WHM');
 </script>
     <title>dowhy.utils.dgp &#8212; DoWhy  documentation</title>
 <script>
@@ -32,6 +32,7 @@
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -41,7 +42,10 @@
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -210,33 +214,35 @@
   <h1>Source code for dowhy.utils.dgp</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<div class="viewcode-block" id="DataGeneratingProcess"><a class="viewcode-back" href="../../../dowhy.utils.html#dowhy.utils.dgp.DataGeneratingProcess">[docs]</a><span class="k">class</span> <span class="nc">DataGeneratingProcess</span><span class="p">():</span>
+
+
+<div class="viewcode-block" id="DataGeneratingProcess"><a class="viewcode-back" href="../../../dowhy.utils.html#dowhy.utils.dgp.DataGeneratingProcess">[docs]</a><span class="k">class</span> <span class="nc">DataGeneratingProcess</span><span class="p">:</span>
 
     <span class="n">DEFAULT_PERCENTILE</span> <span class="o">=</span> <span class="mf">0.9</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Base class for implementation of data generating process. </span>
 
-<span class="sd">        Subclasses implement functions that create various data generating processes. All data generating processes are in the package &quot;dowhy.utils.dgps&quot;. </span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">treatment</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;treatment&#39;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">outcome</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;outcome&#39;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">confounder</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;confounder&#39;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">effect_modifier</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;effect_modifier&#39;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;weights&#39;</span><span class="p">,{})</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;bias&#39;</span><span class="p">,{})</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;seed&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">treatment_is_binary</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;treatment_is_binary&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Base class for implementation of data generating process.</span>
+
+<span class="sd">        Subclasses implement functions that create various data generating processes. All data generating processes are in the package &quot;dowhy.utils.dgps&quot;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">treatment</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;treatment&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">outcome</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;outcome&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">confounder</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;confounder&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">effect_modifier</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;effect_modifier&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;weights&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;bias&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;seed&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">treatment_is_binary</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;treatment_is_binary&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">treatment_is_binary</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">percentile</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;percentile&#39;</span><span class="p">,</span> <span class="n">DataGeneratingProcess</span><span class="o">.</span><span class="n">DEFAULT_PERCENTILE</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;percentile&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cannot use percentile, if the input is non-binary&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">percentile</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;percentile&quot;</span><span class="p">,</span> <span class="n">DataGeneratingProcess</span><span class="o">.</span><span class="n">DEFAULT_PERCENTILE</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;percentile&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot use percentile, if the input is non-binary&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">percentile</span> <span class="o">=</span> <span class="s2">&quot;NA&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">true_value</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">seed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>
-
 
 <div class="viewcode-block" id="DataGeneratingProcess.generate_data"><a class="viewcode-back" href="../../../dowhy.utils.html#dowhy.utils.dgp.DataGeneratingProcess.generate_data">[docs]</a>    <span class="k">def</span> <span class="nf">generate_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
@@ -251,20 +257,22 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">temp</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
             <span class="n">ranks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
-            <span class="n">ranks</span><span class="p">[</span><span class="n">temp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-            <span class="n">prob_t</span> <span class="o">=</span> <span class="n">ranks</span><span class="o">/</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">ranks</span><span class="p">[</span><span class="n">temp</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">prob_t</span> <span class="o">=</span> <span class="n">ranks</span> <span class="o">/</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="c1"># Generating data with equal 0 and 1 (since ranks are uniformly distributed)</span>
-            <span class="n">binary_treat_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">prob_t</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">binary_treat_value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">prob_t</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
             <span class="c1"># Flipping some values</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentile</span> <span class="o">&gt;=</span><span class="mf">0.5</span><span class="p">:</span>
-                <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">percentile</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">binary_treat_value</span><span class="p">[</span><span class="n">binary_treat_value</span><span class="o">==</span><span class="mi">1</span><span class="p">]))</span>
-                <span class="n">binary_treat_value</span><span class="p">[</span><span class="n">binary_treat_value</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">*</span> <span class="n">binary_treat_value</span><span class="p">[</span><span class="n">binary_treat_value</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentile</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">:</span>
+                <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span>
+                    <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentile</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">binary_treat_value</span><span class="p">[</span><span class="n">binary_treat_value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="p">)</span>
+                <span class="n">binary_treat_value</span><span class="p">[</span><span class="n">binary_treat_value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">*</span> <span class="n">binary_treat_value</span><span class="p">[</span><span class="n">binary_treat_value</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentile</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">binary_treat_value</span><span class="p">[</span><span class="n">binary_treat_value</span><span class="o">==</span><span class="mi">0</span><span class="p">]))</span>
-                <span class="n">binary_treat_value</span><span class="p">[</span><span class="n">binary_treat_value</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">+</span> <span class="n">binary_treat_value</span><span class="p">[</span><span class="n">binary_treat_value</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">binary_treat_value</span> <span class="o">=</span> <span class="n">binary_treat_value</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
-            
+                <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">binomial</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentile</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">binary_treat_value</span><span class="p">[</span><span class="n">binary_treat_value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]))</span>
+                <span class="n">binary_treat_value</span><span class="p">[</span><span class="n">binary_treat_value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">+</span> <span class="n">binary_treat_value</span><span class="p">[</span><span class="n">binary_treat_value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="n">binary_treat_value</span> <span class="o">=</span> <span class="n">binary_treat_value</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+
         <span class="k">return</span> <span class="n">binary_treat_value</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span></div>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -278,10 +286,19 @@
 <span class="s2">        seed: </span><span class="si">{}</span><span class="s2"></span>
 <span class="s2">        treatment_is_binary: </span><span class="si">{}</span><span class="s2"></span>
 <span class="s2">        percentile: </span><span class="si">{}</span><span class="s2"></span>
-<span class="s2">        &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">treatment</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outcome</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">confounder</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">effect_modifier</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">seed</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">treatment_is_binary</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentile</span><span class="p">)</span>
+<span class="s2">        &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">treatment</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">outcome</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">confounder</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">effect_modifier</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">bias</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">seed</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">treatment_is_binary</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">percentile</span><span class="p">,</span>
+        <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">rep</span></div>
-
 </pre></div>
 
               </article>
@@ -314,7 +331,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

@@ -2,11 +2,20 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-B139P18WHM');
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Demo for the DoWhy causal API &mdash; DoWhy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -16,6 +25,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -401,7 +412,7 @@ div.rendered_html tbody tr:hover {
 <section id="Demo-for-the-DoWhy-causal-API">
 <h1>Demo for the DoWhy causal API<a class="headerlink" href="#Demo-for-the-DoWhy-causal-API" title="Permalink to this heading"></a></h1>
 <p>We show a simple example of adding a causal extension to any dataframe.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -414,14 +425,6 @@ div.rendered_html tbody tr:hover {
 <span class="kn">from</span> <span class="nn">statsmodels.api</span> <span class="kn">import</span> <span class="n">OLS</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -474,33 +477,33 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.762732</td>
-      <td>True</td>
-      <td>6.332410</td>
+      <td>0.250941</td>
+      <td>False</td>
+      <td>-0.656855</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.380254</td>
+      <td>0.011862</td>
       <td>True</td>
-      <td>6.319269</td>
+      <td>5.154573</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.318211</td>
-      <td>True</td>
-      <td>6.973154</td>
+      <td>-1.751551</td>
+      <td>False</td>
+      <td>-3.646515</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.838819</td>
-      <td>True</td>
-      <td>6.618017</td>
+      <td>-2.648773</td>
+      <td>False</td>
+      <td>-2.586609</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2.504549</td>
-      <td>True</td>
-      <td>6.087930</td>
+      <td>-2.100894</td>
+      <td>False</td>
+      <td>-4.132647</td>
     </tr>
     <tr>
       <th>...</th>
@@ -510,33 +513,33 @@ keywords are unexpanded, not using
     </tr>
     <tr>
       <th>995</th>
-      <td>2.482514</td>
-      <td>True</td>
-      <td>9.913304</td>
+      <td>-0.844582</td>
+      <td>False</td>
+      <td>-2.807769</td>
     </tr>
     <tr>
       <th>996</th>
-      <td>-0.462434</td>
+      <td>-2.482145</td>
       <td>False</td>
-      <td>0.299569</td>
+      <td>-5.592985</td>
     </tr>
     <tr>
       <th>997</th>
-      <td>1.352696</td>
-      <td>True</td>
-      <td>7.349307</td>
+      <td>-1.899882</td>
+      <td>False</td>
+      <td>-3.723633</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>1.378896</td>
-      <td>True</td>
-      <td>4.329894</td>
+      <td>-2.036182</td>
+      <td>False</td>
+      <td>-5.959826</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>-2.115622</td>
-      <td>False</td>
-      <td>-2.067488</td>
+      <td>0.272077</td>
+      <td>True</td>
+      <td>5.365552</td>
     </tr>
   </tbody>
 </table>
@@ -660,43 +663,43 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.526686</td>
+      <td>-1.080916</td>
       <td>False</td>
-      <td>1.118611</td>
-      <td>0.272814</td>
-      <td>3.665494</td>
+      <td>-3.749920</td>
+      <td>0.839234</td>
+      <td>1.191563</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2.227615</td>
+      <td>-0.378467</td>
       <td>False</td>
-      <td>1.605954</td>
-      <td>0.013424</td>
-      <td>74.490799</td>
+      <td>0.053210</td>
+      <td>0.626933</td>
+      <td>1.595066</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.096453</td>
+      <td>-2.178057</td>
       <td>False</td>
-      <td>0.502943</td>
-      <td>0.464697</td>
-      <td>2.151939</td>
+      <td>-3.794883</td>
+      <td>0.968411</td>
+      <td>1.032619</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.706678</td>
+      <td>-2.369960</td>
       <td>False</td>
-      <td>-0.394790</td>
-      <td>0.806065</td>
-      <td>1.240595</td>
+      <td>-5.629943</td>
+      <td>0.976627</td>
+      <td>1.023933</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.910844</td>
+      <td>-1.961412</td>
       <td>False</td>
-      <td>0.543750</td>
-      <td>0.150653</td>
-      <td>6.637773</td>
+      <td>-3.984804</td>
+      <td>0.955777</td>
+      <td>1.046269</td>
     </tr>
     <tr>
       <th>...</th>
@@ -708,43 +711,43 @@ keywords are unexpanded, not using
     </tr>
     <tr>
       <th>995</th>
-      <td>1.865322</td>
+      <td>-1.691666</td>
       <td>False</td>
-      <td>2.068691</td>
-      <td>0.026839</td>
-      <td>37.259374</td>
+      <td>-2.406136</td>
+      <td>0.933269</td>
+      <td>1.071502</td>
     </tr>
     <tr>
       <th>996</th>
-      <td>0.155851</td>
+      <td>-1.166320</td>
       <td>False</td>
-      <td>0.275461</td>
-      <td>0.436035</td>
-      <td>2.293395</td>
+      <td>-2.712309</td>
+      <td>0.856969</td>
+      <td>1.166903</td>
     </tr>
     <tr>
       <th>997</th>
-      <td>1.345157</td>
+      <td>-1.201929</td>
       <td>False</td>
-      <td>2.066243</td>
-      <td>0.070674</td>
-      <td>14.149573</td>
+      <td>-3.659684</td>
+      <td>0.863869</td>
+      <td>1.157583</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>0.058660</td>
+      <td>-0.779560</td>
       <td>False</td>
-      <td>0.094515</td>
-      <td>0.483069</td>
-      <td>2.070098</td>
+      <td>-1.063985</td>
+      <td>0.762471</td>
+      <td>1.311525</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>1.184836</td>
+      <td>-1.279953</td>
       <td>False</td>
-      <td>1.889179</td>
-      <td>0.094169</td>
-      <td>10.619261</td>
+      <td>-2.261797</td>
+      <td>0.878008</td>
+      <td>1.138942</td>
     </tr>
   </tbody>
 </table>
@@ -792,43 +795,43 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.471884</td>
+      <td>-0.024390</td>
       <td>True</td>
-      <td>5.729287</td>
-      <td>0.705479</td>
-      <td>1.417476</td>
+      <td>4.091306</td>
+      <td>0.513059</td>
+      <td>1.949094</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.002099</td>
+      <td>0.442290</td>
       <td>True</td>
-      <td>5.833732</td>
-      <td>0.487321</td>
-      <td>2.052036</td>
+      <td>7.042294</td>
+      <td>0.691101</td>
+      <td>1.446967</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.845021</td>
+      <td>0.016557</td>
       <td>True</td>
-      <td>5.692377</td>
-      <td>0.832177</td>
-      <td>1.201667</td>
+      <td>4.243944</td>
+      <td>0.529545</td>
+      <td>1.888413</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.101626</td>
+      <td>-0.856835</td>
       <td>True</td>
-      <td>5.014653</td>
-      <td>0.537811</td>
-      <td>1.859390</td>
+      <td>4.039040</td>
+      <td>0.215689</td>
+      <td>4.636297</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.535407</td>
+      <td>-0.488011</td>
       <td>True</td>
-      <td>6.296723</td>
-      <td>0.950139</td>
-      <td>1.052477</td>
+      <td>4.203498</td>
+      <td>0.332735</td>
+      <td>3.005394</td>
     </tr>
     <tr>
       <th>...</th>
@@ -840,43 +843,43 @@ keywords are unexpanded, not using
     </tr>
     <tr>
       <th>995</th>
-      <td>2.822485</td>
+      <td>-1.565416</td>
       <td>True</td>
-      <td>9.296195</td>
-      <td>0.995752</td>
-      <td>1.004266</td>
+      <td>0.813885</td>
+      <td>0.080593</td>
+      <td>12.408014</td>
     </tr>
     <tr>
       <th>996</th>
-      <td>0.223079</td>
+      <td>-1.080100</td>
       <td>True</td>
-      <td>5.656650</td>
-      <td>0.595889</td>
-      <td>1.678166</td>
+      <td>3.805645</td>
+      <td>0.160944</td>
+      <td>6.213342</td>
     </tr>
     <tr>
       <th>997</th>
-      <td>-0.245362</td>
+      <td>-0.234925</td>
       <td>True</td>
-      <td>4.769206</td>
-      <td>0.371664</td>
-      <td>2.690601</td>
+      <td>2.954979</td>
+      <td>0.428624</td>
+      <td>2.333045</td>
     </tr>
     <tr>
       <th>998</th>
-      <td>0.381093</td>
+      <td>0.526734</td>
       <td>True</td>
-      <td>3.849307</td>
-      <td>0.667408</td>
-      <td>1.498333</td>
+      <td>7.236482</td>
+      <td>0.719408</td>
+      <td>1.390031</td>
     </tr>
     <tr>
       <th>999</th>
-      <td>0.096397</td>
+      <td>-0.420066</td>
       <td>True</td>
-      <td>4.334652</td>
-      <td>0.535275</td>
-      <td>1.868197</td>
+      <td>3.986335</td>
+      <td>0.357506</td>
+      <td>2.797156</td>
     </tr>
   </tbody>
 </table>
@@ -900,7 +903,7 @@ keywords are unexpanded, not using
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 5.04773302832102$</div></div>
+$\displaystyle 5.47059167957261$</div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -916,7 +919,7 @@ $\displaystyle 5.04773302832102$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 0.116608033446897$</div></div>
+$\displaystyle 0.206195853990042$</div></div>
 </div>
 <p>Comparing to the estimate from OLS.</p>
 <div class="nbinput docutils container">
@@ -937,25 +940,25 @@ $\displaystyle 0.116608033446897$</div></div>
 <table class="simpletable">
 <caption>OLS Regression Results</caption>
 <tr>
-  <th>Dep. Variable:</th>            <td>y</td>        <th>  R-squared (uncentered):</th>      <td>   0.963</td>
+  <th>Dep. Variable:</th>            <td>y</td>        <th>  R-squared (uncentered):</th>      <td>   0.942</td>
 </tr>
 <tr>
-  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared (uncentered):</th> <td>   0.963</td>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared (uncentered):</th> <td>   0.942</td>
 </tr>
 <tr>
-  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th>          <td>1.298e+04</td>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th>          <td>   8070.</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Tue, 02 Aug 2022</td> <th>  Prob (F-statistic):</th>           <td>  0.00</td>
+  <th>Date:</th>             <td>Mon, 05 Sep 2022</td> <th>  Prob (F-statistic):</th>           <td>  0.00</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>14:09:06</td>     <th>  Log-Likelihood:    </th>          <td> -1405.8</td>
+  <th>Time:</th>                 <td>18:24:24</td>     <th>  Log-Likelihood:    </th>          <td> -1403.6</td>
 </tr>
 <tr>
-  <th>No. Observations:</th>      <td>  1000</td>      <th>  AIC:               </th>          <td>   2816.</td>
+  <th>No. Observations:</th>      <td>  1000</td>      <th>  AIC:               </th>          <td>   2811.</td>
 </tr>
 <tr>
-  <th>Df Residuals:</th>          <td>   998</td>      <th>  BIC:               </th>          <td>   2825.</td>
+  <th>Df Residuals:</th>          <td>   998</td>      <th>  BIC:               </th>          <td>   2821.</td>
 </tr>
 <tr>
   <th>Df Model:</th>              <td>     2</td>      <th>                     </th>              <td> </td>
@@ -969,24 +972,24 @@ $\displaystyle 0.116608033446897$</div></div>
    <td></td>     <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
 </tr>
 <tr>
-  <th>x1</th> <td>    0.9264</td> <td>    0.037</td> <td>   24.916</td> <td> 0.000</td> <td>    0.853</td> <td>    0.999</td>
+  <th>x1</th> <td>    2.1889</td> <td>    0.025</td> <td>   87.193</td> <td> 0.000</td> <td>    2.140</td> <td>    2.238</td>
 </tr>
 <tr>
-  <th>x2</th> <td>    4.9949</td> <td>    0.055</td> <td>   90.205</td> <td> 0.000</td> <td>    4.886</td> <td>    5.104</td>
+  <th>x2</th> <td>    4.9304</td> <td>    0.055</td> <td>   89.857</td> <td> 0.000</td> <td>    4.823</td> <td>    5.038</td>
 </tr>
 </table>
 <table class="simpletable">
 <tr>
-  <th>Omnibus:</th>       <td> 4.265</td> <th>  Durbin-Watson:     </th> <td>   2.056</td>
+  <th>Omnibus:</th>       <td> 0.133</td> <th>  Durbin-Watson:     </th> <td>   2.133</td>
 </tr>
 <tr>
-  <th>Prob(Omnibus):</th> <td> 0.119</td> <th>  Jarque-Bera (JB):  </th> <td>   3.963</td>
+  <th>Prob(Omnibus):</th> <td> 0.935</td> <th>  Jarque-Bera (JB):  </th> <td>   0.085</td>
 </tr>
 <tr>
-  <th>Skew:</th>          <td>-0.103</td> <th>  Prob(JB):          </th> <td>   0.138</td>
+  <th>Skew:</th>          <td> 0.019</td> <th>  Prob(JB):          </th> <td>   0.958</td>
 </tr>
 <tr>
-  <th>Kurtosis:</th>      <td> 2.771</td> <th>  Cond. No.          </th> <td>    2.82</td>
+  <th>Kurtosis:</th>      <td> 3.023</td> <th>  Cond. No.          </th> <td>    2.19</td>
 </tr>
 </table><br/><br/>Notes:<br/>[1] R² is computed without centering (uncentered) since the model does not contain a constant.<br/>[2] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div>
 </div>

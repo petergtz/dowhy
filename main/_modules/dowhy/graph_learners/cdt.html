@@ -5,13 +5,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-0HH0QE0T1M');
+  gtag('config', 'G-B139P18WHM');
 </script>
     <title>dowhy.graph_learners.cdt &#8212; DoWhy  documentation</title>
 <script>
@@ -32,6 +32,7 @@
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -41,7 +42,10 @@
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -208,44 +212,47 @@
               <article class="bd-article" role="main">
                 
   <h1>Source code for dowhy.graph_learners.cdt</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">get_library_class_object</span>
 <span class="kn">from</span> <span class="nn">dowhy.graph_learners</span> <span class="kn">import</span> <span class="n">GraphLearner</span>
 <span class="kn">from</span> <span class="nn">dowhy.utils.graph_operations</span> <span class="kn">import</span> <span class="o">*</span>
 
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">get_library_class_object</span>
+
+
 <div class="viewcode-block" id="CDT"><a class="viewcode-back" href="../../../dowhy.graph_learners.html#dowhy.graph_learners.cdt.CDT">[docs]</a><span class="k">class</span> <span class="nc">CDT</span><span class="p">(</span><span class="n">GraphLearner</span><span class="p">):</span>
-	<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">	Causal discivery using the Causal Discovery Toolbox.</span>
-<span class="sd">	Link: https://github.com/FenTechSolutions/CausalDiscoveryToolbox</span>
-<span class="sd">	&#39;&#39;&#39;</span>
-	<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">full_method_name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-		<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">full_method_name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-		
-		<span class="n">library_class</span> <span class="o">=</span> <span class="n">get_library_class_object</span><span class="p">(</span><span class="n">full_method_name</span><span class="p">)</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">_method</span> <span class="o">=</span> <span class="n">library_class</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-	
-<div class="viewcode-block" id="CDT.learn_graph"><a class="viewcode-back" href="../../../dowhy.graph_learners.html#dowhy.graph_learners.cdt.CDT.learn_graph">[docs]</a>	<span class="k">def</span> <span class="nf">learn_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-		<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">		Discover causal graph and return the graph in DOT format.</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Causal discivery using the Causal Discovery Toolbox.</span>
+<span class="sd">    Link: https://github.com/FenTechSolutions/CausalDiscoveryToolbox</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-<span class="sd">		&#39;&#39;&#39;</span>
-		<span class="n">graph</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_method</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
-		
-		<span class="c1"># Get adjacency matrix</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">_adjacency_matrix</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">to_numpy_matrix</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">_adjacency_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_adjacency_matrix</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">full_method_name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">full_method_name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-		<span class="c1"># If labels not provided</span>
-		<span class="k">if</span> <span class="n">labels</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-			<span class="bp">self</span><span class="o">.</span><span class="n">_labels</span> <span class="o">=</span> <span class="n">labels</span>
+        <span class="n">library_class</span> <span class="o">=</span> <span class="n">get_library_class_object</span><span class="p">(</span><span class="n">full_method_name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_method</span> <span class="o">=</span> <span class="n">library_class</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-		<span class="bp">self</span><span class="o">.</span><span class="n">_graph_dot</span> <span class="o">=</span> <span class="n">adjacency_matrix_to_graph</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_adjacency_matrix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_labels</span><span class="p">)</span>
-		
-		<span class="c1"># Obtain valid DOT format</span>
-		<span class="bp">self</span><span class="o">.</span><span class="n">_graph_dot</span> <span class="o">=</span> <span class="n">str_to_dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_graph_dot</span><span class="o">.</span><span class="n">source</span><span class="p">)</span>
-		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph_dot</span></div></div>
+<div class="viewcode-block" id="CDT.learn_graph"><a class="viewcode-back" href="../../../dowhy.graph_learners.html#dowhy.graph_learners.cdt.CDT.learn_graph">[docs]</a>    <span class="k">def</span> <span class="nf">learn_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Discover causal graph and return the graph in DOT format.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">graph</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_method</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+
+        <span class="c1"># Get adjacency matrix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_adjacency_matrix</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">to_numpy_matrix</span><span class="p">(</span><span class="n">graph</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_adjacency_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_adjacency_matrix</span><span class="p">)</span>
+
+        <span class="c1"># If labels not provided</span>
+        <span class="k">if</span> <span class="n">labels</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_labels</span> <span class="o">=</span> <span class="n">labels</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_dot</span> <span class="o">=</span> <span class="n">adjacency_matrix_to_graph</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_adjacency_matrix</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_labels</span><span class="p">)</span>
+
+        <span class="c1"># Obtain valid DOT format</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph_dot</span> <span class="o">=</span> <span class="n">str_to_dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_graph_dot</span><span class="o">.</span><span class="n">source</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph_dot</span></div></div>
 </pre></div>
 
               </article>
@@ -278,7 +285,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

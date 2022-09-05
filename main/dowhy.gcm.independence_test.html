@@ -6,13 +6,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-0HH0QE0T1M');
+  gtag('config', 'G-B139P18WHM');
 </script>
     <title>dowhy.gcm.independence_test package &#8212; DoWhy  documentation</title>
 <script>
@@ -33,6 +33,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -42,7 +43,10 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="dowhy.gcm.ml package" href="dowhy.gcm.ml.html" />
@@ -368,7 +372,7 @@ Journal of Causal Inference 7.1 (2019).</p>
 <li><p><strong>num_random_features_Y</strong> – Number of features sampled from the approximated kernel map for Y.</p></li>
 <li><p><strong>num_random_features_Z</strong> – Number of features sampled from the approximated kernel map for Z.</p></li>
 <li><p><strong>num_permutations</strong> – Number of permutations for estimating the test test statistic.</p></li>
-<li><p><strong>approx_kernel</strong> – The approximated kernel map. The expected input is a n x d numpy array and the output is 
+<li><p><strong>approx_kernel</strong> – The approximated kernel map. The expected input is a n x d numpy array and the output is
 expected to be a n x k numpy array with k &lt;&lt; d. By default, the Nystroem method with a RBF
 kernel is used.</p></li>
 <li><p><strong>scale_data</strong> – If set to True, the data will be standardized. If set to False, the data is taken as it is.
@@ -684,7 +688,7 @@ For more information about these methods, see above.</p></li>
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

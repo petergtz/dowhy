@@ -2,11 +2,20 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-B139P18WHM');
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tutorial on Causal Inference and its Connections to Machine Learning (Using DoWhy+EconML) &mdash; DoWhy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -16,6 +25,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -503,7 +514,7 @@ been more likely to receive the new drug, and so on. The goal of causal inferenc
 <h2>The four steps of causal inference<a class="headerlink" href="#The-four-steps-of-causal-inference" title="Permalink to this heading"></a></h2>
 <p>Since there is no ground-truth test dataset available that an estimate can be compared to, causal inference requires a series of principled steps to achieve a good estimator.</p>
 <p>Let us illustrate the four steps through a sample dataset. This tutorial requires you to download two libraries: DoWhy and EconML. Both can be installed by the following command: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">dowhy</span> <span class="pre">econml</span></code>.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -529,14 +540,6 @@ been more likely to receive the new drug, and so on. The goal of causal inferenc
     <span class="n">stddev_treatment_noise</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
 </div>
 <p><strong>I. Modeling</strong></p>
 <p>The first step is to encode our domain knowledge into a causal model, often represented as a graph. The final outcome of a causal inference analysis depends largely on the input assumptions, so this step is quite important. To estimate the causal effect, most common problems involve specifying two types of variables:</p>
@@ -628,9 +631,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W2,W4,W1,W3])
+─────(E[y|W2,W3,W4,W0,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W4,W1,W3,U) = P(y|v0,W0,W2,W4,W1,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W3,W4,W0,W1,U) = P(y|v0,W2,W3,W4,W0,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -638,9 +641,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+ ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 
 ### Estimand : 3
 Estimand name: frontdoor
@@ -677,16 +680,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W2,W4,W1,W3])
+─────(E[y|W2,W3,W4,W0,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W4,W1,W3,U) = P(y|v0,W0,W2,W4,W1,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W3,W4,W0,W1,U) = P(y|v0,W2,W3,W4,W0,W1)
 
 ## Realized estimand
-b: y~v0+W0+W2+W4+W1+W3
+b: y~v0+W2+W3+W4+W0+W1
 Target units: ate
 
 ## Estimate
-Mean value: 10.010268313822088
+Mean value: 10.061179769818596
 
 </pre></div></div>
 </div>
@@ -710,6 +713,15 @@ Mean value: 10.010268313822088
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+2022-09-05 18:31:54.723600: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-09-05 18:31:54.723644: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
@@ -724,17 +736,17 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W2,W4,W1,W3])
+─────(E[y|W2,W3,W4,W0,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W4,W1,W3,U) = P(y|v0,W0,W2,W4,W1,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W3,W4,W0,W1,U) = P(y|v0,W2,W3,W4,W0,W1)
 
 ## Realized estimand
-b: y~v0+W0+W2+W4+W1+W3 |
+b: y~v0+W2+W3+W4+W0+W1 |
 Target units: ate
 
 ## Estimate
-Mean value: 9.955985134029046
-Effect estimates: [9.95598513 9.95598513 9.95598513 ... 9.95598513 9.95598513 9.95598513]
+Mean value: 9.924492771775622
+Effect estimates: [9.92449277 9.92449277 9.92449277 ... 9.92449277 9.92449277 9.92449277]
 
 </pre></div></div>
 </div>
@@ -758,9 +770,9 @@ estimate value of 0 when the action variable is replaced by a random variable, i
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:10.010268313822088
-New effect:0.016192674853476
-p value:0.7
+Estimated effect:10.061179769818596
+New effect:0.005428575071975029
+p value:0.96
 
 </pre></div></div>
 </div>
@@ -812,11 +824,11 @@ than learning a new toolkit. The power of EconML is that you can now implement t
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0         s        w1
-0  14.019386  28.972181 -2.752407  0.401461  1.832217
-1   6.228230  11.707483  0.702885  9.168614 -1.293263
-2  17.654526  33.942414  3.552770  3.668752 -2.225510
-3  13.116286  25.521836  2.778380  9.603532 -1.378751
-4  15.259460  30.065501  3.163270  9.676429 -1.467540
+0  15.824942  31.749796 -3.074655  0.340178  0.798516
+1  12.669184  25.304908 -2.548329  8.204853  0.611497
+2  20.552985  41.339256  3.835208  3.405946 -0.044483
+3   5.806854  11.281297 -0.838560  8.778044 -1.890610
+4  14.153856  27.617697 -2.894970  5.948796 -1.447891
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -865,9 +877,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[Outcome|w0,w1])
+────────────(E[Outcome|w1,w0])
 d[Treatment]
-Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w0,w1,U) = P(Outcome|Treatment,w0,w1)
+Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w1,w0,U) = P(Outcome|Treatment,w1,w0)
 
 ### Estimand : 2
 Estimand name: iv
@@ -902,8 +914,6 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-linear_regression
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -913,18 +923,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[Outcome|w0,w1])
+────────────(E[Outcome|w1,w0])
 d[Treatment]
-Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w0,w1,U) = P(Outcome|Treatment,w0,w1)
+Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w1,w0,U) = P(Outcome|Treatment,w1,w0)
 
 ## Realized estimand
-b: Outcome~Treatment+w0+w1
+b: Outcome~Treatment+w1+w0
 Target units: ate
 
 ## Estimate
-Mean value: 1.9990470372683982
+Mean value: 1.9992433594584014
 
-Causal Estimate is 1.9990470372683982
+Causal Estimate is 1.9992433594584014
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -971,17 +981,17 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[Outcome|w0,w1])
+────────────(E[Outcome|w1,w0])
 d[Treatment]
-Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w0,w1,U) = P(Outcome|Treatment,w0,w1)
+Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w1,w0,U) = P(Outcome|Treatment,w1,w0)
 
 ## Realized estimand
-b: Outcome~Treatment+w0+w1 |
+b: Outcome~Treatment+w1+w0 |
 Target units: ate
 
 ## Estimate
-Mean value: 1.1233710600411635
-Effect estimates: [1.12337106 1.12337106 1.12337106 ... 1.12337106 1.12337106 1.12337106]
+Mean value: 1.1132535838024573
+Effect estimates: [1.11325358 1.11325358 1.11325358 ... 1.11325358 1.11325358 1.11325358]
 
 </pre></div></div>
 </div>
@@ -1004,9 +1014,9 @@ Effect estimates: [1.12337106 1.12337106 1.12337106 ... 1.12337106 1.12337106 1.
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:1.1233710600411635
-New effect:1.1581332663056962
-p value:0.24
+Estimated effect:1.1132535838024573
+New effect:1.1339049766398077
+p value:0.54
 
 </pre></div></div>
 </div>
@@ -1027,9 +1037,9 @@ p value:0.24
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1.1233710600411635
-New effect:1.1174874292501225e-05
-p value:0.49026049960055695
+Estimated effect:1.1132535838024573
+New effect:-0.0002525630466450821
+p value:0.3391623073311124
 
 </pre></div></div>
 </div>

@@ -5,13 +5,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-0HH0QE0T1M');
+  gtag('config', 'G-B139P18WHM');
 </script>
     <title>dowhy.gcm.independence_test.regression &#8212; DoWhy  documentation</title>
 <script>
@@ -32,6 +32,7 @@
     href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -41,7 +42,10 @@
     <script src="../../../../_static/underscore.js"></script>
     <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -211,25 +215,27 @@
 <span></span><span class="sd">&quot;&quot;&quot; Regression based (conditional) independence test. Testing independence via regression, i.e. if a variable has</span>
 <span class="sd">information about another variable, then they are dependent.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn.kernel_approximation</span> <span class="kn">import</span> <span class="n">Nystroem</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">scale</span>
 
-<span class="kn">from</span> <span class="nn">dowhy.gcm.stats</span> <span class="kn">import</span> <span class="n">quantile_based_fwer</span><span class="p">,</span> <span class="n">estimate_ftest_pvalue</span>
-<span class="kn">from</span> <span class="nn">dowhy.gcm.util.general</span> <span class="kn">import</span> <span class="n">shape_into_2d</span><span class="p">,</span> <span class="n">apply_one_hot_encoding</span><span class="p">,</span> <span class="n">fit_one_hot_encoders</span>
+<span class="kn">from</span> <span class="nn">dowhy.gcm.stats</span> <span class="kn">import</span> <span class="n">estimate_ftest_pvalue</span><span class="p">,</span> <span class="n">quantile_based_fwer</span>
+<span class="kn">from</span> <span class="nn">dowhy.gcm.util.general</span> <span class="kn">import</span> <span class="n">apply_one_hot_encoding</span><span class="p">,</span> <span class="n">fit_one_hot_encoders</span><span class="p">,</span> <span class="n">shape_into_2d</span>
 
 
-<div class="viewcode-block" id="regression_based"><a class="viewcode-back" href="../../../../dowhy.gcm.independence_test.html#dowhy.gcm.independence_test.regression.regression_based">[docs]</a><span class="k">def</span> <span class="nf">regression_based</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
-                     <span class="n">Y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
-                     <span class="n">Z</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                     <span class="n">num_components_all_inputs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span>
-                     <span class="n">num_runs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
-                     <span class="n">p_value_adjust_func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">quantile_based_fwer</span><span class="p">,</span>
-                     <span class="n">f_test_samples_ratio</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
-                     <span class="n">max_samples_per_run</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot; The main idea is that if X and Y are dependent, then X should help in predicting Y. If there is no dependency,</span>
+<div class="viewcode-block" id="regression_based"><a class="viewcode-back" href="../../../../dowhy.gcm.independence_test.html#dowhy.gcm.independence_test.regression.regression_based">[docs]</a><span class="k">def</span> <span class="nf">regression_based</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">Y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">Z</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">num_components_all_inputs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span><span class="p">,</span>
+    <span class="n">num_runs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="n">p_value_adjust_func</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">quantile_based_fwer</span><span class="p">,</span>
+    <span class="n">f_test_samples_ratio</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
+    <span class="n">max_samples_per_run</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;The main idea is that if X and Y are dependent, then X should help in predicting Y. If there is no dependency,</span>
 <span class="sd">    then X should not help. When Z is given, the idea remains the same, but here X and Y are conditionally independent</span>
 <span class="sd">    given Z if X does not help in predicting Y when knowing Z. This is, X has not additional information about Y given</span>
 <span class="sd">    Z. In the pairwise case (Z is not given), the performances (in terms of squared error) between predicting Y based</span>
@@ -268,8 +274,9 @@
 <span class="sd">             then for the hypothesis that X and Y are independent.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">num_components_all_inputs</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Need at least two components for all inputs, but only </span><span class="si">%d</span><span class="s2"> were given!&quot;</span>
-                         <span class="o">%</span> <span class="n">num_components_all_inputs</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;Need at least two components for all inputs, but only </span><span class="si">%d</span><span class="s2"> were given!&quot;</span> <span class="o">%</span> <span class="n">num_components_all_inputs</span>
+        <span class="p">)</span>
 
     <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">shape_into_2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
 
@@ -309,12 +316,16 @@
             <span class="n">training_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">all_inputs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="n">test_indices</span> <span class="o">=</span> <span class="n">training_indices</span>
 
-        <span class="n">all_p_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">estimate_ftest_pvalue</span><span class="p">(</span><span class="n">all_inputs</span><span class="p">[</span><span class="n">training_indices</span><span class="p">],</span>
-                                                  <span class="n">input_Z</span><span class="p">[</span><span class="n">training_indices</span><span class="p">],</span>
-                                                  <span class="n">Y</span><span class="p">[</span><span class="n">training_indices</span><span class="p">],</span>
-                                                  <span class="n">all_inputs</span><span class="p">[</span><span class="n">test_indices</span><span class="p">],</span>
-                                                  <span class="n">input_Z</span><span class="p">[</span><span class="n">test_indices</span><span class="p">],</span>
-                                                  <span class="n">Y</span><span class="p">[</span><span class="n">test_indices</span><span class="p">]))</span>
+        <span class="n">all_p_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">estimate_ftest_pvalue</span><span class="p">(</span>
+                <span class="n">all_inputs</span><span class="p">[</span><span class="n">training_indices</span><span class="p">],</span>
+                <span class="n">input_Z</span><span class="p">[</span><span class="n">training_indices</span><span class="p">],</span>
+                <span class="n">Y</span><span class="p">[</span><span class="n">training_indices</span><span class="p">],</span>
+                <span class="n">all_inputs</span><span class="p">[</span><span class="n">test_indices</span><span class="p">],</span>
+                <span class="n">input_Z</span><span class="p">[</span><span class="n">test_indices</span><span class="p">],</span>
+                <span class="n">Y</span><span class="p">[</span><span class="n">test_indices</span><span class="p">],</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">p_value_adjust_func</span><span class="p">(</span><span class="n">all_p_values</span><span class="p">)</span></div>
 </pre></div>
@@ -349,7 +360,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

@@ -2,11 +2,20 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-B139P18WHM');
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DoWhy example on the Lalonde dataset &mdash; DoWhy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -16,6 +25,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -424,14 +435,6 @@ div.rendered_html tbody tr:hover {
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
 R[write to console]: Loading required package: MASS
@@ -532,19 +535,9 @@ R[write to console]: ##
 <div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-propensity_score_weighting
-Causal Estimate is 1639.8264936029818
+Causal Estimate is 1639.8499897094216
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -564,10 +557,10 @@ Causal Estimate is 1639.8264936029818
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   6.743</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Tue, 02 Aug 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00972</td>
+  <th>Date:</th>             <td>Mon, 05 Sep 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00972</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>14:10:04</td>     <th>  Log-Likelihood:    </th> <td> -4544.7</td>
+  <th>Time:</th>                 <td>18:25:34</td>     <th>  Log-Likelihood:    </th> <td> -4544.7</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   445</td>      <th>  AIC:               </th> <td>   9093.</td>
@@ -587,24 +580,24 @@ Causal Estimate is 1639.8264936029818
         <td></td>           <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
 </tr>
 <tr>
-  <th>Intercept</th>     <td> 4555.0729</td> <td>  406.705</td> <td>   11.200</td> <td> 0.000</td> <td> 3755.761</td> <td> 5354.384</td>
+  <th>Intercept</th>     <td> 4555.0748</td> <td>  406.707</td> <td>   11.200</td> <td> 0.000</td> <td> 3755.761</td> <td> 5354.389</td>
 </tr>
 <tr>
-  <th>treat[T.True]</th> <td> 1639.8265</td> <td>  631.496</td> <td>    2.597</td> <td> 0.010</td> <td>  398.725</td> <td> 2880.928</td>
+  <th>treat[T.True]</th> <td> 1639.8500</td> <td>  631.498</td> <td>    2.597</td> <td> 0.010</td> <td>  398.745</td> <td> 2880.955</td>
 </tr>
 </table>
 <table class="simpletable">
 <tr>
-  <th>Omnibus:</th>       <td>303.264</td> <th>  Durbin-Watson:     </th> <td>   2.085</td>
+  <th>Omnibus:</th>       <td>303.267</td> <th>  Durbin-Watson:     </th> <td>   2.085</td>
 </tr>
 <tr>
-  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>4770.700</td>
+  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>4770.851</td>
 </tr>
 <tr>
   <th>Skew:</th>          <td> 2.709</td>  <th>  Prob(JB):          </th> <td>    0.00</td>
 </tr>
 <tr>
-  <th>Kurtosis:</th>      <td>18.097</td>  <th>  Cond. No.          </th> <td>    2.47</td>
+  <th>Kurtosis:</th>      <td>18.098</td>  <th>  Cond. No.          </th> <td>    2.47</td>
 </tr>
 </table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div>
 </div>
@@ -654,7 +647,7 @@ Causal Estimate is 1639.8264936029818
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Causal Estimate is 1639.8264936029782
+Causal Estimate is 1639.8499897094243
 </pre></div></div>
 </div>
 </section>

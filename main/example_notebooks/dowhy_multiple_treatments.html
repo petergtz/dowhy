@@ -6,13 +6,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-0HH0QE0T1M');
+  gtag('config', 'G-B139P18WHM');
 </script>
     <title>Estimating effect of multiple treatments &#8212; DoWhy  documentation</title>
 <script>
@@ -33,6 +33,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -42,7 +43,10 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -645,7 +649,7 @@ div.rendered_html tbody tr:hover {
 </style>
 <section id="Estimating-effect-of-multiple-treatments">
 <h1>Estimating effect of multiple treatments<a class="headerlink" href="#Estimating-effect-of-multiple-treatments" title="Permalink to this heading"></a></h1>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -662,14 +666,6 @@ div.rendered_html tbody tr:hover {
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -724,63 +720,63 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.125915</td>
-      <td>-0.512321</td>
-      <td>0.156532</td>
-      <td>-1.030966</td>
-      <td>3</td>
+      <td>-2.519579</td>
+      <td>0.279565</td>
+      <td>0.287450</td>
+      <td>1.540025</td>
+      <td>1</td>
       <td>0</td>
-      <td>8.052122</td>
-      <td>8.895054</td>
-      <td>65.847033</td>
+      <td>13.419354</td>
+      <td>10.070321</td>
+      <td>-734.650521</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.235928</td>
-      <td>-0.852162</td>
-      <td>1.789833</td>
-      <td>-0.218397</td>
-      <td>1</td>
-      <td>1</td>
-      <td>4.819306</td>
-      <td>9.106409</td>
-      <td>76.866835</td>
+      <td>-0.343226</td>
+      <td>-0.917620</td>
+      <td>-1.617226</td>
+      <td>0.613934</td>
+      <td>0</td>
+      <td>2</td>
+      <td>3.614260</td>
+      <td>6.190660</td>
+      <td>38.715254</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.981051</td>
-      <td>-0.324465</td>
-      <td>0.432004</td>
-      <td>0.793962</td>
-      <td>0</td>
-      <td>3</td>
-      <td>1.898712</td>
-      <td>13.954284</td>
-      <td>169.884969</td>
+      <td>-0.266845</td>
+      <td>1.001670</td>
+      <td>-1.099307</td>
+      <td>0.839970</td>
+      <td>1</td>
+      <td>1</td>
+      <td>7.881291</td>
+      <td>11.426683</td>
+      <td>279.028247</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>3.384049</td>
-      <td>0.027975</td>
-      <td>1.372917</td>
-      <td>0.331468</td>
-      <td>2</td>
-      <td>1</td>
-      <td>10.242032</td>
-      <td>13.887533</td>
-      <td>689.054624</td>
+      <td>-0.688456</td>
+      <td>0.503409</td>
+      <td>1.069674</td>
+      <td>1.216285</td>
+      <td>3</td>
+      <td>0</td>
+      <td>23.795714</td>
+      <td>19.338069</td>
+      <td>-121.704341</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.121513</td>
-      <td>1.521030</td>
-      <td>-0.221322</td>
-      <td>0.172291</td>
+      <td>-0.111891</td>
+      <td>0.940290</td>
+      <td>-0.717060</td>
+      <td>-0.404019</td>
+      <td>0</td>
       <td>3</td>
-      <td>3</td>
-      <td>10.229694</td>
-      <td>21.810635</td>
-      <td>1470.621002</td>
+      <td>4.075266</td>
+      <td>4.209790</td>
+      <td>107.774724</td>
     </tr>
   </tbody>
 </table>
@@ -869,8 +865,6 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-linear_regression
-{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X0&#39;, &#39;X1&#39;], &#39;need_conditional_estimates&#39;: False}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -885,11 +879,11 @@ d[v₀  v₁]
 Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W1,W3,W0,W2,U) = P(y|v0,v1,W1,W3,W0,W2)
 
 ## Realized estimand
-b: y~v0+v1+W1+W3+W0+W2+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W1+W3+W0+W2+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: 50.76259888454593
+Mean value: -19.875790677951755
 
 </pre></div></div>
 </div>
@@ -911,8 +905,6 @@ Mean value: 50.76259888454593
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-linear_regression
-{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X0&#39;, &#39;X1&#39;]}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -927,38 +919,38 @@ d[v₀  v₁]
 Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W1,W3,W0,W2,U) = P(y|v0,v1,W1,W3,W0,W2)
 
 ## Realized estimand
-b: y~v0+v1+W1+W3+W0+W2+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W1+W3+W0+W2+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: 50.76259888454593
+Mean value: -19.875790677951755
 ### Conditional Estimates
-__categorical__X0  __categorical__X1
-(-2.751, -0.193]   (-3.282, -0.414]     -27.145103
-                   (-0.414, 0.174]       10.817082
-                   (0.174, 0.681]        34.572233
-                   (0.681, 1.285]        59.321495
-                   (1.285, 4.172]        97.782486
-(-0.193, 0.404]    (-3.282, -0.414]     -18.652676
-                   (-0.414, 0.174]       21.404637
-                   (0.174, 0.681]        44.470258
-                   (0.681, 1.285]        69.151102
-                   (1.285, 4.172]       106.743429
-(0.404, 0.906]     (-3.282, -0.414]     -12.055701
-                   (-0.414, 0.174]       27.187990
-                   (0.174, 0.681]        50.677014
-                   (0.681, 1.285]        75.518292
-                   (1.285, 4.172]       112.028469
-(0.906, 1.51]      (-3.282, -0.414]      -6.323716
-                   (-0.414, 0.174]       32.507915
-                   (0.174, 0.681]        57.107089
-                   (0.681, 1.285]        80.949801
-                   (1.285, 4.172]       119.799537
-(1.51, 4.935]      (-3.282, -0.414]       4.879703
-                   (-0.414, 0.174]       42.000870
-                   (0.174, 0.681]        66.383769
-                   (0.681, 1.285]        90.650210
-                   (1.285, 4.172]       129.559775
+__categorical__X1  __categorical__X0
+(-3.65, -0.336]    (-5.231000000000001, -1.572]   -159.452441
+                   (-1.572, -0.989]               -104.346143
+                   (-0.989, -0.468]                -71.970023
+                   (-0.468, 0.11]                  -37.494049
+                   (0.11, 3.169]                    16.221434
+(-0.336, 0.278]    (-5.231000000000001, -1.572]   -127.620246
+                   (-1.572, -0.989]                -73.529159
+                   (-0.989, -0.468]                -38.845581
+                   (-0.468, 0.11]                   -6.173161
+                   (0.11, 3.169]                    51.910776
+(0.278, 0.785]     (-5.231000000000001, -1.572]   -106.817912
+                   (-1.572, -0.989]                -54.273730
+                   (-0.989, -0.468]                -20.203064
+                   (-0.468, 0.11]                   14.167479
+                   (0.11, 3.169]                    68.482388
+(0.785, 1.371]     (-5.231000000000001, -1.572]    -87.371266
+                   (-1.572, -0.989]                -33.068849
+                   (-0.989, -0.468]                  0.198730
+                   (-0.468, 0.11]                   33.361210
+                   (0.11, 3.169]                    87.424238
+(1.371, 3.976]     (-5.231000000000001, -1.572]    -58.780288
+                   (-1.572, -0.989]                 -3.013304
+                   (-0.989, -0.468]                 29.582830
+                   (-0.468, 0.11]                   65.750113
+                   (0.11, 3.169]                   118.654399
 dtype: float64
 </pre></div></div>
 </div>
@@ -1015,7 +1007,7 @@ dtype: float64
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

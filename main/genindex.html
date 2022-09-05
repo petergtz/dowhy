@@ -5,13 +5,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-0HH0QE0T1M');
+  gtag('config', 'G-B139P18WHM');
 </script>
     <title>Index &#8212; DoWhy  documentation</title>
 <script>
@@ -32,6 +32,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -41,7 +42,10 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -333,20 +337,26 @@
 </li>
       <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.BACKDOOR_DEFAULT">BACKDOOR_DEFAULT (dowhy.causal_identifier.CausalIdentifier attribute)</a>
 </li>
+      <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.BACKDOOR_EFFICIENT">BACKDOOR_EFFICIENT (dowhy.causal_identifier.CausalIdentifier attribute)</a>
+</li>
       <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.BACKDOOR_EXHAUSTIVE">BACKDOOR_EXHAUSTIVE (dowhy.causal_identifier.CausalIdentifier attribute)</a>
 </li>
       <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.BACKDOOR_MAX">BACKDOOR_MAX (dowhy.causal_identifier.CausalIdentifier attribute)</a>
 </li>
       <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.BACKDOOR_MIN">BACKDOOR_MIN (dowhy.causal_identifier.CausalIdentifier attribute)</a>
 </li>
+      <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.BACKDOOR_MIN_EFFICIENT">BACKDOOR_MIN_EFFICIENT (dowhy.causal_identifier.CausalIdentifier attribute)</a>
+</li>
+      <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.BACKDOOR_MINCOST_EFFICIENT">BACKDOOR_MINCOST_EFFICIENT (dowhy.causal_identifier.CausalIdentifier attribute)</a>
+</li>
       <li><a href="dowhy.causal_refuters.html#dowhy.causal_refuters.dummy_outcome_refuter.TestFraction.base">base (dowhy.causal_refuters.dummy_outcome_refuter.TestFraction attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="dowhy.gcm.html#dowhy.gcm.stochastic_models.BayesianGaussianMixtureDistribution">BayesianGaussianMixtureDistribution (class in dowhy.gcm.stochastic_models)</a>
 </li>
       <li><a href="dowhy.gcm.html#dowhy.gcm.auto.AssignmentQuality.BETTER">BETTER (dowhy.gcm.auto.AssignmentQuality attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="dowhy.utils.html#dowhy.utils.propensity_score.binarize_discrete">binarize_discrete() (in module dowhy.utils.propensity_score)</a>
 </li>
       <li><a href="dowhy.utils.html#dowhy.utils.propensity_score.binary_treatment_model">binary_treatment_model() (in module dowhy.utils.propensity_score)</a>
@@ -1464,6 +1474,8 @@
 </li>
       <li><a href="dowhy.causal_estimators.html#dowhy.causal_estimators.econml.Econml.effect_inference">effect_inference() (dowhy.causal_estimators.econml.Econml method)</a>
 </li>
+      <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.EFFICIENT_METHODS">EFFICIENT_METHODS (dowhy.causal_identifier.CausalIdentifier attribute)</a>
+</li>
       <li><a href="dowhy.gcm.html#dowhy.gcm.stochastic_models.EmpiricalDistribution">EmpiricalDistribution (class in dowhy.gcm.stochastic_models)</a>
 </li>
       <li><a href="dowhy.gcm.html#dowhy.gcm.config.enable_progress_bars">enable_progress_bars() (in module dowhy.gcm.config)</a>
@@ -1500,10 +1512,10 @@
 </li>
       <li><a href="dowhy.gcm.html#dowhy.gcm.divergence.estimate_kl_divergence_categorical">estimate_kl_divergence_categorical() (in module dowhy.gcm.divergence)</a>
 </li>
-      <li><a href="dowhy.gcm.html#dowhy.gcm.divergence.estimate_kl_divergence_continuous">estimate_kl_divergence_continuous() (in module dowhy.gcm.divergence)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dowhy.gcm.html#dowhy.gcm.divergence.estimate_kl_divergence_continuous">estimate_kl_divergence_continuous() (in module dowhy.gcm.divergence)</a>
+</li>
       <li><a href="dowhy.gcm.html#dowhy.gcm.divergence.estimate_kl_divergence_of_probabilities">estimate_kl_divergence_of_probabilities() (in module dowhy.gcm.divergence)</a>
 </li>
       <li><a href="dowhy.gcm.html#dowhy.gcm.fcms.PostNonlinearModel.estimate_noise">estimate_noise() (dowhy.gcm.fcms.PostNonlinearModel method)</a>
@@ -1788,6 +1800,8 @@
 </li>
       <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.identify_backdoor">identify_backdoor() (dowhy.causal_identifier.CausalIdentifier method)</a>
 </li>
+      <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.identify_cde_effect">identify_cde_effect() (dowhy.causal_identifier.CausalIdentifier method)</a>
+</li>
       <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.identify_effect">identify_effect() (dowhy.causal_identifier.CausalIdentifier method)</a>
 
       <ul>
@@ -1796,6 +1810,8 @@
         <li><a href="dowhy.html#dowhy.causal_model.CausalModel.identify_effect">(dowhy.causal_model.CausalModel method)</a>
 </li>
       </ul></li>
+      <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.identify_efficient_backdoor">identify_efficient_backdoor() (dowhy.causal_identifier.CausalIdentifier method)</a>
+</li>
       <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.identify_frontdoor">identify_frontdoor() (dowhy.causal_identifier.CausalIdentifier method)</a>
 </li>
       <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.identify_mediation">identify_mediation() (dowhy.causal_identifier.CausalIdentifier method)</a>
@@ -2203,9 +2219,11 @@
 </li>
       <li><a href="dowhy.gcm.html#dowhy.gcm.fcms.PostNonlinearModel.noise_model">noise_model (dowhy.gcm.fcms.PostNonlinearModel property)</a>
 </li>
+      <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.NONPARAMETRIC_ATE">NONPARAMETRIC_ATE (dowhy.causal_identifier.CausalIdentifier attribute)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.NONPARAMETRIC_ATE">NONPARAMETRIC_ATE (dowhy.causal_identifier.CausalIdentifier attribute)</a>
+      <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.NONPARAMETRIC_CDE">NONPARAMETRIC_CDE (dowhy.causal_identifier.CausalIdentifier attribute)</a>
 </li>
       <li><a href="dowhy.html#dowhy.causal_identifier.CausalIdentifier.NONPARAMETRIC_NDE">NONPARAMETRIC_NDE (dowhy.causal_identifier.CausalIdentifier attribute)</a>
 </li>
@@ -2320,6 +2338,8 @@
       <li><a href="dowhy.gcm.html#dowhy.gcm.fcms.ProbabilityEstimatorModel">ProbabilityEstimatorModel (class in dowhy.gcm.fcms)</a>
 </li>
       <li><a href="dowhy.causal_refuters.html#dowhy.causal_refuters.dummy_outcome_refuter.DummyOutcomeRefuter.process_data">process_data() (dowhy.causal_refuters.dummy_outcome_refuter.DummyOutcomeRefuter method)</a>
+</li>
+      <li><a href="dowhy.html#dowhy.causal_refuter.CausalRefuter.PROGRESS_BAR_COLOR">PROGRESS_BAR_COLOR (dowhy.causal_refuter.CausalRefuter attribute)</a>
 </li>
       <li><a href="dowhy.utils.html#dowhy.utils.propensity_score.propensity_of_treatment_score">propensity_of_treatment_score() (in module dowhy.utils.propensity_score)</a>
 </li>
@@ -2668,7 +2688,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

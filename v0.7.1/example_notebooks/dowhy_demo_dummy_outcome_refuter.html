@@ -2,11 +2,20 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-B139P18WHM');
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions &mdash; DoWhy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -16,6 +25,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -410,7 +421,7 @@ div.rendered_html tbody tr:hover {
 <p>In this experiment, we define a linear dataset. In order to find the coefficients, we make use of the linear regression estimator. In order to test the effectiveness of the linear estimator, we now replace the outcome value with a dummy produced with the help of a linear expression based on the value of the confounders. This effectively means that the effect of the treatment on the outcome should be zero. This is exactly, what we should expect from the results of the refuter.</p>
 <section id="Insert-Dependencies">
 <h2>Insert Dependencies<a class="headerlink" href="#Insert-Dependencies" title="Permalink to this heading"></a></h2>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -434,14 +445,6 @@ div.rendered_html tbody tr:hover {
 <span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">DEFAULT_LOGGING</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
 </div>
 </section>
 <section id="Create-the-Dataset">
@@ -535,42 +538,42 @@ keywords are unexpanded, not using
     <tr>
       <th>0</th>
       <td>1.0</td>
-      <td>-0.275100</td>
-      <td>-1.534607</td>
-      <td>2.019983</td>
-      <td>11.979059</td>
+      <td>-1.673594</td>
+      <td>-1.137013</td>
+      <td>-2.325577</td>
+      <td>-34.806280</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.0</td>
-      <td>-1.888985</td>
-      <td>0.983664</td>
-      <td>-4.246355</td>
-      <td>-38.172890</td>
+      <td>1.0</td>
+      <td>-1.924698</td>
+      <td>-1.443347</td>
+      <td>-4.341157</td>
+      <td>-57.017288</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.0</td>
-      <td>-0.476613</td>
-      <td>1.303411</td>
-      <td>15.110889</td>
-      <td>157.737893</td>
+      <td>0.0</td>
+      <td>-1.426260</td>
+      <td>-1.060870</td>
+      <td>-7.679247</td>
+      <td>-86.842733</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.0</td>
-      <td>0.066223</td>
-      <td>2.040095</td>
-      <td>11.071790</td>
-      <td>121.492765</td>
+      <td>-1.114350</td>
+      <td>-1.537202</td>
+      <td>-10.319425</td>
+      <td>-112.673722</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.0</td>
-      <td>-1.555864</td>
-      <td>0.986191</td>
-      <td>-1.685117</td>
-      <td>-12.402025</td>
+      <td>1.0</td>
+      <td>-0.772963</td>
+      <td>-0.237940</td>
+      <td>7.557178</td>
+      <td>70.886901</td>
     </tr>
   </tbody>
 </table>
@@ -625,9 +628,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1])
+─────(E[y|W1,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,U) = P(y|v0,W0,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W0,U) = P(y|v0,W1,W0)
 
 ### Estimand : 2
 Estimand name: iv
@@ -665,7 +668,6 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-instrumental_variable
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -696,7 +698,7 @@ Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome y is 
 Target units: ate
 
 ## Estimate
-Mean value: 9.996372140526573
+Mean value: 9.999198757175165
 
 </pre></div></div>
 </div>
@@ -725,8 +727,8 @@ Mean value: 9.996372140526573
 <div class="highlight"><pre>
 Refute: Use a Dummy Outcome
 Estimated effect:0
-New effect:-4.897977131503692e-05
-p value:0.94
+New effect:-5.275801707957253e-05
+p value:1.0
 
 </pre></div></div>
 </div>
@@ -770,8 +772,8 @@ p value:0.94
 <div class="highlight"><pre>
 Refute: Use a Dummy Outcome
 Estimated effect:0
-New effect:-5.9252384092396886e-05
-p value:1.0
+New effect:-6.413121718532266e-05
+p value:0.9199999999999999
 
 </pre></div></div>
 </div>

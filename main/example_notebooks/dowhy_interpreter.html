@@ -6,13 +6,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-0HH0QE0T1M');
+  gtag('config', 'G-B139P18WHM');
 </script>
     <title>DoWhy: Interpreters for Causal Estimators &#8212; DoWhy  documentation</title>
 <script>
@@ -33,6 +33,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -42,7 +43,10 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -678,7 +682,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -691,14 +695,6 @@ div.rendered_html tbody tr:hover {
 <span class="kn">import</span> <span class="nn">dowhy.datasets</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
 </div>
 <p>Now, let us load a dataset. For simplicity, we simulate a dataset with linear relationships between common causes and treatment, and common causes and outcome.</p>
 <p>Beta is the true causal effect.</p>
@@ -725,7 +721,7 @@ keywords are unexpanded, not using
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-9038
+6103
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -765,63 +761,63 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.0</td>
-      <td>0.287206</td>
-      <td>-0.145792</td>
-      <td>-0.311887</td>
-      <td>0.058777</td>
-      <td>1.906695</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.037044</td>
+      <td>2.757268</td>
+      <td>-0.474042</td>
+      <td>0.485841</td>
+      <td>-1.240049</td>
+      <td>2</td>
       <td>True</td>
-      <td>1.693724</td>
+      <td>3.048830</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.0</td>
-      <td>0.637913</td>
-      <td>-0.750117</td>
-      <td>-1.940058</td>
-      <td>-0.541213</td>
-      <td>-0.645530</td>
-      <td>2</td>
+      <td>0.0</td>
+      <td>0.050058</td>
+      <td>1.297154</td>
+      <td>-1.139629</td>
+      <td>1.032243</td>
+      <td>-1.462355</td>
+      <td>3</td>
       <td>True</td>
-      <td>0.044324</td>
+      <td>3.398712</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.0</td>
-      <td>0.176874</td>
-      <td>-2.290778</td>
-      <td>0.096599</td>
-      <td>0.490881</td>
-      <td>0.433344</td>
-      <td>0</td>
-      <td>False</td>
-      <td>-0.860627</td>
+      <td>0.0</td>
+      <td>0.085053</td>
+      <td>-1.563474</td>
+      <td>-0.493715</td>
+      <td>-0.395201</td>
+      <td>-1.348476</td>
+      <td>2</td>
+      <td>True</td>
+      <td>1.338470</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.0</td>
-      <td>0.179932</td>
-      <td>0.666235</td>
-      <td>-1.091223</td>
-      <td>-0.482225</td>
-      <td>-0.311795</td>
-      <td>1</td>
-      <td>True</td>
-      <td>0.986238</td>
+      <td>0.0</td>
+      <td>0.673621</td>
+      <td>-0.016298</td>
+      <td>-1.658125</td>
+      <td>0.595200</td>
+      <td>-1.882554</td>
+      <td>0</td>
+      <td>False</td>
+      <td>-0.744395</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1.0</td>
-      <td>0.443549</td>
-      <td>-0.453600</td>
-      <td>-1.016154</td>
-      <td>0.536013</td>
-      <td>-0.637858</td>
-      <td>0</td>
+      <td>0.706191</td>
+      <td>-1.959944</td>
+      <td>-0.833149</td>
+      <td>-0.111981</td>
+      <td>-1.549055</td>
+      <td>1</td>
       <td>False</td>
-      <td>-0.834740</td>
+      <td>-0.572207</td>
     </tr>
     <tr>
       <th>...</th>
@@ -837,63 +833,63 @@ keywords are unexpanded, not using
     </tr>
     <tr>
       <th>9995</th>
-      <td>1.0</td>
-      <td>0.310532</td>
-      <td>2.032871</td>
-      <td>-3.067109</td>
-      <td>0.921319</td>
-      <td>0.456662</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.825302</td>
+      <td>-0.326394</td>
+      <td>-1.378835</td>
+      <td>-0.340330</td>
+      <td>-0.278137</td>
+      <td>1</td>
       <td>True</td>
-      <td>1.363525</td>
+      <td>1.174090</td>
     </tr>
     <tr>
       <th>9996</th>
-      <td>1.0</td>
-      <td>0.234017</td>
-      <td>-0.029636</td>
-      <td>-0.261576</td>
-      <td>0.480321</td>
-      <td>1.076695</td>
+      <td>0.0</td>
+      <td>0.499209</td>
+      <td>0.533242</td>
+      <td>-0.887271</td>
+      <td>-1.296765</td>
+      <td>-0.274724</td>
       <td>2</td>
       <td>True</td>
-      <td>3.338781</td>
+      <td>1.921591</td>
     </tr>
     <tr>
       <th>9997</th>
-      <td>1.0</td>
-      <td>0.143228</td>
-      <td>0.606797</td>
-      <td>-0.177786</td>
-      <td>0.783500</td>
-      <td>0.932421</td>
+      <td>0.0</td>
+      <td>0.881768</td>
+      <td>0.291154</td>
+      <td>-1.626110</td>
+      <td>-1.352615</td>
+      <td>-1.808351</td>
       <td>0</td>
-      <td>True</td>
-      <td>2.413211</td>
+      <td>False</td>
+      <td>-1.419542</td>
     </tr>
     <tr>
       <th>9998</th>
-      <td>1.0</td>
-      <td>0.044507</td>
-      <td>-1.461165</td>
-      <td>-0.244724</td>
-      <td>0.086654</td>
-      <td>0.374072</td>
-      <td>3</td>
-      <td>False</td>
-      <td>1.506207</td>
+      <td>0.0</td>
+      <td>0.672409</td>
+      <td>-0.052309</td>
+      <td>-0.982417</td>
+      <td>1.262346</td>
+      <td>-1.224002</td>
+      <td>2</td>
+      <td>True</td>
+      <td>2.438751</td>
     </tr>
     <tr>
       <th>9999</th>
-      <td>1.0</td>
-      <td>0.944061</td>
-      <td>0.099621</td>
-      <td>-1.512466</td>
-      <td>0.489823</td>
-      <td>2.318421</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.145152</td>
+      <td>-1.795030</td>
+      <td>-2.143977</td>
+      <td>-1.036484</td>
+      <td>0.103031</td>
+      <td>3</td>
       <td>True</td>
-      <td>1.636927</td>
+      <td>2.021501</td>
     </tr>
   </tbody>
 </table>
@@ -964,9 +960,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W4,W3,W2])
+─────(E[y|W2,W4,W0,W1,W3])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W4,W3,W2,U) = P(y|v0,W0,W1,W4,W3,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W4,W0,W1,W3,U) = P(y|v0,W2,W4,W0,W1,W3)
 
 ### Estimand : 2
 Estimand name: iv
@@ -974,9 +970,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+ ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 
 ### Estimand : 3
 Estimand name: frontdoor
@@ -1000,23 +996,6 @@ No such variable(s) found!
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-propensity_score_stratification
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
@@ -1031,18 +1010,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W4,W3,W2])
+─────(E[y|W2,W4,W0,W1,W3])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W4,W3,W2,U) = P(y|v0,W0,W1,W4,W3,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W4,W0,W1,W3,U) = P(y|v0,W2,W4,W0,W1,W3)
 
 ## Realized estimand
-b: y~v0+W0+W1+W4+W3+W2
+b: y~v0+W2+W4+W0+W1+W3
 Target units: att
 
 ## Estimate
-Mean value: 0.9962532421973486
+Mean value: 1.0143505712512515
 
-Causal Estimate is 0.9962532421973486
+Causal Estimate is 1.0143505712512515
 </pre></div></div>
 </div>
 <section id="Textual-Interpreter">
@@ -1062,7 +1041,7 @@ Causal Estimate is 0.9962532421973486
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 0.9962532421973486 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
+Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 1.0143505712512515 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
 </pre></div></div>
 </div>
 </section>
@@ -1105,23 +1084,6 @@ Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 0.99
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-propensity_score_matching
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
@@ -1136,18 +1098,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W4,W3,W2])
+─────(E[y|W2,W4,W0,W1,W3])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W4,W3,W2,U) = P(y|v0,W0,W1,W4,W3,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W4,W0,W1,W3,U) = P(y|v0,W2,W4,W0,W1,W3)
 
 ## Realized estimand
-b: y~v0+W0+W1+W4+W3+W2
+b: y~v0+W2+W4+W0+W1+W3
 Target units: atc
 
 ## Estimate
-Mean value: 0.9845422224384477
+Mean value: 0.9804980545825301
 
-Causal Estimate is 0.9845422224384477
+Causal Estimate is 0.9804980545825301
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1164,7 +1126,7 @@ Causal Estimate is 0.9845422224384477
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 0.9845422224384477 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
+Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 0.9804980545825301 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
 </pre></div></div>
 </div>
 <p>Cannot use propensity balance interpretor here since the interpreter method only supports propensity score stratification estimator.</p>
@@ -1185,12 +1147,11 @@ Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 0.98
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-propensity_score_weighting
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -1200,27 +1161,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W4,W3,W2])
+─────(E[y|W2,W4,W0,W1,W3])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W4,W3,W2,U) = P(y|v0,W0,W1,W4,W3,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W4,W0,W1,W3,U) = P(y|v0,W2,W4,W0,W1,W3)
 
 ## Realized estimand
-b: y~v0+W0+W1+W4+W3+W2
+b: y~v0+W2+W4+W0+W1+W3
 Target units: ate
 
 ## Estimate
-Mean value: 1.2375826496031634
+Mean value: 1.0126206414543866
 
-Causal Estimate is 1.2375826496031634
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
+Causal Estimate is 1.0126206414543866
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1237,7 +1189,7 @@ Causal Estimate is 1.2375826496031634
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 1.2375826496031634 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
+Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 1.0126206414543866 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1311,7 +1263,7 @@ Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 1.23
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

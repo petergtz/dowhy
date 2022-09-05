@@ -5,13 +5,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-0HH0QE0T1M');
+  gtag('config', 'G-B139P18WHM');
 </script>
     <title>dowhy.do_samplers.multivariate_weighting_sampler &#8212; DoWhy  documentation</title>
 <script>
@@ -32,6 +32,7 @@
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -41,7 +42,10 @@
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -213,20 +217,29 @@
 
 
 <div class="viewcode-block" id="MultivariateWeightingSampler"><a class="viewcode-back" href="../../../dowhy.do_samplers.html#dowhy.do_samplers.multivariate_weighting_sampler.MultivariateWeightingSampler">[docs]</a><span class="k">class</span> <span class="nc">MultivariateWeightingSampler</span><span class="p">(</span><span class="n">DoSampler</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span>
-                 <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">variable_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">num_cores</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keep_original_treatment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                 <span class="n">causal_model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">data</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+        <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">variable_types</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">num_cores</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">keep_original_treatment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">causal_model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        g, df, data_types</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">data</span><span class="p">,</span>
-                         <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
-                         <span class="n">variable_types</span><span class="o">=</span><span class="n">variable_types</span><span class="p">,</span> <span class="n">num_cores</span><span class="o">=</span><span class="n">num_cores</span><span class="p">,</span>
-                         <span class="n">keep_original_treatment</span><span class="o">=</span><span class="n">keep_original_treatment</span><span class="p">,</span>
-                         <span class="n">causal_model</span><span class="o">=</span><span class="n">causal_model</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">data</span><span class="p">,</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+            <span class="n">variable_types</span><span class="o">=</span><span class="n">variable_types</span><span class="p">,</span>
+            <span class="n">num_cores</span><span class="o">=</span><span class="n">num_cores</span><span class="p">,</span>
+            <span class="n">keep_original_treatment</span><span class="o">=</span><span class="n">keep_original_treatment</span><span class="p">,</span>
+            <span class="n">causal_model</span><span class="o">=</span><span class="n">causal_model</span><span class="p">,</span>
+        <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Using MultivariateWeightingSampler for do sampling.&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Caution: do samplers assume iid data.&quot;</span><span class="p">)</span>
@@ -241,18 +254,20 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_df</span> <span class="o">=</span> <span class="n">to_sample</span></div>
 
 <div class="viewcode-block" id="MultivariateWeightingSampler.disrupt_causes"><a class="viewcode-back" href="../../../dowhy.do_samplers.html#dowhy.do_samplers.multivariate_weighting_sampler.MultivariateWeightingSampler.disrupt_causes">[docs]</a>    <span class="k">def</span> <span class="nf">disrupt_causes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_df</span><span class="p">[</span><span class="s1">&#39;state_propensity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">state_propensity_score</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span>
-                                                              <span class="bp">self</span><span class="o">.</span><span class="n">_target_estimand</span><span class="o">.</span><span class="n">get_backdoor_variables</span><span class="p">(),</span>
-                                                              <span class="bp">self</span><span class="o">.</span><span class="n">_treatment_names</span><span class="p">,</span>
-                                                              <span class="n">variable_types</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_variable_types</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_weights</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_df</span><span class="p">[</span><span class="s2">&quot;state_propensity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">state_propensity_score</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_target_estimand</span><span class="o">.</span><span class="n">get_backdoor_variables</span><span class="p">(),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_treatment_names</span><span class="p">,</span>
+            <span class="n">variable_types</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_variable_types</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_weights</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="MultivariateWeightingSampler.sample"><a class="viewcode-back" href="../../../dowhy.do_samplers.html#dowhy.do_samplers.multivariate_weighting_sampler.MultivariateWeightingSampler.sample">[docs]</a>    <span class="k">def</span> <span class="nf">sample</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_df</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_df</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">index</span></div>
 
 <div class="viewcode-block" id="MultivariateWeightingSampler.compute_weights"><a class="viewcode-back" href="../../../dowhy.do_samplers.html#dowhy.do_samplers.multivariate_weighting_sampler.MultivariateWeightingSampler.compute_weights">[docs]</a>    <span class="k">def</span> <span class="nf">compute_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">weights</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_df</span><span class="p">[</span><span class="s1">&#39;state_propensity&#39;</span><span class="p">]</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_df</span><span class="p">[</span><span class="s2">&quot;state_propensity&quot;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">weights</span></div></div>
 </pre></div>
 
@@ -286,7 +301,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

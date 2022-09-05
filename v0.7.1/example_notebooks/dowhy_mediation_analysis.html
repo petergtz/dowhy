@@ -2,11 +2,20 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-B139P18WHM');
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mediation analysis with DoWhy: Direct and Indirect Effects &mdash; DoWhy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -16,6 +25,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -408,7 +419,7 @@ div.rendered_html tbody tr:hover {
 </style>
 <section id="Mediation-analysis-with-DoWhy:-Direct-and-Indirect-Effects">
 <h1>Mediation analysis with DoWhy: Direct and Indirect Effects<a class="headerlink" href="#Mediation-analysis-with-DoWhy:-Direct-and-Indirect-Effects" title="Permalink to this heading"></a></h1>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -423,14 +434,6 @@ div.rendered_html tbody tr:hover {
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
 </div>
 <section id="Creating-a-dataset">
 <h2>Creating a dataset<a class="headerlink" href="#Creating-a-dataset" title="Permalink to this heading"></a></h2>
@@ -455,12 +458,12 @@ keywords are unexpanded, not using
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-        FD0        W0        v0          y
-0 -0.596694 -2.269774 -0.291256  -5.895869
-1 -0.993961  0.014640 -0.348098  -4.336762
-2 -0.863626 -1.669014 -0.223688  -6.208024
-3  4.083082  0.218102  1.172244  18.292369
-4  4.441392 -0.292444  1.160529  19.104548
+        FD0        W0        v0         y
+0 -1.070828 -0.788226 -0.727772 -2.286417
+1  0.217513  0.685256  0.481168  1.808634
+2  1.028419  1.445348  0.478505  3.940214
+3 -6.703637 -2.040966 -2.329071 -6.925338
+4  0.050113  0.311102  0.067151  0.791857
 </pre></div></div>
 </div>
 </section>
@@ -585,9 +588,6 @@ Estimand assumption 3, Second-stage-unconfoundedness: If U→{FD0} and U→y the
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-two_stage_regression
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [], &#39;first_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;, &#39;second_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [], &#39;first_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;, &#39;second_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -608,7 +608,7 @@ Estimand assumption 3, Second-stage-unconfoundedness: If U→{FD0} and U→y the
 Target units: ate
 
 ## Estimate
-Mean value: 17.994644564791066
+Mean value: 0.6771321828269498
 
 </pre></div></div>
 </div>
@@ -626,7 +626,7 @@ Mean value: 17.994644564791066
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-17.994644564791066 18.00663821358357
+0.6771321828269498 0.6716464272432615
 </pre></div></div>
 </div>
 <p>The parameter is called <code class="docutils literal notranslate"><span class="pre">ate</span></code> because in the simulated dataset, the direct effect is set to be zero.</p>
@@ -656,10 +656,6 @@ Mean value: 17.994644564791066
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-two_stage_regression
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [], &#39;first_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;, &#39;second_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [], &#39;first_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;, &#39;second_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;}
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: False, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [], &#39;first_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;, &#39;second_stage_model&#39;: &lt;class &#39;dowhy.causal_estimators.linear_regression_estimator.LinearRegressionEstimator&#39;&gt;}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -680,7 +676,7 @@ Estimand assumption 3, Second-stage-unconfoundedness: If U→{FD0} and U→y the
 Target units: ate
 
 ## Estimate
-Mean value: 2.970501258658942e-05
+Mean value: 2.4245396671451758e-05
 
 </pre></div></div>
 </div>

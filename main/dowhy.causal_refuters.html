@@ -6,13 +6,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-0HH0QE0T1M');
+  gtag('config', 'G-B139P18WHM');
 </script>
     <title>dowhy.causal_refuters package &#8212; DoWhy  documentation</title>
 <script>
@@ -33,6 +33,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -42,7 +43,10 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="dowhy.data_transformers package" href="dowhy.data_transformers.html" />
@@ -395,7 +399,7 @@ if percent_change_estimate = 1, the robustness value describes the strength of a
 <li><p><strong>benchmark_common_causes</strong> – names of variables for bounding strength of confounders</p></li>
 <li><p><strong>significance_level</strong> – confidence interval for statistical inference(default = 0.05)</p></li>
 <li><p><strong>null_hypothesis_effect</strong> – assumed effect under the null hypothesis</p></li>
-<li><p><strong>plot_estimate</strong> – Generate contour plot for estimate while performing sensitivity analysis. (default = True). 
+<li><p><strong>plot_estimate</strong> – Generate contour plot for estimate while performing sensitivity analysis. (default = True).
 To override the setting, set plot_estimate = False.</p></li>
 </ul>
 </dd>
@@ -496,7 +500,7 @@ The coefficients are chosen based on these basic assumptions:
 
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_refuters.add_unobserved_common_cause.AddUnobservedCommonCause.refute_estimate">
-<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/add_unobserved_common_cause.html#AddUnobservedCommonCause.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.add_unobserved_common_cause.AddUnobservedCommonCause.refute_estimate" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/add_unobserved_common_cause.html#AddUnobservedCommonCause.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.add_unobserved_common_cause.AddUnobservedCommonCause.refute_estimate" title="Permalink to this definition"></a></dt>
 <dd><p>This function attempts to add an unobserved common cause to the outcome and the treatment. At present, we have implemented the behavior for one dimensional behaviors for continuous
 and binary variables. This function can either take single valued inputs or a range of inputs. The function then looks at the data type of the input and then decides on the course of
 action.</p>
@@ -516,8 +520,8 @@ action.</p>
 <dt class="sig sig-object py" id="dowhy.causal_refuters.bootstrap_refuter.BootstrapRefuter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dowhy.causal_refuters.bootstrap_refuter.</span></span><span class="sig-name descname"><span class="pre">BootstrapRefuter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/bootstrap_refuter.html#BootstrapRefuter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.bootstrap_refuter.BootstrapRefuter" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="dowhy.html#dowhy.causal_refuter.CausalRefuter" title="dowhy.causal_refuter.CausalRefuter"><code class="xref py py-class docutils literal notranslate"><span class="pre">CausalRefuter</span></code></a></p>
-<p>Refute an estimate by running it on a random sample of the data containing measurement error in the 
-confounders. This allows us to find the ability of the estimator to find the effect of the 
+<p>Refute an estimate by running it on a random sample of the data containing measurement error in the
+confounders. This allows us to find the ability of the estimator to find the effect of the
 treatment on the outcome.</p>
 <p>It supports additional parameters that can be specified in the refute_estimate() method.</p>
 <dl class="field-list simple">
@@ -533,7 +537,7 @@ This is <code class="docutils literal notranslate"><span class="pre">True</span>
 <ol class="arabic simple">
 <li><p>An integer argument refers to how many variables will be used for estimating the value of the outcome</p></li>
 <li><p>A list explicitly refers to which variables will be used to estimate the outcome
-Furthermore, it gives the ability to explictly select or deselect the covariates present in the estimation of the 
+Furthermore, it gives the ability to explictly select or deselect the covariates present in the estimation of the
 outcome. This is done by either adding or explicitly removing variables from the list as shown below:</p></li>
 </ol>
 <div class="admonition note">
@@ -609,7 +613,7 @@ It is <code class="docutils literal notranslate"><span class="pre">noise</span><
 
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_refuters.data_subset_refuter.DataSubsetRefuter.refute_estimate">
-<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/data_subset_refuter.html#DataSubsetRefuter.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.data_subset_refuter.DataSubsetRefuter.refute_estimate" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/data_subset_refuter.html#DataSubsetRefuter.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.data_subset_refuter.DataSubsetRefuter.refute_estimate" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -899,7 +903,7 @@ We then apply the estimators on <code class="docutils literal notranslate"><span
 
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_refuters.dummy_outcome_refuter.DummyOutcomeRefuter.refute_estimate">
-<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/dummy_outcome_refuter.html#DummyOutcomeRefuter.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.dummy_outcome_refuter.DummyOutcomeRefuter.refute_estimate" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/dummy_outcome_refuter.html#DummyOutcomeRefuter.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.dummy_outcome_refuter.DummyOutcomeRefuter.refute_estimate" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1011,7 +1015,7 @@ See: <a class="reference external" href="https://carloscinelli.com/files/Cinelli
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.check_sensitivity">
 <span class="sig-name descname"><span class="pre">check_sensitivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/linear_sensitivity_analyzer.html#LinearSensitivityAnalyzer.check_sensitivity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.check_sensitivity" title="Permalink to this definition"></a></dt>
-<dd><p>Function to perform sensitivity analysis. 
+<dd><p>Function to perform sensitivity analysis.
 :param plot: plot = True generates a plot of point estimate and the variations with respect to unobserved confounding.</p>
 <blockquote>
 <div><p>plot = False overrides the setting</p>
@@ -1111,7 +1115,7 @@ Contour lines (z - axis) correspond to the adjusted estimate values for differen
 </dd>
 </dl>
 <p>contour_values : values of contour lines for the plot
-critical_estimate : threshold point 
+critical_estimate : threshold point
 estimate_bounds : estimate values for unobserved confounders (bias adjusted estimates)</p>
 </dd></dl>
 
@@ -1128,14 +1132,14 @@ Contour lines (z - axis) correspond to the adjusted t values for different value
 </dd>
 </dl>
 <p>contour_values : values of contour lines for the plot
-critical_t : threshold point 
+critical_t : threshold point
 t_bounds : t-value for unobserved confounders (bias adjusted t values)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.robustness_value_func">
 <span class="sig-name descname"><span class="pre">robustness_value_func</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/linear_sensitivity_analyzer.html#LinearSensitivityAnalyzer.robustness_value_func"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.robustness_value_func" title="Permalink to this definition"></a></dt>
-<dd><p>Function to calculate the robustness value. 
+<dd><p>Function to calculate the robustness value.
 It is the minimum strength of association that confounders must have with treatment and outcome to change conclusions.
 Robustness value describes how strong the association must be in order to reduce the estimated effect by (100 * percent_change_estimate)%.
 Robustness value close to 1 means the treatment effect can handle strong confounders explaining  almost all residual variation of the treatment and the outcome.
@@ -1205,7 +1209,7 @@ Robustness value close to 0 means that even very weak confounders can also chang
 
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_refuters.placebo_treatment_refuter.PlaceboTreatmentRefuter.refute_estimate">
-<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/placebo_treatment_refuter.html#PlaceboTreatmentRefuter.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.placebo_treatment_refuter.PlaceboTreatmentRefuter.refute_estimate" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/placebo_treatment_refuter.html#PlaceboTreatmentRefuter.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.placebo_treatment_refuter.PlaceboTreatmentRefuter.refute_estimate" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1232,7 +1236,7 @@ Robustness value close to 0 means that even very weak confounders can also chang
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_refuters.random_common_cause.RandomCommonCause.refute_estimate">
-<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/random_common_cause.html#RandomCommonCause.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.random_common_cause.RandomCommonCause.refute_estimate" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/random_common_cause.html#RandomCommonCause.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.random_common_cause.RandomCommonCause.refute_estimate" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1293,7 +1297,7 @@ Robustness value close to 0 means that even very weak confounders can also chang
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

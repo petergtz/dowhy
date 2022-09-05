@@ -2,11 +2,20 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-B139P18WHM');
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Estimating effect of multiple treatments &mdash; DoWhy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -16,6 +25,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -401,7 +412,7 @@ div.rendered_html tbody tr:hover {
 </style>
 <section id="Estimating-effect-of-multiple-treatments">
 <h1>Estimating effect of multiple treatments<a class="headerlink" href="#Estimating-effect-of-multiple-treatments" title="Permalink to this heading"></a></h1>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -418,14 +429,6 @@ div.rendered_html tbody tr:hover {
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
@@ -480,63 +483,63 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.572911</td>
-      <td>0.808294</td>
-      <td>1.383285</td>
-      <td>0.422721</td>
+      <td>-0.569369</td>
+      <td>0.239752</td>
+      <td>1.838564</td>
+      <td>-1.826950</td>
+      <td>2</td>
       <td>3</td>
-      <td>1</td>
-      <td>5.300846</td>
-      <td>8.516689</td>
-      <td>604.311047</td>
+      <td>29.032886</td>
+      <td>12.796918</td>
+      <td>-634.251285</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.474599</td>
-      <td>-0.365520</td>
-      <td>-1.624415</td>
-      <td>0.357371</td>
-      <td>0</td>
-      <td>2</td>
-      <td>2.882934</td>
-      <td>-2.707001</td>
-      <td>-4.468095</td>
+      <td>-0.545614</td>
+      <td>1.895875</td>
+      <td>-3.006692</td>
+      <td>-2.811487</td>
+      <td>1</td>
+      <td>1</td>
+      <td>-3.170440</td>
+      <td>1.815541</td>
+      <td>-14.928842</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.369350</td>
-      <td>1.505011</td>
-      <td>-0.000576</td>
-      <td>-1.215875</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.987919</td>
-      <td>-4.055443</td>
-      <td>-59.501686</td>
+      <td>1.484837</td>
+      <td>0.549996</td>
+      <td>-0.576603</td>
+      <td>-0.468596</td>
+      <td>2</td>
+      <td>0</td>
+      <td>7.307473</td>
+      <td>-0.109266</td>
+      <td>71.358217</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.468186</td>
-      <td>3.163337</td>
-      <td>-0.628750</td>
-      <td>-0.991973</td>
-      <td>0</td>
-      <td>0</td>
-      <td>-0.440980</td>
-      <td>-6.498805</td>
-      <td>-41.241788</td>
+      <td>-1.169145</td>
+      <td>2.075472</td>
+      <td>0.230993</td>
+      <td>-0.718141</td>
+      <td>3</td>
+      <td>2</td>
+      <td>26.139838</td>
+      <td>10.935898</td>
+      <td>-1105.899539</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.190892</td>
-      <td>0.139631</td>
-      <td>-0.390720</td>
-      <td>0.425559</td>
+      <td>0.312032</td>
+      <td>0.756759</td>
+      <td>-0.610666</td>
+      <td>0.048235</td>
+      <td>3</td>
       <td>1</td>
-      <td>2</td>
-      <td>6.296416</td>
-      <td>5.541737</td>
-      <td>346.370770</td>
+      <td>16.556130</td>
+      <td>6.059482</td>
+      <td>437.138977</td>
     </tr>
   </tbody>
 </table>
@@ -589,9 +592,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W1,W0,W3])
+─────────(E[y|W0,W3,W2,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W1,W0,W3,U) = P(y|v0,v1,W2,W1,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W3,W2,W1,U) = P(y|v0,v1,W0,W3,W2,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -625,8 +628,6 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-linear_regression
-{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X1&#39;, &#39;X0&#39;], &#39;need_conditional_estimates&#39;: False}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -636,16 +637,16 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W1,W0,W3])
+─────────(E[y|W0,W3,W2,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W1,W0,W3,U) = P(y|v0,v1,W2,W1,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W3,W2,W1,U) = P(y|v0,v1,W0,W3,W2,W1)
 
 ## Realized estimand
-b: y~v0+v1+W2+W1+W0+W3+v0*X1+v0*X0+v1*X1+v1*X0
+b: y~v0+v1+W0+W3+W2+W1+v0*X0+v0*X1+v1*X0+v1*X1
 Target units: ate
 
 ## Estimate
-Mean value: 12.161534015610286
+Mean value: 42.00791012898549
 
 </pre></div></div>
 </div>
@@ -667,8 +668,6 @@ Mean value: 12.161534015610286
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-linear_regression
-{&#39;control_value&#39;: (0, 0), &#39;treatment_value&#39;: (1, 1), &#39;test_significance&#39;: None, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: [&#39;X1&#39;, &#39;X0&#39;]}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -678,43 +677,43 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W1,W0,W3])
+─────────(E[y|W0,W3,W2,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W1,W0,W3,U) = P(y|v0,v1,W2,W1,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W3,W2,W1,U) = P(y|v0,v1,W0,W3,W2,W1)
 
 ## Realized estimand
-b: y~v0+v1+W2+W1+W0+W3+v0*X1+v0*X0+v1*X1+v1*X0
+b: y~v0+v1+W0+W3+W2+W1+v0*X0+v0*X1+v1*X0+v1*X1
 Target units: ate
 
 ## Estimate
-Mean value: 12.161534015610286
+Mean value: 42.00791012898549
 ### Conditional Estimates
-__categorical__X1  __categorical__X0
-(-3.601, -0.579]   (-3.756, -1.246]    -52.961823
-                   (-1.246, -0.656]    -27.820787
-                   (-0.656, -0.141]    -10.662749
-                   (-0.141, 0.478]       6.874493
-                   (0.478, 3.171]       30.438771
-(-0.579, 0.00309]  (-3.756, -1.246]    -38.331748
-                   (-1.246, -0.656]    -12.509442
-                   (-0.656, -0.141]      3.575293
-                   (-0.141, 0.478]      20.196558
-                   (0.478, 3.171]       46.770833
-(0.00309, 0.501]   (-3.756, -1.246]    -31.617458
-                   (-1.246, -0.656]     -4.312497
-                   (-0.656, -0.141]     12.024098
-                   (-0.141, 0.478]      29.007118
-                   (0.478, 3.171]       53.768809
-(0.501, 1.081]     (-3.756, -1.246]    -20.588432
-                   (-1.246, -0.656]      3.943161
-                   (-0.656, -0.141]     20.597755
-                   (-0.141, 0.478]      37.352604
-                   (0.478, 3.171]       63.567371
-(1.081, 4.033]     (-3.756, -1.246]     -7.596317
-                   (-1.246, -0.656]     18.758400
-                   (-0.656, -0.141]     35.383820
-                   (-0.141, 0.478]      51.308842
-                   (0.478, 3.171]       76.922053
+__categorical__X0  __categorical__X1
+(-4.259, -0.559]   (-3.864, -0.847]     -79.894390
+                   (-0.847, -0.251]     -77.482030
+                   (-0.251, 0.267]      -72.190820
+                   (0.267, 0.858]       -68.735814
+                   (0.858, 4.098]       -65.976744
+(-0.559, 0.0528]   (-3.864, -0.847]      -9.346071
+                   (-0.847, -0.251]      -3.249089
+                   (-0.251, 0.267]       -1.101980
+                   (0.267, 0.858]         1.551857
+                   (0.858, 4.098]         6.521437
+(0.0528, 0.555]    (-3.864, -0.847]      33.667495
+                   (-0.847, -0.251]      40.019395
+                   (-0.251, 0.267]       42.555444
+                   (0.267, 0.858]        45.030477
+                   (0.858, 4.098]        50.100987
+(0.555, 1.151]     (-3.864, -0.847]      77.391832
+                   (-0.847, -0.251]      80.590840
+                   (-0.251, 0.267]       85.857739
+                   (0.267, 0.858]        88.194972
+                   (0.858, 4.098]        93.459876
+(1.151, 4.226]     (-3.864, -0.847]     148.502730
+                   (-0.847, -0.251]     153.242109
+                   (-0.251, 0.267]      159.027133
+                   (0.267, 0.858]       157.866635
+                   (0.858, 4.098]       164.803544
 dtype: float64
 </pre></div></div>
 </div>

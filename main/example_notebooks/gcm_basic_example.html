@@ -6,13 +6,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0HH0QE0T1M"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-0HH0QE0T1M');
+  gtag('config', 'G-B139P18WHM');
 </script>
     <title>Basic Example for GCM-Based Inference &#8212; DoWhy  documentation</title>
 <script>
@@ -33,6 +33,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -42,7 +43,10 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -663,7 +667,7 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>To answer causal questions using causal graphs, we also have to know the nature of underlying data-generating process of variables. A causal graph by itself, being a diagram, does not have any information about the data-generating process. To introduce this data-generating process, we use an SCM that’s built on top of our causal graph:</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -671,14 +675,6 @@ div.rendered_html tbody tr:hover {
 <span class="n">causal_model</span> <span class="o">=</span> <span class="n">gcm</span><span class="o">.</span><span class="n">StructuralCausalModel</span><span class="p">(</span><span class="n">causal_graph</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
 </div>
 <p>At this point we would normally load our dataset. For this introduction, we generate some synthetic data instead. The API takes data in form of Pandas DataFrames:</p>
 <div class="nbinput docutils container">
@@ -726,33 +722,33 @@ keywords are unexpanded, not using
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.288529</td>
-      <td>-2.926090</td>
-      <td>-8.768759</td>
+      <td>-0.160417</td>
+      <td>-0.935245</td>
+      <td>-3.341335</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.666385</td>
-      <td>1.124183</td>
-      <td>2.837620</td>
+      <td>0.094000</td>
+      <td>0.013903</td>
+      <td>0.144620</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.730622</td>
-      <td>-1.444878</td>
-      <td>-5.202967</td>
+      <td>1.124113</td>
+      <td>3.326304</td>
+      <td>10.142562</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.097145</td>
-      <td>-0.240153</td>
-      <td>-0.947805</td>
+      <td>-1.100811</td>
+      <td>-2.063191</td>
+      <td>-6.117673</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.584434</td>
-      <td>-3.017139</td>
-      <td>-9.095547</td>
+      <td>-0.567338</td>
+      <td>-1.778305</td>
+      <td>-5.318104</td>
     </tr>
   </tbody>
 </table>
@@ -797,7 +793,7 @@ keywords are unexpanded, not using
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 519.57it/s]
+Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 426.22it/s]
 </pre></div></div>
 </div>
 <p>Fitting means, we learn the generative models of the variables in the SCM according to the data.</p>
@@ -851,33 +847,33 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.098116</td>
+      <td>-0.090593</td>
       <td>2.34</td>
-      <td>6.535231</td>
+      <td>7.581628</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.847303</td>
+      <td>-0.377481</td>
       <td>2.34</td>
-      <td>7.789590</td>
+      <td>7.828570</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-1.174809</td>
+      <td>-1.351760</td>
       <td>2.34</td>
-      <td>6.881431</td>
+      <td>7.045408</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.839460</td>
+      <td>-0.414455</td>
       <td>2.34</td>
-      <td>7.058002</td>
+      <td>6.885881</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.681800</td>
+      <td>0.185726</td>
       <td>2.34</td>
-      <td>5.133469</td>
+      <td>4.737523</td>
     </tr>
   </tbody>
 </table>
@@ -932,7 +928,7 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

@@ -2,11 +2,20 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-B139P18WHM');
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DoWhy: Different estimation methods for causal inference &mdash; DoWhy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -16,6 +25,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -419,7 +430,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -432,14 +443,6 @@ div.rendered_html tbody tr:hover {
 <span class="kn">import</span> <span class="nn">dowhy.datasets</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-keywords are unexpanded, not using
-</pre></div></div>
 </div>
 <p>Now, let us load a dataset. For simplicity, we simulate a dataset with linear relationships between common causes and treatment, and common causes and outcome.</p>
 <p>Beta is the true causal effect.</p>
@@ -498,62 +501,62 @@ keywords are unexpanded, not using
     <tr>
       <th>0</th>
       <td>1.0</td>
-      <td>0.032400</td>
-      <td>0.163353</td>
-      <td>2.695508</td>
-      <td>-0.932511</td>
-      <td>2.035455</td>
-      <td>-0.484291</td>
+      <td>0.818087</td>
+      <td>1.884370</td>
+      <td>0.753981</td>
+      <td>0.955628</td>
+      <td>-0.529270</td>
+      <td>0.237682</td>
       <td>True</td>
-      <td>16.314003</td>
+      <td>22.000260</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.0</td>
-      <td>0.302601</td>
-      <td>-0.697319</td>
-      <td>0.880397</td>
-      <td>-2.321766</td>
-      <td>0.830788</td>
-      <td>-0.598288</td>
-      <td>False</td>
-      <td>-4.709054</td>
+      <td>1.0</td>
+      <td>0.437303</td>
+      <td>0.359983</td>
+      <td>-0.648374</td>
+      <td>-0.160899</td>
+      <td>2.116452</td>
+      <td>0.821974</td>
+      <td>True</td>
+      <td>19.958213</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.0</td>
-      <td>0.956844</td>
-      <td>-1.560342</td>
-      <td>2.436413</td>
-      <td>-0.351524</td>
-      <td>-1.214159</td>
-      <td>1.387161</td>
+      <td>0.0</td>
+      <td>0.092910</td>
+      <td>1.261241</td>
+      <td>0.181179</td>
+      <td>-0.060889</td>
+      <td>1.501602</td>
+      <td>2.292404</td>
       <td>True</td>
-      <td>4.932895</td>
+      <td>32.123316</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.0</td>
-      <td>0.480901</td>
-      <td>0.464777</td>
-      <td>0.395036</td>
-      <td>-2.165159</td>
-      <td>-0.505816</td>
-      <td>2.076631</td>
-      <td>False</td>
-      <td>-1.111842</td>
+      <td>1.0</td>
+      <td>0.208315</td>
+      <td>0.758467</td>
+      <td>1.028212</td>
+      <td>0.333646</td>
+      <td>1.581763</td>
+      <td>-1.248953</td>
+      <td>True</td>
+      <td>12.844887</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1.0</td>
-      <td>0.071826</td>
-      <td>0.414556</td>
-      <td>1.271779</td>
-      <td>2.425447</td>
-      <td>0.271391</td>
-      <td>0.320430</td>
+      <td>0.394925</td>
+      <td>-0.074899</td>
+      <td>2.396355</td>
+      <td>-0.111635</td>
+      <td>0.140939</td>
+      <td>0.847775</td>
       <td>True</td>
-      <td>18.974387</td>
+      <td>17.641363</td>
     </tr>
     <tr>
       <th>...</th>
@@ -569,63 +572,63 @@ keywords are unexpanded, not using
     </tr>
     <tr>
       <th>9995</th>
-      <td>0.0</td>
-      <td>0.839210</td>
-      <td>-1.322876</td>
-      <td>0.311989</td>
-      <td>-0.756875</td>
-      <td>-0.087130</td>
-      <td>0.049276</td>
+      <td>1.0</td>
+      <td>0.806290</td>
+      <td>1.517835</td>
+      <td>-0.553850</td>
+      <td>1.463920</td>
+      <td>1.121021</td>
+      <td>-0.403930</td>
       <td>True</td>
-      <td>5.376676</td>
+      <td>19.614842</td>
     </tr>
     <tr>
       <th>9996</th>
-      <td>0.0</td>
-      <td>0.276636</td>
-      <td>-0.408166</td>
-      <td>2.047830</td>
-      <td>-0.282439</td>
-      <td>-1.489970</td>
-      <td>-0.269988</td>
+      <td>1.0</td>
+      <td>0.738004</td>
+      <td>1.007152</td>
+      <td>-0.447310</td>
+      <td>-0.458866</td>
+      <td>-0.880897</td>
+      <td>-0.224121</td>
       <td>True</td>
-      <td>1.892071</td>
+      <td>10.384546</td>
     </tr>
     <tr>
       <th>9997</th>
-      <td>0.0</td>
-      <td>0.226824</td>
-      <td>0.791418</td>
-      <td>1.508858</td>
-      <td>-1.509018</td>
-      <td>-0.198284</td>
-      <td>0.288251</td>
-      <td>False</td>
-      <td>-1.823821</td>
+      <td>1.0</td>
+      <td>0.345963</td>
+      <td>0.545879</td>
+      <td>-1.663723</td>
+      <td>0.290449</td>
+      <td>-0.781318</td>
+      <td>-0.119645</td>
+      <td>True</td>
+      <td>8.366398</td>
     </tr>
     <tr>
       <th>9998</th>
-      <td>0.0</td>
-      <td>0.299430</td>
-      <td>-0.201250</td>
-      <td>1.635202</td>
-      <td>-2.555903</td>
-      <td>1.353517</td>
-      <td>0.054560</td>
-      <td>False</td>
-      <td>-0.170157</td>
+      <td>1.0</td>
+      <td>0.181902</td>
+      <td>1.837380</td>
+      <td>-0.613525</td>
+      <td>0.521335</td>
+      <td>-1.122585</td>
+      <td>-1.443116</td>
+      <td>True</td>
+      <td>8.843455</td>
     </tr>
     <tr>
       <th>9999</th>
       <td>1.0</td>
-      <td>0.483355</td>
-      <td>-1.216675</td>
-      <td>1.143257</td>
-      <td>0.689289</td>
-      <td>-1.322030</td>
-      <td>1.023534</td>
+      <td>0.197065</td>
+      <td>-0.023640</td>
+      <td>-0.239561</td>
+      <td>-1.027401</td>
+      <td>1.696128</td>
+      <td>0.814884</td>
       <td>True</td>
-      <td>6.427055</td>
+      <td>16.202332</td>
     </tr>
   </tbody>
 </table>
@@ -696,9 +699,9 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W2,W0,W3])
+─────(E[y|W4,W3,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W2,W0,W3,U) = P(y|v0,W1,W4,W2,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W1,W2,W0,U) = P(y|v0,W4,W3,W1,W2,W0)
 
 ### Estimand : 2
 Estimand name: iv
@@ -706,9 +709,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+ ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 
 ### Estimand : 3
 Estimand name: frontdoor
@@ -737,8 +740,6 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-linear_regression
-{&#39;control_value&#39;: 0, &#39;treatment_value&#39;: 1, &#39;test_significance&#39;: True, &#39;evaluate_effect_strength&#39;: False, &#39;confidence_intervals&#39;: False, &#39;target_units&#39;: &#39;ate&#39;, &#39;effect_modifiers&#39;: []}
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -748,19 +749,19 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W2,W0,W3])
+─────(E[y|W4,W3,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W2,W0,W3,U) = P(y|v0,W1,W4,W2,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W1,W2,W0,U) = P(y|v0,W4,W3,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W1+W4+W2+W0+W3
+b: y~v0+W4+W3+W1+W2+W0
 Target units: ate
 
 ## Estimate
-Mean value: 10.000241254330701
+Mean value: 10.000108664476063
 p-value: [0.]
 
-Causal Estimate is 10.000241254330701
+Causal Estimate is 10.000108664476063
 </pre></div></div>
 </div>
 </section>
@@ -785,7 +786,6 @@ Causal Estimate is 10.000241254330701
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-distance_matching
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -795,18 +795,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W2,W0,W3])
+─────(E[y|W4,W3,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W2,W0,W3,U) = P(y|v0,W1,W4,W2,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W1,W2,W0,U) = P(y|v0,W4,W3,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W1+W4+W2+W0+W3
+b: y~v0+W4+W3+W1+W2+W0
 Target units: att
 
 ## Estimate
-Mean value: 10.458802894428542
+Mean value: 11.712367063454598
 
-Causal Estimate is 10.458802894428542
+Causal Estimate is 11.712367063454598
 </pre></div></div>
 </div>
 </section>
@@ -825,23 +825,6 @@ Causal Estimate is 10.458802894428542
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-propensity_score_stratification
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
@@ -856,18 +839,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W2,W0,W3])
+─────(E[y|W4,W3,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W2,W0,W3,U) = P(y|v0,W1,W4,W2,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W1,W2,W0,U) = P(y|v0,W4,W3,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W1+W4+W2+W0+W3
+b: y~v0+W4+W3+W1+W2+W0
 Target units: att
 
 ## Estimate
-Mean value: 10.04251550769195
+Mean value: 10.000729661593478
 
-Causal Estimate is 10.04251550769195
+Causal Estimate is 10.000729661593478
 </pre></div></div>
 </div>
 </section>
@@ -886,23 +869,6 @@ Causal Estimate is 10.04251550769195
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-propensity_score_matching
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
@@ -917,18 +883,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W2,W0,W3])
+─────(E[y|W4,W3,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W2,W0,W3,U) = P(y|v0,W1,W4,W2,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W1,W2,W0,U) = P(y|v0,W4,W3,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W1+W4+W2+W0+W3
+b: y~v0+W4+W3+W1+W2+W0
 Target units: atc
 
 ## Estimate
-Mean value: 10.060644661268208
+Mean value: 9.991459275834423
 
-Causal Estimate is 10.060644661268208
+Causal Estimate is 9.991459275834423
 </pre></div></div>
 </div>
 </section>
@@ -948,12 +914,11 @@ Causal Estimate is 10.060644661268208
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-propensity_score_weighting
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -963,27 +928,18 @@ Estimand type: nonparametric-ate
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W2,W0,W3])
+─────(E[y|W4,W3,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W2,W0,W3,U) = P(y|v0,W1,W4,W2,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W1,W2,W0,U) = P(y|v0,W4,W3,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W1+W4+W2+W0+W3
+b: y~v0+W4+W3+W1+W2+W0
 Target units: ate
 
 ## Estimate
-Mean value: 10.156445952354646
+Mean value: 13.320058615360825
 
-Causal Estimate is 10.156445952354646
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-/usr/local/lib/python3.8/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
+Causal Estimate is 13.320058615360825
 </pre></div></div>
 </div>
 </section>
@@ -1006,7 +962,6 @@ Causal Estimate is 10.156445952354646
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-instrumental_variable
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -1018,9 +973,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+ ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 
 ## Realized estimand
 Realized estimand: Wald Estimator
@@ -1029,17 +984,17 @@ Estimand expression:
  ⎡ d    ⎤  -1⎡ d     ⎤
 E⎢───(y)⎥⋅E  ⎢───(v₀)⎥
  ⎣dZ₀   ⎦    ⎣dZ₀    ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 Estimand assumption 3, treatment_effect_homogeneity: Each unit&#39;s treatment [&#39;v0&#39;] is affected in the same way by common causes of [&#39;v0&#39;] and y
 Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome y is affected in the same way by common causes of [&#39;v0&#39;] and y
 
 Target units: ate
 
 ## Estimate
-Mean value: 9.77044002626663
+Mean value: 10.830060131032843
 
-Causal Estimate is 9.77044002626663
+Causal Estimate is 10.830060131032843
 </pre></div></div>
 </div>
 </section>
@@ -1065,21 +1020,6 @@ Causal Estimate is 9.77044002626663
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-regression_discontinuity
-      local_rd_variable  local_treatment  local_outcome
-3              0.480901            False      -1.111842
-5              0.638868            False     -15.220037
-9              0.377432             True       6.586163
-12             0.444142             True       9.522860
-13             0.391422             True       2.735591
-...                 ...              ...            ...
-9975           0.646857             True       8.839753
-9976           0.508275             True      12.525529
-9988           0.606828             True       8.952275
-9991           0.620617             True       8.262337
-9999           0.483355             True       6.427055
-
-[3057 rows x 3 columns]
 *** Causal Estimate ***
 
 ## Identified estimand
@@ -1091,9 +1031,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+ ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 
 ## Realized estimand
 Realized estimand: Wald Estimator
@@ -1102,17 +1042,17 @@ Estimand expression:
  ⎡        d            ⎤  -1⎡        d             ⎤
 E⎢──────────────────(y)⎥⋅E  ⎢──────────────────(v₀)⎥
  ⎣dlocal_rd_variable   ⎦    ⎣dlocal_rd_variable    ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 Estimand assumption 3, treatment_effect_homogeneity: Each unit&#39;s treatment [&#39;local_treatment&#39;] is affected in the same way by common causes of [&#39;local_treatment&#39;] and local_outcome
 Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome local_outcome is affected in the same way by common causes of [&#39;local_treatment&#39;] and local_outcome
 
 Target units: ate
 
 ## Estimate
-Mean value: 11.372887984346468
+Mean value: -24.90648553430942
 
-Causal Estimate is 11.372887984346468
+Causal Estimate is -24.90648553430942
 </pre></div></div>
 </div>
 </section>
