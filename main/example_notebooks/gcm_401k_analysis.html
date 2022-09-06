@@ -1056,7 +1056,7 @@ age, income, family size, education, marital status, etc. We consider 16 covaria
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Fitting causal mechanism of node smcol: 100%|██████████| 18/18 [00:06&lt;00:00,  2.85it/s]
+Fitting causal mechanism of node smcol: 100%|██████████| 18/18 [00:06&lt;00:00,  2.82it/s]
 </pre></div></div>
 </div>
 <p>Before computing CATE, we first divide households into equi-width bins of income percentiles. This allows us to study the impact on various income groups.</p>
@@ -1121,8 +1121,8 @@ Estimating boostrap interval...: 100%|██████████| 100/100 [0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;ate&#39;: 6600.914294655994, &#39;0%-20%&#39;: 4181.090208412592, &#39;20%-40%&#39;: 3504.1279152151146, &#39;40%-60%&#39;: 5673.156046820423, &#39;60%-80%&#39;: 7556.196736506455, &#39;80%-100%&#39;: 11897.017838089085}
-{&#39;ate&#39;: array([5028.83053527, 8489.53606726]), &#39;0%-20%&#39;: array([2679.19283792, 5840.08864135]), &#39;20%-40%&#39;: array([1303.07312206, 5855.79118953]), &#39;40%-60%&#39;: array([3646.47396286, 8198.69241081]), &#39;60%-80%&#39;: array([ 4806.20253483, 10892.22542831]), &#39;80%-100%&#39;: array([ 5390.97094126, 18565.53387516])}
+{&#39;ate&#39;: 6580.26174274343, &#39;0%-20%&#39;: 3959.818366034636, &#39;20%-40%&#39;: 3219.031054151253, &#39;40%-60%&#39;: 5558.8803918649455, &#39;60%-80%&#39;: 7585.65716129369, &#39;80%-100%&#39;: 12376.867159450578}
+{&#39;ate&#39;: array([4975.75757536, 8502.6541458 ]), &#39;0%-20%&#39;: array([2529.58014286, 5664.82012486]), &#39;20%-40%&#39;: array([ 985.07085301, 5402.72552147]), &#39;40%-60%&#39;: array([3496.74634874, 8165.87434112]), &#39;60%-80%&#39;: array([ 4998.42988644, 10842.29545918]), &#39;80%-100%&#39;: array([ 5874.98733343, 19293.03821278])}
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1157,7 +1157,7 @@ Estimating boostrap interval...: 100%|██████████| 100/100 [0
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_20987/1344202636.py:4: UserWarning: color is redundantly defined by the &#39;color&#39; keyword argument and the fmt string &#34;ro-&#34; (-&gt; color=&#39;r&#39;). The keyword argument will take precedence.
+/tmp/ipykernel_20994/1344202636.py:4: UserWarning: color is redundantly defined by the &#39;color&#39; keyword argument and the fmt string &#34;ro-&#34; (-&gt; color=&#39;r&#39;). The keyword argument will take precedence.
   plt.plot((x, x), (ci[0], ci[1]), &#39;ro-&#39;, color=&#39;orange&#39;)
 </pre></div></div>
 </div>
