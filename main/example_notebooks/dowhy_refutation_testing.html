@@ -1314,13 +1314,13 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[y_factual|x11,x1,x2,x15,x5,x18,x13,x9,x23,x7,x4,x25,x12,x16,x6,
+────────────(E[y_factual|x18,x6,x7,x10,x17,x15,x5,x2,x14,x24,x8,x16,x25,x13,x9
 d[treatment]
 
 
-x10,x21,x3,x24,x19,x20,x8,x17,x22,x14])
+,x1,x12,x20,x19,x22,x11,x3,x21,x4,x23])
 
-Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x11,x1,x2,x15,x5,x18,x13,x9,x23,x7,x4,x25,x12,x16,x6,x10,x21,x3,x24,x19,x20,x8,x17,x22,x14,U) = P(y_factual|treatment,x11,x1,x2,x15,x5,x18,x13,x9,x23,x7,x4,x25,x12,x16,x6,x10,x21,x3,x24,x19,x20,x8,x17,x22,x14)
+Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x18,x6,x7,x10,x17,x15,x5,x2,x14,x24,x8,x16,x25,x13,x9,x1,x12,x20,x19,x22,x11,x3,x21,x4,x23,U) = P(y_factual|treatment,x18,x6,x7,x10,x17,x15,x5,x2,x14,x24,x8,x16,x25,x13,x9,x1,x12,x20,x19,x22,x11,x3,x21,x4,x23)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1356,9 +1356,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
    d
-────────(E[re78|educ,age,nodegr,black,hisp,married])
+────────(E[re78|hisp,married,age,educ,nodegr,black])
 d[treat]
-Estimand assumption 1, Unconfoundedness: If U→{treat} and U→re78 then P(re78|treat,educ,age,nodegr,black,hisp,married,U) = P(re78|treat,educ,age,nodegr,black,hisp,married)
+Estimand assumption 1, Unconfoundedness: If U→{treat} and U→re78 then P(re78|treat,hisp,married,age,educ,nodegr,black,U) = P(re78|treat,hisp,married,age,educ,nodegr,black)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1394,7 +1394,7 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-The Causal Estimate is 4.028748218389925
+The Causal Estimate is 4.028748218389996
 </pre></div></div>
 </div>
 </section>
@@ -1418,7 +1418,7 @@ The Causal Estimate is 4.028748218389925
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-The Causal Estimate is 1639.8129280012536
+The Causal Estimate is 1639.830597178424
 </pre></div></div>
 </div>
 </section>
@@ -1449,9 +1449,9 @@ The Causal Estimate is 1639.8129280012536
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:4.028748218389925
-New effect:4.0277329772027315
-p value:0.96
+Estimated effect:4.028748218389996
+New effect:4.027323143871572
+p value:1.0
 
 </pre></div></div>
 </div>
@@ -1479,9 +1479,9 @@ p value:0.96
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:4.028748218389925
-New effect:-0.034352164142707836
-p value:0.76
+Estimated effect:4.028748218389996
+New effect:0.012553991753524318
+p value:0.94
 
 </pre></div></div>
 </div>
@@ -1508,9 +1508,9 @@ p value:0.76
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:4.028748218389925
-New effect:4.029572004293471
-p value:0.98
+Estimated effect:4.028748218389996
+New effect:4.019890735320153
+p value:0.8200000000000001
 
 </pre></div></div>
 </div>
@@ -1755,9 +1755,9 @@ Please also refer to the documentation for alternative solver options:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:1639.8129280012536
-New effect:1641.1539641185
-p value:0.94
+Estimated effect:1639.830597178424
+New effect:1640.5477872086128
+p value:1.0
 
 </pre></div></div>
 </div>
@@ -1766,6 +1766,14 @@ p value:0.94
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
+/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
 /github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
 STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
 
@@ -1794,15 +1802,30 @@ Please also refer to the documentation for alternative solver options:
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1639.8129280012536
-New effect:-30.523157555479692
-p value:0.98
+Estimated effect:1639.830597178424
+New effect:49.02196915479408
+p value:0.9
 
 </pre></div></div>
 </div>
@@ -1830,9 +1853,9 @@ p value:0.98
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:1639.8129280012536
-New effect:1663.0758825664911
-p value:0.9
+Estimated effect:1639.830597178424
+New effect:1606.112130845575
+p value:0.8200000000000001
 
 </pre></div></div>
 </div>
