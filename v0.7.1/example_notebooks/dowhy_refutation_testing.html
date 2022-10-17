@@ -989,13 +989,13 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[y_factual|x23,x14,x25,x2,x10,x20,x24,x17,x8,x11,x4,x19,x6,x13,x
+────────────(E[y_factual|x17,x3,x13,x20,x19,x5,x9,x23,x15,x4,x25,x12,x11,x18,x
 d[treatment]
 
 
-3,x9,x7,x18,x22,x16,x21,x12,x15,x1,x5])
+22,x2,x24,x21,x1,x8,x10,x6,x16,x14,x7])
 
-Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x23,x14,x25,x2,x10,x20,x24,x17,x8,x11,x4,x19,x6,x13,x3,x9,x7,x18,x22,x16,x21,x12,x15,x1,x5,U) = P(y_factual|treatment,x23,x14,x25,x2,x10,x20,x24,x17,x8,x11,x4,x19,x6,x13,x3,x9,x7,x18,x22,x16,x21,x12,x15,x1,x5)
+Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x17,x3,x13,x20,x19,x5,x9,x23,x15,x4,x25,x12,x11,x18,x22,x2,x24,x21,x1,x8,x10,x6,x16,x14,x7,U) = P(y_factual|treatment,x17,x3,x13,x20,x19,x5,x9,x23,x15,x4,x25,x12,x11,x18,x22,x2,x24,x21,x1,x8,x10,x6,x16,x14,x7)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1031,9 +1031,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
    d
-────────(E[re78|nodegr,educ,hisp,black,age,married])
+────────(E[re78|educ,nodegr,married,age,hisp,black])
 d[treat]
-Estimand assumption 1, Unconfoundedness: If U→{treat} and U→re78 then P(re78|treat,nodegr,educ,hisp,black,age,married,U) = P(re78|treat,nodegr,educ,hisp,black,age,married)
+Estimand assumption 1, Unconfoundedness: If U→{treat} and U→re78 then P(re78|treat,educ,nodegr,married,age,hisp,black,U) = P(re78|treat,educ,nodegr,married,age,hisp,black)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1069,7 +1069,7 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-The Causal Estimate is 4.028748218389904
+The Causal Estimate is 4.028748218389509
 </pre></div></div>
 </div>
 </section>
@@ -1093,7 +1093,7 @@ The Causal Estimate is 4.028748218389904
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-The Causal Estimate is 1639.8148308701875
+The Causal Estimate is 1639.8094811321698
 </pre></div></div>
 </div>
 </section>
@@ -1124,9 +1124,9 @@ The Causal Estimate is 1639.8148308701875
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:4.028748218389904
-New effect:4.029921678207488
-p value:0.84
+Estimated effect:4.028748218389509
+New effect:4.0297278001224655
+p value:0.8999999999999999
 
 </pre></div></div>
 </div>
@@ -1154,9 +1154,9 @@ p value:0.84
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:4.028748218389904
-New effect:-0.014547971758869616
-p value:0.8600000000000001
+Estimated effect:4.028748218389509
+New effect:0.00421821235806684
+p value:0.98
 
 </pre></div></div>
 </div>
@@ -1183,9 +1183,9 @@ p value:0.8600000000000001
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:4.028748218389904
-New effect:4.032556598705488
-p value:0.9
+Estimated effect:4.028748218389509
+New effect:4.032781453070055
+p value:0.98
 
 </pre></div></div>
 </div>
@@ -1398,25 +1398,6 @@ Increase the number of iterations (max_iter) or scale the data as shown in:
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Refute: Add a random common cause
-Estimated effect:1639.8148308701875
-New effect:1642.0966166447042
-p value:0.76
-
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
 /github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
 STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
 
@@ -1425,6 +1406,42 @@ Increase the number of iterations (max_iter) or scale the data as shown in:
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
+/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Refute: Add a random common cause
+Estimated effect:1639.8094811321698
+New effect:1640.284516339497
+p value:0.88
+
 </pre></div></div>
 </div>
 </section>
@@ -1451,9 +1468,9 @@ Please also refer to the documentation for alternative solver options:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1639.8148308701875
-New effect:-11.539851265428679
-p value:0.96
+Estimated effect:1639.8094811321698
+New effect:-21.79612241712728
+p value:0.9199999999999999
 
 </pre></div></div>
 </div>
@@ -1481,9 +1498,9 @@ p value:0.96
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:1639.8148308701875
-New effect:1620.0143742511416
-p value:0.94
+Estimated effect:1639.8094811321698
+New effect:1690.4369131731655
+p value:0.84
 
 </pre></div></div>
 </div>
