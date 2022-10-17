@@ -686,9 +686,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W2,W1])
+─────(E[y|W2,W0,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,U) = P(y|v0,W0,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W0,W1,U) = P(y|v0,W2,W0,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -737,16 +737,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W2,W1])
+─────(E[y|W2,W0,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,U) = P(y|v0,W0,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W0,W1,U) = P(y|v0,W2,W0,W1)
 
 ## Realized estimand
-b: y~v0+W0+W2+W1
+b: y~v0+W2+W0+W1
 Target units: ate
 
 ## Estimate
-Mean value: 13.41756869760881
+Mean value: 7.008058054077229
 
 </pre></div></div>
 </div>
@@ -788,24 +788,24 @@ Mean value: 13.41756869760881
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Bootstrap Sample Dataset
-Estimated effect:13.41756869760881
-New effect:12.545400788537155
-p value:0.6200000000000001
+Estimated effect:7.008058054077229
+New effect:6.974243268156706
+p value:0.8
 
 Refute: Use a subset of data
-Estimated effect:13.41756869760881
-New effect:12.696244651640937
-p value:0.6599999999999999
+Estimated effect:7.008058054077229
+New effect:6.857353516661409
+p value:0.6000000000000001
 
 Refute: Bootstrap Sample Dataset
-Estimated effect:13.41756869760881
-New effect:12.870571229530096
-p value:0.72
+Estimated effect:7.008058054077229
+New effect:6.734234018483923
+p value:0.6599999999999999
 
 Refute: Use a subset of data
-Estimated effect:13.41756869760881
-New effect:12.983510168743805
-p value:0.8200000000000001
+Estimated effect:7.008058054077229
+New effect:6.913838122500184
+p value:0.6599999999999999
 
 </pre></div></div>
 </div>
@@ -839,9 +839,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W2,W1])
+─────(E[y|W2,W0,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,U) = P(y|v0,W0,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W0,W1,U) = P(y|v0,W2,W0,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -888,16 +888,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W2,W1])
+─────(E[y|W2,W0,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,U) = P(y|v0,W0,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W0,W1,U) = P(y|v0,W2,W0,W1)
 
 ## Realized estimand
-b: y~v0+W0+W2+W1
+b: y~v0+W2+W0+W1
 Target units: ate
 
 ## Estimate
-Mean value: 13.41756869760881
+Mean value: 7.008058054077229
 
 </pre></div></div>
 </div>
@@ -924,14 +924,14 @@ Mean value: 13.41756869760881
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Bootstrap Sample Dataset
-Estimated effect:13.41756869760881
-New effect:12.996718164900837
-p value:0.72
+Estimated effect:7.008058054077229
+New effect:6.887211919604324
+p value:0.8400000000000001
 
 Refute: Use a subset of data
-Estimated effect:13.41756869760881
-New effect:12.96229229616485
-p value:0.76
+Estimated effect:7.008058054077229
+New effect:6.806209097961297
+p value:0.52
 
 </pre></div></div>
 </div>
