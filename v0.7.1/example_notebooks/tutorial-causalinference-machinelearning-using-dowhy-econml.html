@@ -2,15 +2,16 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-B139P18WHM');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B139P18WHM');
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tutorial on Causal Inference and its Connections to Machine Learning (Using DoWhy+EconML) &mdash; DoWhy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -625,15 +626,15 @@ on estimating the effect of the instrument on the action and the outcome to esti
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W2,W4,W3,W1,W0])
+─────(E[y|W3,W1,W4,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W4,W3,W1,W0,U) = P(y|v0,W2,W4,W3,W1,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W1,W4,W2,W0,U) = P(y|v0,W3,W1,W4,W2,W0)
 
 ### Estimand : 2
 Estimand name: iv
@@ -674,22 +675,22 @@ No such variable(s) found!
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W2,W4,W3,W1,W0])
+─────(E[y|W3,W1,W4,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W4,W3,W1,W0,U) = P(y|v0,W2,W4,W3,W1,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W1,W4,W2,W0,U) = P(y|v0,W3,W1,W4,W2,W0)
 
 ## Realized estimand
-b: y~v0+W2+W4+W3+W1+W0
+b: y~v0+W3+W1+W4+W2+W0
 Target units: ate
 
 ## Estimate
-Mean value: 10.124069195968334
+Mean value: 9.97515385099477
 
 </pre></div></div>
 </div>
@@ -713,15 +714,6 @@ Mean value: 10.124069195968334
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-2022-09-06 07:45:30.815293: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-09-06 07:45:30.815334: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
@@ -730,23 +722,24 @@ Mean value: 10.124069195968334
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W2,W4,W3,W1,W0])
+─────(E[y|W3,W1,W4,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W4,W3,W1,W0,U) = P(y|v0,W2,W4,W3,W1,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W1,W4,W2,W0,U) = P(y|v0,W3,W1,W4,W2,W0)
 
 ## Realized estimand
-b: y~v0+W2+W4+W3+W1+W0 |
+b: y~v0+W3+W1+W4+W2+W0 |
 Target units: ate
 
 ## Estimate
-Mean value: 9.98917157981155
-Effect estimates: [9.98917158 9.98917158 9.98917158 ... 9.98917158 9.98917158 9.98917158]
+Mean value: 10.026232384864327
+Effect estimates: [10.02623238 10.02623238 10.02623238 ... 10.02623238 10.02623238
+ 10.02623238]
 
 </pre></div></div>
 </div>
@@ -770,8 +763,8 @@ estimate value of 0 when the action variable is replaced by a random variable, i
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:10.124069195968334
-New effect:-0.006339487683754324
+Estimated effect:9.97515385099477
+New effect:-0.0029349165318926624
 p value:0.96
 
 </pre></div></div>
@@ -824,11 +817,11 @@ than learning a new toolkit. The power of EconML is that you can now implement t
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0         s        w1
-0  12.715532  24.866617  2.474603  4.235070  0.310188
-1   9.328700  18.663652  1.861506  4.462359 -0.214760
-2   9.862164  19.767893 -1.952565  5.569114  0.238547
-3   9.899971  19.538034 -2.238025  0.502396 -1.550577
-4  21.456592  43.125440 -3.913918  6.706603  0.562646
+0  15.275617  30.652026 -3.052707  7.973290  0.117866
+1   9.065945  17.563815  1.783919  4.488651 -0.632718
+2   6.447495  12.034397  0.420342  4.891998 -0.423480
+3  19.081578  39.557481 -3.516577  7.695286  2.351887
+4  20.725338  41.937791  3.752477  3.497517  1.638838
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -871,7 +864,7 @@ than learning a new toolkit. The power of EconML is that you can now implement t
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
@@ -917,7 +910,7 @@ No such variable(s) found!
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
@@ -932,9 +925,9 @@ b: Outcome~Treatment+w0+w1
 Target units: ate
 
 ## Estimate
-Mean value: 1.9986060746232925
+Mean value: 1.9987669241180221
 
-Causal Estimate is 1.9986060746232925
+Causal Estimate is 1.9987669241180221
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -975,7 +968,7 @@ Causal Estimate is 1.9986060746232925
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
@@ -990,8 +983,8 @@ b: Outcome~Treatment+w0+w1 |
 Target units: ate
 
 ## Estimate
-Mean value: 1.2182123589935554
-Effect estimates: [1.21821236 1.21821236 1.21821236 ... 1.21821236 1.21821236 1.21821236]
+Mean value: 1.1438625763183992
+Effect estimates: [1.14386258 1.14386258 1.14386258 ... 1.14386258 1.14386258 1.14386258]
 
 </pre></div></div>
 </div>
@@ -1014,9 +1007,9 @@ Effect estimates: [1.21821236 1.21821236 1.21821236 ... 1.21821236 1.21821236 1.
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:1.2182123589935554
-New effect:1.2119695268721595
-p value:0.8799999999999999
+Estimated effect:1.1438625763183992
+New effect:1.101967281062564
+p value:0.10000000000000009
 
 </pre></div></div>
 </div>
@@ -1037,9 +1030,9 @@ p value:0.8799999999999999
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1.2182123589935554
-New effect:6.729787609443356e-06
-p value:0.49567024274643623
+Estimated effect:1.1438625763183992
+New effect:-2.9553606260939776e-05
+p value:0.4759878826411381
 
 </pre></div></div>
 </div>

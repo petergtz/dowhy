@@ -5,15 +5,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-B139P18WHM');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B139P18WHM');
+    </script>
+    
     <title>DoWhy-The Causal Story Behind Hotel Booking Cancellations &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -1305,7 +1306,7 @@ definite conclusion at this stage. Thus assigning rooms different to what a cust
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 588.8049$</div></div>
+$\displaystyle 588.3506$</div></div>
 </div>
 <p>We now consider the scenario when there were no booking changes and recalculate the expected count.</p>
 <div class="nbinput docutils container">
@@ -1329,7 +1330,7 @@ $\displaystyle 588.8049$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 572.5345$</div></div>
+$\displaystyle 572.6322$</div></div>
 </div>
 <p>In the 2nd case, we take the scenario when there were booking changes(&gt;0) and recalculate the expected count.</p>
 <div class="nbinput docutils container">
@@ -1353,7 +1354,7 @@ $\displaystyle 572.5345$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 665.9366$</div></div>
+$\displaystyle 665.8038$</div></div>
 </div>
 <p>There is definitely some change happening when the number of booking changes are non-zero. So it gives us a hint that <em>Booking Changes</em> may be affecting room cancellation.</p>
 <p>But is <em>Booking Changes</em> the only confounding variable? What if there were some unobserved confounders, regarding which we have no information(feature) present in our dataset. Would we still be able to make the same claims as before?</p>
@@ -1461,23 +1462,23 @@ as parameters in the function mentioned below.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
 Estimand expression:
             d
-──────────────────────────(E[is_canceled|required_car_parking_spaces,total_sta
+──────────────────────────(E[is_canceled|total_stay,days_in_waiting_list,is_re
 d[different_room_assigned]
 
 
-y,is_repeated_guest,lead_time,guests,days_in_waiting_list,hotel,total_of_speci
+peated_guest,hotel,required_car_parking_spaces,lead_time,booking_changes,guest
 
 
 
-al_requests,booking_changes])
+s,total_of_special_requests])
 
-Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,required_car_parking_spaces,total_stay,is_repeated_guest,lead_time,guests,days_in_waiting_list,hotel,total_of_special_requests,booking_changes,U) = P(is_canceled|different_room_assigned,required_car_parking_spaces,total_stay,is_repeated_guest,lead_time,guests,days_in_waiting_list,hotel,total_of_special_requests,booking_changes)
+Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,total_stay,days_in_waiting_list,is_repeated_guest,hotel,required_car_parking_spaces,lead_time,booking_changes,guests,total_of_special_requests,U) = P(is_canceled|different_room_assigned,total_stay,days_in_waiting_list,is_repeated_guest,hotel,required_car_parking_spaces,lead_time,booking_changes,guests,total_of_special_requests)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1513,30 +1514,30 @@ No such variable(s) found!
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
 Estimand expression:
             d
-──────────────────────────(E[is_canceled|required_car_parking_spaces,total_sta
+──────────────────────────(E[is_canceled|total_stay,days_in_waiting_list,is_re
 d[different_room_assigned]
 
 
-y,is_repeated_guest,lead_time,guests,days_in_waiting_list,hotel,total_of_speci
+peated_guest,hotel,required_car_parking_spaces,lead_time,booking_changes,guest
 
 
 
-al_requests,booking_changes])
+s,total_of_special_requests])
 
-Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,required_car_parking_spaces,total_stay,is_repeated_guest,lead_time,guests,days_in_waiting_list,hotel,total_of_special_requests,booking_changes,U) = P(is_canceled|different_room_assigned,required_car_parking_spaces,total_stay,is_repeated_guest,lead_time,guests,days_in_waiting_list,hotel,total_of_special_requests,booking_changes)
+Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,total_stay,days_in_waiting_list,is_repeated_guest,hotel,required_car_parking_spaces,lead_time,booking_changes,guests,total_of_special_requests,U) = P(is_canceled|different_room_assigned,total_stay,days_in_waiting_list,is_repeated_guest,hotel,required_car_parking_spaces,lead_time,booking_changes,guests,total_of_special_requests)
 
 ## Realized estimand
-b: is_canceled~different_room_assigned+required_car_parking_spaces+total_stay+is_repeated_guest+lead_time+guests+days_in_waiting_list+hotel+total_of_special_requests+booking_changes
+b: is_canceled~different_room_assigned+total_stay+days_in_waiting_list+is_repeated_guest+hotel+required_car_parking_spaces+lead_time+booking_changes+guests+total_of_special_requests
 Target units: ate
 
 ## Estimate
-Mean value: -0.26222462343737496
+Mean value: -0.26222341591308984
 
 </pre></div></div>
 </div>
@@ -1567,9 +1568,9 @@ Mean value: -0.26222462343737496
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:-0.26222462343737496
-New effect:-0.2622015488876368
-p value:0.8
+Estimated effect:-0.26222341591308984
+New effect:-0.26222197637139055
+p value:0.88
 
 </pre></div></div>
 </div>
@@ -1593,9 +1594,9 @@ p value:0.8
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:-0.26222462343737496
-New effect:-0.0002687729588066878
-p value:0.8999999999999999
+Estimated effect:-0.26222341591308984
+New effect:8.518525737335304e-05
+p value:0.98
 
 </pre></div></div>
 </div>
@@ -1619,9 +1620,9 @@ p value:0.8999999999999999
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:-0.26222462343737496
-New effect:-0.26254626036023987
-p value:0.78
+Estimated effect:-0.26222341591308984
+New effect:-0.26207353130779565
+p value:0.92
 
 </pre></div></div>
 </div>

@@ -5,15 +5,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-B139P18WHM');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B139P18WHM');
+    </script>
+    
     <title>A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -799,42 +800,42 @@ div.rendered_html tbody tr:hover {
     <tr>
       <th>0</th>
       <td>0.0</td>
-      <td>2.247226</td>
-      <td>-0.721084</td>
-      <td>7.727351</td>
-      <td>80.784077</td>
+      <td>-2.059019</td>
+      <td>0.052025</td>
+      <td>-2.328868</td>
+      <td>-24.197996</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.0</td>
-      <td>0.722391</td>
-      <td>-0.056984</td>
-      <td>4.593847</td>
-      <td>47.707019</td>
+      <td>0.091023</td>
+      <td>-0.796451</td>
+      <td>-0.445983</td>
+      <td>-6.741461</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.0</td>
-      <td>1.058475</td>
-      <td>-1.045151</td>
-      <td>15.621581</td>
-      <td>155.297601</td>
+      <td>0.0</td>
+      <td>-0.834724</td>
+      <td>-1.614203</td>
+      <td>-2.363718</td>
+      <td>-28.782386</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.0</td>
-      <td>0.943218</td>
-      <td>-2.015280</td>
-      <td>0.778123</td>
-      <td>3.000302</td>
+      <td>-0.065268</td>
+      <td>1.300109</td>
+      <td>3.250331</td>
+      <td>36.277333</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.0</td>
-      <td>-0.236434</td>
-      <td>-0.644563</td>
-      <td>-4.161423</td>
-      <td>-44.606437</td>
+      <td>1.0</td>
+      <td>-1.176801</td>
+      <td>0.793677</td>
+      <td>10.438030</td>
+      <td>106.085262</td>
     </tr>
   </tbody>
 </table>
@@ -883,7 +884,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
@@ -932,7 +933,7 @@ No such variable(s) found!
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: iv
@@ -946,7 +947,7 @@ Estimand assumption 2, Exclusion: If we remove {Z0}→{v0}, then ¬({Z0}→y)
 
 ## Realized estimand
 Realized estimand: Wald Estimator
-Realized estimand type: nonparametric-ate
+Realized estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand expression:
  ⎡ d    ⎤  -1⎡ d     ⎤
 E⎢───(y)⎥⋅E  ⎢───(v₀)⎥
@@ -959,7 +960,7 @@ Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome y is 
 Target units: ate
 
 ## Estimate
-Mean value: 10.002752456522936
+Mean value: 10.002102523631338
 
 </pre></div></div>
 </div>
@@ -988,8 +989,8 @@ Mean value: 10.002752456522936
 <div class="highlight"><pre>
 Refute: Use a Dummy Outcome
 Estimated effect:0
-New effect:4.8053734302010604e-05
-p value:0.98
+New effect:-0.0002398444542006015
+p value:0.8200000000000001
 
 </pre></div></div>
 </div>
@@ -1033,8 +1034,8 @@ p value:0.98
 <div class="highlight"><pre>
 Refute: Use a Dummy Outcome
 Estimated effect:0
-New effect:5.171842977014089e-05
-p value:0.94
+New effect:-9.723520683181486e-05
+p value:0.98
 
 </pre></div></div>
 </div>

@@ -5,15 +5,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-B139P18WHM');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B139P18WHM');
+    </script>
+    
     <title>Tutorial on Causal Inference and its Connections to Machine Learning (Using DoWhy+EconML) &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -799,15 +800,15 @@ on estimating the effect of the instrument on the action and the outcome to esti
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W2,W1,W3,W4])
+─────(E[y|W4,W1,W0,W3,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,W3,W4,U) = P(y|v0,W0,W2,W1,W3,W4)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W1,W0,W3,W2,U) = P(y|v0,W4,W1,W0,W3,W2)
 
 ### Estimand : 2
 Estimand name: iv
@@ -815,9 +816,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+ ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 
 ### Estimand : 3
 Estimand name: frontdoor
@@ -848,22 +849,22 @@ No such variable(s) found!
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W2,W1,W3,W4])
+─────(E[y|W4,W1,W0,W3,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,W3,W4,U) = P(y|v0,W0,W2,W1,W3,W4)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W1,W0,W3,W2,U) = P(y|v0,W4,W1,W0,W3,W2)
 
 ## Realized estimand
-b: y~v0+W0+W2+W1+W3+W4
+b: y~v0+W4+W1+W0+W3+W2
 Target units: ate
 
 ## Estimate
-Mean value: 9.985122232916915
+Mean value: 10.164033638431686
 
 </pre></div></div>
 </div>
@@ -887,15 +888,6 @@ Mean value: 9.985122232916915
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-2022-09-06 08:25:39.333901: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-09-06 08:25:39.333943: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
@@ -904,23 +896,23 @@ Mean value: 9.985122232916915
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W2,W1,W3,W4])
+─────(E[y|W4,W1,W0,W3,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,W3,W4,U) = P(y|v0,W0,W2,W1,W3,W4)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W1,W0,W3,W2,U) = P(y|v0,W4,W1,W0,W3,W2)
 
 ## Realized estimand
-b: y~v0+W0+W2+W1+W3+W4 |
+b: y~v0+W4+W1+W0+W3+W2 |
 Target units: ate
 
 ## Estimate
-Mean value: 9.994039341698484
-Effect estimates: [9.99403934 9.99403934 9.99403934 ... 9.99403934 9.99403934 9.99403934]
+Mean value: 9.95261408622026
+Effect estimates: [9.95261409 9.95261409 9.95261409 ... 9.95261409 9.95261409 9.95261409]
 
 </pre></div></div>
 </div>
@@ -944,9 +936,9 @@ estimate value of 0 when the action variable is replaced by a random variable, i
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:9.985122232916915
-New effect:-0.005404527736864752
-p value:0.8999999999999999
+Estimated effect:10.164033638431686
+New effect:0.002709264488285308
+p value:0.96
 
 </pre></div></div>
 </div>
@@ -998,11 +990,11 @@ than learning a new toolkit. The power of EconML is that you can now implement t
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0         s        w1
-0   8.579391  17.244535  1.371901  1.378859  1.118972
-1  21.814557  43.483608 -3.930065  7.264453  0.600262
-2   6.480212  12.750862  0.202579  4.948697  0.930591
-3  12.881357  25.856668 -2.679752  8.149020 -0.401318
-4  12.411256  24.859419  2.648837  1.837605 -0.564970
+0  18.420350  27.086860  3.436137  3.750908  1.966506
+1  12.689133  21.778037  2.683552  1.852634 -1.109772
+2  19.120738  28.722549  3.604302  9.757590  1.149210
+3  27.950902  38.283541  4.688161  9.947569 -0.875196
+4   7.213272  15.358045  1.340208  4.630887 -0.880093
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1045,7 +1037,7 @@ than learning a new toolkit. The power of EconML is that you can now implement t
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
@@ -1091,7 +1083,7 @@ No such variable(s) found!
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
@@ -1106,9 +1098,9 @@ b: Outcome~Treatment+w0+w1
 Target units: ate
 
 ## Estimate
-Mean value: 1.9993224078463465
+Mean value: 0.9990599608150568
 
-Causal Estimate is 1.9993224078463465
+Causal Estimate is 0.9990599608150568
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1149,7 +1141,7 @@ Causal Estimate is 1.9993224078463465
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
@@ -1164,8 +1156,8 @@ b: Outcome~Treatment+w0+w1 |
 Target units: ate
 
 ## Estimate
-Mean value: 1.06360138574351
-Effect estimates: [1.06360139 1.06360139 1.06360139 ... 1.06360139 1.06360139 1.06360139]
+Mean value: 0.0
+Effect estimates: [0. 0. 0. ... 0. 0. 0.]
 
 </pre></div></div>
 </div>
@@ -1188,9 +1180,9 @@ Effect estimates: [1.06360139 1.06360139 1.06360139 ... 1.06360139 1.06360139 1.
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:1.06360138574351
-New effect:1.1170184903310236
-p value:0.02
+Estimated effect:0.0
+New effect:0.01083277028439018
+p value:0.44
 
 </pre></div></div>
 </div>
@@ -1211,9 +1203,9 @@ p value:0.02
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1.06360138574351
-New effect:-5.3745883652142494e-05
-p value:0.46670460126179947
+Estimated effect:0.0
+New effect:3.8238620469943716e-05
+p value:0.4557957952331628
 
 </pre></div></div>
 </div>

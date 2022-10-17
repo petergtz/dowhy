@@ -5,15 +5,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-B139P18WHM');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B139P18WHM');
+    </script>
+    
     <title>Installation &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -287,7 +288,6 @@ pip install pygraphviz --install-option<span class="o">=</span><span class="s2">
 </section>
 <section id="installing-on-azure-machine-learning">
 <h2>Installing on Azure Machine Learning<a class="headerlink" href="#installing-on-azure-machine-learning" title="Permalink to this heading"></a></h2>
-<p>Eli Y. Kling {<a class="reference external" href="https://www.linkedin.com/in/elikling/">https://www.linkedin.com/in/elikling/</a>}</p>
 <p>In Azure Machine Learning it is not that straight forward to identify in the terminal window the python (Conda) envornoments used by the notebook. Thus, it is easier to run shell commands from within the notebook. The secret is NOT to use the ! magic but the %.</p>
 <p><strong>Getting the latest release</strong></p>
 <p>In an new python code cell type:</p>

@@ -5,15 +5,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-B139P18WHM');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B139P18WHM');
+    </script>
+    
     <title>Estimating effect of multiple treatments &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -720,63 +721,63 @@ div.rendered_html tbody tr:hover {
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.609621</td>
-      <td>-0.797571</td>
-      <td>-1.328371</td>
-      <td>-1.723265</td>
+      <td>1.554222</td>
+      <td>-1.808086</td>
+      <td>-2.259724</td>
+      <td>-0.174223</td>
+      <td>0</td>
       <td>3</td>
-      <td>2</td>
-      <td>3.140382</td>
-      <td>8.616164</td>
-      <td>90.945121</td>
+      <td>-0.393562</td>
+      <td>-0.847054</td>
+      <td>1.422816</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.032484</td>
-      <td>-0.808138</td>
-      <td>-3.244074</td>
-      <td>-1.339372</td>
+      <td>-0.187340</td>
+      <td>-2.436976</td>
+      <td>-0.469151</td>
+      <td>0.545370</td>
+      <td>0</td>
       <td>1</td>
-      <td>2</td>
-      <td>-3.694724</td>
-      <td>1.888317</td>
-      <td>-14.724261</td>
+      <td>2.406899</td>
+      <td>4.198350</td>
+      <td>9.981742</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.196060</td>
-      <td>-1.977003</td>
-      <td>-0.951078</td>
-      <td>-0.617432</td>
+      <td>0.235965</td>
+      <td>-0.505048</td>
+      <td>-0.724598</td>
+      <td>1.371334</td>
       <td>2</td>
-      <td>3</td>
-      <td>8.960099</td>
-      <td>10.828575</td>
-      <td>-470.014070</td>
+      <td>0</td>
+      <td>6.923216</td>
+      <td>10.822159</td>
+      <td>136.215438</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2.002854</td>
-      <td>-0.393323</td>
-      <td>-1.778785</td>
-      <td>0.024475</td>
-      <td>1</td>
+      <td>0.208177</td>
+      <td>-0.349502</td>
+      <td>-1.231480</td>
+      <td>-1.308774</td>
       <td>0</td>
-      <td>-1.160150</td>
-      <td>1.503232</td>
-      <td>-3.878201</td>
+      <td>0</td>
+      <td>-8.621546</td>
+      <td>-9.241239</td>
+      <td>-216.828961</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.849258</td>
-      <td>-0.889659</td>
-      <td>-0.470615</td>
-      <td>-2.968420</td>
-      <td>1</td>
-      <td>2</td>
-      <td>-7.392107</td>
-      <td>-3.308195</td>
-      <td>-163.072351</td>
+      <td>0.362028</td>
+      <td>-0.999523</td>
+      <td>-1.058227</td>
+      <td>1.543079</td>
+      <td>3</td>
+      <td>3</td>
+      <td>19.465797</td>
+      <td>19.909347</td>
+      <td>-205.667528</td>
     </tr>
   </tbody>
 </table>
@@ -823,15 +824,15 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W1,W3,W0])
+─────────(E[y|W3,W0,W2,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W1,W3,W0,U) = P(y|v0,v1,W2,W1,W3,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W0,W2,W1,U) = P(y|v0,v1,W3,W0,W2,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -868,22 +869,22 @@ No such variable(s) found!
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W1,W3,W0])
+─────────(E[y|W3,W0,W2,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W1,W3,W0,U) = P(y|v0,v1,W2,W1,W3,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W0,W2,W1,U) = P(y|v0,v1,W3,W0,W2,W1)
 
 ## Realized estimand
-b: y~v0+v1+W2+W1+W3+W0+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W3+W0+W2+W1+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: -0.35738198069153526
+Mean value: 3.1420496203326422
 
 </pre></div></div>
 </div>
@@ -908,49 +909,49 @@ Mean value: -0.35738198069153526
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W1,W3,W0])
+─────────(E[y|W3,W0,W2,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W1,W3,W0,U) = P(y|v0,v1,W2,W1,W3,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W0,W2,W1,U) = P(y|v0,v1,W3,W0,W2,W1)
 
 ## Realized estimand
-b: y~v0+v1+W2+W1+W3+W0+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W3+W0+W2+W1+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: -0.35738198069153526
+Mean value: 3.1420496203326422
 ### Conditional Estimates
-__categorical__X0  __categorical__X1
-(-2.82, -0.0414]   (-4.9750000000000005, -1.727]   -64.819373
-                   (-1.727, -1.145]                -34.399012
-                   (-1.145, -0.637]                -14.774348
-                   (-0.637, -0.0503]                 3.877628
-                   (-0.0503, 3.699]                 35.868679
-(-0.0414, 0.544]   (-4.9750000000000005, -1.727]   -54.523793
-                   (-1.727, -1.145]                -24.868956
-                   (-1.145, -0.637]                 -5.796663
-                   (-0.637, -0.0503]                12.029928
-                   (-0.0503, 3.699]                 42.977500
-(0.544, 1.041]     (-4.9750000000000005, -1.727]   -50.860889
-                   (-1.727, -1.145]                -19.605235
-                   (-1.145, -0.637]                 -0.333383
-                   (-0.637, -0.0503]                18.734544
-                   (-0.0503, 3.699]                 50.059477
-(1.041, 1.634]     (-4.9750000000000005, -1.727]   -43.849930
-                   (-1.727, -1.145]                -13.084494
-                   (-1.145, -0.637]                  5.136868
-                   (-0.637, -0.0503]                23.800213
-                   (-0.0503, 3.699]                 53.418512
-(1.634, 4.626]     (-4.9750000000000005, -1.727]   -36.713125
-                   (-1.727, -1.145]                 -4.170318
-                   (-1.145, -0.637]                 14.675526
-                   (-0.637, -0.0503]                32.984682
-                   (-0.0503, 3.699]                 65.174665
+__categorical__X1  __categorical__X0
+(-4.815, -1.805]   (-2.949, -0.159]    -86.698120
+                   (-0.159, 0.42]      -60.775970
+                   (0.42, 0.917]       -43.452610
+                   (0.917, 1.526]      -27.824597
+                   (1.526, 4.92]         1.911876
+(-1.805, -1.234]   (-2.949, -0.159]    -58.370700
+                   (-0.159, 0.42]      -31.957100
+                   (0.42, 0.917]       -15.390416
+                   (0.917, 1.526]        0.786453
+                   (1.526, 4.92]        29.244364
+(-1.234, -0.722]   (-2.949, -0.159]    -41.070221
+                   (-0.159, 0.42]      -14.419197
+                   (0.42, 0.917]         2.684350
+                   (0.917, 1.526]       18.937840
+                   (1.526, 4.92]        47.321039
+(-0.722, -0.125]   (-2.949, -0.159]    -21.440222
+                   (-0.159, 0.42]        3.786031
+                   (0.42, 0.917]        20.773318
+                   (0.917, 1.526]       37.524835
+                   (1.526, 4.92]        64.349701
+(-0.125, 2.505]    (-2.949, -0.159]      8.030690
+                   (-0.159, 0.42]       33.683130
+                   (0.42, 0.917]        48.490499
+                   (0.917, 1.526]       66.703992
+                   (1.526, 4.92]        95.589243
 dtype: float64
 </pre></div></div>
 </div>

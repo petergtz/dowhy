@@ -2,15 +2,16 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-B139P18WHM');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B139P18WHM');
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Confounding Example: Finding causal effects from observed data &mdash; DoWhy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -473,11 +474,11 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0
-0   9.551665  18.929776  3.705310
-1   2.824987   5.286860 -3.456535
-2   2.277826   4.879179 -3.733801
-3   9.390104  18.777509  3.324522
-4   3.101040   6.337151 -2.846832
+0   9.951989  19.881970  3.992500
+1   9.840681  20.061083  3.981289
+2   2.302232   4.964988 -3.464134
+3   2.759720   5.780768 -3.176125
+4   3.360887   6.402107 -2.867931
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -551,7 +552,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Estimand type: nonparametric-ate
+Estimand type: EstimandType.NONPARAMETRIC_ATE
 
 ### Estimand : 1
 Estimand name: backdoor
@@ -594,7 +595,7 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Causal Estimate is 1.0115306124242824
+Causal Estimate is 0.0011145735986985983
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -621,8 +622,8 @@ Causal Estimate is 1.0115306124242824
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DoWhy estimate is 1.0115306124242824
-Actual true causal effect was 1
+DoWhy estimate is 0.0011145735986985983
+Actual true causal effect was 0
 </pre></div></div>
 </div>
 </section>
@@ -647,9 +648,9 @@ Actual true causal effect was 1
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:1.0115306124242824
-New effect:1.0115338031617627
-p value:0.96
+Estimated effect:0.0011145735986985983
+New effect:0.00111548558828213
+p value:0.8999999999999999
 
 </pre></div></div>
 </div>
@@ -672,9 +673,9 @@ p value:0.96
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1.0115306124242824
-New effect:-3.055290623381168e-05
-p value:0.96
+Estimated effect:0.0011145735986985983
+New effect:3.1387165201870456e-05
+p value:0.94
 
 </pre></div></div>
 </div>
@@ -697,9 +698,9 @@ p value:0.96
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:1.0115306124242824
-New effect:1.0113641629781376
-p value:0.8999999999999999
+Estimated effect:0.0011145735986985983
+New effect:0.0007923277491235226
+p value:0.9199999999999999
 
 </pre></div></div>
 </div>

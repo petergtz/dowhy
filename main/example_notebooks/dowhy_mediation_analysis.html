@@ -5,15 +5,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-B139P18WHM');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-B139P18WHM');
+    </script>
+    
     <title>Mediation analysis with DoWhy: Direct and Indirect Effects &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -715,12 +716,12 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-        FD0        W0        v0          y
-0  2.281452  0.211331  1.126000  12.007940
-1 -6.525092 -1.558788 -5.090351 -37.857212
-2  7.030631  1.549285  4.110140  40.294804
-3  1.722157  0.065537  1.202560   8.733627
-4 -2.570065 -0.496942 -2.609422 -14.481443
+         FD0        W0        v0           y
+0   3.618737  0.760999  1.882567   21.092744
+1  13.854467  1.429724  5.315933   73.988125
+2   7.114026  0.887343  3.089553   38.691671
+3  -0.580732 -0.175229 -0.157186   -3.626229
+4 -18.704333 -2.395701 -6.598099 -102.006927
 </pre></div></div>
 </div>
 </section>
@@ -771,7 +772,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Estimand type: nonparametric-nde
+Estimand type: EstimandType.NONPARAMETRIC_NDE
 
 ### Estimand : 1
 Estimand name: mediation
@@ -801,7 +802,7 @@ Estimand assumption 3, Second-stage-unconfoundedness: If U→{FD0} and U→y the
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Estimand type: nonparametric-nie
+Estimand type: EstimandType.NONPARAMETRIC_NIE
 
 ### Estimand : 1
 Estimand name: mediation
@@ -848,7 +849,7 @@ Estimand assumption 3, Second-stage-unconfoundedness: If U→{FD0} and U→y the
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-nie
+Estimand type: EstimandType.NONPARAMETRIC_NIE
 
 ### Estimand : 1
 Estimand name: mediation
@@ -865,7 +866,7 @@ Estimand assumption 3, Second-stage-unconfoundedness: If U→{FD0} and U→y the
 Target units: ate
 
 ## Estimate
-Mean value: 7.4681798727032485
+Mean value: 12.825892281287919
 
 </pre></div></div>
 </div>
@@ -883,7 +884,7 @@ Mean value: 7.4681798727032485
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-7.4681798727032485 7.444626483858386
+12.825892281287919 12.788107956871183
 </pre></div></div>
 </div>
 <p>The parameter is called <code class="docutils literal notranslate"><span class="pre">ate</span></code> because in the simulated dataset, the direct effect is set to be zero.</p>
@@ -916,7 +917,7 @@ Mean value: 7.4681798727032485
 *** Causal Estimate ***
 
 ## Identified estimand
-Estimand type: nonparametric-nde
+Estimand type: EstimandType.NONPARAMETRIC_NDE
 
 ### Estimand : 1
 Estimand name: mediation
@@ -933,7 +934,7 @@ Estimand assumption 3, Second-stage-unconfoundedness: If U→{FD0} and U→y the
 Target units: ate
 
 ## Estimate
-Mean value: -3.7243006358878006e-05
+Mean value: 7.484751032293957e-06
 
 </pre></div></div>
 </div>
