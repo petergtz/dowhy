@@ -686,9 +686,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W2,W1,W0])
+─────(E[y|W0,W1,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W1,W0,U) = P(y|v0,W2,W1,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,U) = P(y|v0,W0,W1,W2)
 
 ### Estimand : 2
 Estimand name: iv
@@ -696,9 +696,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
-Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
+ ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
+Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
 
 ### Estimand : 3
 Estimand name: frontdoor
@@ -737,16 +737,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W2,W1,W0])
+─────(E[y|W0,W1,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W1,W0,U) = P(y|v0,W2,W1,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,U) = P(y|v0,W0,W1,W2)
 
 ## Realized estimand
-b: y~v0+W2+W1+W0
+b: y~v0+W0+W1+W2
 Target units: ate
 
 ## Estimate
-Mean value: 11.036872354787803
+Mean value: 20.75667952090532
 
 </pre></div></div>
 </div>
@@ -788,24 +788,24 @@ Mean value: 11.036872354787803
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Bootstrap Sample Dataset
-Estimated effect:11.036872354787803
-New effect:10.914592669345673
-p value:0.6399999999999999
+Estimated effect:20.75667952090532
+New effect:19.3947881133683
+p value:0.8
 
 Refute: Use a subset of data
-Estimated effect:11.036872354787803
-New effect:10.627940630634336
-p value:0.3400000000000001
+Estimated effect:20.75667952090532
+New effect:20.342292818157997
+p value:1.0
 
 Refute: Bootstrap Sample Dataset
-Estimated effect:11.036872354787803
-New effect:10.800749009803805
+Estimated effect:20.75667952090532
+New effect:18.863418624315145
 p value:0.6000000000000001
 
 Refute: Use a subset of data
-Estimated effect:11.036872354787803
-New effect:10.648430460677398
-p value:0.41999999999999993
+Estimated effect:20.75667952090532
+New effect:20.15402823582066
+p value:0.94
 
 </pre></div></div>
 </div>
@@ -839,9 +839,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W2,W1,W0])
+─────(E[y|W0,W1,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W1,W0,U) = P(y|v0,W2,W1,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,U) = P(y|v0,W0,W1,W2)
 
 ### Estimand : 2
 Estimand name: iv
@@ -849,9 +849,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
-Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
+ ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
+Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
 
 ### Estimand : 3
 Estimand name: frontdoor
@@ -888,16 +888,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W2,W1,W0])
+─────(E[y|W0,W1,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W1,W0,U) = P(y|v0,W2,W1,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,U) = P(y|v0,W0,W1,W2)
 
 ## Realized estimand
-b: y~v0+W2+W1+W0
+b: y~v0+W0+W1+W2
 Target units: ate
 
 ## Estimate
-Mean value: 11.036872354787803
+Mean value: 20.75667952090532
 
 </pre></div></div>
 </div>
@@ -924,14 +924,14 @@ Mean value: 11.036872354787803
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Bootstrap Sample Dataset
-Estimated effect:11.036872354787803
-New effect:10.628756564099962
-p value:0.45999999999999996
+Estimated effect:20.75667952090532
+New effect:19.574946000116366
+p value:0.76
 
 Refute: Use a subset of data
-Estimated effect:11.036872354787803
-New effect:10.67611913148337
-p value:0.3999999999999999
+Estimated effect:20.75667952090532
+New effect:20.18835227724488
+p value:0.9199999999999999
 
 </pre></div></div>
 </div>
