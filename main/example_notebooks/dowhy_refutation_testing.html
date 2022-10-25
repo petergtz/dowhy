@@ -1019,96 +1019,51 @@ from college), whethershe worked during pregnancy, whether she received prenatal
 <h3>References<a class="headerlink" href="#References" title="Permalink to this heading"></a></h3>
 <p>Dehejia, Rajeev and Sadek Wahba. 1999.``Causal Effects in Non-Experimental Studies: Re-Evaluating the Evaluation of Training Programs.’’ Journal of the American Statistical Association 94 (448): 1053-1062.</p>
 <p>LaLonde, Robert. 1986. ``Evaluating the Econometric Evaluations of Training Programs.’’ American Economic Review 76:604-620.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rpy2.robjects</span> <span class="kn">import</span> <span class="n">r</span> <span class="k">as</span> <span class="n">R</span>
-
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">expanduser</span>
-<span class="n">home</span> <span class="o">=</span> <span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span>
-
-<span class="o">%</span><span class="k">reload_ext</span> rpy2.ipython
-
-<span class="c1"># %R install.packages(&quot;Matching&quot;)</span>
-<span class="o">%</span><span class="k">R</span> library(Matching)
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-R[write to console]: Loading required package: MASS
-
-R[write to console]: ##
-##  Matching (Version 4.10-2, Build Date: 2022-04-13)
-##  See http://sekhon.berkeley.edu/matching for additional documentation.
-##  Please cite software as:
-##   Jasjeet S. Sekhon. 2011. ``Multivariate and Propensity Score Matching
-##   Software with Automated Balance Optimization: The Matching package for R.&#39;&#39;
-##   Journal of Statistical Software, 42(7): 1-52.
-##
-
-
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<span>StrVector with 10 elements.</span>
-<table>
+<table class="table">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
 <tbody>
-  <tr>
-
-    <td>
-    'Matching'
-    </td>
-
-    <td>
-    'MASS'
-    </td>
-
-    <td>
-    'tools'
-    </td>
-
-    <td>
-    ...
-    </td>
-
-    <td>
-    'datasets'
-    </td>
-
-    <td>
-    'methods'
-    </td>
-
-    <td>
-    'base'
-    </td>
-
-  </tr>
+<tr class="row-odd"><td><p>The following code for loading the Lalonde dataset was copied from
+<a class="reference external" href="https://github.com/wayfair/pylift/blob/5afc9088e96f25672423663f5c9b4bb889b4dfc0/examples/Lalonde/Lalonde_sample.ipynb?short_path=b1d451f#L94-L99">wayfair/pylift</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Copyright 2018, Wayfair, Inc.</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</em></p></td>
+</tr>
 </tbody>
-</table></div>
-</div>
+</table>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">R</span> data(lalonde)
-<span class="o">%</span><span class="k">R</span> -o lalonde
-<span class="n">lalonde</span> <span class="o">=</span> <span class="n">lalonde</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s1">&#39;treat&#39;</span><span class="p">:</span><span class="s1">&#39;bool&#39;</span><span class="p">},</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;educ&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;hisp&#39;</span><span class="p">,</span> <span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="s1">&#39;nodegr&#39;</span><span class="p">,</span><span class="s1">&#39;re74&#39;</span><span class="p">,</span><span class="s1">&#39;re75&#39;</span><span class="p">,</span><span class="s1">&#39;re78&#39;</span><span class="p">]</span>
+<span class="n">control</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;http://www.nber.org/~rdehejia/data/nswre74_control.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">cols</span><span class="p">)</span>
+<span class="n">treated</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;http://www.nber.org/~rdehejia/data/nswre74_treated.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">cols</span><span class="p">)</span>
+<span class="n">lalonde</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">control</span><span class="p">,</span> <span class="n">treated</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s1">&#39;treat&#39;</span><span class="p">:</span><span class="s1">&#39;bool&#39;</span><span class="p">},</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;u74&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;re74&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;u75&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;re75&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
 <span class="n">lalonde</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1130,6 +1085,7 @@ R[write to console]: ##
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>treat</th>
       <th>age</th>
       <th>educ</th>
       <th>black</th>
@@ -1141,84 +1097,83 @@ R[write to console]: ##
       <th>re78</th>
       <th>u74</th>
       <th>u75</th>
-      <th>treat</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <th>0</th>
+      <td>False</td>
+      <td>23.0</td>
+      <td>10.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
       <th>1</th>
-      <td>37</td>
-      <td>11</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
+      <td>False</td>
+      <td>26.0</td>
+      <td>12.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>9930.05</td>
-      <td>1</td>
-      <td>1</td>
-      <td>True</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>12383.68</td>
+      <td>1.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>22</td>
-      <td>9</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
+      <td>False</td>
+      <td>22.0</td>
+      <td>9.0</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>3595.89</td>
-      <td>1</td>
-      <td>1</td>
-      <td>True</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>30</td>
-      <td>12</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>False</td>
+      <td>18.0</td>
+      <td>9.0</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>24909.50</td>
-      <td>1</td>
-      <td>1</td>
-      <td>True</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10740.08</td>
+      <td>1.0</td>
+      <td>1.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>27</td>
-      <td>11</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
+      <td>False</td>
+      <td>45.0</td>
+      <td>11.0</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>7506.15</td>
-      <td>1</td>
-      <td>1</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>33</td>
-      <td>8</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>289.79</td>
-      <td>1</td>
-      <td>1</td>
-      <td>True</td>
+      <td>11796.47</td>
+      <td>1.0</td>
+      <td>1.0</td>
     </tr>
   </tbody>
 </table>
@@ -1232,7 +1187,7 @@ R[write to console]: ##
 <section id="IHDP">
 <h2>IHDP<a class="headerlink" href="#IHDP" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a causal model from the data and given common causes</span>
@@ -1265,7 +1220,7 @@ R[write to console]: ##
 <section id="Lalonde">
 <h2>Lalonde<a class="headerlink" href="#Lalonde" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lalonde_model</span> <span class="o">=</span> <span class="n">CausalModel</span><span class="p">(</span>
@@ -1294,7 +1249,7 @@ R[write to console]: ##
 <section id="id1">
 <h2>IHDP<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Identify the causal effect for the ihdp dataset</span>
@@ -1314,13 +1269,13 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[y_factual|x20,x2,x7,x19,x25,x8,x4,x1,x21,x13,x18,x17,x11,x10,x1
+────────────(E[y_factual|x4,x19,x12,x3,x25,x17,x22,x20,x13,x8,x7,x9,x11,x18,x2
 d[treatment]
 
 
-4,x12,x6,x22,x9,x15,x5,x24,x23,x3,x16])
+1,x24,x2,x14,x16,x5,x6,x15,x23,x10,x1])
 
-Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x20,x2,x7,x19,x25,x8,x4,x1,x21,x13,x18,x17,x11,x10,x14,x12,x6,x22,x9,x15,x5,x24,x23,x3,x16,U) = P(y_factual|treatment,x20,x2,x7,x19,x25,x8,x4,x1,x21,x13,x18,x17,x11,x10,x14,x12,x6,x22,x9,x15,x5,x24,x23,x3,x16)
+Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x4,x19,x12,x3,x25,x17,x22,x20,x13,x8,x7,x9,x11,x18,x21,x24,x2,x14,x16,x5,x6,x15,x23,x10,x1,U) = P(y_factual|treatment,x4,x19,x12,x3,x25,x17,x22,x20,x13,x8,x7,x9,x11,x18,x21,x24,x2,x14,x16,x5,x6,x15,x23,x10,x1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1336,7 +1291,7 @@ No such variable(s) found!
 <section id="id2">
 <h2>Lalonde<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Identify the causal effect for the lalonde dataset</span>
@@ -1356,9 +1311,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
    d
-────────(E[re78|married,nodegr,age,hisp,black,educ])
+────────(E[re78|age,hisp,educ,married,nodegr,black])
 d[treat]
-Estimand assumption 1, Unconfoundedness: If U→{treat} and U→re78 then P(re78|treat,married,nodegr,age,hisp,black,educ,U) = P(re78|treat,married,nodegr,age,hisp,black,educ)
+Estimand assumption 1, Unconfoundedness: If U→{treat} and U→re78 then P(re78|treat,age,hisp,educ,married,nodegr,black,U) = P(re78|treat,age,hisp,educ,married,nodegr,black)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1377,7 +1332,7 @@ No such variable(s) found!
 <section id="id3">
 <h2>IHDP<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ihdp_estimate</span> <span class="o">=</span> <span class="n">ihdp_model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span>
@@ -1401,7 +1356,7 @@ The Causal Estimate is 4.028748218389512
 <section id="id4">
 <h2>Lalonde<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lalonde_estimate</span> <span class="o">=</span> <span class="n">lalonde_model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span>
@@ -1418,7 +1373,7 @@ The Causal Estimate is 4.028748218389512
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-The Causal Estimate is 1639.8116845064005
+The Causal Estimate is 1639.7809516050584
 </pre></div></div>
 </div>
 </section>
@@ -1430,7 +1385,7 @@ The Causal Estimate is 1639.8116845064005
 <section id="Add-Random-Common-Cause">
 <h3>Add Random Common Cause<a class="headerlink" href="#Add-Random-Common-Cause" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ihdp_refute_random_common_cause</span> <span class="o">=</span> <span class="n">ihdp_model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span>
@@ -1450,8 +1405,8 @@ The Causal Estimate is 1639.8116845064005
 <div class="highlight"><pre>
 Refute: Add a random common cause
 Estimated effect:4.028748218389512
-New effect:4.029199757845732
-p value:0.9
+New effect:4.028682684130729
+p value:0.96
 
 </pre></div></div>
 </div>
@@ -1459,7 +1414,7 @@ p value:0.9
 <section id="Replace-Treatment-with-Placebo">
 <h3>Replace Treatment with Placebo<a class="headerlink" href="#Replace-Treatment-with-Placebo" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ihdp_refute_placebo_treatment</span> <span class="o">=</span> <span class="n">ihdp_model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span>
@@ -1480,8 +1435,8 @@ p value:0.9
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
 Estimated effect:4.028748218389512
-New effect:0.012019586637600792
-p value:0.92
+New effect:0.017996949625747553
+p value:0.98
 
 </pre></div></div>
 </div>
@@ -1489,7 +1444,7 @@ p value:0.92
 <section id="Remove-Random-Subset-of-Data">
 <h3>Remove Random Subset of Data<a class="headerlink" href="#Remove-Random-Subset-of-Data" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ihdp_refute_random_subset</span> <span class="o">=</span> <span class="n">ihdp_model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span>
@@ -1509,8 +1464,8 @@ p value:0.92
 <div class="highlight"><pre>
 Refute: Use a subset of data
 Estimated effect:4.028748218389512
-New effect:4.025598350806591
-p value:0.8999999999999999
+New effect:4.02611364383341
+p value:0.8600000000000001
 
 </pre></div></div>
 </div>
@@ -1521,7 +1476,7 @@ p value:0.8999999999999999
 <section id="id7">
 <h3>Add Random Common Cause<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lalonde_refute_random_common_cause</span> <span class="o">=</span> <span class="n">lalonde_model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span>
@@ -1699,86 +1654,6 @@ Increase the number of iterations (max_iter) or scale the data as shown in:
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
-/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1787,9 +1662,9 @@ Please also refer to the documentation for alternative solver options:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:1639.8116845064005
-New effect:1641.974747775498
-p value:1.0
+Estimated effect:1639.7809516050584
+New effect:1643.236189149839
+p value:0.84
 
 </pre></div></div>
 </div>
@@ -1806,13 +1681,45 @@ Increase the number of iterations (max_iter) or scale the data as shown in:
 Please also refer to the documentation for alternative solver options:
     https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
   n_iter_i = _check_optimize_result(
+/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
 </pre></div></div>
 </div>
 </section>
 <section id="id8">
 <h3>Replace Treatment with Placebo<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lalonde_refute_placebo_treatment</span> <span class="o">=</span> <span class="n">lalonde_model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span>
@@ -1826,15 +1733,38 @@ Please also refer to the documentation for alternative solver options:
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1639.8116845064005
-New effect:-71.18314980369236
-p value:0.9199999999999999
+Estimated effect:1639.7809516050584
+New effect:-3.3269479439990026
+p value:0.96
 
 </pre></div></div>
 </div>
@@ -1842,7 +1772,7 @@ p value:0.9199999999999999
 <section id="id9">
 <h3>Remove Random Subset of Data<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lalonde_refute_random_subset</span> <span class="o">=</span> <span class="n">lalonde_model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span>
@@ -1856,14 +1786,29 @@ p value:0.9199999999999999
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/github/home/.cache/pypoetry/virtualenvs/dowhy-oN2hW5jr-py3.8/lib/python3.8/site-packages/sklearn/linear_model/_logistic.py:814: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:1639.8116845064005
-New effect:1642.350324268003
+Estimated effect:1639.7809516050584
+New effect:1648.977267080209
 p value:0.86
 
 </pre></div></div>

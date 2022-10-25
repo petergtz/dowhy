@@ -681,9 +681,6 @@ div.rendered_html tbody tr:hover {
 <p>We’ll run through a quick example using the high-level Python API for the DoSampler. The DoSampler is different from most classic causal effect estimators. Instead of estimating statistics under interventions, it aims to provide the generality of Pearlian causal inference. In that context, the joint distribution of the variables under an intervention is the quantity of interest. It’s hard to represent a joint distribution nonparametrically, so instead we provide a sample from that distribution,
 which we call a “do” sample.</p>
 <p>Here, when you specify an outcome, that is the variable you’re sampling under an intervention. We still have to do the usual process of making sure the quantity (the conditional interventional distribution of the outcome) is identifiable. We leverage the familiar components of the rest of the package to do that “under the hood”. You’ll notice some similarity in the kwargs for the DoSampler.</p>
-<section id="Getting-the-Data">
-<h2>Getting the Data<a class="headerlink" href="#Getting-the-Data" title="Permalink to this heading"></a></h2>
-<p>First, download the data from the LaLonde example.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -693,50 +690,49 @@ which we call a “do” sample.</p>
 </pre></div>
 </div>
 </div>
-<div class="nbinput docutils container">
+<section id="Getting-the-Data">
+<h2>Getting the Data<a class="headerlink" href="#Getting-the-Data" title="Permalink to this heading"></a></h2>
+<p>First, download the data from the LaLonde example.</p>
+<table class="table">
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>The following code for loading the Lalonde dataset was copied from
+<a class="reference external" href="https://github.com/wayfair/pylift/blob/5afc9088e96f25672423663f5c9b4bb889b4dfc0/examples/Lalonde/Lalonde_sample.ipynb?short_path=b1d451f#L94-L99">wayfair/pylift</a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>Copyright 2018, Wayfair, Inc.</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rpy2.robjects</span> <span class="kn">import</span> <span class="n">r</span> <span class="k">as</span> <span class="n">R</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="o">%</span><span class="k">load_ext</span> rpy2.ipython
-<span class="c1">#%R install.packages(&quot;Matching&quot;)</span>
-<span class="o">%</span><span class="k">R</span> library(Matching)
-<span class="o">%</span><span class="k">R</span> data(lalonde)
-<span class="o">%</span><span class="k">R</span> -o lalonde
-<span class="n">lalonde</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;lalonde.csv&quot;</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-R[write to console]: Loading required package: MASS
-
-R[write to console]: ##
-##  Matching (Version 4.10-2, Build Date: 2022-04-13)
-##  See http://sekhon.berkeley.edu/matching for additional documentation.
-##  Please cite software as:
-##   Jasjeet S. Sekhon. 2011. ``Multivariate and Propensity Score Matching
-##   Software with Automated Balance Optimization: The Matching package for R.&#39;&#39;
-##   Journal of Statistical Software, 42(7): 1-52.
-##
-
-
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the data already loaded in the previous cell. we include the import</span>
-<span class="c1"># here you so you don&#39;t have to keep re-downloading it.</span>
-
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">lalonde</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;lalonde.csv&quot;</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;educ&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;hisp&#39;</span><span class="p">,</span> <span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="s1">&#39;nodegr&#39;</span><span class="p">,</span><span class="s1">&#39;re74&#39;</span><span class="p">,</span><span class="s1">&#39;re75&#39;</span><span class="p">,</span><span class="s1">&#39;re78&#39;</span><span class="p">]</span>
+<span class="n">control</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;http://www.nber.org/~rdehejia/data/nswre74_control.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">cols</span><span class="p">)</span>
+<span class="n">treated</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;http://www.nber.org/~rdehejia/data/nswre74_treated.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">cols</span><span class="p">)</span>
+<span class="n">lalonde</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">control</span><span class="p">,</span> <span class="n">treated</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s1">&#39;treat&#39;</span><span class="p">:</span><span class="s1">&#39;bool&#39;</span><span class="p">},</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;u74&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;re74&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;u75&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;re75&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -745,7 +741,7 @@ R[write to console]: ##
 <h2>The <code class="docutils literal notranslate"><span class="pre">causal</span></code> Namespace<a class="headerlink" href="#The-causal-Namespace" title="Permalink to this heading"></a></h2>
 <p>We’ve created a “namespace” for <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>s containing causal inference methods. You can access it here with <code class="docutils literal notranslate"><span class="pre">lalonde.causal</span></code>, where <code class="docutils literal notranslate"><span class="pre">lalonde</span></code> is our <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>, and <code class="docutils literal notranslate"><span class="pre">causal</span></code> contains all our new methods! These methods are magically loaded into your existing (and future) dataframes when you <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">dowhy.api</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dowhy.api</span>
@@ -758,7 +754,7 @@ R[write to console]: ##
 <h2>The <code class="docutils literal notranslate"><span class="pre">do</span></code> Operation<a class="headerlink" href="#The-do-Operation" title="Permalink to this heading"></a></h2>
 <p>The key feature here is the <code class="docutils literal notranslate"><span class="pre">do</span></code> method, which produces a new dataframe replacing the treatment variable with values specified, and the outcome with a sample from the interventional distribution of the outcome. If you don’t specify a value for the treatment, it leaves the treatment untouched:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_df</span> <span class="o">=</span> <span class="n">lalonde</span><span class="o">.</span><span class="n">causal</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;treat&#39;</span><span class="p">,</span>
@@ -773,7 +769,7 @@ R[write to console]: ##
 <p>Notice you get the usual output and prompts about identifiability. This is all <code class="docutils literal notranslate"><span class="pre">dowhy</span></code> under the hood!</p>
 <p>We now have an interventional sample in <code class="docutils literal notranslate"><span class="pre">do_df</span></code>. It looks very similar to the original dataframe. Compare them:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lalonde</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -781,6 +777,131 @@ R[write to console]: ##
 </div>
 </div>
 <div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>treat</th>
+      <th>age</th>
+      <th>educ</th>
+      <th>black</th>
+      <th>hisp</th>
+      <th>married</th>
+      <th>nodegr</th>
+      <th>re74</th>
+      <th>re75</th>
+      <th>re78</th>
+      <th>u74</th>
+      <th>u75</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>False</td>
+      <td>23.0</td>
+      <td>10.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>False</td>
+      <td>26.0</td>
+      <td>12.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>12383.68</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>22.0</td>
+      <td>9.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>18.0</td>
+      <td>9.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>10740.08</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+      <td>45.0</td>
+      <td>11.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>11796.47</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
@@ -803,6 +924,7 @@ R[write to console]: ##
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>treat</th>
       <th>age</th>
       <th>educ</th>
       <th>black</th>
@@ -814,132 +936,6 @@ R[write to console]: ##
       <th>re78</th>
       <th>u74</th>
       <th>u75</th>
-      <th>treat</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>37</td>
-      <td>11</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>9930.05</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>22</td>
-      <td>9</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>3595.89</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>30</td>
-      <td>12</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>24909.50</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>27</td>
-      <td>11</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>7506.15</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>33</td>
-      <td>8</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>289.79</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age</th>
-      <th>educ</th>
-      <th>black</th>
-      <th>hisp</th>
-      <th>married</th>
-      <th>nodegr</th>
-      <th>re74</th>
-      <th>re75</th>
-      <th>re78</th>
-      <th>u74</th>
-      <th>u75</th>
-      <th>treat</th>
       <th>propensity_score</th>
       <th>weight</th>
     </tr>
@@ -947,88 +943,88 @@ R[write to console]: ##
   <tbody>
     <tr>
       <th>0</th>
-      <td>21</td>
-      <td>9</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>6416.47</td>
-      <td>5749.330</td>
-      <td>743.667</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.379733</td>
-      <td>2.633427</td>
+      <td>False</td>
+      <td>23.0</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>7724.283</td>
+      <td>3403.056</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.605068</td>
+      <td>1.652707</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>17</td>
-      <td>9</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.00</td>
+      <td>False</td>
+      <td>20.0</td>
+      <td>7.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
       <td>0.000</td>
-      <td>3590.700</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0.626565</td>
-      <td>1.596004</td>
+      <td>0.000</td>
+      <td>4374.0400</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.707487</td>
+      <td>1.413454</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>18</td>
-      <td>9</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.00</td>
-      <td>559.596</td>
-      <td>7300.500</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.586024</td>
-      <td>1.706414</td>
+      <td>False</td>
+      <td>22.0</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1390.5090</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.606669</td>
+      <td>1.648345</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>29</td>
-      <td>14</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>679.673</td>
-      <td>17815.000</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.520229</td>
-      <td>1.922231</td>
+      <td>False</td>
+      <td>18.0</td>
+      <td>9.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>9227.0520</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.624983</td>
+      <td>1.600043</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>26</td>
-      <td>12</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.00</td>
+      <td>False</td>
+      <td>18.0</td>
+      <td>10.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
       <td>0.000</td>
-      <td>10747.400</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0.540408</td>
-      <td>1.850452</td>
+      <td>0.000</td>
+      <td>202.2847</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.636766</td>
+      <td>1.570436</td>
     </tr>
   </tbody>
 </table>
@@ -1039,7 +1035,7 @@ R[write to console]: ##
 <h2>Treatment Effect Estimation<a class="headerlink" href="#Treatment-Effect-Estimation" title="Permalink to this heading"></a></h2>
 <p>We could get a naive estimate before for a treatment effect by doing</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">lalonde</span><span class="p">[</span><span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">lalonde</span><span class="p">[</span><span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())[</span><span class="s1">&#39;re78&#39;</span><span class="p">]</span>
@@ -1047,16 +1043,16 @@ R[write to console]: ##
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1794.34308487526$</div></div>
+$\displaystyle 1794.34240427027$</div></div>
 </div>
 <p>We can do the same with our new sample from the interventional distribution to get a causal effect estimate</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">do_df</span><span class="p">[</span><span class="n">do_df</span><span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">do_df</span><span class="p">[</span><span class="n">do_df</span><span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())[</span><span class="s1">&#39;re78&#39;</span><span class="p">]</span>
@@ -1064,16 +1060,16 @@ $\displaystyle 1794.34308487526$</div></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 2250.32181412354$</div></div>
+$\displaystyle 1723.47357614314$</div></div>
 </div>
 <p>We could get some rough error bars on the outcome using the normal approximation for a 95% confidence interval, like</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1083,17 +1079,17 @@ $\displaystyle 2250.32181412354$</div></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1426.25893607093$</div></div>
+$\displaystyle 1401.00241735935$</div></div>
 </div>
 <p>but note that these DO NOT contain propensity score estimation error. For that, a bootstrapping procedure might be more appropriate.</p>
 <p>This is just one statistic we can compute from the interventional distribution of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can get all of the interventional moments as well, including functions of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can leverage the full power of pandas, like</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_df</span><span class="p">[</span><span class="s1">&#39;re78&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -1101,24 +1097,24 @@ $\displaystyle 1426.25893607093$</div></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 count      445.000000
-mean      5445.840191
-std       7738.940344
+mean      5508.111621
+std       7458.020556
 min          0.000000
 25%          0.000000
-50%       3196.570000
-75%       7618.640000
-max      60307.900000
+50%       3644.655000
+75%       8190.421000
+max      60307.930000
 Name: re78, dtype: float64
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;re78&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -1126,25 +1122,25 @@ Name: re78, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 count      445.000000
-mean      5300.765138
-std       6631.493362
+mean      5300.763699
+std       6631.491695
 min          0.000000
 25%          0.000000
-50%       3701.810000
-75%       8124.720000
-max      60307.900000
+50%       3701.812000
+75%       8124.715000
+max      60307.930000
 Name: re78, dtype: float64
 </pre></div></div>
 </div>
 <p>and even plot aggregations, like</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -1152,7 +1148,7 @@ Name: re78, dtype: float64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -1162,31 +1158,7 @@ Name: re78, dtype: float64
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;AxesSubplot: xlabel=&#39;treat&#39;, ylabel=&#39;re78&#39;&gt;
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/example_notebooks_lalonde_pandas_api_25_1.png" src="../_images/example_notebooks_lalonde_pandas_api_25_1.png" />
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">do_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;treat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;re78&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1201,12 +1173,36 @@ Name: re78, dtype: float64
 <img alt="../_images/example_notebooks_lalonde_pandas_api_26_1.png" src="../_images/example_notebooks_lalonde_pandas_api_26_1.png" />
 </div>
 </div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">do_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;treat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;re78&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;AxesSubplot: xlabel=&#39;treat&#39;, ylabel=&#39;re78&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/example_notebooks_lalonde_pandas_api_27_1.png" src="../_images/example_notebooks_lalonde_pandas_api_27_1.png" />
+</div>
+</div>
 </section>
 <section id="Specifying-Interventions">
 <h2>Specifying Interventions<a class="headerlink" href="#Specifying-Interventions" title="Permalink to this heading"></a></h2>
 <p>You can find the distribution of the outcome under an intervention to set the value of the treatment.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_df</span> <span class="o">=</span> <span class="n">lalonde</span><span class="o">.</span><span class="n">causal</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;treat&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
@@ -1219,7 +1215,7 @@ Name: re78, dtype: float64
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1227,7 +1223,7 @@ Name: re78, dtype: float64
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1249,6 +1245,7 @@ Name: re78, dtype: float64
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>treat</th>
       <th>age</th>
       <th>educ</th>
       <th>black</th>
@@ -1260,7 +1257,6 @@ Name: re78, dtype: float64
       <th>re78</th>
       <th>u74</th>
       <th>u75</th>
-      <th>treat</th>
       <th>propensity_score</th>
       <th>weight</th>
     </tr>
@@ -1268,88 +1264,88 @@ Name: re78, dtype: float64
   <tbody>
     <tr>
       <th>0</th>
-      <td>23</td>
-      <td>12</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>9385.74</td>
-      <td>1117.440</td>
-      <td>559.443</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.414559</td>
-      <td>2.412199</td>
+      <td>True</td>
+      <td>27.0</td>
+      <td>11.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>7506.1460</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.365492</td>
+      <td>2.736034</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>27</td>
-      <td>13</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>9381.57</td>
-      <td>853.723</td>
+      <td>True</td>
+      <td>18.0</td>
+      <td>10.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
       <td>0.000</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.620450</td>
-      <td>1.611734</td>
+      <td>0.000</td>
+      <td>11163.1700</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.363234</td>
+      <td>2.753044</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>17</td>
-      <td>10</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1291.47</td>
-      <td>5793.850</td>
-      <td>5522.790</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.361680</td>
-      <td>2.764878</td>
+      <td>True</td>
+      <td>23.0</td>
+      <td>12.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>9385.740</td>
+      <td>1117.439</td>
+      <td>559.4432</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.414557</td>
+      <td>2.412214</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>42</td>
-      <td>14</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0.00</td>
+      <td>True</td>
+      <td>20.0</td>
+      <td>11.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
       <td>0.000</td>
-      <td>13167.500</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0.593448</td>
-      <td>1.685067</td>
+      <td>0.000</td>
+      <td>3972.5400</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.354677</td>
+      <td>2.819464</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>23</td>
-      <td>12</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>6269.34</td>
-      <td>3039.960</td>
-      <td>8484.240</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0.535407</td>
-      <td>1.867737</td>
+      <td>True</td>
+      <td>18.0</td>
+      <td>10.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2143.411</td>
+      <td>1784.274</td>
+      <td>11141.3900</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.363234</td>
+      <td>2.753044</td>
     </tr>
   </tbody>
 </table>
@@ -1358,7 +1354,7 @@ Name: re78, dtype: float64
 <p>This new dataframe gives the distribution of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code> when <code class="docutils literal notranslate"><span class="pre">'treat'</span></code> is set to <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
 <p>For much more detail on how the <code class="docutils literal notranslate"><span class="pre">do</span></code> method works, check the docstring:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">lalonde</span><span class="o">.</span><span class="n">causal</span><span class="o">.</span><span class="n">do</span><span class="p">)</span>

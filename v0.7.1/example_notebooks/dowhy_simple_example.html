@@ -490,19 +490,19 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-         X0   Z0        Z1        W0        W1        W2        W3 W4     v0  \
-0  0.547893  0.0  0.994360  0.398288  0.648606 -0.653607 -1.519725  2   True
-1  3.265941  0.0  0.675330 -1.678541 -1.366803 -1.515135 -1.731527  3   True
-2  2.466932  0.0  0.926142 -1.831701 -1.259258 -0.544180 -0.679865  0  False
-3  0.743456  0.0  0.140255  0.218828 -2.946977 -1.462481 -0.524904  1  False
-4  3.230306  0.0  0.651944 -1.068805 -1.623227 -0.865012  0.137259  1  False
+         X0   Z0        Z1        W0        W1        W2        W3 W4    v0  \
+0  1.585793  1.0  0.772471  1.242287  0.508133  0.083738  0.088576  2  True
+1  1.863596  1.0  0.581399  1.623811  0.950458 -0.572963  0.836689  1  True
+2  1.266947  1.0  0.785675 -0.477185 -1.729982  0.917488 -0.210789  2  True
+3  0.720418  1.0  0.719862 -2.256674  1.938412 -0.738299  0.873388  2  True
+4  1.283686  1.0  0.333020  0.546470  0.648651 -0.202055  1.132847  2  True
 
            y
-0   4.185009
-1  -9.750671
-2 -13.945007
-3 -13.033897
-4  -8.524847
+0  26.880173
+1  29.203548
+2  14.467075
+3   5.630110
+4  22.202268
 digraph {v0-&gt;y;W0-&gt; v0; W1-&gt; v0; W2-&gt; v0; W3-&gt; v0; W4-&gt; v0;Z0-&gt; v0; Z1-&gt; v0;W0-&gt; y; W1-&gt; y; W2-&gt; y; W3-&gt; y; W4-&gt; y;X0-&gt; y;}
 
 
@@ -578,9 +578,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W3,W1,W2,W0,W4])
+─────(E[y|W1,W0,W4,W3,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W1,W2,W0,W4,U) = P(y|v0,W3,W1,W2,W0,W4)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W0,W4,W3,W2,U) = P(y|v0,W1,W0,W4,W3,W2)
 
 ### Estimand : 2
 Estimand name: iv
@@ -588,9 +588,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+ ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 
 ### Estimand : 3
 Estimand name: frontdoor
@@ -627,18 +627,18 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W3,W1,W2,W0,W4])
+─────(E[y|W1,W0,W4,W3,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W1,W2,W0,W4,U) = P(y|v0,W3,W1,W2,W0,W4)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W0,W4,W3,W2,U) = P(y|v0,W1,W0,W4,W3,W2)
 
 ## Realized estimand
-b: y~v0+W3+W1+W2+W0+W4
+b: y~v0+W1+W0+W4+W3+W2
 Target units: ate
 
 ## Estimate
-Mean value: 10.113766917899948
+Mean value: 16.206932494838888
 
-Causal Estimate is 10.113766917899948
+Causal Estimate is 16.206932494838888
 </pre></div></div>
 </div>
 <p>You can input additional parameters to the estimate_effect method. For instance, to estimate the effect on any subset of the units, you can specify the “target_units” parameter which can be a string (“ate”, “att”, or “atc”), lambda function that filters rows of the data frame, or a new dataframe on which to compute the effect. You can also specify “effect modifiers” to estimate heterogeneous effects across these variables. See <code class="docutils literal notranslate"><span class="pre">help(CausalModel.estimate_effect)</span></code>.</p>
@@ -669,18 +669,18 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W3,W1,W2,W0,W4])
+─────(E[y|W1,W0,W4,W3,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W1,W2,W0,W4,U) = P(y|v0,W3,W1,W2,W0,W4)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W0,W4,W3,W2,U) = P(y|v0,W1,W0,W4,W3,W2)
 
 ## Realized estimand
-b: y~v0+W3+W1+W2+W0+W4
+b: y~v0+W1+W0+W4+W3+W2
 Target units: atc
 
 ## Estimate
-Mean value: 10.102221188642279
+Mean value: 16.453225579648844
 
-Causal Estimate is 10.102221188642279
+Causal Estimate is 16.453225579648844
 </pre></div></div>
 </div>
 </section>
@@ -768,18 +768,18 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W3,W1,W2,W0,W4])
+─────(E[y|W1,W0,W4,W3,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W1,W2,W0,W4,U) = P(y|v0,W3,W1,W2,W0,W4)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W0,W4,W3,W2,U) = P(y|v0,W1,W0,W4,W3,W2)
 
 ## Realized estimand
-b: y~v0+W3+W1+W2+W0+W4
+b: y~v0+W1+W0+W4+W3+W2
 Target units: ate
 
 ## Estimate
-Mean value: 10.113766917899948
+Mean value: 16.206932494838888
 
-Causal Estimate is 10.113766917899948
+Causal Estimate is 16.206932494838888
 </pre></div></div>
 </div>
 </section>
@@ -814,9 +814,9 @@ Causal Estimate is 10.113766917899948
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:10.113766917899948
-New effect:10.102395725217573
-p value:0.78
+Estimated effect:16.206932494838888
+New effect:16.19378496905949
+p value:1.0
 
 </pre></div></div>
 </div>
@@ -839,8 +839,8 @@ p value:0.78
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:10.113766917899948
-New effect:0.003306706959854399
+Estimated effect:16.206932494838888
+New effect:0.0014095935810505933
 p value:0.98
 
 </pre></div></div>
@@ -864,9 +864,9 @@ p value:0.98
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:10.113766917899948
-New effect:10.049981845518307
-p value:0.6399999999999999
+Estimated effect:16.206932494838888
+New effect:16.253211215504713
+p value:0.8
 
 </pre></div></div>
 </div>
@@ -887,9 +887,9 @@ p value:0.6399999999999999
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:10.113766917899948
-New effect:10.028730960929376
-p value:0.52
+Estimated effect:16.206932494838888
+New effect:16.2342347725428
+p value:0.84
 
 </pre></div></div>
 </div>
@@ -919,8 +919,8 @@ unobserved common cause’s effect.</p>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add an Unobserved Common Cause
-Estimated effect:10.113766917899948
-New effect:9.828709626205601
+Estimated effect:16.206932494838888
+New effect:11.762792980181827
 
 </pre></div></div>
 </div>
@@ -949,8 +949,8 @@ New effect:9.828709626205601
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add an Unobserved Common Cause
-Estimated effect:10.113766917899948
-New effect:(8.971599858788805, 10.08014668943018)
+Estimated effect:16.206932494838888
+New effect:(5.153779459325838, 14.634270871580327)
 
 </pre></div></div>
 </div>
@@ -981,8 +981,8 @@ New effect:(8.971599858788805, 10.08014668943018)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add an Unobserved Common Cause
-Estimated effect:10.113766917899948
-New effect:(6.784653170506894, 10.125495150955969)
+Estimated effect:16.206932494838888
+New effect:(1.5558435707505949, 15.008200922012186)
 
 </pre></div></div>
 </div>
@@ -1011,8 +1011,8 @@ strength of observed confounders. There is an additional optional parameter sign
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add an Unobserved Common Cause
-Estimated effect:10.113766917899948
-New effect:(-0.23408327856032965, 10.040360287971417)
+Estimated effect:16.206932494838888
+New effect:(10.724303606038236, 16.671943217714034)
 
 </pre></div></div>
 </div>
