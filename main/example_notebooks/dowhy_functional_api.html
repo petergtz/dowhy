@@ -44,6 +44,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -145,34 +146,6 @@
       
       <div class="navbar-end-item">
         
-<div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
-        main-branch
-        <span class="caret"></span>
-    </button>
-    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
-        <dl>
-            <dt>Releases</dt>
-            <!-- hard-coding the old versions, as no further old version will be added -->
-            <!-- It would be nice if this opened the same page in an older version, but that seems to be overkill
-                 right now. Therefore defaulting to the starting page (index). -->
-            <dd><a href="/dowhy/v0.8/index.html">v0.8</a></dd>
-            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
-            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
-            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
-            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
-            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
-            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="/dowhy/v0.1-alpha/index.html">v0.1-alpha</a></dd>
-        </dl>
-        <dl>
-            <dt>Branches</dt>
-            <dd><a href="dowhy_functional_api.html">main</a></dd>
-        </dl>
-    </div>
-</div>
       </div>
       
     </div>
@@ -236,8 +209,8 @@
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#Estimate-Effect">
-     Estimate Effect
+    <a class="reference internal nav-link" href="#Estimate-Effect---Functional-API-(Preview)">
+     Estimate Effect - Functional API (Preview)
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
@@ -258,7 +231,7 @@
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
+    <a class="reference internal nav-link" href="#Estimate-Effect">
      Estimate Effect
     </a>
    </li>
@@ -579,6 +552,12 @@ E-values against measured confounders using Observed Covariate E-values. Plots E
     <span class="n">refute_estimate</span><span class="p">,</span>
 <span class="p">)</span>  <span class="c1"># import refuters</span>
 
+<span class="kn">from</span> <span class="nn">dowhy.causal_estimators.propensity_score_matching_estimator</span> <span class="kn">import</span> <span class="n">PropensityScoreMatchingEstimator</span>
+
+<span class="kn">from</span> <span class="nn">dowhy.utils.api</span> <span class="kn">import</span> <span class="n">parse_state</span>
+
+<span class="kn">from</span> <span class="nn">dowhy.causal_estimator</span> <span class="kn">import</span> <span class="n">estimate_effect</span>  <span class="c1"># Estimate effect function</span>
+
 <span class="kn">from</span> <span class="nn">dowhy.causal_graph</span> <span class="kn">import</span> <span class="n">CausalGraph</span>
 
 <span class="c1"># Other imports required</span>
@@ -599,6 +578,12 @@ E-values against measured confounders using Observed Covariate E-values. Plots E
     <span class="p">},</span>
 <span class="p">}</span>
 
+
+<span class="c1"># set random seed for deterministic dataset generation</span>
+<span class="c1"># and avoid problems when running tests</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
 <span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">DEFAULT_LOGGING</span><span class="p">)</span>
 <span class="c1"># Disabling warnings output</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
@@ -611,7 +596,7 @@ E-values against measured confounders using Observed Covariate E-values. Plots E
 </section>
 <section id="Create-the-Datasets">
 <h2>Create the Datasets<a class="headerlink" href="#Create-the-Datasets" title="Permalink to this heading"></a></h2>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -634,7 +619,9 @@ E-values against measured confounders using Observed Covariate E-values. Plots E
 <span class="p">)</span>
 
 <span class="n">treatment_name</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;treatment_name&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">treatment_name</span><span class="p">)</span>
 <span class="n">outcome_name</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;outcome_name&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">outcome_name</span><span class="p">)</span>
 
 <span class="n">graph</span> <span class="o">=</span> <span class="n">CausalGraph</span><span class="p">(</span>
     <span class="n">treatment_name</span><span class="o">=</span><span class="n">treatment_name</span><span class="p">,</span>
@@ -646,6 +633,15 @@ E-values against measured confounders using Observed Covariate E-values. Plots E
 <span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;v0&#39;]
+y
+</pre></div></div>
 </div>
 </section>
 <section id="Identify-Effect---Functional-API-(Preview)">
@@ -686,9 +682,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W2])
+─────(E[y|W0,W2,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,U) = P(y|v0,W0,W1,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,U) = P(y|v0,W0,W2,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -707,17 +703,36 @@ No such variable(s) found!
 </pre></div></div>
 </div>
 </section>
-<section id="Estimate-Effect">
-<h2>Estimate Effect<a class="headerlink" href="#Estimate-Effect" title="Permalink to this heading"></a></h2>
-<p>Estimate Effect is performed by using the causal_model api as there is not functional equivalent yet</p>
+<section id="Estimate-Effect---Functional-API-(Preview)">
+<h2>Estimate Effect - Functional API (Preview)<a class="headerlink" href="#Estimate-Effect---Functional-API-(Preview)" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We will still need CausalModel as the Functional Effect Estimation is still Work-In-Progress</span>
-<span class="n">causal_model</span> <span class="o">=</span> <span class="n">CausalModel</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;df&quot;</span><span class="p">],</span> <span class="n">treatment</span><span class="o">=</span><span class="n">treatment_name</span><span class="p">,</span> <span class="n">outcome</span><span class="o">=</span><span class="n">outcome_name</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;gml_graph&quot;</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic Estimate Effect function</span>
 
-<span class="n">estimate</span> <span class="o">=</span> <span class="n">causal_model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span> <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;backdoor.propensity_score_matching&quot;</span><span class="p">)</span>
+
+<span class="n">propensity_score_estimator</span> <span class="o">=</span> <span class="n">PropensityScoreMatchingEstimator</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;df&quot;</span><span class="p">],</span>
+    <span class="n">identified_estimand</span><span class="o">=</span><span class="n">identified_estimand</span><span class="p">,</span>
+    <span class="n">treatment</span><span class="o">=</span><span class="n">treatment_name</span><span class="p">,</span>
+    <span class="n">outcome</span><span class="o">=</span><span class="n">outcome_name</span><span class="p">,</span>
+    <span class="n">control_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">treatment_value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">test_significance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">evaluate_effect_strength</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">confidence_intervals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">target_units</span><span class="o">=</span><span class="s2">&quot;ate&quot;</span><span class="p">,</span>
+    <span class="n">effect_modifiers</span><span class="o">=</span><span class="n">graph</span><span class="o">.</span><span class="n">get_effect_modifiers</span><span class="p">(</span><span class="n">treatment_name</span><span class="p">,</span> <span class="n">outcome_name</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">estimate</span> <span class="o">=</span> <span class="n">estimate_effect</span><span class="p">(</span>
+    <span class="n">treatment</span><span class="o">=</span><span class="n">treatment_name</span><span class="p">,</span>
+    <span class="n">outcome</span><span class="o">=</span><span class="n">outcome_name</span><span class="p">,</span>
+    <span class="n">identified_estimand</span><span class="o">=</span><span class="n">identified_estimand</span><span class="p">,</span>
+    <span class="n">identifier_name</span><span class="o">=</span><span class="s2">&quot;backdoor&quot;</span><span class="p">,</span>
+    <span class="n">method</span><span class="o">=</span><span class="n">propensity_score_estimator</span><span class="p">,</span>
+<span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">estimate</span><span class="p">)</span>
 </pre></div>
@@ -737,16 +752,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W2])
+─────(E[y|W0,W2,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,U) = P(y|v0,W0,W1,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,U) = P(y|v0,W0,W2,W1)
 
 ## Realized estimand
-b: y~v0+W0+W1+W2
+b: y~v0+W0+W2+W1
 Target units: ate
 
 ## Estimate
-Mean value: 8.233967681298635
+Mean value: 11.326873255880667
 
 </pre></div></div>
 </div>
@@ -788,24 +803,24 @@ Mean value: 8.233967681298635
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Bootstrap Sample Dataset
-Estimated effect:8.233967681298635
-New effect:9.189874813062067
-p value:0.48
+Estimated effect:11.326873255880667
+New effect:11.523210138690548
+p value:0.84
 
 Refute: Use a subset of data
-Estimated effect:8.233967681298635
-New effect:8.534682818877126
-p value:0.44
+Estimated effect:11.326873255880667
+New effect:11.915307082038243
+p value:0.46
 
 Refute: Bootstrap Sample Dataset
-Estimated effect:8.233967681298635
-New effect:9.056685301915614
-p value:0.42
+Estimated effect:11.326873255880667
+New effect:11.752292239886295
+p value:0.72
 
 Refute: Use a subset of data
-Estimated effect:8.233967681298635
-New effect:8.662996436033575
-p value:0.2
+Estimated effect:11.326873255880667
+New effect:11.776657171410216
+p value:0.5
 
 </pre></div></div>
 </div>
@@ -814,10 +829,19 @@ p value:0.2
 <section id="Backwards-Compatibility">
 <h1>Backwards Compatibility<a class="headerlink" href="#Backwards-Compatibility" title="Permalink to this heading"></a></h1>
 <p>This section shows replicating the same results using only the CausalModel API</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create Causal Model</span>
+<span class="n">causal_model</span> <span class="o">=</span> <span class="n">CausalModel</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;df&quot;</span><span class="p">],</span> <span class="n">treatment</span><span class="o">=</span><span class="n">treatment_name</span><span class="p">,</span> <span class="n">outcome</span><span class="o">=</span><span class="n">outcome_name</span><span class="p">,</span> <span class="n">graph</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;gml_graph&quot;</span><span class="p">])</span>
+<br/></pre></div>
+</div>
+</div>
 <section id="Identify-Effect">
 <h2>Identify Effect<a class="headerlink" href="#Identify-Effect" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">identified_estimand_causal_model_api</span> <span class="o">=</span> <span class="p">(</span>
@@ -839,9 +863,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W2])
+─────(E[y|W0,W2,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,U) = P(y|v0,W0,W1,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,U) = P(y|v0,W0,W2,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -860,17 +884,17 @@ No such variable(s) found!
 </pre></div></div>
 </div>
 </section>
-<section id="id1">
-<h2>Estimate Effect<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<section id="Estimate-Effect">
+<h2>Estimate Effect<a class="headerlink" href="#Estimate-Effect" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimate_causal_model_api</span> <span class="o">=</span> <span class="n">causal_model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span>
-    <span class="n">identified_estimand</span><span class="p">,</span> <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;backdoor.propensity_score_matching&quot;</span>
+    <span class="n">identified_estimand_causal_model_api</span><span class="p">,</span> <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;backdoor.propensity_score_matching&quot;</span>
 <span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">estimate</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">estimate_causal_model_api</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -888,16 +912,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W2])
+─────(E[y|W0,W2,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,U) = P(y|v0,W0,W1,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,U) = P(y|v0,W0,W2,W1)
 
 ## Realized estimand
-b: y~v0+W0+W1+W2
+b: y~v0+W0+W2+W1
 Target units: ate
 
 ## Estimate
-Mean value: 8.233967681298635
+Mean value: 11.326873255880667
 
 </pre></div></div>
 </div>
@@ -905,15 +929,16 @@ Mean value: 8.233967681298635
 <section id="Refute-Estimate">
 <h2>Refute Estimate<a class="headerlink" href="#Refute-Estimate" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bootstrap_refutation_causal_model_api</span> <span class="o">=</span> <span class="n">causal_model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span> <span class="s2">&quot;bootstrap_refuter&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bootstrap_refutation_causal_model_api</span> <span class="o">=</span> <span class="n">causal_model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">identified_estimand_causal_model_api</span><span class="p">,</span> <span class="n">estimate_causal_model_api</span><span class="p">,</span> <span class="s2">&quot;bootstrap_refuter&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">bootstrap_refutation_causal_model_api</span><span class="p">)</span>
 
 <span class="n">data_subset_refutation_causal_model_api</span> <span class="o">=</span> <span class="n">causal_model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span>
-    <span class="n">identified_estimand</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span> <span class="s2">&quot;data_subset_refuter&quot;</span>
+    <span class="n">identified_estimand_causal_model_api</span><span class="p">,</span> <span class="n">estimate_causal_model_api</span><span class="p">,</span> <span class="s2">&quot;data_subset_refuter&quot;</span>
 <span class="p">)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">data_subset_refutation_causal_model_api</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -924,16 +949,24 @@ Mean value: 8.233967681298635
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Bootstrap Sample Dataset
-Estimated effect:8.233967681298635
-New effect:9.184935364891965
-p value:0.54
+Estimated effect:11.326873255880667
+New effect:11.927231901822063
+p value:0.46
 
 Refute: Use a subset of data
-Estimated effect:8.233967681298635
-New effect:8.749749509041052
-p value:0.32
+Estimated effect:11.326873255880667
+New effect:11.898436682251015
+p value:0.5
 
 </pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </section>
 </section>
@@ -969,7 +1002,7 @@ p value:0.32
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
 </p>
   </div>
   

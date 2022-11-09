@@ -44,6 +44,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -147,34 +148,6 @@
       
       <div class="navbar-end-item">
         
-<div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
-        main-branch
-        <span class="caret"></span>
-    </button>
-    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
-        <dl>
-            <dt>Releases</dt>
-            <!-- hard-coding the old versions, as no further old version will be added -->
-            <!-- It would be nice if this opened the same page in an older version, but that seems to be overkill
-                 right now. Therefore defaulting to the starting page (index). -->
-            <dd><a href="/dowhy/v0.8/index.html">v0.8</a></dd>
-            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
-            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
-            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
-            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
-            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
-            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="/dowhy/v0.1-alpha/index.html">v0.1-alpha</a></dd>
-        </dl>
-        <dl>
-            <dt>Branches</dt>
-            <dd><a href="dowhy_confounder_example.html">main</a></dd>
-        </dl>
-    </div>
-</div>
       </div>
       
     </div>
@@ -746,11 +719,11 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0
-0   9.090088  18.718487  3.391655
-1   8.953454  18.223249  3.234490
-2   2.151810   4.253668 -3.955762
-3   4.293181   8.500470 -1.681164
-4   3.435144   7.050889 -2.238589
+0   4.396113   8.786421 -1.468616
+1   2.721743   4.615056 -3.569041
+2   7.912955  15.929195  1.748068
+3   2.409010   4.635170 -3.697393
+4   6.285464  12.973875  0.432607
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -867,7 +840,7 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Causal Estimate is 1.0006024406732132
+Causal Estimate is 0.00877178063606543
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -894,8 +867,8 @@ Causal Estimate is 1.0006024406732132
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DoWhy estimate is 1.0006024406732132
-Actual true causal effect was 1
+DoWhy estimate is 0.00877178063606543
+Actual true causal effect was 0
 </pre></div></div>
 </div>
 </section>
@@ -920,9 +893,9 @@ Actual true causal effect was 1
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:1.0006024406732132
-New effect:1.000588943844241
-p value:1.0
+Estimated effect:0.00877178063606543
+New effect:0.008781694629144531
+p value:0.96
 
 </pre></div></div>
 </div>
@@ -945,9 +918,9 @@ p value:1.0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1.0006024406732132
-New effect:8.777189052201706e-05
-p value:0.8
+Estimated effect:0.00877178063606543
+New effect:2.220254285481005e-05
+p value:0.98
 
 </pre></div></div>
 </div>
@@ -970,9 +943,9 @@ p value:0.8
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:1.0006024406732132
-New effect:1.0002763021183827
-p value:0.9199999999999999
+Estimated effect:0.00877178063606543
+New effect:0.009390223113344103
+p value:0.88
 
 </pre></div></div>
 </div>
@@ -1026,7 +999,7 @@ p value:0.9199999999999999
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
 </p>
   </div>
   

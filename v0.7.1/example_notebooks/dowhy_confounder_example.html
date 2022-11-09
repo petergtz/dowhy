@@ -2,16 +2,15 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-B139P18WHM');
-    </script>
-    
+  gtag('config', 'G-B139P18WHM');
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Confounding Example: Finding causal effects from observed data &mdash; DoWhy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -474,11 +473,11 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0
-0   7.985491  16.375216  2.220343
-1   5.433135  10.654847 -0.627440
-2   7.325514  14.391447  1.197089
-3   7.689077  15.695025  1.794359
-4   4.824560   9.456256 -1.048800
+0   9.281349  18.220930  3.223224
+1   4.242014   8.976979 -1.582075
+2   9.746372  19.471672  3.723798
+3   1.727741   3.885130 -4.257109
+4   9.865337  19.794950  3.839396
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -552,7 +551,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Estimand type: EstimandType.NONPARAMETRIC_ATE
+Estimand type: nonparametric-ate
 
 ### Estimand : 1
 Estimand name: backdoor
@@ -595,7 +594,7 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Causal Estimate is 1.0212465997583147
+Causal Estimate is 0.005529070024728355
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -622,8 +621,8 @@ Causal Estimate is 1.0212465997583147
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DoWhy estimate is 1.0212465997583147
-Actual true causal effect was 1
+DoWhy estimate is 0.005529070024728355
+Actual true causal effect was 0
 </pre></div></div>
 </div>
 </section>
@@ -648,9 +647,9 @@ Actual true causal effect was 1
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:1.0212465997583147
-New effect:1.0212369385296811
-p value:0.98
+Estimated effect:0.005529070024728355
+New effect:0.0055248189655893575
+p value:0.8999999999999999
 
 </pre></div></div>
 </div>
@@ -673,9 +672,9 @@ p value:0.98
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1.0212465997583147
-New effect:0.00010262469304342048
-p value:0.92
+Estimated effect:0.005529070024728355
+New effect:-3.9053452773298855e-05
+p value:0.94
 
 </pre></div></div>
 </div>
@@ -698,9 +697,9 @@ p value:0.92
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:1.0212465997583147
-New effect:1.0211007466150188
-p value:0.98
+Estimated effect:0.005529070024728355
+New effect:0.00566816921091295
+p value:0.88
 
 </pre></div></div>
 </div>
@@ -751,6 +750,7 @@ p value:0.98
             <dd><a href="../../v0.6/index.html">v0.6</a></dd>
             <dd><a href="../../v0.7/index.html">v0.7</a></dd>
             <dd><a href="dowhy_confounder_example.html">v0.7.1</a></dd>
+            <dd><a href="../../v0.8/index.html">v0.8</a></dd>
             <!-- TODO: add mechanism to add new version here. Probably just render them in from generate_docs.sh. -->
         </dl>
         <dl>

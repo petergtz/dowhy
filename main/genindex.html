@@ -43,6 +43,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -142,34 +143,6 @@
       
       <div class="navbar-end-item">
         
-<div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
-        main-branch
-        <span class="caret"></span>
-    </button>
-    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
-        <dl>
-            <dt>Releases</dt>
-            <!-- hard-coding the old versions, as no further old version will be added -->
-            <!-- It would be nice if this opened the same page in an older version, but that seems to be overkill
-                 right now. Therefore defaulting to the starting page (index). -->
-            <dd><a href="/dowhy/v0.8/index.html">v0.8</a></dd>
-            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
-            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
-            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
-            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
-            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
-            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="/dowhy/v0.1-alpha/index.html">v0.1-alpha</a></dd>
-        </dl>
-        <dl>
-            <dt>Branches</dt>
-            <dd><a href="genindex.html">main</a></dd>
-        </dl>
-    </div>
-</div>
       </div>
       
     </div>
@@ -286,10 +259,10 @@
 </li>
       <li><a href="dowhy.do_samplers.html#dowhy.do_samplers.mcmc_sampler.McmcSampler.apply_data_types">apply_data_types() (dowhy.do_samplers.mcmc_sampler.McmcSampler method)</a>
 </li>
-      <li><a href="dowhy.gcm.independence_test.html#dowhy.gcm.independence_test.kernel_operation.apply_delta_kernel">apply_delta_kernel() (in module dowhy.gcm.independence_test.kernel_operation)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dowhy.gcm.independence_test.html#dowhy.gcm.independence_test.kernel_operation.apply_delta_kernel">apply_delta_kernel() (in module dowhy.gcm.independence_test.kernel_operation)</a>
+</li>
       <li><a href="dowhy.gcm.util.html#dowhy.gcm.util.general.apply_one_hot_encoding">apply_one_hot_encoding() (in module dowhy.gcm.util.general)</a>
 </li>
       <li><a href="dowhy.do_samplers.html#dowhy.do_samplers.mcmc_sampler.McmcSampler.apply_parameters">apply_parameters() (dowhy.do_samplers.mcmc_sampler.McmcSampler method)</a>
@@ -324,10 +297,6 @@
         <li><a href="dowhy.gcm.html#dowhy.gcm.shapley.ShapleyApproximationMethods.AUTO">(dowhy.gcm.shapley.ShapleyApproximationMethods attribute)</a>
 </li>
       </ul></li>
-      <li><a href="dowhy.gcm.independence_test.html#dowhy.gcm.independence_test.kernel_operation.auto_create_list_of_kernel_approximations">auto_create_list_of_kernel_approximations() (in module dowhy.gcm.independence_test.kernel_operation)</a>
-</li>
-      <li><a href="dowhy.gcm.independence_test.html#dowhy.gcm.independence_test.kernel_operation.auto_create_list_of_kernels">auto_create_list_of_kernels() (in module dowhy.gcm.independence_test.kernel_operation)</a>
-</li>
       <li><a href="dowhy.gcm.html#dowhy.gcm.divergence.auto_estimate_kl_divergence">auto_estimate_kl_divergence() (in module dowhy.gcm.divergence)</a>
 </li>
       <li><a href="dowhy.html#dowhy.causal_identifier.AutoIdentifier">AutoIdentifier (class in dowhy.causal_identifier)</a>
@@ -358,10 +327,10 @@
 </li>
       <li><a href="dowhy.causal_refuters.html#dowhy.causal_refuters.dummy_outcome_refuter.TestFraction.base">base (dowhy.causal_refuters.dummy_outcome_refuter.TestFraction attribute)</a>
 </li>
-      <li><a href="dowhy.gcm.html#dowhy.gcm.stochastic_models.BayesianGaussianMixtureDistribution">BayesianGaussianMixtureDistribution (class in dowhy.gcm.stochastic_models)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dowhy.gcm.html#dowhy.gcm.stochastic_models.BayesianGaussianMixtureDistribution">BayesianGaussianMixtureDistribution (class in dowhy.gcm.stochastic_models)</a>
+</li>
       <li><a href="dowhy.gcm.html#dowhy.gcm.auto.AssignmentQuality.BETTER">BETTER (dowhy.gcm.auto.AssignmentQuality attribute)</a>
 </li>
       <li><a href="dowhy.utils.html#dowhy.utils.propensity_score.binarize_discrete">binarize_discrete() (in module dowhy.utils.propensity_score)</a>
@@ -369,8 +338,6 @@
       <li><a href="dowhy.utils.html#dowhy.utils.propensity_score.binary_treatment_model">binary_treatment_model() (in module dowhy.utils.propensity_score)</a>
 </li>
       <li><a href="dowhy.html#dowhy.causal_refuter.SignificanceTestType.BOOTSTRAP">BOOTSTRAP (dowhy.causal_refuter.SignificanceTestType attribute)</a>
-</li>
-      <li><a href="dowhy.gcm.html#dowhy.gcm.confidence_intervals_cms.bootstrap_training_and_sampling">bootstrap_training_and_sampling() (in module dowhy.gcm.confidence_intervals_cms)</a>
 </li>
       <li><a href="dowhy.causal_refuters.html#dowhy.causal_refuters.BootstrapRefuter">BootstrapRefuter (class in dowhy.causal_refuters)</a>
 
@@ -500,10 +467,10 @@
 </li>
       <li><a href="dowhy.gcm.html#dowhy.gcm.graph.ConditionalStochasticModel">ConditionalStochasticModel (class in dowhy.gcm.graph)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="dowhy.gcm.html#dowhy.gcm.confidence_intervals.confidence_intervals">confidence_intervals() (in module dowhy.gcm.confidence_intervals)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="dowhy.interpreters.html#dowhy.interpreters.confounder_distribution_interpreter.ConfounderDistributionInterpreter">ConfounderDistributionInterpreter (class in dowhy.interpreters.confounder_distribution_interpreter)</a>
 </li>
       <li><a href="dowhy.html#dowhy.datasets.construct_col_names">construct_col_names() (in module dowhy.datasets)</a>
@@ -593,6 +560,10 @@
       <li><a href="dowhy.gcm.ml.html#dowhy.gcm.ml.regression.create_linear_regressor_with_given_parameters">create_linear_regressor_with_given_parameters() (in module dowhy.gcm.ml.regression)</a>
 </li>
       <li><a href="dowhy.gcm.ml.html#dowhy.gcm.ml.classification.create_logistic_regression_classifier">create_logistic_regression_classifier() (in module dowhy.gcm.ml.classification)</a>
+</li>
+      <li><a href="dowhy.gcm.ml.html#dowhy.gcm.ml.classification.create_polynom_logistic_regression_classifier">create_polynom_logistic_regression_classifier() (in module dowhy.gcm.ml.classification)</a>
+</li>
+      <li><a href="dowhy.gcm.ml.html#dowhy.gcm.ml.regression.create_polynom_regressor">create_polynom_regressor() (in module dowhy.gcm.ml.regression)</a>
 </li>
       <li><a href="dowhy.gcm.ml.html#dowhy.gcm.ml.classification.create_random_forest_classifier">create_random_forest_classifier() (in module dowhy.gcm.ml.classification)</a>
 </li>
@@ -1491,6 +1462,8 @@
 </li>
         <li><a href="dowhy.html#dowhy.CausalModel.estimate_effect">(dowhy.CausalModel method)</a>
 </li>
+        <li><a href="dowhy.html#dowhy.causal_estimator.estimate_effect">(in module dowhy.causal_estimator)</a>
+</li>
       </ul></li>
       <li><a href="dowhy.html#dowhy.causal_estimator.CausalEstimator.estimate_effect_naive">estimate_effect_naive() (dowhy.causal_estimator.CausalEstimator method)</a>
 </li>
@@ -1634,6 +1607,8 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="dowhy.gcm.html#dowhy.gcm.confidence_intervals_cms.fit_and_compute">fit_and_compute() (in module dowhy.gcm.confidence_intervals_cms)</a>
+</li>
       <li><a href="dowhy.do_samplers.html#dowhy.do_samplers.mcmc_sampler.McmcSampler.fit_causal_model">fit_causal_model() (dowhy.do_samplers.mcmc_sampler.McmcSampler method)</a>
 </li>
       <li><a href="dowhy.gcm.html#dowhy.gcm.fitting_sampling.fit_causal_model_of_target">fit_causal_model_of_target() (in module dowhy.gcm.fitting_sampling)</a>
@@ -1808,8 +1783,14 @@
       </ul></li>
       <li><a href="dowhy.html#dowhy.causal_identifier.IDIdentifier">IDIdentifier (class in dowhy.causal_identifier)</a>
 </li>
-      <li><a href="dowhy.causal_refuters.html#dowhy.causal_refuters.add_unobserved_common_cause.include_simulated_confounder">include_simulated_confounder() (in module dowhy.causal_refuters.add_unobserved_common_cause)</a>
+      <li><a href="dowhy.causal_refuters.html#dowhy.causal_refuters.add_unobserved_common_cause.AddUnobservedCommonCause.include_simulated_confounder">include_simulated_confounder() (dowhy.causal_refuters.add_unobserved_common_cause.AddUnobservedCommonCause method)</a>
+
+      <ul>
+        <li><a href="dowhy.causal_refuters.html#dowhy.causal_refuters.AddUnobservedCommonCause.include_simulated_confounder">(dowhy.causal_refuters.AddUnobservedCommonCause method)</a>
 </li>
+        <li><a href="dowhy.causal_refuters.html#dowhy.causal_refuters.add_unobserved_common_cause.include_simulated_confounder">(in module dowhy.causal_refuters.add_unobserved_common_cause)</a>
+</li>
+      </ul></li>
       <li><a href="dowhy.gcm.independence_test.html#dowhy.gcm.independence_test.independence_test">independence_test() (in module dowhy.gcm.independence_test)</a>
 </li>
       <li><a href="dowhy.utils.html#dowhy.utils.graph_operations.induced_graph">induced_graph() (in module dowhy.utils.graph_operations)</a>
@@ -2760,7 +2741,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
 </p>
   </div>
   

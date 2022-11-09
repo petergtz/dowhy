@@ -4,16 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-B139P18WHM');
-    </script>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B139P18WHM');
+</script>
     <title>dowhy.gcm.independence_test.kernel &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -278,7 +277,7 @@
 <span class="sd">    :param bootstrap_num_runs: Number of bootstrap runs (only relevant if use_bootstrap is True).</span>
 <span class="sd">    :param bootstrap_num_samples_per_run: Number of samples used in a bootstrap run (only relevant if use_bootstrap is</span>
 <span class="sd">                                          True).</span>
-<span class="sd">    :param bootstrap_n_jobs: Number of parallel jobs for the bootstrap runs.</span>
+<span class="sd">    :param bootstrap_n_jobs: Number of parallel jobs for the boostrap runs.</span>
 <span class="sd">    :param p_value_adjust_func: A callable that expects a numpy array of multiple p-values and returns one p-value. This</span>
 <span class="sd">                                is typically used a family wise error rate control method.</span>
 <span class="sd">    :return: The p-value for the null hypothesis that X and Y are independent (given Z).</span>
@@ -387,7 +386,7 @@
 <span class="sd">                          p-value is constructed based on the provided p_value_adjust_func function.</span>
 <span class="sd">    :param bootstrap_num_runs: Number of bootstrap runs (only relevant if use_bootstrap is True).</span>
 <span class="sd">    :param bootstrap_num_samples: Maximum number of used samples per bootstrap run.</span>
-<span class="sd">    :param bootstrap_n_jobs: Number of parallel jobs for the bootstrap runs.</span>
+<span class="sd">    :param bootstrap_n_jobs: Number of parallel jobs for the boostrap runs.</span>
 <span class="sd">    :param p_value_adjust_func: A callable that expects a numpy array of multiple p-values and returns one p-value. This</span>
 <span class="sd">                                is typically used a family wise error rate control method.</span>
 <span class="sd">    :return: The p-value for the null hypothesis that X and Y are independent (given Z).</span>

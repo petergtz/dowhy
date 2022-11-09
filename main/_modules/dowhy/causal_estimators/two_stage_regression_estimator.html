@@ -4,16 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-B139P18WHM');
-    </script>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B139P18WHM');
+</script>
     <title>dowhy.causal_estimators.two_stage_regression_estimator &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -221,7 +220,7 @@
 
 <span class="kn">from</span> <span class="nn">dowhy.causal_estimator</span> <span class="kn">import</span> <span class="n">CausalEstimate</span><span class="p">,</span> <span class="n">CausalEstimator</span>
 <span class="kn">from</span> <span class="nn">dowhy.causal_estimators.linear_regression_estimator</span> <span class="kn">import</span> <span class="n">LinearRegressionEstimator</span>
-<span class="kn">from</span> <span class="nn">dowhy.causal_identifier.identify_effect</span> <span class="kn">import</span> <span class="n">EstimandType</span>
+<span class="kn">from</span> <span class="nn">dowhy.causal_identifier</span> <span class="kn">import</span> <span class="n">CausalIdentifier</span>
 <span class="kn">from</span> <span class="nn">dowhy.utils.api</span> <span class="kn">import</span> <span class="n">parse_state</span>
 
 
@@ -362,9 +361,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">symbolic_estimator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">construct_symbolic_estimator</span><span class="p">(</span>
             <span class="n">first_stage_estimate</span><span class="o">.</span><span class="n">realized_estimand_expr</span><span class="p">,</span>
             <span class="n">second_stage_estimate</span><span class="o">.</span><span class="n">realized_estimand_expr</span><span class="p">,</span>
-            <span class="n">estimand_type</span><span class="o">=</span><span class="n">EstimandType</span><span class="o">.</span><span class="n">NONPARAMETRIC_NIE</span><span class="p">,</span>
+            <span class="n">estimand_type</span><span class="o">=</span><span class="n">CausalIdentifier</span><span class="o">.</span><span class="n">NONPARAMETRIC_NIE</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target_estimand</span><span class="o">.</span><span class="n">estimand_type</span> <span class="o">==</span> <span class="n">EstimandType</span><span class="o">.</span><span class="n">NONPARAMETRIC_NDE</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target_estimand</span><span class="o">.</span><span class="n">estimand_type</span> <span class="o">==</span> <span class="n">CausalIdentifier</span><span class="o">.</span><span class="n">NONPARAMETRIC_NDE</span><span class="p">:</span>
             <span class="c1"># Total  effect of treatment</span>
             <span class="n">modified_target_estimand</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_target_estimand</span><span class="p">)</span>
             <span class="n">modified_target_estimand</span><span class="o">.</span><span class="n">identifier_method</span> <span class="o">=</span> <span class="s2">&quot;backdoor&quot;</span>
@@ -435,9 +434,9 @@
         <span class="bp">self</span><span class="p">,</span> <span class="n">first_stage_symbolic</span><span class="p">,</span> <span class="n">second_stage_symbolic</span><span class="p">,</span> <span class="n">total_effect_symbolic</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">estimand_type</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
         <span class="n">nie_symbolic</span> <span class="o">=</span> <span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="n">first_stage_symbolic</span> <span class="o">+</span> <span class="s2">&quot;)*(&quot;</span> <span class="o">+</span> <span class="n">second_stage_symbolic</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
-        <span class="k">if</span> <span class="n">estimand_type</span> <span class="o">==</span> <span class="n">EstimandType</span><span class="o">.</span><span class="n">NONPARAMETRIC_NIE</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">estimand_type</span> <span class="o">==</span> <span class="n">CausalIdentifier</span><span class="o">.</span><span class="n">NONPARAMETRIC_NIE</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">nie_symbolic</span>
-        <span class="k">elif</span> <span class="n">estimand_type</span> <span class="o">==</span> <span class="n">EstimandType</span><span class="o">.</span><span class="n">NONPARAMETRIC_NDE</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">estimand_type</span> <span class="o">==</span> <span class="n">CausalIdentifier</span><span class="o">.</span><span class="n">NONPARAMETRIC_NDE</span><span class="p">:</span>
             <span class="k">return</span> <span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="n">total_effect_symbolic</span> <span class="o">+</span> <span class="s2">&quot;) - (&quot;</span> <span class="o">+</span> <span class="n">nie_symbolic</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span></div></div>
 </pre></div>
 

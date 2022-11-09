@@ -44,6 +44,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -145,34 +146,6 @@
       
       <div class="navbar-end-item">
         
-<div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
-        main-branch
-        <span class="caret"></span>
-    </button>
-    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
-        <dl>
-            <dt>Releases</dt>
-            <!-- hard-coding the old versions, as no further old version will be added -->
-            <!-- It would be nice if this opened the same page in an older version, but that seems to be overkill
-                 right now. Therefore defaulting to the starting page (index). -->
-            <dd><a href="/dowhy/v0.8/index.html">v0.8</a></dd>
-            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
-            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
-            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
-            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
-            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
-            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="/dowhy/v0.1-alpha/index.html">v0.1-alpha</a></dd>
-        </dl>
-        <dl>
-            <dt>Branches</dt>
-            <dd><a href="tutorial-causalinference-machinelearning-using-dowhy-econml.html">main</a></dd>
-        </dl>
-    </div>
-</div>
       </div>
       
     </div>
@@ -806,9 +779,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W2,W1,W4,W3])
+─────(E[y|W4,W3,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,W4,W3,U) = P(y|v0,W0,W2,W1,W4,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W1,W2,W0,U) = P(y|v0,W4,W3,W1,W2,W0)
 
 ### Estimand : 2
 Estimand name: iv
@@ -816,9 +789,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
-Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
+ ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
+Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
 
 ### Estimand : 3
 Estimand name: frontdoor
@@ -855,16 +828,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W2,W1,W4,W3])
+─────(E[y|W4,W3,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,W4,W3,U) = P(y|v0,W0,W2,W1,W4,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W1,W2,W0,U) = P(y|v0,W4,W3,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W0+W2+W1+W4+W3
+b: y~v0+W4+W3+W1+W2+W0
 Target units: ate
 
 ## Estimate
-Mean value: 9.938729136934437
+Mean value: 10.034553742267533
 
 </pre></div></div>
 </div>
@@ -902,18 +875,18 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W2,W1,W4,W3])
+─────(E[y|W4,W3,W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W2,W1,W4,W3,U) = P(y|v0,W0,W2,W1,W4,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W3,W1,W2,W0,U) = P(y|v0,W4,W3,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W0+W2+W1+W4+W3 |
+b: y~v0+W4+W3+W1+W2+W0 |
 Target units: ate
 
 ## Estimate
-Mean value: 10.023043959994911
-Effect estimates: [10.02304396 10.02304396 10.02304396 ... 10.02304396 10.02304396
- 10.02304396]
+Mean value: 10.00650955195525
+Effect estimates: [10.00650955 10.00650955 10.00650955 ... 10.00650955 10.00650955
+ 10.00650955]
 
 </pre></div></div>
 </div>
@@ -937,9 +910,9 @@ estimate value of 0 when the action variable is replaced by a random variable, i
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:9.938729136934437
-New effect:0.004059285814560788
-p value:0.9
+Estimated effect:10.034553742267533
+New effect:-0.011082408834627102
+p value:0.8400000000000001
 
 </pre></div></div>
 </div>
@@ -991,11 +964,11 @@ than learning a new toolkit. The power of EconML is that you can now implement t
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0         s        w1
-0  13.676043  28.748496 -2.712538  8.134664  1.944657
-1   6.290008  13.199810  0.343189  4.912279  0.770719
-2  14.296630  29.287370 -2.857878  5.931299  1.377403
-3  21.785816  43.486778  3.977966  3.148439 -0.083092
-4  17.264162  34.136923  3.266941  2.143811  0.195963
+0   9.226717  17.745503  1.540821  4.568177  1.054699
+1   9.787223  20.696293 -2.213199  8.336713 -1.357670
+2  19.142301  40.147183  3.902339  3.312507 -3.070940
+3  19.867252  41.350248 -3.934494  7.255941 -2.345759
+4  18.712197  38.380386  3.709616  3.538873 -1.534668
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1044,9 +1017,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[Outcome|w0,w1])
+────────────(E[Outcome|w1,w0])
 d[Treatment]
-Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w0,w1,U) = P(Outcome|Treatment,w0,w1)
+Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w1,w0,U) = P(Outcome|Treatment,w1,w0)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1090,18 +1063,18 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[Outcome|w0,w1])
+────────────(E[Outcome|w1,w0])
 d[Treatment]
-Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w0,w1,U) = P(Outcome|Treatment,w0,w1)
+Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w1,w0,U) = P(Outcome|Treatment,w1,w0)
 
 ## Realized estimand
-b: Outcome~Treatment+w0+w1
+b: Outcome~Treatment+w1+w0
 Target units: ate
 
 ## Estimate
-Mean value: 1.9986381819448584
+Mean value: 1.9978770881860366
 
-Causal Estimate is 1.9986381819448584
+Causal Estimate is 1.9978770881860366
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1148,17 +1121,17 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[Outcome|w0,w1])
+────────────(E[Outcome|w1,w0])
 d[Treatment]
-Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w0,w1,U) = P(Outcome|Treatment,w0,w1)
+Estimand assumption 1, Unconfoundedness: If U→{Treatment} and U→Outcome then P(Outcome|Treatment,w1,w0,U) = P(Outcome|Treatment,w1,w0)
 
 ## Realized estimand
-b: Outcome~Treatment+w0+w1 |
+b: Outcome~Treatment+w1+w0 |
 Target units: ate
 
 ## Estimate
-Mean value: 1.0554432582632383
-Effect estimates: [1.05544326 1.05544326 1.05544326 ... 1.05544326 1.05544326 1.05544326]
+Mean value: 1.052986788272049
+Effect estimates: [1.05298679 1.05298679 1.05298679 ... 1.05298679 1.05298679 1.05298679]
 
 </pre></div></div>
 </div>
@@ -1181,9 +1154,9 @@ Effect estimates: [1.05544326 1.05544326 1.05544326 ... 1.05544326 1.05544326 1.
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:1.0554432582632383
-New effect:1.0408142768746882
-p value:0.6000000000000001
+Estimated effect:1.052986788272049
+New effect:1.0154871568021757
+p value:0.21999999999999997
 
 </pre></div></div>
 </div>
@@ -1204,9 +1177,9 @@ p value:0.6000000000000001
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1.0554432582632383
-New effect:-9.262555098950999e-05
-p value:0.4312876317314678
+Estimated effect:1.052986788272049
+New effect:-7.68227570322603e-05
+p value:0.4541368287272528
 
 </pre></div></div>
 </div>
@@ -1302,7 +1275,7 @@ refutation methods that can check the robustness of the estimate.</p>
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
 </p>
   </div>
   

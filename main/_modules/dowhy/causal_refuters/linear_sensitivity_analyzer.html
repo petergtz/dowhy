@@ -4,16 +4,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-B139P18WHM');
-    </script>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B139P18WHM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B139P18WHM');
+</script>
     <title>dowhy.causal_refuters.linear_sensitivity_analyzer &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
@@ -541,9 +540,9 @@
         <span class="n">critical_estimate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">null_hypothesis_effect</span>
         <span class="n">contour_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">r2yu_tw</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">r2tu_w</span><span class="p">)))</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r2yu_tw</span><span class="p">)):</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">r2yu_tw</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">r2tu_w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r2tu_w</span><span class="p">)):</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">r2tu_w</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">r2yu_tw</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
                 <span class="n">benchmarking_results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_bias_adjusted</span><span class="p">(</span><span class="n">r2tu_w</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">r2yu_tw</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
                 <span class="n">estimate</span> <span class="o">=</span> <span class="n">benchmarking_results</span><span class="p">[</span><span class="s2">&quot;bias_adjusted_estimate&quot;</span><span class="p">]</span>
                 <span class="n">contour_values</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">estimate</span>

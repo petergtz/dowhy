@@ -44,6 +44,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -145,34 +146,6 @@
       
       <div class="navbar-end-item">
         
-<div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
-        main-branch
-        <span class="caret"></span>
-    </button>
-    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
-        <dl>
-            <dt>Releases</dt>
-            <!-- hard-coding the old versions, as no further old version will be added -->
-            <!-- It would be nice if this opened the same page in an older version, but that seems to be overkill
-                 right now. Therefore defaulting to the starting page (index). -->
-            <dd><a href="/dowhy/v0.8/index.html">v0.8</a></dd>
-            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
-            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
-            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
-            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
-            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
-            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="/dowhy/v0.1-alpha/index.html">v0.1-alpha</a></dd>
-        </dl>
-        <dl>
-            <dt>Branches</dt>
-            <dd><a href="DoWhy-The Causal Story Behind Hotel Booking Cancellations.html">main</a></dd>
-        </dl>
-    </div>
-</div>
       </div>
       
     </div>
@@ -1306,7 +1279,7 @@ definite conclusion at this stage. Thus assigning rooms different to what a cust
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 588.679$</div></div>
+$\displaystyle 588.4969$</div></div>
 </div>
 <p>We now consider the scenario when there were no booking changes and recalculate the expected count.</p>
 <div class="nbinput docutils container">
@@ -1330,7 +1303,7 @@ $\displaystyle 588.679$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 572.613$</div></div>
+$\displaystyle 572.6808$</div></div>
 </div>
 <p>In the 2nd case, we take the scenario when there were booking changes(&gt;0) and recalculate the expected count.</p>
 <div class="nbinput docutils container">
@@ -1354,7 +1327,7 @@ $\displaystyle 572.613$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 665.8706$</div></div>
+$\displaystyle 665.8205$</div></div>
 </div>
 <p>There is definitely some change happening when the number of booking changes are non-zero. So it gives us a hint that <em>Booking Changes</em> may be affecting room cancellation.</p>
 <p>But is <em>Booking Changes</em> the only confounding variable? What if there were some unobserved confounders, regarding which we have no information(feature) present in our dataset. Would we still be able to make the same claims as before?</p>
@@ -1468,17 +1441,17 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
             d
-──────────────────────────(E[is_canceled|booking_changes,hotel,is_repeated_gue
+──────────────────────────(E[is_canceled|total_stay,booking_changes,lead_time,
 d[different_room_assigned]
 
 
-st,required_car_parking_spaces,total_stay,guests,days_in_waiting_list,total_of
+required_car_parking_spaces,guests,days_in_waiting_list,is_repeated_guest,hote
 
 
 
-_special_requests,lead_time])
+l,total_of_special_requests])
 
-Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,booking_changes,hotel,is_repeated_guest,required_car_parking_spaces,total_stay,guests,days_in_waiting_list,total_of_special_requests,lead_time,U) = P(is_canceled|different_room_assigned,booking_changes,hotel,is_repeated_guest,required_car_parking_spaces,total_stay,guests,days_in_waiting_list,total_of_special_requests,lead_time)
+Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,total_stay,booking_changes,lead_time,required_car_parking_spaces,guests,days_in_waiting_list,is_repeated_guest,hotel,total_of_special_requests,U) = P(is_canceled|different_room_assigned,total_stay,booking_changes,lead_time,required_car_parking_spaces,guests,days_in_waiting_list,is_repeated_guest,hotel,total_of_special_requests)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1520,24 +1493,24 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
             d
-──────────────────────────(E[is_canceled|booking_changes,hotel,is_repeated_gue
+──────────────────────────(E[is_canceled|total_stay,booking_changes,lead_time,
 d[different_room_assigned]
 
 
-st,required_car_parking_spaces,total_stay,guests,days_in_waiting_list,total_of
+required_car_parking_spaces,guests,days_in_waiting_list,is_repeated_guest,hote
 
 
 
-_special_requests,lead_time])
+l,total_of_special_requests])
 
-Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,booking_changes,hotel,is_repeated_guest,required_car_parking_spaces,total_stay,guests,days_in_waiting_list,total_of_special_requests,lead_time,U) = P(is_canceled|different_room_assigned,booking_changes,hotel,is_repeated_guest,required_car_parking_spaces,total_stay,guests,days_in_waiting_list,total_of_special_requests,lead_time)
+Estimand assumption 1, Unconfoundedness: If U→{different_room_assigned} and U→is_canceled then P(is_canceled|different_room_assigned,total_stay,booking_changes,lead_time,required_car_parking_spaces,guests,days_in_waiting_list,is_repeated_guest,hotel,total_of_special_requests,U) = P(is_canceled|different_room_assigned,total_stay,booking_changes,lead_time,required_car_parking_spaces,guests,days_in_waiting_list,is_repeated_guest,hotel,total_of_special_requests)
 
 ## Realized estimand
-b: is_canceled~different_room_assigned+booking_changes+hotel+is_repeated_guest+required_car_parking_spaces+total_stay+guests+days_in_waiting_list+total_of_special_requests+lead_time
+b: is_canceled~different_room_assigned+total_stay+booking_changes+lead_time+required_car_parking_spaces+guests+days_in_waiting_list+is_repeated_guest+hotel+total_of_special_requests
 Target units: ate
 
 ## Estimate
-Mean value: -0.2622191545292679
+Mean value: -0.26222001932408967
 
 </pre></div></div>
 </div>
@@ -1568,9 +1541,9 @@ Mean value: -0.2622191545292679
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:-0.2622191545292679
-New effect:-0.26221372846487445
-p value:0.94
+Estimated effect:-0.26222001932408967
+New effect:-0.26221505081271923
+p value:0.98
 
 </pre></div></div>
 </div>
@@ -1594,9 +1567,9 @@ p value:0.94
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:-0.2622191545292679
-New effect:0.0005878180303302594
-p value:0.86
+Estimated effect:-0.26222001932408967
+New effect:0.00019181742732901074
+p value:0.98
 
 </pre></div></div>
 </div>
@@ -1620,9 +1593,9 @@ p value:0.86
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:-0.2622191545292679
-New effect:-0.2619817858467803
-p value:0.84
+Estimated effect:-0.26222001932408967
+New effect:-0.26228020055104606
+p value:0.98
 
 </pre></div></div>
 </div>
@@ -1662,7 +1635,7 @@ p value:0.84
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
 </p>
   </div>
   

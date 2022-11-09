@@ -44,6 +44,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -145,34 +146,6 @@
       
       <div class="navbar-end-item">
         
-<div class="dropdown" id="version_switcher">
-    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
-        main-branch
-        <span class="caret"></span>
-    </button>
-    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
-        <dl>
-            <dt>Releases</dt>
-            <!-- hard-coding the old versions, as no further old version will be added -->
-            <!-- It would be nice if this opened the same page in an older version, but that seems to be overkill
-                 right now. Therefore defaulting to the starting page (index). -->
-            <dd><a href="/dowhy/v0.8/index.html">v0.8</a></dd>
-            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
-            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
-            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
-            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
-            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
-            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="/dowhy/v0.1-alpha/index.html">v0.1-alpha</a></dd>
-        </dl>
-        <dl>
-            <dt>Branches</dt>
-            <dd><a href="dowhy.causal_refuters.html">main</a></dd>
-        </dl>
-    </div>
-</div>
       </div>
       
     </div>
@@ -298,46 +271,827 @@
   <a class="reference internal nav-link" href="#module-dowhy.causal_refuters.add_unobserved_common_cause">
    dowhy.causal_refuters.add_unobserved_common_cause module
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.add_unobserved_common_cause.AddUnobservedCommonCause">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       AddUnobservedCommonCause
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.add_unobserved_common_cause.AddUnobservedCommonCause.include_simulated_confounder">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         AddUnobservedCommonCause.include_simulated_confounder()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.add_unobserved_common_cause.AddUnobservedCommonCause.refute_estimate">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         AddUnobservedCommonCause.refute_estimate()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.add_unobserved_common_cause.include_simulated_confounder">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       include_simulated_confounder()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.add_unobserved_common_cause.sensitivity_e_value">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sensitivity_e_value()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.add_unobserved_common_cause.sensitivity_linear_partial_r2">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sensitivity_linear_partial_r2()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.add_unobserved_common_cause.sensitivity_non_parametric_partial_r2">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sensitivity_non_parametric_partial_r2()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.add_unobserved_common_cause.sensitivity_simulation">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sensitivity_simulation()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#module-dowhy.causal_refuters.bootstrap_refuter">
    dowhy.causal_refuters.bootstrap_refuter module
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.bootstrap_refuter.BootstrapRefuter">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       BootstrapRefuter
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.bootstrap_refuter.BootstrapRefuter.DEFAULT_NUMBER_OF_TRIALS">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         BootstrapRefuter.DEFAULT_NUMBER_OF_TRIALS
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.bootstrap_refuter.BootstrapRefuter.DEFAULT_STD_DEV">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         BootstrapRefuter.DEFAULT_STD_DEV
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.bootstrap_refuter.BootstrapRefuter.DEFAULT_SUCCESS_PROBABILITY">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         BootstrapRefuter.DEFAULT_SUCCESS_PROBABILITY
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.bootstrap_refuter.BootstrapRefuter.refute_estimate">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         BootstrapRefuter.refute_estimate()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.bootstrap_refuter.refute_bootstrap">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       refute_bootstrap()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#module-dowhy.causal_refuters.data_subset_refuter">
    dowhy.causal_refuters.data_subset_refuter module
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.data_subset_refuter.DataSubsetRefuter">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DataSubsetRefuter
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.data_subset_refuter.DataSubsetRefuter.DEFAULT_SUBSET_FRACTION">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         DataSubsetRefuter.DEFAULT_SUBSET_FRACTION
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.data_subset_refuter.DataSubsetRefuter.refute_estimate">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         DataSubsetRefuter.refute_estimate()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.data_subset_refuter.refute_data_subset">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       refute_data_subset()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#module-dowhy.causal_refuters.dummy_outcome_refuter">
    dowhy.causal_refuters.dummy_outcome_refuter module
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.dummy_outcome_refuter.DEFAULT_TRUE_CAUSAL_EFFECT">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DEFAULT_TRUE_CAUSAL_EFFECT()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.dummy_outcome_refuter.DummyOutcomeRefuter">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DummyOutcomeRefuter
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.dummy_outcome_refuter.DummyOutcomeRefuter.refute_estimate">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         DummyOutcomeRefuter.refute_estimate()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.dummy_outcome_refuter.TestFraction">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       TestFraction
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.dummy_outcome_refuter.TestFraction.base">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TestFraction.base
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.dummy_outcome_refuter.TestFraction.other">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TestFraction.other
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.dummy_outcome_refuter.noise">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       noise()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.dummy_outcome_refuter.permute">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       permute()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.dummy_outcome_refuter.preprocess_data_by_treatment">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       preprocess_data_by_treatment()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.dummy_outcome_refuter.process_data">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       process_data()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.dummy_outcome_refuter.refute_dummy_outcome">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       refute_dummy_outcome()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#module-dowhy.causal_refuters.graph_refuter">
    dowhy.causal_refuters.graph_refuter module
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.graph_refuter.GraphRefutation">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       GraphRefutation
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.graph_refuter.GraphRefutation.add_conditional_independence_test_result">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GraphRefutation.add_conditional_independence_test_result()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.graph_refuter.GraphRefuter">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       GraphRefuter
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.graph_refuter.GraphRefuter.conditional_mutual_information">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GraphRefuter.conditional_mutual_information()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.graph_refuter.GraphRefuter.partial_correlation">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GraphRefuter.partial_correlation()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.graph_refuter.GraphRefuter.refute_model">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GraphRefuter.refute_model()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.graph_refuter.GraphRefuter.set_refutation_result">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         GraphRefuter.set_refutation_result()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#module-dowhy.causal_refuters.linear_sensitivity_analyzer">
    dowhy.causal_refuters.linear_sensitivity_analyzer module
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       LinearSensitivityAnalyzer
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.check_sensitivity">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LinearSensitivityAnalyzer.check_sensitivity()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.compute_bias_adjusted">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LinearSensitivityAnalyzer.compute_bias_adjusted()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.partial_r2_func">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LinearSensitivityAnalyzer.partial_r2_func()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.plot">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LinearSensitivityAnalyzer.plot()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.plot_estimate">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LinearSensitivityAnalyzer.plot_estimate()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.plot_t">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LinearSensitivityAnalyzer.plot_t()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.robustness_value_func">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LinearSensitivityAnalyzer.robustness_value_func()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.linear_sensitivity_analyzer.LinearSensitivityAnalyzer.treatment_regression">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LinearSensitivityAnalyzer.treatment_regression()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#module-dowhy.causal_refuters.placebo_treatment_refuter">
    dowhy.causal_refuters.placebo_treatment_refuter module
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.placebo_treatment_refuter.PlaceboTreatmentRefuter">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PlaceboTreatmentRefuter
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.placebo_treatment_refuter.PlaceboTreatmentRefuter.refute_estimate">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         PlaceboTreatmentRefuter.refute_estimate()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.placebo_treatment_refuter.PlaceboType">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PlaceboType
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.placebo_treatment_refuter.PlaceboType.DEFAULT">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         PlaceboType.DEFAULT
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.placebo_treatment_refuter.PlaceboType.PERMUTE">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         PlaceboType.PERMUTE
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.placebo_treatment_refuter.refute_placebo_treatment">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       refute_placebo_treatment()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#module-dowhy.causal_refuters.random_common_cause">
    dowhy.causal_refuters.random_common_cause module
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.random_common_cause.RandomCommonCause">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       RandomCommonCause
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.random_common_cause.RandomCommonCause.refute_estimate">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         RandomCommonCause.refute_estimate()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.random_common_cause.refute_random_common_cause">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       refute_random_common_cause()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#module-dowhy.causal_refuters">
    Module contents
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.AddUnobservedCommonCause">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       AddUnobservedCommonCause
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.AddUnobservedCommonCause.include_simulated_confounder">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         AddUnobservedCommonCause.include_simulated_confounder()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.AddUnobservedCommonCause.refute_estimate">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         AddUnobservedCommonCause.refute_estimate()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.BootstrapRefuter">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       BootstrapRefuter
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.BootstrapRefuter.DEFAULT_NUMBER_OF_TRIALS">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         BootstrapRefuter.DEFAULT_NUMBER_OF_TRIALS
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.BootstrapRefuter.DEFAULT_STD_DEV">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         BootstrapRefuter.DEFAULT_STD_DEV
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.BootstrapRefuter.DEFAULT_SUCCESS_PROBABILITY">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         BootstrapRefuter.DEFAULT_SUCCESS_PROBABILITY
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.BootstrapRefuter.refute_estimate">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         BootstrapRefuter.refute_estimate()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.DataSubsetRefuter">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DataSubsetRefuter
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.DataSubsetRefuter.DEFAULT_SUBSET_FRACTION">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         DataSubsetRefuter.DEFAULT_SUBSET_FRACTION
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.DataSubsetRefuter.refute_estimate">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         DataSubsetRefuter.refute_estimate()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.DummyOutcomeRefuter">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DummyOutcomeRefuter
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.DummyOutcomeRefuter.refute_estimate">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         DummyOutcomeRefuter.refute_estimate()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.PlaceboTreatmentRefuter">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       PlaceboTreatmentRefuter
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.PlaceboTreatmentRefuter.refute_estimate">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         PlaceboTreatmentRefuter.refute_estimate()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.RandomCommonCause">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       RandomCommonCause
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dowhy.causal_refuters.RandomCommonCause.refute_estimate">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         RandomCommonCause.refute_estimate()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.refute_bootstrap">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       refute_bootstrap()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.refute_data_subset">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       refute_data_subset()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.refute_dummy_outcome">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       refute_dummy_outcome()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.refute_estimate">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       refute_estimate()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.refute_placebo_treatment">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       refute_placebo_treatment()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.refute_random_common_cause">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       refute_random_common_cause()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.sensitivity_e_value">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sensitivity_e_value()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.sensitivity_linear_partial_r2">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sensitivity_linear_partial_r2()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.sensitivity_non_parametric_partial_r2">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sensitivity_non_parametric_partial_r2()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dowhy.causal_refuters.sensitivity_simulation">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sensitivity_simulation()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -415,6 +1169,11 @@ if percent_change_estimate = 1, the robustness value describes the strength of a
 :param g_s_estimator_list: list of estimator objects for finding g_s. These objects should have fit() and predict() functions implemented. (relevant only for non-parametric-partial-R2 simulation method)
 :param g_s_estimator_param_list: list of dictionaries with parameters for tuning respective estimators in “g_s_estimator_list”. The order of the dictionaries in the list should be consistent with the estimator objects order in “g_s_estimator_list”. (relevant only for non-parametric-partial-R2 simulation method)</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_refuters.add_unobserved_common_cause.AddUnobservedCommonCause.include_simulated_confounder">
+<span class="sig-name descname"><span class="pre">include_simulated_confounder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">convergence_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_star_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/add_unobserved_common_cause.html#AddUnobservedCommonCause.include_simulated_confounder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.add_unobserved_common_cause.AddUnobservedCommonCause.include_simulated_confounder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_refuters.add_unobserved_common_cause.AddUnobservedCommonCause.refute_estimate">
 <span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/add_unobserved_common_cause.html#AddUnobservedCommonCause.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.add_unobserved_common_cause.AddUnobservedCommonCause.refute_estimate" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -423,7 +1182,7 @@ if percent_change_estimate = 1, the robustness value describes the strength of a
 
 <dl class="py function">
 <dt class="sig sig-object py" id="dowhy.causal_refuters.add_unobserved_common_cause.include_simulated_confounder">
-<span class="sig-prename descclassname"><span class="pre">dowhy.causal_refuters.add_unobserved_common_cause.</span></span><span class="sig-name descname"><span class="pre">include_simulated_confounder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treatment_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outcome_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convergence_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_star_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/add_unobserved_common_cause.html#include_simulated_confounder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.add_unobserved_common_cause.include_simulated_confounder" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">dowhy.causal_refuters.add_unobserved_common_cause.</span></span><span class="sig-name descname"><span class="pre">include_simulated_confounder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treatment_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outcome_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables_of_interest</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convergence_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_star_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/add_unobserved_common_cause.html#include_simulated_confounder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.add_unobserved_common_cause.include_simulated_confounder" title="Permalink to this definition"></a></dt>
 <dd><p>This function simulates an unobserved confounder based on the data using the following steps:
 1. It calculates the “residuals”  from the treatment and outcome model
 i.) The outcome model has outcome as the dependent variable and all the observed variables including treatment as independent variables
@@ -1559,6 +2318,11 @@ if percent_change_estimate = 1, the robustness value describes the strength of a
 :param g_s_estimator_list: list of estimator objects for finding g_s. These objects should have fit() and predict() functions implemented. (relevant only for non-parametric-partial-R2 simulation method)
 :param g_s_estimator_param_list: list of dictionaries with parameters for tuning respective estimators in “g_s_estimator_list”. The order of the dictionaries in the list should be consistent with the estimator objects order in “g_s_estimator_list”. (relevant only for non-parametric-partial-R2 simulation method)</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="dowhy.causal_refuters.AddUnobservedCommonCause.include_simulated_confounder">
+<span class="sig-name descname"><span class="pre">include_simulated_confounder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">convergence_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_star_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/add_unobserved_common_cause.html#AddUnobservedCommonCause.include_simulated_confounder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.AddUnobservedCommonCause.include_simulated_confounder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="dowhy.causal_refuters.AddUnobservedCommonCause.refute_estimate">
 <span class="sig-name descname"><span class="pre">refute_estimate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/causal_refuters/add_unobserved_common_cause.html#AddUnobservedCommonCause.refute_estimate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.causal_refuters.AddUnobservedCommonCause.refute_estimate" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
@@ -2307,7 +3071,7 @@ action.</p>
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
 </p>
   </div>
   
