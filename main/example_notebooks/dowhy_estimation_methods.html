@@ -35,6 +35,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -47,6 +48,7 @@
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -80,8 +82,9 @@
   
   
   
+    <img src="../_static/dowhy-logo-small.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/dowhy-logo-small.png" class="logo__image only-dark" alt="Logo image">
   
-    <p class="title logo__title">DoWhy  documentation</p>
   
 </a>
     
@@ -147,7 +150,30 @@
       </div>
       
       <div class="navbar-end-item">
-        
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        main
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+        <dl>
+            <dt>Releases</dt>
+            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="../v0.7/index.html">v0.7</a></dd>
+            <dd><a href="../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+        </dl>        
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="">main</a></dd>
+        </dl>        
+    </div>
+</div>
       </div>
       
     </div>
@@ -736,62 +762,62 @@ div.rendered_html tbody tr:hover {
     <tr>
       <th>0</th>
       <td>1.0</td>
-      <td>0.738441</td>
-      <td>-1.620797</td>
-      <td>-2.000054</td>
-      <td>0.624663</td>
-      <td>0.881266</td>
-      <td>1.442847</td>
-      <td>True</td>
-      <td>8.776772</td>
+      <td>0.049312</td>
+      <td>-0.566101</td>
+      <td>1.000394</td>
+      <td>-1.771715</td>
+      <td>-0.958160</td>
+      <td>-0.247268</td>
+      <td>False</td>
+      <td>-7.576674</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1.0</td>
-      <td>0.743901</td>
-      <td>-0.893737</td>
-      <td>-1.485441</td>
-      <td>0.234012</td>
-      <td>2.580890</td>
-      <td>0.113645</td>
+      <td>0.817277</td>
+      <td>-0.357974</td>
+      <td>0.983639</td>
+      <td>-0.472484</td>
+      <td>-2.405225</td>
+      <td>0.588341</td>
       <td>True</td>
-      <td>15.978431</td>
+      <td>7.760057</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.0</td>
-      <td>0.842253</td>
-      <td>-1.495125</td>
-      <td>-2.045147</td>
-      <td>1.036638</td>
-      <td>0.661944</td>
-      <td>-0.856939</td>
-      <td>True</td>
-      <td>7.526680</td>
+      <td>0.0</td>
+      <td>0.791811</td>
+      <td>-0.208548</td>
+      <td>0.818421</td>
+      <td>-0.523145</td>
+      <td>-1.221137</td>
+      <td>-0.695554</td>
+      <td>False</td>
+      <td>-1.978528</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.0</td>
-      <td>0.345230</td>
-      <td>-0.224660</td>
-      <td>-1.200689</td>
-      <td>0.124905</td>
-      <td>-1.042447</td>
-      <td>1.191542</td>
+      <td>1.0</td>
+      <td>0.455826</td>
+      <td>-1.055931</td>
+      <td>-0.820874</td>
+      <td>0.141712</td>
+      <td>0.039853</td>
+      <td>0.028744</td>
       <td>True</td>
-      <td>2.823247</td>
+      <td>4.564358</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1.0</td>
-      <td>0.255132</td>
-      <td>-2.401890</td>
-      <td>-0.792390</td>
-      <td>1.779431</td>
-      <td>0.448765</td>
-      <td>0.944065</td>
+      <td>0.375805</td>
+      <td>-0.447884</td>
+      <td>1.978701</td>
+      <td>1.153019</td>
+      <td>-2.297502</td>
+      <td>-1.630528</td>
       <td>True</td>
-      <td>14.742856</td>
+      <td>18.121509</td>
     </tr>
     <tr>
       <th>...</th>
@@ -807,63 +833,63 @@ div.rendered_html tbody tr:hover {
     </tr>
     <tr>
       <th>9995</th>
-      <td>0.0</td>
-      <td>0.022125</td>
-      <td>-0.842893</td>
-      <td>-0.422600</td>
-      <td>1.990278</td>
-      <td>2.848547</td>
-      <td>-0.437129</td>
+      <td>1.0</td>
+      <td>0.030605</td>
+      <td>0.318787</td>
+      <td>-1.388046</td>
+      <td>-1.173507</td>
+      <td>-1.163736</td>
+      <td>1.889823</td>
       <td>True</td>
-      <td>29.123824</td>
+      <td>-0.885310</td>
     </tr>
     <tr>
       <th>9996</th>
       <td>1.0</td>
-      <td>0.554386</td>
-      <td>-1.706398</td>
-      <td>-1.943889</td>
-      <td>0.859077</td>
-      <td>-1.369088</td>
-      <td>0.481317</td>
+      <td>0.343011</td>
+      <td>-0.586074</td>
+      <td>0.378644</td>
+      <td>0.058426</td>
+      <td>-1.200269</td>
+      <td>-0.190839</td>
       <td>True</td>
-      <td>-0.950811</td>
+      <td>8.401122</td>
     </tr>
     <tr>
       <th>9997</th>
       <td>1.0</td>
-      <td>0.191927</td>
-      <td>-0.057135</td>
-      <td>-0.848428</td>
-      <td>-0.611856</td>
-      <td>-0.019941</td>
-      <td>0.022302</td>
+      <td>0.399935</td>
+      <td>1.185661</td>
+      <td>0.593564</td>
+      <td>-0.673628</td>
+      <td>1.315792</td>
+      <td>0.214447</td>
       <td>True</td>
-      <td>3.897484</td>
+      <td>14.365170</td>
     </tr>
     <tr>
       <th>9998</th>
-      <td>0.0</td>
-      <td>0.200028</td>
-      <td>-0.034550</td>
-      <td>-1.361591</td>
-      <td>-0.827231</td>
-      <td>-0.003985</td>
-      <td>1.108985</td>
-      <td>True</td>
-      <td>2.332478</td>
+      <td>1.0</td>
+      <td>0.026368</td>
+      <td>-1.301983</td>
+      <td>0.231029</td>
+      <td>-2.621014</td>
+      <td>-1.783416</td>
+      <td>-0.176594</td>
+      <td>False</td>
+      <td>-17.986684</td>
     </tr>
     <tr>
       <th>9999</th>
-      <td>0.0</td>
-      <td>0.139767</td>
-      <td>0.591325</td>
-      <td>0.021239</td>
-      <td>0.259226</td>
-      <td>-1.353179</td>
-      <td>1.190213</td>
+      <td>1.0</td>
+      <td>0.878636</td>
+      <td>-1.296140</td>
+      <td>-0.330232</td>
+      <td>-0.860813</td>
+      <td>-0.269116</td>
+      <td>0.936104</td>
       <td>True</td>
-      <td>7.781976</td>
+      <td>1.252029</td>
     </tr>
   </tbody>
 </table>
@@ -934,9 +960,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W2,W0,W3])
+─────(E[y|W0,W1,W3,W4,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W2,W0,W3,U) = P(y|v0,W1,W4,W2,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W3,W4,W2,U) = P(y|v0,W0,W1,W3,W4,W2)
 
 ### Estimand : 2
 Estimand name: iv
@@ -944,9 +970,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+ ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 
 ### Estimand : 3
 Estimand name: frontdoor
@@ -984,19 +1010,19 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W2,W0,W3])
+─────(E[y|W0,W1,W3,W4,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W2,W0,W3,U) = P(y|v0,W1,W4,W2,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W3,W4,W2,U) = P(y|v0,W0,W1,W3,W4,W2)
 
 ## Realized estimand
-b: y~v0+W1+W4+W2+W0+W3
+b: y~v0+W0+W1+W3+W4+W2
 Target units: ate
 
 ## Estimate
-Mean value: 10.00060383380435
+Mean value: 10.000177341638247
 p-value: [0.]
 
-Causal Estimate is 10.00060383380435
+Causal Estimate is 10.000177341638247
 </pre></div></div>
 </div>
 </section>
@@ -1030,18 +1056,18 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W2,W0,W3])
+─────(E[y|W0,W1,W3,W4,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W2,W0,W3,U) = P(y|v0,W1,W4,W2,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W3,W4,W2,U) = P(y|v0,W0,W1,W3,W4,W2)
 
 ## Realized estimand
-b: y~v0+W1+W4+W2+W0+W3
+b: y~v0+W0+W1+W3+W4+W2
 Target units: att
 
 ## Estimate
-Mean value: 10.702842454358748
+Mean value: 10.513357222739444
 
-Causal Estimate is 10.702842454358748
+Causal Estimate is 10.513357222739444
 </pre></div></div>
 </div>
 </section>
@@ -1074,18 +1100,18 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W2,W0,W3])
+─────(E[y|W0,W1,W3,W4,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W2,W0,W3,U) = P(y|v0,W1,W4,W2,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W3,W4,W2,U) = P(y|v0,W0,W1,W3,W4,W2)
 
 ## Realized estimand
-b: y~v0+W1+W4+W2+W0+W3
+b: y~v0+W0+W1+W3+W4+W2
 Target units: att
 
 ## Estimate
-Mean value: 9.901454292101302
+Mean value: 10.159071909425935
 
-Causal Estimate is 9.901454292101302
+Causal Estimate is 10.159071909425935
 </pre></div></div>
 </div>
 </section>
@@ -1118,18 +1144,18 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W2,W0,W3])
+─────(E[y|W0,W1,W3,W4,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W2,W0,W3,U) = P(y|v0,W1,W4,W2,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W3,W4,W2,U) = P(y|v0,W0,W1,W3,W4,W2)
 
 ## Realized estimand
-b: y~v0+W1+W4+W2+W0+W3
+b: y~v0+W0+W1+W3+W4+W2
 Target units: atc
 
 ## Estimate
-Mean value: 10.069425711276837
+Mean value: 9.80734753278845
 
-Causal Estimate is 10.069425711276837
+Causal Estimate is 9.80734753278845
 </pre></div></div>
 </div>
 </section>
@@ -1163,18 +1189,18 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W4,W2,W0,W3])
+─────(E[y|W0,W1,W3,W4,W2])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W4,W2,W0,W3,U) = P(y|v0,W1,W4,W2,W0,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W3,W4,W2,U) = P(y|v0,W0,W1,W3,W4,W2)
 
 ## Realized estimand
-b: y~v0+W1+W4+W2+W0+W3
+b: y~v0+W0+W1+W3+W4+W2
 Target units: ate
 
 ## Estimate
-Mean value: 10.532215880169355
+Mean value: 10.248607407406167
 
-Causal Estimate is 10.532215880169355
+Causal Estimate is 10.248607407406167
 </pre></div></div>
 </div>
 </section>
@@ -1208,9 +1234,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+ ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 
 ## Realized estimand
 Realized estimand: Wald Estimator
@@ -1219,17 +1245,17 @@ Estimand expression:
  ⎡ d    ⎤  -1⎡ d     ⎤
 E⎢───(y)⎥⋅E  ⎢───(v₀)⎥
  ⎣dZ₀   ⎦    ⎣dZ₀    ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 Estimand assumption 3, treatment_effect_homogeneity: Each unit&#39;s treatment [&#39;v0&#39;] is affected in the same way by common causes of [&#39;v0&#39;] and y
 Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome y is affected in the same way by common causes of [&#39;v0&#39;] and y
 
 Target units: ate
 
 ## Estimate
-Mean value: 11.115635405179765
+Mean value: 9.420631038200456
 
-Causal Estimate is 11.115635405179765
+Causal Estimate is 9.420631038200456
 </pre></div></div>
 </div>
 </section>
@@ -1266,9 +1292,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+ ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 
 ## Realized estimand
 Realized estimand: Wald Estimator
@@ -1277,17 +1303,17 @@ Estimand expression:
  ⎡        d            ⎤  -1⎡        d             ⎤
 E⎢──────────────────(y)⎥⋅E  ⎢──────────────────(v₀)⎥
  ⎣dlocal_rd_variable   ⎦    ⎣dlocal_rd_variable    ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
-Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
+Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
 Estimand assumption 3, treatment_effect_homogeneity: Each unit&#39;s treatment [&#39;local_treatment&#39;] is affected in the same way by common causes of [&#39;local_treatment&#39;] and local_outcome
 Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome local_outcome is affected in the same way by common causes of [&#39;local_treatment&#39;] and local_outcome
 
 Target units: ate
 
 ## Estimate
-Mean value: 24.271904330951816
+Mean value: 7.265347228917865
 
-Causal Estimate is 24.271904330951816
+Causal Estimate is 7.265347228917865
 </pre></div></div>
 </div>
 </section>

@@ -35,6 +35,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -47,6 +48,7 @@
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -80,8 +82,9 @@
   
   
   
+    <img src="../_static/dowhy-logo-small.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/dowhy-logo-small.png" class="logo__image only-dark" alt="Logo image">
   
-    <p class="title logo__title">DoWhy  documentation</p>
   
 </a>
     
@@ -147,7 +150,30 @@
       </div>
       
       <div class="navbar-end-item">
-        
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        main
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+        <dl>
+            <dt>Releases</dt>
+            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="../v0.7/index.html">v0.7</a></dd>
+            <dd><a href="../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+        </dl>        
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="">main</a></dd>
+        </dl>        
+    </div>
+</div>
       </div>
       
     </div>
@@ -723,7 +749,7 @@ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF TH
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Causal Estimate is 1639.798866351981
+Causal Estimate is 1639.819736621581
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -743,10 +769,10 @@ Causal Estimate is 1639.798866351981
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   6.743</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Wed, 09 Nov 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00973</td>
+  <th>Date:</th>             <td>Thu, 10 Nov 2022</td> <th>  Prob (F-statistic):</th>  <td>0.00972</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>11:52:43</td>     <th>  Log-Likelihood:    </th> <td> -4544.7</td>
+  <th>Time:</th>                 <td>22:09:36</td>     <th>  Log-Likelihood:    </th> <td> -4544.7</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>   445</td>      <th>  AIC:               </th> <td>   9093.</td>
@@ -766,18 +792,18 @@ Causal Estimate is 1639.798866351981
         <td></td>           <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>
 </tr>
 <tr>
-  <th>Intercept</th>     <td> 4555.0760</td> <td>  406.703</td> <td>   11.200</td> <td> 0.000</td> <td> 3755.768</td> <td> 5354.384</td>
+  <th>Intercept</th>     <td> 4555.0726</td> <td>  406.705</td> <td>   11.200</td> <td> 0.000</td> <td> 3755.762</td> <td> 5354.383</td>
 </tr>
 <tr>
-  <th>treat[T.True]</th> <td> 1639.7989</td> <td>  631.495</td> <td>    2.597</td> <td> 0.010</td> <td>  398.701</td> <td> 2880.897</td>
+  <th>treat[T.True]</th> <td> 1639.8197</td> <td>  631.496</td> <td>    2.597</td> <td> 0.010</td> <td>  398.719</td> <td> 2880.920</td>
 </tr>
 </table>
 <table class="simpletable">
 <tr>
-  <th>Omnibus:</th>       <td>303.262</td> <th>  Durbin-Watson:     </th> <td>   2.085</td>
+  <th>Omnibus:</th>       <td>303.264</td> <th>  Durbin-Watson:     </th> <td>   2.085</td>
 </tr>
 <tr>
-  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>4770.548</td>
+  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>4770.691</td>
 </tr>
 <tr>
   <th>Skew:</th>          <td> 2.709</td>  <th>  Prob(JB):          </th> <td>    0.00</td>
@@ -833,7 +859,7 @@ Causal Estimate is 1639.798866351981
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Causal Estimate is 1639.7988663519818
+Causal Estimate is 1639.8197366215782
 </pre></div></div>
 </div>
 </section>

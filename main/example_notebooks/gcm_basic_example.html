@@ -35,6 +35,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -47,6 +48,7 @@
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -80,8 +82,9 @@
   
   
   
+    <img src="../_static/dowhy-logo-small.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/dowhy-logo-small.png" class="logo__image only-dark" alt="Logo image">
   
-    <p class="title logo__title">DoWhy  documentation</p>
   
 </a>
     
@@ -147,7 +150,30 @@
       </div>
       
       <div class="navbar-end-item">
-        
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        main
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+        <dl>
+            <dt>Releases</dt>
+            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="../v0.7/index.html">v0.7</a></dd>
+            <dd><a href="../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+        </dl>        
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="">main</a></dd>
+        </dl>        
+    </div>
+</div>
       </div>
       
     </div>
@@ -696,33 +722,33 @@ div.rendered_html tbody tr:hover {
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.097886</td>
-      <td>3.086628</td>
-      <td>8.961129</td>
+      <td>0.582647</td>
+      <td>1.672209</td>
+      <td>3.843802</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-1.055433</td>
-      <td>-1.177151</td>
-      <td>-3.091964</td>
+      <td>-0.330936</td>
+      <td>-1.644354</td>
+      <td>-5.333343</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.511697</td>
-      <td>4.521507</td>
-      <td>13.274339</td>
+      <td>1.437932</td>
+      <td>1.271608</td>
+      <td>1.764765</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.323162</td>
-      <td>0.988059</td>
-      <td>3.827435</td>
+      <td>-0.382285</td>
+      <td>0.183835</td>
+      <td>0.400205</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-1.015674</td>
-      <td>-0.848795</td>
-      <td>-2.250974</td>
+      <td>-0.764862</td>
+      <td>-3.017011</td>
+      <td>-10.097294</td>
     </tr>
   </tbody>
 </table>
@@ -767,7 +793,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 240.55it/s]
+Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 515.63it/s]
 </pre></div></div>
 </div>
 <p>Fitting means, we learn the generative models of the variables in the SCM according to the data.</p>
@@ -821,33 +847,33 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.854273</td>
+      <td>-1.781189</td>
       <td>2.34</td>
-      <td>5.815726</td>
+      <td>7.709256</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-1.729534</td>
+      <td>-0.213530</td>
       <td>2.34</td>
-      <td>8.153373</td>
+      <td>7.139226</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.113325</td>
+      <td>-0.046978</td>
       <td>2.34</td>
-      <td>6.487789</td>
+      <td>7.519358</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.261838</td>
+      <td>-1.620533</td>
       <td>2.34</td>
-      <td>7.705737</td>
+      <td>5.268672</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.935114</td>
+      <td>-0.278240</td>
       <td>2.34</td>
-      <td>6.782057</td>
+      <td>6.451423</td>
     </tr>
   </tbody>
 </table>

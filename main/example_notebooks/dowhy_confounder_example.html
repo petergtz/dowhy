@@ -35,6 +35,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
 
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
@@ -47,6 +48,7 @@
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
@@ -80,8 +82,9 @@
   
   
   
+    <img src="../_static/dowhy-logo-small.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/dowhy-logo-small.png" class="logo__image only-dark" alt="Logo image">
   
-    <p class="title logo__title">DoWhy  documentation</p>
   
 </a>
     
@@ -147,7 +150,30 @@
       </div>
       
       <div class="navbar-end-item">
-        
+        <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        main
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+        <dl>
+            <dt>Releases</dt>
+            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="../v0.7/index.html">v0.7</a></dd>
+            <dd><a href="../v0.6/index.html">v0.6</a></dd>
+            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="../v0.5/index.html">v0.5</a></dd>
+            <dd><a href="../v0.4/index.html">v0.4</a></dd>
+            <dd><a href="../v0.2/index.html">v0.2</a></dd>
+            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
+            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+        </dl>        
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="">main</a></dd>
+        </dl>        
+    </div>
+</div>
       </div>
       
     </div>
@@ -719,11 +745,11 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0
-0   4.396113   8.786421 -1.468616
-1   2.721743   4.615056 -3.569041
-2   7.912955  15.929195  1.748068
-3   2.409010   4.635170 -3.697393
-4   6.285464  12.973875  0.432607
+0   2.410993   4.527065 -3.865706
+1   4.789521   9.925764 -0.679266
+2   8.965887  18.194102  2.932708
+3   4.955857   9.513261 -1.485285
+4  10.943371  22.266390  4.891053
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -840,7 +866,7 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Causal Estimate is 0.00877178063606543
+Causal Estimate is 1.0001607559822565
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -867,8 +893,8 @@ Causal Estimate is 0.00877178063606543
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DoWhy estimate is 0.00877178063606543
-Actual true causal effect was 0
+DoWhy estimate is 1.0001607559822565
+Actual true causal effect was 1
 </pre></div></div>
 </div>
 </section>
@@ -893,9 +919,9 @@ Actual true causal effect was 0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:0.00877178063606543
-New effect:0.008781694629144531
-p value:0.96
+Estimated effect:1.0001607559822565
+New effect:1.000162579320656
+p value:0.98
 
 </pre></div></div>
 </div>
@@ -918,9 +944,9 @@ p value:0.96
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:0.00877178063606543
-New effect:2.220254285481005e-05
-p value:0.98
+Estimated effect:1.0001607559822565
+New effect:-8.456295904837318e-05
+p value:0.8600000000000001
 
 </pre></div></div>
 </div>
@@ -943,9 +969,9 @@ p value:0.98
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:0.00877178063606543
-New effect:0.009390223113344103
-p value:0.88
+Estimated effect:1.0001607559822565
+New effect:1.000078295284394
+p value:1.0
 
 </pre></div></div>
 </div>
