@@ -74,23 +74,23 @@ def construct_col_names(name, num_vars, num_discrete_vars, num_discrete_levels, 
 
 
 def linear_dataset(
-    beta,
-    num_common_causes,
-    num_samples,
-    num_instruments=0,
-    num_effect_modifiers=0,
-    num_treatments=1,
-    num_frontdoor_variables=0,
-    treatment_is_binary=True,
-    treatment_is_category=False,
-    outcome_is_binary=False,
-    stochastic_discretization=True,
-    num_discrete_common_causes=0,
-    num_discrete_instruments=0,
-    num_discrete_effect_modifiers=0,
-    stddev_treatment_noise=1,
-    stddev_outcome_noise=0.01,
-    one_hot_encode=False,
+        beta,
+        num_common_causes,
+        num_samples,
+        num_instruments=0,
+        num_effect_modifiers=0,
+        num_treatments=1,
+        num_frontdoor_variables=0,
+        treatment_is_binary=True,
+        treatment_is_category=False,
+        outcome_is_binary=False,
+        stochastic_discretization=True,
+        num_discrete_common_causes=0,
+        num_discrete_instruments=0,
+        num_discrete_effect_modifiers=0,
+        stddev_treatment_noise=1,
+        stddev_outcome_noise=0.01,
+        one_hot_encode=False,
 ):
     assert not (treatment_is_binary and treatment_is_category)
     W, X, Z, FD, c1, c2, ce, cz, cfd1, cfd2 = [None] * 10
@@ -470,7 +470,7 @@ def generate_random_graph(n, max_iter=10):
 
 
 def dataset_from_random_graph(
-    num_vars, num_samples=1000, prob_edge=0.3, random_seed=100, prob_type_of_data=(0.333, 0.333, 0.334)
+        num_vars, num_samples=1000, prob_edge=0.3, random_seed=100, prob_type_of_data=(0.333, 0.333, 0.334)
 ):
     """
     This function generates a dataset with discrete and continuous kinds of variables.
@@ -534,7 +534,7 @@ def dataset_from_random_graph(
                 DAG.predecessors(node)
             )  # Getting all the parent nodes on which current "node" depends on
             if changed[node] == False and all(
-                changed[x] == True for x in predecessors
+                    changed[x] == True for x in predecessors
             ):  # Check if current "node" has not been processed yet and if all the parent nodes have been processed
                 successors = list(DAG.successors(node))
                 successors.sort()
@@ -585,22 +585,22 @@ def dataset_from_random_graph(
 
 
 def partially_linear_dataset(
-    beta,
-    num_common_causes,
-    num_unobserved_common_causes=0,
-    strength_unobserved_confounding=1,
-    num_samples=500,
-    num_treatments=1,
-    treatment_is_binary=True,
-    treatment_is_category=False,
-    outcome_is_binary=False,
-    stochastic_discretization=True,
-    num_discrete_common_causes=0,
-    stddev_treatment_noise=1,
-    stddev_outcome_noise=0,
-    one_hot_encode=False,
-    training_sample_size=10,
-    random_state=0,
+        beta,
+        num_common_causes,
+        num_unobserved_common_causes=0,
+        strength_unobserved_confounding=1,
+        num_samples=500,
+        num_treatments=1,
+        treatment_is_binary=True,
+        treatment_is_category=False,
+        outcome_is_binary=False,
+        stochastic_discretization=True,
+        num_discrete_common_causes=0,
+        stddev_treatment_noise=1,
+        stddev_outcome_noise=0,
+        one_hot_encode=False,
+        training_sample_size=10,
+        random_state=0,
 ):
     assert not (treatment_is_binary and treatment_is_category)
     num_outcomes = 1
@@ -624,7 +624,7 @@ def partially_linear_dataset(
         if num_unobserved_common_causes > 0:
             c1[:num_unobserved_common_causes] = c1[:num_unobserved_common_causes] * strength_unobserved_confounding
             for i in range(num_unobserved_common_causes, W_with_dummy.shape[1]):
-                c1[i] = c1[i] * strength_unobserved_confounding / (2**i)
+                c1[i] = c1[i] * strength_unobserved_confounding / (2 ** i)
 
     # Creating a NN to simulate the nuisance function
     hidden_layer_arch = (50, 50, 50)
@@ -641,10 +641,10 @@ def partially_linear_dataset(
     # strength of unobserved confounding
     strength_vec = np.ones(W_with_dummy.shape[1])
     strength_vec[:num_unobserved_common_causes] = (
-        strength_vec[:num_unobserved_common_causes] * strength_unobserved_confounding
+            strength_vec[:num_unobserved_common_causes] * strength_unobserved_confounding
     )
     for i in range(num_unobserved_common_causes, W_with_dummy.shape[1]):
-        strength_vec[i] = strength_vec[i] * strength_unobserved_confounding / (2**i)
+        strength_vec[i] = strength_vec[i] * strength_unobserved_confounding / (2 ** i)
 
     def _compute_y(T, W, beta, nn, stddev_outcome_noise):
         f_x = nn.predict(W)
@@ -699,3 +699,38 @@ def partially_linear_dataset(
         "ate": ate,
     }
     return ret_dict
+
+
+def lalonde_dataset() -> pd.DataFrame:
+    """Downloads and returns the Lalonde dataset from https://users.nber.org/~rdehejia/nswdata2.html"""
+    # The following code for loading the Lalonde dataset was copied from
+    # https://github.com/wayfair/pylift/blob/5afc9088e96f25672423663f5c9b4bb889b4dfc0/examples/Lalonde/Lalonde_sample.ipynb?short_path=b1d451f#L94-L99).
+    #
+    # Copyright 2018, Wayfair, Inc.
+    #
+    # Redistribution and use in source and binary forms, with or without modification, are permitted provided that
+    # the following conditions are met:
+    #
+    # 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the
+    #    following disclaimer.
+    #
+    # 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
+    #    following disclaimer in the documentation and/or other materials provided with the distribution.
+    #
+    # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+    # WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+    # PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY
+    # DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+    # PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+    # CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+    # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+    # DAMAGE.
+    cols = ['treat', 'age', 'educ', 'black', 'hisp', 'married', 'nodegr', 're74', 're75', 're78']
+    control = pd.read_csv('https://www.nber.org/~rdehejia/data/nswre74_control.txt',
+                          sep='\\s+', header=None, names=cols)
+    treated = pd.read_csv('https://www.nber.org/~rdehejia/data/nswre74_treated.txt',
+                          sep='\\s+', header=None, names=cols)
+    lalonde = pd.concat([control, treated], ignore_index=True).astype({'treat': 'bool'}, copy=False)
+    lalonde['u74'] = np.where(lalonde['re74'] == 0, 1.0, 0.0)
+    lalonde['u75'] = np.where(lalonde['re75'] == 0, 1.0, 0.0)
+    return lalonde
