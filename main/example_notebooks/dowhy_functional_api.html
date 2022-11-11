@@ -100,7 +100,7 @@
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../getting_started/index.html">
-  Getting started
+  Getting Started
  </a>
 </li>
 
@@ -708,9 +708,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W2,W0])
+─────(E[y|W2,W0,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W2,W0,U) = P(y|v0,W1,W2,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W0,W1,U) = P(y|v0,W2,W0,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -778,12 +778,12 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W2,W0])
+─────(E[y|W2,W0,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W2,W0,U) = P(y|v0,W1,W2,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W0,W1,U) = P(y|v0,W2,W0,W1)
 
 ## Realized estimand
-b: y~v0+W1+W2+W0
+b: y~v0+W2+W0+W1
 Target units: ate
 
 ## Estimate
@@ -830,8 +830,8 @@ Mean value: 11.326873255880667
 <div class="highlight"><pre>
 Refute: Bootstrap Sample Dataset
 Estimated effect:11.326873255880667
-New effect:11.632461883569267
-p value:0.74
+New effect:11.690276254911282
+p value:0.72
 
 Refute: Use a subset of data
 Estimated effect:11.326873255880667
@@ -840,8 +840,8 @@ p value:0.46
 
 Refute: Bootstrap Sample Dataset
 Estimated effect:11.326873255880667
-New effect:11.768461066177677
-p value:0.7
+New effect:11.549842080781566
+p value:0.82
 
 Refute: Use a subset of data
 Estimated effect:11.326873255880667
@@ -889,9 +889,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W2,W0])
+─────(E[y|W2,W0,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W2,W0,U) = P(y|v0,W1,W2,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W0,W1,U) = P(y|v0,W2,W0,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -938,12 +938,12 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W2,W0])
+─────(E[y|W2,W0,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W2,W0,U) = P(y|v0,W1,W2,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W0,W1,U) = P(y|v0,W2,W0,W1)
 
 ## Realized estimand
-b: y~v0+W1+W2+W0
+b: y~v0+W2+W0+W1
 Target units: ate
 
 ## Estimate
@@ -976,8 +976,8 @@ Mean value: 11.326873255880667
 <div class="highlight"><pre>
 Refute: Bootstrap Sample Dataset
 Estimated effect:11.326873255880667
-New effect:11.870319438092256
-p value:0.5
+New effect:11.930822268123368
+p value:0.44
 
 Refute: Use a subset of data
 Estimated effect:11.326873255880667

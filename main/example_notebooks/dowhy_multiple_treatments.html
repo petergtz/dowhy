@@ -102,7 +102,7 @@
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="../getting_started/index.html">
-  Getting started
+  Getting Started
  </a>
 </li>
 
@@ -720,63 +720,63 @@ div.rendered_html tbody tr:hover {
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.047040</td>
-      <td>-1.001672</td>
-      <td>-0.208449</td>
-      <td>-0.930587</td>
-      <td>1</td>
+      <td>-0.128545</td>
+      <td>-0.616787</td>
+      <td>-1.109042</td>
+      <td>0.676132</td>
+      <td>0</td>
       <td>3</td>
-      <td>4.643503</td>
-      <td>3.841718</td>
-      <td>121.269353</td>
+      <td>12.699676</td>
+      <td>9.777208</td>
+      <td>-112.652442</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.078187</td>
-      <td>-1.410163</td>
-      <td>0.703969</td>
-      <td>0.398863</td>
-      <td>1</td>
+      <td>1.882786</td>
+      <td>-1.274109</td>
+      <td>-2.026225</td>
+      <td>0.345656</td>
       <td>0</td>
-      <td>5.381978</td>
-      <td>8.030058</td>
-      <td>214.937835</td>
+      <td>0</td>
+      <td>0.844307</td>
+      <td>1.374546</td>
+      <td>15.463244</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.695441</td>
-      <td>0.020869</td>
-      <td>0.001173</td>
-      <td>-1.288992</td>
+      <td>0.092163</td>
+      <td>-0.421823</td>
+      <td>-0.571437</td>
+      <td>1.349826</td>
       <td>1</td>
-      <td>0</td>
-      <td>1.062957</td>
-      <td>-6.708178</td>
-      <td>-79.344319</td>
+      <td>2</td>
+      <td>12.256928</td>
+      <td>7.358843</td>
+      <td>84.001441</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.302839</td>
-      <td>-1.405783</td>
-      <td>-2.088386</td>
-      <td>-1.195433</td>
-      <td>1</td>
+      <td>0.615341</td>
+      <td>-1.437707</td>
+      <td>0.394536</td>
+      <td>2.080539</td>
       <td>3</td>
-      <td>-0.244071</td>
-      <td>-4.760954</td>
-      <td>-46.784395</td>
+      <td>3</td>
+      <td>21.097381</td>
+      <td>11.955784</td>
+      <td>-606.686124</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.776898</td>
-      <td>0.812173</td>
-      <td>0.176875</td>
-      <td>-1.065248</td>
+      <td>-0.162708</td>
+      <td>-1.271634</td>
+      <td>-1.604075</td>
+      <td>0.287593</td>
       <td>2</td>
-      <td>2</td>
-      <td>8.292145</td>
-      <td>2.772865</td>
-      <td>193.658949</td>
+      <td>3</td>
+      <td>20.444168</td>
+      <td>5.755556</td>
+      <td>-362.854101</td>
     </tr>
   </tbody>
 </table>
@@ -829,9 +829,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W1,W0,W2,W3])
+─────────(E[y|W0,W1,W3,W2])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W1,W0,W2,W3,U) = P(y|v0,v1,W1,W0,W2,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W1,W3,W2,U) = P(y|v0,v1,W0,W1,W3,W2)
 
 ### Estimand : 2
 Estimand name: iv
@@ -874,16 +874,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W1,W0,W2,W3])
+─────────(E[y|W0,W1,W3,W2])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W1,W0,W2,W3,U) = P(y|v0,v1,W1,W0,W2,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W1,W3,W2,U) = P(y|v0,v1,W0,W1,W3,W2)
 
 ## Realized estimand
-b: y~v0+v1+W1+W0+W2+W3+v0*X1+v0*X0+v1*X1+v1*X0
+b: y~v0+v1+W0+W1+W3+W2+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: 23.942552903845936
+Mean value: 30.02608337552204
 
 </pre></div></div>
 </div>
@@ -914,43 +914,43 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W1,W0,W2,W3])
+─────────(E[y|W0,W1,W3,W2])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W1,W0,W2,W3,U) = P(y|v0,v1,W1,W0,W2,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W1,W3,W2,U) = P(y|v0,v1,W0,W1,W3,W2)
 
 ## Realized estimand
-b: y~v0+v1+W1+W0+W2+W3+v0*X1+v0*X0+v1*X1+v1*X0
+b: y~v0+v1+W0+W1+W3+W2+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: 23.942552903845936
+Mean value: 30.02608337552204
 ### Conditional Estimates
 __categorical__X1  __categorical__X0
-(-3.911, -1.079]   (-3.8529999999999998, -0.576]     2.464275
-                   (-0.576, -0.00032]               14.827589
-                   (-0.00032, 0.516]                22.550242
-                   (0.516, 1.099]                   29.896167
-                   (1.099, 4.245]                   42.024189
-(-1.079, -0.485]   (-3.8529999999999998, -0.576]     3.953329
-                   (-0.576, -0.00032]               15.692523
-                   (-0.00032, 0.516]                23.185158
-                   (0.516, 1.099]                   30.930209
-                   (1.099, 4.245]                   44.141939
-(-0.485, 0.0371]   (-3.8529999999999998, -0.576]     3.833212
-                   (-0.576, -0.00032]               16.301223
-                   (-0.00032, 0.516]                24.039129
-                   (0.516, 1.099]                   31.636062
-                   (1.099, 4.245]                   43.537845
-(0.0371, 0.627]    (-3.8529999999999998, -0.576]     4.478006
-                   (-0.576, -0.00032]               17.096468
-                   (-0.00032, 0.516]                24.614020
-                   (0.516, 1.099]                   32.299826
-                   (1.099, 4.245]                   43.976798
-(0.627, 3.999]     (-3.8529999999999998, -0.576]     5.185101
-                   (-0.576, -0.00032]               17.810801
-                   (-0.00032, 0.516]                25.624894
-                   (0.516, 1.099]                   33.185579
-                   (1.099, 4.245]                   45.241870
+(-4.226, -1.322]   (-3.137, 0.0651]     -91.044064
+                   (0.0651, 0.649]      -59.336683
+                   (0.649, 1.149]       -40.473379
+                   (1.149, 1.736]       -20.446639
+                   (1.736, 4.7]          13.599808
+(-1.322, -0.732]   (-3.137, 0.0651]     -48.340001
+                   (0.0651, 0.649]      -16.148839
+                   (0.649, 1.149]         3.973826
+                   (1.149, 1.736]        22.226464
+                   (1.736, 4.7]          54.787958
+(-0.732, -0.228]   (-3.137, 0.0651]     -21.017399
+                   (0.0651, 0.649]       10.221619
+                   (0.649, 1.149]        29.704925
+                   (1.149, 1.736]        48.691649
+                   (1.736, 4.7]          81.203575
+(-0.228, 0.355]    (-3.137, 0.0651]       5.931948
+                   (0.0651, 0.649]       37.750279
+                   (0.649, 1.149]        56.073227
+                   (1.149, 1.736]        76.574602
+                   (1.736, 4.7]         108.460587
+(0.355, 3.335]     (-3.137, 0.0651]      52.009513
+                   (0.0651, 0.649]       79.686053
+                   (0.649, 1.149]       100.607596
+                   (1.149, 1.736]       116.872732
+                   (1.736, 4.7]         149.141118
 dtype: float64
 </pre></div></div>
 </div>

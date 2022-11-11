@@ -15,7 +15,7 @@
         gtag('config', 'G-B139P18WHM');
     </script>
     
-    <title>Effect inference &#8212; DoWhy  documentation</title>
+    <title>5. Comparison to other packages &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -53,8 +53,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1. Model a causal problem" href="model.html" />
-    <link rel="prev" title="Introduction to DoWhy" href="../intro.html" />
+    <link rel="next" title="GCM-based inference (Experimental)" href="../gcm_based_inference/index.html" />
+    <link rel="prev" title="4. Refute the obtained estimate" href="refute.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
   </head>
@@ -198,7 +198,7 @@
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="index.html">
    Effect inference
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -206,7 +206,7 @@
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="model.html">
      1. Model a causal problem
@@ -227,8 +227,8 @@
      4. Refute the obtained estimate
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="comparison.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      5. Comparison to other packages
     </a>
    </li>
@@ -336,9 +336,19 @@
     
     <div class="toc-item">
       
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-difference-causal-assumptions-as-first-class-citizens">
+   5.1. Key difference: Causal assumptions as first-class citizens
+  </a>
+ </li>
+</ul>
+
 </nav>
     </div>
     
@@ -356,24 +366,57 @@
               
               <article class="bd-article" role="main">
                 
-  <section id="effect-inference">
-<h1>Effect inference<a class="headerlink" href="#effect-inference" title="Permalink to this heading"></a></h1>
-<img alt="https://raw.githubusercontent.com/py-why/dowhy/master/docs/images/dowhy-schematic.png" src="https://raw.githubusercontent.com/py-why/dowhy/master/docs/images/dowhy-schematic.png" />
-<p>For effect estimation, DoWhy provides a principled four-step interface for causal inference that focuses on
-explicitly modeling causal assumptions and validating them as much as possible. The key feature of DoWhy is its
-state-of-the-art refutation API that can automatically test causal assumptions for any estimation method, thus making
-inference more robust and accessible to non-experts. DoWhy supports estimation of the average causal effect for
-backdoor, frontdoor, instrumental variable and other identification methods, and estimation of the conditional effect
-(CATE) through an integration with the EconML library.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="model.html">1. Model a causal problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="identify.html">2. Identify a target estimand under the model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="estimate.html">3. Estimate causal effect based on the identified estimand</a></li>
-<li class="toctree-l1"><a class="reference internal" href="refute.html">4. Refute the obtained estimate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="comparison.html">5. Comparison to other packages</a></li>
+  <section id="comparison-to-other-packages">
+<h1><span class="section-number">5. </span>Comparison to other packages<a class="headerlink" href="#comparison-to-other-packages" title="Permalink to this heading"></a></h1>
+<p>DoWhy’s effect inference API captures all four steps of causal inference:</p>
+<ol class="arabic simple">
+<li><p>Model a causal inference problem using assumptions.</p></li>
+<li><p>Identify an expression for the causal effect under these assumptions (“causal estimand”).</p></li>
+<li><p>Estimate the expression using statistical methods such as matching or instrumental variables.</p></li>
+<li><p>Finally, verify the validity of the estimate using a variety of robustness checks.</p></li>
+</ol>
+<p>This workflow is captured by four key verbs in DoWhy:</p>
+<ul class="simple">
+<li><p>model</p></li>
+<li><p>identify</p></li>
+<li><p>estimate</p></li>
+<li><p>refute</p></li>
 </ul>
-</div>
+<p>Using these verbs, DoWhy implements a causal inference engine that can support
+a variety of methods. <em>model</em> encodes prior knowledge as a formal causal graph, <em>identify</em> uses
+graph-based methods to identify the causal effect, <em>estimate</em> uses
+statistical methods for estimating the identified estimand, and finally <em>refute</em>
+tries to refute the obtained estimate by testing robustness to assumptions.</p>
+<section id="key-difference-causal-assumptions-as-first-class-citizens">
+<h2><span class="section-number">5.1. </span>Key difference: Causal assumptions as first-class citizens<a class="headerlink" href="#key-difference-causal-assumptions-as-first-class-citizens" title="Permalink to this heading"></a></h2>
+<p>Due to DoWhy’s focus on the full pipeline of causal analysis (not just a single
+step), there are three differences compared to available software for causal inference.</p>
+<dl>
+<dt><strong>Explicit identifying assumptions</strong></dt><dd><p>Assumptions are first-class citizens in DoWhy.</p>
+<p>Each analysis starts with a
+building a causal model. The assumptions can be viewed graphically or in terms
+of conditional independence statements. Wherever possible, DoWhy can also
+automatically test for stated assumptions using observed data.</p>
+</dd>
+<dt><strong>Separation between identification and estimation</strong></dt><dd><p>Identification is the causal problem. Estimation is simply a statistical problem.</p>
+<p>DoWhy
+respects this boundary and treats them separately. This focuses the causal
+inference effort on identification, and frees up estimation using any
+available statistical estimator for a target estimand. In addition, multiple
+estimation methods can be used for a single identified_estimand and
+vice-versa.</p>
+</dd>
+<dt><strong>Automated robustness checks</strong></dt><dd><p>What happens when key identifying assumptions may not be satisfied?</p>
+<p>The most critical, and often skipped, part of causal analysis is checking the
+robustness of an estimate to unverified assumptions. DoWhy makes it easy to
+automatically run sensitivity and robustness checks on the obtained estimate.</p>
+</dd>
+</dl>
+<p>Finally, DoWhy is easily extensible, allowing other implementations of the
+four verbs to co-exist (e.g., we support implementations of the <em>estimation</em> verb from
+EconML and CausalML libraries). The four verbs are mutually independent, so their
+implementations can be combined in any way.</p>
+</section>
 </section>
 
 
@@ -384,17 +427,17 @@ backdoor, frontdoor, instrumental variable and other identification methods, and
               <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="refute.html" title="previous page">
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Introduction to DoWhy</p>
+          <p class="prev-next-title"><span class="section-number">4. </span>Refute the obtained estimate</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="model.html" title="next page">
+  <a class='right-next' id="next-link" href="../gcm_based_inference/index.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title"><span class="section-number">1. </span>Model a causal problem</p>
+      <p class="prev-next-title">GCM-based inference (Experimental)</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>
