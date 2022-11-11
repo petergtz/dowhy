@@ -798,43 +798,43 @@ div.rendered_html tbody tr:hover {
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.0</td>
-      <td>-0.942918</td>
-      <td>0.470130</td>
-      <td>9.930818</td>
-      <td>99.805491</td>
+      <td>0.0</td>
+      <td>-0.997273</td>
+      <td>-0.217426</td>
+      <td>-2.093158</td>
+      <td>-22.867737</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.0</td>
-      <td>-0.340905</td>
-      <td>-0.614709</td>
-      <td>9.860693</td>
-      <td>95.358739</td>
+      <td>0.0</td>
+      <td>-2.247802</td>
+      <td>0.722151</td>
+      <td>0.291593</td>
+      <td>1.399563</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0.0</td>
-      <td>-1.020372</td>
-      <td>0.556697</td>
-      <td>-1.546685</td>
-      <td>-14.729217</td>
+      <td>0.660846</td>
+      <td>-0.783694</td>
+      <td>-2.134412</td>
+      <td>-22.245041</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1.0</td>
-      <td>-1.820411</td>
-      <td>-0.680710</td>
-      <td>5.133233</td>
-      <td>45.359684</td>
+      <td>0.760733</td>
+      <td>-2.628572</td>
+      <td>1.243965</td>
+      <td>7.365186</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.0</td>
-      <td>1.170862</td>
-      <td>0.495675</td>
-      <td>14.555865</td>
-      <td>149.675261</td>
+      <td>0.0</td>
+      <td>0.536482</td>
+      <td>0.301165</td>
+      <td>3.505428</td>
+      <td>36.527953</td>
     </tr>
   </tbody>
 </table>
@@ -889,9 +889,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W1,W0])
+─────(E[y|W0,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W0,U) = P(y|v0,W1,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,U) = P(y|v0,W0,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -959,7 +959,7 @@ Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome y is 
 Target units: ate
 
 ## Estimate
-Mean value: 10.003747070768947
+Mean value: 10.00133891078924
 
 </pre></div></div>
 </div>
@@ -988,8 +988,8 @@ Mean value: 10.003747070768947
 <div class="highlight"><pre>
 Refute: Use a Dummy Outcome
 Estimated effect:0
-New effect:5.460699784335651e-05
-p value:0.98
+New effect:5.7007847982290765e-06
+p value:0.9
 
 </pre></div></div>
 </div>
@@ -1033,8 +1033,8 @@ p value:0.98
 <div class="highlight"><pre>
 Refute: Use a Dummy Outcome
 Estimated effect:0
-New effect:-4.423388057735379e-05
-p value:0.8799999999999999
+New effect:1.4262189753172203e-05
+p value:0.96
 
 </pre></div></div>
 </div>

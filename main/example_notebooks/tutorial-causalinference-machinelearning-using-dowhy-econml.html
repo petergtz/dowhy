@@ -805,9 +805,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W3,W4,W1,W0,W2])
+─────(E[y|W3,W2,W4,W1,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W4,W1,W0,W2,U) = P(y|v0,W3,W4,W1,W0,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W2,W4,W1,W0,U) = P(y|v0,W3,W2,W4,W1,W0)
 
 ### Estimand : 2
 Estimand name: iv
@@ -854,16 +854,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W3,W4,W1,W0,W2])
+─────(E[y|W3,W2,W4,W1,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W4,W1,W0,W2,U) = P(y|v0,W3,W4,W1,W0,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W2,W4,W1,W0,U) = P(y|v0,W3,W2,W4,W1,W0)
 
 ## Realized estimand
-b: y~v0+W3+W4+W1+W0+W2
+b: y~v0+W3+W2+W4+W1+W0
 Target units: ate
 
 ## Estimate
-Mean value: 9.86928276767107
+Mean value: 10.003647525442293
 
 </pre></div></div>
 </div>
@@ -901,17 +901,18 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W3,W4,W1,W0,W2])
+─────(E[y|W3,W2,W4,W1,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W4,W1,W0,W2,U) = P(y|v0,W3,W4,W1,W0,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W3,W2,W4,W1,W0,U) = P(y|v0,W3,W2,W4,W1,W0)
 
 ## Realized estimand
-b: y~v0+W3+W4+W1+W0+W2 |
+b: y~v0+W3+W2+W4+W1+W0 |
 Target units: ate
 
 ## Estimate
-Mean value: 9.973352251623085
-Effect estimates: [9.97335225 9.97335225 9.97335225 ... 9.97335225 9.97335225 9.97335225]
+Mean value: 10.075120607364543
+Effect estimates: [10.07512061 10.07512061 10.07512061 ... 10.07512061 10.07512061
+ 10.07512061]
 
 </pre></div></div>
 </div>
@@ -935,9 +936,9 @@ estimate value of 0 when the action variable is replaced by a random variable, i
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:9.86928276767107
-New effect:0.0004249998512256899
-p value:0.98
+Estimated effect:10.003647525442293
+New effect:0.009249320311967051
+p value:0.96
 
 </pre></div></div>
 </div>
@@ -989,11 +990,11 @@ than learning a new toolkit. The power of EconML is that you can now implement t
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0         s        w1
-0   6.495189  12.525170  0.148540  1.037486  1.095863
-1  15.909319  31.336449 -3.062342  6.031673  0.663023
-2   6.394973  13.279339 -0.707603  5.185504 -0.300244
-3   6.927989  13.762750 -0.777561  8.795115  0.858343
-4  17.197721  33.787163 -3.272393  7.852999  0.921597
+0  22.516658  24.931919 -3.970881  6.829356  1.424776
+1  14.938730  24.200654  3.015757  2.007910 -0.154180
+2  20.168537  22.147276 -3.808112  6.561950 -1.207722
+3   5.103049  11.535889  0.262899  9.064679 -1.439803
+4  15.095199  24.340657  2.952823  1.976683  0.856737
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1097,9 +1098,9 @@ b: Outcome~Treatment+w0+w1
 Target units: ate
 
 ## Estimate
-Mean value: 1.998840821812437
+Mean value: 0.9983979439293922
 
-Causal Estimate is 1.998840821812437
+Causal Estimate is 0.9983979439293922
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1155,8 +1156,8 @@ b: Outcome~Treatment+w0+w1 |
 Target units: ate
 
 ## Estimate
-Mean value: 1.0137753106472565
-Effect estimates: [1.01377531 1.01377531 1.01377531 ... 1.01377531 1.01377531 1.01377531]
+Mean value: 0.19465300365646654
+Effect estimates: [0.194653 0.194653 0.194653 ... 0.194653 0.194653 0.194653]
 
 </pre></div></div>
 </div>
@@ -1179,9 +1180,9 @@ Effect estimates: [1.01377531 1.01377531 1.01377531 ... 1.01377531 1.01377531 1.
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:1.0137753106472565
-New effect:1.020016950067228
-p value:0.7
+Estimated effect:0.19465300365646654
+New effect:0.18746319334602146
+p value:0.54
 
 </pre></div></div>
 </div>
@@ -1202,9 +1203,9 @@ p value:0.7
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1.0137753106472565
-New effect:0.00014064352939621185
-p value:0.31659919844853296
+Estimated effect:0.19465300365646654
+New effect:1.4531585896617135e-05
+p value:0.4858642309273031
 
 </pre></div></div>
 </div>
