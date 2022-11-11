@@ -943,87 +943,87 @@ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF TH
     <tr>
       <th>0</th>
       <td>False</td>
-      <td>23.0</td>
-      <td>10.0</td>
+      <td>24.0</td>
+      <td>11.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000</td>
+      <td>0.0000</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.628989</td>
-      <td>1.589854</td>
+      <td>0.639164</td>
+      <td>1.564544</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>False</td>
-      <td>17.0</td>
-      <td>9.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
+      <td>True</td>
+      <td>33.0</td>
+      <td>8.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>5114.814</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>289.7899</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.731947</td>
-      <td>1.366219</td>
+      <td>0.411066</td>
+      <td>2.432702</td>
     </tr>
     <tr>
       <th>2</th>
       <td>False</td>
-      <td>34.0</td>
-      <td>13.0</td>
+      <td>17.0</td>
+      <td>9.0</td>
       <td>1.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>5193.247</td>
+      <td>0.0000</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.407284</td>
-      <td>2.455287</td>
+      <td>0.626550</td>
+      <td>1.596041</td>
     </tr>
     <tr>
       <th>3</th>
       <td>True</td>
-      <td>23.0</td>
-      <td>10.0</td>
+      <td>31.0</td>
+      <td>11.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>7693.400</td>
+      <td>14509.9300</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.371011</td>
-      <td>2.695335</td>
+      <td>0.421975</td>
+      <td>2.369809</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>True</td>
-      <td>22.0</td>
-      <td>9.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
+      <td>False</td>
+      <td>25.0</td>
+      <td>12.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>3595.894</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3418.0970</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.274678</td>
-      <td>3.640625</td>
+      <td>0.461247</td>
+      <td>2.168037</td>
     </tr>
   </tbody>
 </table>
@@ -1064,7 +1064,7 @@ $\displaystyle 1794.34240427027$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1387.30336460344$</div></div>
+$\displaystyle 1627.43036279953$</div></div>
 </div>
 <p>We could get some rough error bars on the outcome using the normal approximation for a 95% confidence interval, like</p>
 <div class="nbinput docutils container">
@@ -1083,7 +1083,7 @@ $\displaystyle 1387.30336460344$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1205.58411679969$</div></div>
+$\displaystyle 1136.47975583974$</div></div>
 </div>
 <p>but note that these DO NOT contain propensity score estimation error. For that, a bootstrapping procedure might be more appropriate.</p>
 <p>This is just one statistic we can compute from the interventional distribution of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can get all of the interventional moments as well, including functions of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can leverage the full power of pandas, like</p>
@@ -1102,12 +1102,12 @@ $\displaystyle 1205.58411679969$</div></div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 count      445.000000
-mean      5466.785775
-std       6640.731417
+mean      4657.413782
+std       6208.709773
 min          0.000000
 25%          0.000000
-50%       4056.494000
-75%       8173.908000
+50%       3094.156000
+75%       7479.656000
 max      60307.930000
 Name: re78, dtype: float64
 </pre></div></div>
@@ -1264,87 +1264,87 @@ Name: re78, dtype: float64
     <tr>
       <th>0</th>
       <td>True</td>
-      <td>19.0</td>
+      <td>29.0</td>
       <td>10.0</td>
-      <td>0.0</td>
+      <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0.000</td>
-      <td>5324.109</td>
-      <td>13829.620</td>
+      <td>0.0</td>
+      <td>4398.95</td>
+      <td>0.00</td>
       <td>1.0</td>
       <td>0.0</td>
-      <td>0.403365</td>
-      <td>2.479144</td>
+      <td>0.380458</td>
+      <td>2.628408</td>
     </tr>
     <tr>
       <th>1</th>
       <td>True</td>
-      <td>29.0</td>
+      <td>27.0</td>
+      <td>10.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>11142.87</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.271286</td>
+      <td>3.686144</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>True</td>
+      <td>28.0</td>
       <td>8.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>1923.938</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.404574</td>
-      <td>2.471736</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>True</td>
-      <td>31.0</td>
-      <td>9.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>10717.030</td>
-      <td>5517.841</td>
-      <td>9558.501</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.395643</td>
-      <td>2.527533</td>
+      <td>0.402975</td>
+      <td>2.481544</td>
     </tr>
     <tr>
       <th>3</th>
       <td>True</td>
-      <td>24.0</td>
+      <td>25.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>12187.41</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.435028</td>
+      <td>2.298702</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>True</td>
+      <td>18.0</td>
       <td>11.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>1991.400</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.360823</td>
-      <td>2.771440</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>True</td>
-      <td>22.0</td>
-      <td>9.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>2192.877</td>
-      <td>3836.986</td>
-      <td>3462.564</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.381316</td>
-      <td>2.622499</td>
+      <td>0.351611</td>
+      <td>2.844050</td>
     </tr>
   </tbody>
 </table>
