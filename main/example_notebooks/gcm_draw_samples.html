@@ -201,12 +201,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
-   Getting started with DoWhy: A simple example
+   Basic Example for calculating the Causal Treatment Effect
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_basic_example.html">
-   Basic Example for GCM-Based Inference
+   Basic Example for Graphical Causal Model-Based Intervention
   </a>
  </li>
  <li class="toctree-l1">
@@ -258,17 +258,17 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
-   DoWhy-The Causal Story Behind Hotel Booking Cancellations
+   Using the Average Treatment Effect to Find What Causes Hotel Booking Cancellations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">
-   Estimating the effect of a Member Rewards program
+   Estimating the Effect of a Member Rewards Program
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_rca_microservice_architecture.html">
-   Root cause analysis (RCA) of latencies in a microservice architecture
+   Finding the Root Cause of Elevated Latencies in a Microservice Architecture
   </a>
  </li>
  <li class="toctree-l1">
@@ -278,12 +278,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_supply_chain_dist_change.html">
-   Root causes of changes in a supply chain
+   Finding Root Causes of Changes in a Supply Chain
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
-   Counterfactual analysis in a medical case using a GCM
+   Counterfactual Analysis in a Medical Case
   </a>
  </li>
 </ul>
@@ -704,33 +704,33 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.792675</td>
-      <td>-2.628208</td>
-      <td>-9.224842</td>
+      <td>3.282413</td>
+      <td>6.371129</td>
+      <td>18.052065</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-1.350351</td>
-      <td>-4.524398</td>
-      <td>-14.638142</td>
+      <td>2.761313</td>
+      <td>6.147829</td>
+      <td>19.350982</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.693806</td>
-      <td>-1.987150</td>
-      <td>-7.037892</td>
+      <td>0.029210</td>
+      <td>0.326531</td>
+      <td>-1.096048</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.488138</td>
-      <td>-3.059918</td>
-      <td>-8.145668</td>
+      <td>-1.156504</td>
+      <td>-1.826326</td>
+      <td>-4.924320</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.615080</td>
-      <td>0.077473</td>
-      <td>-0.364176</td>
+      <td>1.148039</td>
+      <td>3.290618</td>
+      <td>11.575587</td>
     </tr>
   </tbody>
 </table>
@@ -755,7 +755,7 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 319.00it/s]
+Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 383.86it/s]
 </pre></div></div>
 </div>
 <p>We now learned the generative models of the variables, based on the defined causal graph and the additive noise model assumption. To generate new samples from this model, we can now simply call:</p>
@@ -799,33 +799,33 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
   <tbody>
     <tr>
       <th>0</th>
-      <td>-2.390284</td>
-      <td>-4.327652</td>
-      <td>-14.078118</td>
+      <td>0.339323</td>
+      <td>1.914399</td>
+      <td>5.249963</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.246570</td>
-      <td>-0.494091</td>
-      <td>-0.995208</td>
+      <td>1.669641</td>
+      <td>1.704151</td>
+      <td>4.334174</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-1.385713</td>
-      <td>-3.492976</td>
-      <td>-10.442851</td>
+      <td>0.576277</td>
+      <td>1.871554</td>
+      <td>6.366326</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.774475</td>
-      <td>-3.492144</td>
-      <td>-9.333524</td>
+      <td>1.084162</td>
+      <td>2.577632</td>
+      <td>6.834706</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.007520</td>
-      <td>-0.110287</td>
-      <td>0.073040</td>
+      <td>0.582295</td>
+      <td>2.191952</td>
+      <td>8.058442</td>
     </tr>
   </tbody>
 </table>
@@ -846,7 +846,7 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 0$</div></div>
+$\displaystyle 0.000443939902225536$</div></div>
 </div>
 <p>Here, we expect the divergence to be (very) small.</p>
 <p><strong>Note</strong>: We <strong>cannot</strong> validate the correctness of a causal graph this way, since any graph from a Markov equivalence class would be sufficient to generate data that is consistent with the observed one, but only one particular graph would generate the correct interventional and counterfactual distributions. This is, seeing the example above, X→Y→Z and X←Y←Z would generate the same observational distribution (since they encode the same conditionals), but only X→Y→Z would generate the correct

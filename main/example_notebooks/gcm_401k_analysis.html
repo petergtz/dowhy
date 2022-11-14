@@ -55,8 +55,8 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Root causes of changes in a supply chain" href="gcm_supply_chain_dist_change.html" />
-    <link rel="prev" title="Root cause analysis (RCA) of latencies in a microservice architecture" href="gcm_rca_microservice_architecture.html" />
+    <link rel="next" title="Finding Root Causes of Changes in a Supply Chain" href="gcm_supply_chain_dist_change.html" />
+    <link rel="prev" title="Finding the Root Cause of Elevated Latencies in a Microservice Architecture" href="gcm_rca_microservice_architecture.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
   </head>
@@ -201,12 +201,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
-   Getting started with DoWhy: A simple example
+   Basic Example for calculating the Causal Treatment Effect
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_basic_example.html">
-   Basic Example for GCM-Based Inference
+   Basic Example for Graphical Causal Model-Based Intervention
   </a>
  </li>
  <li class="toctree-l1">
@@ -258,17 +258,17 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
-   DoWhy-The Causal Story Behind Hotel Booking Cancellations
+   Using the Average Treatment Effect to Find What Causes Hotel Booking Cancellations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">
-   Estimating the effect of a Member Rewards program
+   Estimating the Effect of a Member Rewards Program
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_rca_microservice_architecture.html">
-   Root cause analysis (RCA) of latencies in a microservice architecture
+   Finding the Root Cause of Elevated Latencies in a Microservice Architecture
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -278,12 +278,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_supply_chain_dist_change.html">
-   Root causes of changes in a supply chain
+   Finding Root Causes of Changes in a Supply Chain
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
-   Counterfactual analysis in a medical case using a GCM
+   Counterfactual Analysis in a Medical Case
   </a>
  </li>
 </ul>
@@ -1078,7 +1078,7 @@ age, income, family size, education, marital status, etc. We consider 16 covaria
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Fitting causal mechanism of node smcol: 100%|██████████| 18/18 [00:07&lt;00:00,  2.37it/s]
+Fitting causal mechanism of node smcol: 100%|██████████| 18/18 [00:06&lt;00:00,  2.83it/s]
 </pre></div></div>
 </div>
 <p>Before computing CATE, we first divide households into equi-width bins of income percentiles. This allows us to study the impact on various income groups.</p>
@@ -1135,7 +1135,7 @@ Fitting causal mechanism of node smcol: 100%|██████████| 18/
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Estimating bootstrap interval...: 100%|██████████| 100/100 [01:14&lt;00:00,  1.35it/s]
+Estimating bootstrap interval...: 100%|██████████| 100/100 [00:56&lt;00:00,  1.77it/s]
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -1143,8 +1143,8 @@ Estimating bootstrap interval...: 100%|██████████| 100/100 [
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;ate&#39;: 6630.764227817593, &#39;0%-20%&#39;: 4188.156099942915, &#39;20%-40%&#39;: 3397.959945775074, &#39;40%-60%&#39;: 5656.298418960395, &#39;60%-80%&#39;: 7742.790771799738, &#39;80%-100%&#39;: 12036.828487680035}
-{&#39;ate&#39;: array([4997.08211787, 8534.2696912 ]), &#39;0%-20%&#39;: array([2786.5393576 , 5900.72093262]), &#39;20%-40%&#39;: array([1454.78525244, 5641.06020521]), &#39;40%-60%&#39;: array([3549.58734867, 8177.1562075 ]), &#39;60%-80%&#39;: array([ 4432.17412775, 10826.57162217]), &#39;80%-100%&#39;: array([ 5046.400822  , 18984.66312677])}
+{&#39;ate&#39;: 6649.633950780483, &#39;0%-20%&#39;: 4011.3272727846725, &#39;20%-40%&#39;: 3227.0824748420346, &#39;40%-60%&#39;: 5839.454965074352, &#39;60%-80%&#39;: 7686.803076502423, &#39;80%-100%&#39;: 12313.15681810898}
+{&#39;ate&#39;: array([4997.00340575, 8544.69319964]), &#39;0%-20%&#39;: array([2393.2296256 , 5613.11179944]), &#39;20%-40%&#39;: array([1315.73741862, 5437.50769467]), &#39;40%-60%&#39;: array([3735.23841151, 8324.11558685]), &#39;60%-80%&#39;: array([ 4950.07902499, 10759.11546703]), &#39;80%-100%&#39;: array([ 5601.95722785, 19511.13831315])}
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1179,7 +1179,7 @@ Estimating bootstrap interval...: 100%|██████████| 100/100 [
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_4584/1344202636.py:4: UserWarning: color is redundantly defined by the &#39;color&#39; keyword argument and the fmt string &#34;ro-&#34; (-&gt; color=&#39;r&#39;). The keyword argument will take precedence.
+/tmp/ipykernel_4583/1344202636.py:4: UserWarning: color is redundantly defined by the &#39;color&#39; keyword argument and the fmt string &#34;ro-&#34; (-&gt; color=&#39;r&#39;). The keyword argument will take precedence.
   plt.plot((x, x), (ci[0], ci[1]), &#39;ro-&#39;, color=&#39;orange&#39;)
 </pre></div></div>
 </div>
@@ -1206,13 +1206,13 @@ Estimating bootstrap interval...: 100%|██████████| 100/100 [
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Root cause analysis (RCA) of latencies in a microservice architecture</p>
+          <p class="prev-next-title">Finding the Root Cause of Elevated Latencies in a Microservice Architecture</p>
       </div>
   </a>
   <a class='right-next' id="next-link" href="gcm_supply_chain_dist_change.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Root causes of changes in a supply chain</p>
+      <p class="prev-next-title">Finding Root Causes of Changes in a Supply Chain</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>

@@ -201,12 +201,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
-   Getting started with DoWhy: A simple example
+   Basic Example for calculating the Causal Treatment Effect
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_basic_example.html">
-   Basic Example for GCM-Based Inference
+   Basic Example for Graphical Causal Model-Based Intervention
   </a>
  </li>
  <li class="toctree-l1">
@@ -258,17 +258,17 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
-   DoWhy-The Causal Story Behind Hotel Booking Cancellations
+   Using the Average Treatment Effect to Find What Causes Hotel Booking Cancellations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">
-   Estimating the effect of a Member Rewards program
+   Estimating the Effect of a Member Rewards Program
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_rca_microservice_architecture.html">
-   Root cause analysis (RCA) of latencies in a microservice architecture
+   Finding the Root Cause of Elevated Latencies in a Microservice Architecture
   </a>
  </li>
  <li class="toctree-l1">
@@ -278,12 +278,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_supply_chain_dist_change.html">
-   Root causes of changes in a supply chain
+   Finding Root Causes of Changes in a Supply Chain
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
-   Counterfactual analysis in a medical case using a GCM
+   Counterfactual Analysis in a Medical Case
   </a>
  </li>
 </ul>
@@ -742,63 +742,63 @@ div.rendered_html tbody tr:hover {
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.300696</td>
-      <td>-0.848441</td>
-      <td>0.442870</td>
-      <td>-1.694225</td>
+      <td>0.215490</td>
+      <td>-0.663594</td>
+      <td>-0.550797</td>
+      <td>-1.028445</td>
       <td>1</td>
-      <td>1</td>
-      <td>4.002593</td>
-      <td>0.477747</td>
-      <td>46.266729</td>
+      <td>0</td>
+      <td>-2.670378</td>
+      <td>-4.931232</td>
+      <td>-97.226639</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.812838</td>
-      <td>-2.636830</td>
-      <td>-1.517950</td>
-      <td>-0.013976</td>
-      <td>2</td>
-      <td>0</td>
-      <td>0.311249</td>
-      <td>-0.092682</td>
-      <td>7.339895</td>
+      <td>-1.429549</td>
+      <td>-0.564187</td>
+      <td>0.665200</td>
+      <td>-2.261836</td>
+      <td>1</td>
+      <td>3</td>
+      <td>3.460411</td>
+      <td>-7.003127</td>
+      <td>166.372289</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.360176</td>
-      <td>-1.167374</td>
-      <td>-1.310744</td>
-      <td>0.615428</td>
-      <td>1</td>
+      <td>-1.073899</td>
+      <td>0.934713</td>
+      <td>-1.410970</td>
+      <td>-0.897889</td>
       <td>2</td>
-      <td>5.659725</td>
-      <td>8.608854</td>
-      <td>160.143472</td>
+      <td>1</td>
+      <td>2.177496</td>
+      <td>-5.180185</td>
+      <td>-15.934523</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.229785</td>
-      <td>-2.373248</td>
-      <td>-0.051541</td>
-      <td>0.738369</td>
-      <td>2</td>
+      <td>-0.555482</td>
+      <td>-0.779881</td>
+      <td>-0.289463</td>
+      <td>-0.185978</td>
+      <td>1</td>
       <td>3</td>
-      <td>13.961373</td>
-      <td>23.744748</td>
-      <td>-3454.347796</td>
+      <td>15.462207</td>
+      <td>0.833219</td>
+      <td>106.664048</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.428420</td>
-      <td>-1.957398</td>
-      <td>0.072592</td>
-      <td>-1.866507</td>
-      <td>0</td>
+      <td>-1.399662</td>
+      <td>0.176356</td>
+      <td>0.000736</td>
+      <td>-0.746373</td>
       <td>3</td>
-      <td>6.806069</td>
-      <td>3.506086</td>
-      <td>-99.008825</td>
+      <td>0</td>
+      <td>2.023855</td>
+      <td>1.664222</td>
+      <td>32.704184</td>
     </tr>
   </tbody>
 </table>
@@ -851,9 +851,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W0,W1,W2,W3])
+─────────(E[y|W2,W3,W1,W0])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W1,W2,W3,U) = P(y|v0,v1,W0,W1,W2,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W3,W1,W0,U) = P(y|v0,v1,W2,W3,W1,W0)
 
 ### Estimand : 2
 Estimand name: iv
@@ -896,16 +896,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W0,W1,W2,W3])
+─────────(E[y|W2,W3,W1,W0])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W1,W2,W3,U) = P(y|v0,v1,W0,W1,W2,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W3,W1,W0,U) = P(y|v0,v1,W2,W3,W1,W0)
 
 ## Realized estimand
-b: y~v0+v1+W0+W1+W2+W3+v0*X1+v0*X0+v1*X1+v1*X0
+b: y~v0+v1+W2+W3+W1+W0+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: -6.205631319746519
+Mean value: 16.519561489675112
 
 </pre></div></div>
 </div>
@@ -936,43 +936,43 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W0,W1,W2,W3])
+─────────(E[y|W2,W3,W1,W0])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W1,W2,W3,U) = P(y|v0,v1,W0,W1,W2,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W3,W1,W0,U) = P(y|v0,v1,W2,W3,W1,W0)
 
 ## Realized estimand
-b: y~v0+v1+W0+W1+W2+W3+v0*X1+v0*X0+v1*X1+v1*X0
+b: y~v0+v1+W2+W3+W1+W0+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: -6.205631319746519
+Mean value: 16.519561489675112
 ### Conditional Estimates
 __categorical__X1              __categorical__X0
-(-4.4190000000000005, -1.784]  (-3.154, -0.178]    -190.312507
-                               (-0.178, 0.416]     -137.864220
-                               (0.416, 0.924]      -102.380814
-                               (0.924, 1.513]       -68.202917
-                               (1.513, 4.446]       -13.297545
-(-1.784, -1.192]               (-3.154, -0.178]    -128.447199
-                               (-0.178, 0.416]      -76.901806
-                               (0.416, 0.924]       -42.721607
-                               (0.924, 1.513]        -9.943368
-                               (1.513, 4.446]        46.199556
-(-1.192, -0.683]               (-3.154, -0.178]     -92.704969
-                               (-0.178, 0.416]      -39.403968
-                               (0.416, 0.924]        -6.029406
-                               (0.924, 1.513]        27.722706
-                               (1.513, 4.446]        79.664509
-(-0.683, -0.0942]              (-3.154, -0.178]     -55.324002
-                               (-0.178, 0.416]       -2.771833
-                               (0.416, 0.924]        29.458070
-                               (0.924, 1.513]        63.905066
-                               (1.513, 4.446]       115.928568
-(-0.0942, 3.125]               (-3.154, -0.178]       0.155536
-                               (-0.178, 0.416]       56.216429
-                               (0.416, 0.924]        91.075947
-                               (0.924, 1.513]       122.404898
-                               (1.513, 4.446]       178.561251
+(-3.4139999999999997, -0.836]  (-3.86, -1.331]       3.926463
+                               (-1.331, -0.748]      8.517043
+                               (-0.748, -0.23]      11.576256
+                               (-0.23, 0.362]       14.709959
+                               (0.362, 3.264]       19.393003
+(-0.836, -0.242]               (-3.86, -1.331]       6.835354
+                               (-1.331, -0.748]     11.663719
+                               (-0.748, -0.23]      14.650943
+                               (-0.23, 0.362]       17.710509
+                               (0.362, 3.264]       22.716041
+(-0.242, 0.264]                (-3.86, -1.331]       8.806975
+                               (-1.331, -0.748]     13.568159
+                               (-0.748, -0.23]      16.473550
+                               (-0.23, 0.362]       19.432436
+                               (0.362, 3.264]       24.381145
+(0.264, 0.851]                 (-3.86, -1.331]      10.870457
+                               (-1.331, -0.748]     15.329667
+                               (-0.748, -0.23]      18.192824
+                               (-0.23, 0.362]       21.304912
+                               (0.362, 3.264]       26.234696
+(0.851, 3.41]                  (-3.86, -1.331]      13.467938
+                               (-1.331, -0.748]     18.298214
+                               (-0.748, -0.23]      21.292239
+                               (-0.23, 0.362]       24.262158
+                               (0.362, 3.264]       29.411786
 dtype: float64
 </pre></div></div>
 </div>

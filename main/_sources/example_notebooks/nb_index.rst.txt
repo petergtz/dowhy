@@ -17,7 +17,7 @@ Introductory examples
         .. image:: ../_static/effect-estimation-estimand-expression.png
         +++
         | **Level:** Beginner
-        | **API:** Effect inference
+        | **API:** Effect estimation
 
     .. card:: :doc:`gcm_basic_example`
 
@@ -27,7 +27,7 @@ Introductory examples
 
         +++
         | **Level:** Beginner
-        | **API:** GCM inference
+        | **API:** Intervention via GCM
 
 
 Real world-inspired examples
@@ -40,14 +40,14 @@ Real world-inspired examples
         .. image:: ../_static/hotel-bookings.png
         +++
         | **Level:** Beginner
-        | **API:** Effect inference
+        | **API:** Effect estimation
 
     .. card:: :doc:`dowhy_example_effect_of_memberrewards_program`
 
         .. image:: ../_static/membership-program-graph.png
         +++
         | **Level:** Beginner
-        | **API:** Effect inference
+        | **API:** Effect estimation
 
     .. card:: :doc:`gcm_rca_microservice_architecture`
 
@@ -55,13 +55,13 @@ Real world-inspired examples
 
         +++
         | **Level:** Beginner
-        | **API:** GCM inference
+        | **API:** Root cause analysis, intervention via GCM
 
     .. card:: :doc:`gcm_401k_analysis`
 
         +++
         | **Level:** Advanced
-        | **API:** GCM inference
+        | **API:** Intervention via GCM
 
     .. card:: :doc:`gcm_supply_chain_dist_change`
 
@@ -69,13 +69,13 @@ Real world-inspired examples
 
         +++
         | **Level:** Advanced
-        | **API:** GCM inference
+        | **API:** Root cause analysis via GCM
 
     .. card:: :doc:`gcm_counterfactual_medical_dry_eyes`
 
         +++
         | **Level:** Advanced
-        | **API:** GCM inference
+        | **API:** Counterfactuals via GCM
 
 Examples on benchmarks datasets
 -------------------------------

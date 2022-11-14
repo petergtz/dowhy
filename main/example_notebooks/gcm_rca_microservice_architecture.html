@@ -15,7 +15,7 @@
         gtag('config', 'G-B139P18WHM');
     </script>
     
-    <title>Root cause analysis (RCA) of latencies in a microservice architecture &#8212; DoWhy  documentation</title>
+    <title>Finding the Root Cause of Elevated Latencies in a Microservice Architecture &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -56,7 +56,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Impact of 401(k) eligibility on net financial assets" href="gcm_401k_analysis.html" />
-    <link rel="prev" title="Estimating the effect of a Member Rewards program" href="dowhy_example_effect_of_memberrewards_program.html" />
+    <link rel="prev" title="Estimating the Effect of a Member Rewards Program" href="dowhy_example_effect_of_memberrewards_program.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
   </head>
@@ -201,12 +201,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
-   Getting started with DoWhy: A simple example
+   Basic Example for calculating the Causal Treatment Effect
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_basic_example.html">
-   Basic Example for GCM-Based Inference
+   Basic Example for Graphical Causal Model-Based Intervention
   </a>
  </li>
  <li class="toctree-l1">
@@ -258,17 +258,17 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
-   DoWhy-The Causal Story Behind Hotel Booking Cancellations
+   Using the Average Treatment Effect to Find What Causes Hotel Booking Cancellations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">
-   Estimating the effect of a Member Rewards program
+   Estimating the Effect of a Member Rewards Program
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Root cause analysis (RCA) of latencies in a microservice architecture
+   Finding the Root Cause of Elevated Latencies in a Microservice Architecture
   </a>
  </li>
  <li class="toctree-l1">
@@ -278,12 +278,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_supply_chain_dist_change.html">
-   Root causes of changes in a supply chain
+   Finding Root Causes of Changes in a Supply Chain
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
-   Counterfactual analysis in a medical case using a GCM
+   Counterfactual Analysis in a Medical Case
   </a>
  </li>
 </ul>
@@ -698,8 +698,8 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<section id="Root-cause-analysis-(RCA)-of-latencies-in-a-microservice-architecture">
-<h1>Root cause analysis (RCA) of latencies in a microservice architecture<a class="headerlink" href="#Root-cause-analysis-(RCA)-of-latencies-in-a-microservice-architecture" title="Permalink to this heading"></a></h1>
+<section id="Finding-the-Root-Cause-of-Elevated-Latencies-in-a-Microservice-Architecture">
+<h1>Finding the Root Cause of Elevated Latencies in a Microservice Architecture<a class="headerlink" href="#Finding-the-Root-Cause-of-Elevated-Latencies-in-a-Microservice-Architecture" title="Permalink to this heading"></a></h1>
 <p>In this case study, we identify the root causes of “unexpected” observed latencies in cloud services that empower an online shop. We focus on the process of placing an order, which involves different services to make sure that the placed order is valid, the customer is authenticated, the shipping costs are calculated correctly, and the shipping process is initiated accordingly. The dependencies of the services is shown in the graph below.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -1250,7 +1250,7 @@ them in a bar plot.</p>
 <h2>Scenario 3: Simulating the intervention of shifting resources<a class="headerlink" href="#Scenario-3:-Simulating-the-intervention-of-shifting-resources" title="Permalink to this heading"></a></h2>
 <p>Next, let us imagine a scenario where permanent degradation has happened as in scenario 2 and we’ve successfully identified <code class="docutils literal notranslate"><span class="pre">Caching</span> <span class="pre">Service</span></code> as the root cause. Furthermore, we figured out that a recent deployment of the <code class="docutils literal notranslate"><span class="pre">Caching</span> <span class="pre">Service</span></code> contained a bug that is causing the overloaded hosts. A proper fix must be deployed, or the previous deployment must be rolled back. But, in the meantime, could we mitigate the situation by shifting over some resources from <code class="docutils literal notranslate"><span class="pre">Shipping</span> <span class="pre">Service</span></code> to
 <code class="docutils literal notranslate"><span class="pre">Caching</span> <span class="pre">Service</span></code>? And would that help? Before doing it in reality, let us simulate it first and see whether it improves the situation.</p>
-<p><img alt="d11e14640b754e90b532947971066bc0" class="no-scaled-link" src="../_images/shifting-resources.png" style="width: 600px;" /></p>
+<p><img alt="cd9cbb80110c4d61b32b52ddbd4e2a6b" class="no-scaled-link" src="../_images/shifting-resources.png" style="width: 600px;" /></p>
 <p>Let’s perform an intervention where we say we can reduce the average time of <code class="docutils literal notranslate"><span class="pre">Caching</span> <span class="pre">Service</span></code> by 1s. But at the same time we buy this speed-up by an average slow-down of 2s in <code class="docutils literal notranslate"><span class="pre">Shipping</span> <span class="pre">Cost</span> <span class="pre">Service</span></code>.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
@@ -1399,7 +1399,7 @@ all three service have returned.</p>
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Estimating the effect of a Member Rewards program</p>
+          <p class="prev-next-title">Estimating the Effect of a Member Rewards Program</p>
       </div>
   </a>
   <a class='right-next' id="next-link" href="gcm_401k_analysis.html" title="next page">

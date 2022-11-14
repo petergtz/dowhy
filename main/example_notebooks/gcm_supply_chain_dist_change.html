@@ -15,7 +15,7 @@
         gtag('config', 'G-B139P18WHM');
     </script>
     
-    <title>Root causes of changes in a supply chain &#8212; DoWhy  documentation</title>
+    <title>Finding Root Causes of Changes in a Supply Chain &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -55,7 +55,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Counterfactual analysis in a medical case using a GCM" href="gcm_counterfactual_medical_dry_eyes.html" />
+    <link rel="next" title="Counterfactual Analysis in a Medical Case" href="gcm_counterfactual_medical_dry_eyes.html" />
     <link rel="prev" title="Impact of 401(k) eligibility on net financial assets" href="gcm_401k_analysis.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
@@ -201,12 +201,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
-   Getting started with DoWhy: A simple example
+   Basic Example for calculating the Causal Treatment Effect
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_basic_example.html">
-   Basic Example for GCM-Based Inference
+   Basic Example for Graphical Causal Model-Based Intervention
   </a>
  </li>
  <li class="toctree-l1">
@@ -258,17 +258,17 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
-   DoWhy-The Causal Story Behind Hotel Booking Cancellations
+   Using the Average Treatment Effect to Find What Causes Hotel Booking Cancellations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">
-   Estimating the effect of a Member Rewards program
+   Estimating the Effect of a Member Rewards Program
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_rca_microservice_architecture.html">
-   Root cause analysis (RCA) of latencies in a microservice architecture
+   Finding the Root Cause of Elevated Latencies in a Microservice Architecture
   </a>
  </li>
  <li class="toctree-l1">
@@ -278,12 +278,12 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Root causes of changes in a supply chain
+   Finding Root Causes of Changes in a Supply Chain
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
-   Counterfactual analysis in a medical case using a GCM
+   Counterfactual Analysis in a Medical Case
   </a>
  </li>
 </ul>
@@ -704,11 +704,11 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<section id="Root-causes-of-changes-in-a-supply-chain">
-<h1>Root causes of changes in a supply chain<a class="headerlink" href="#Root-causes-of-changes-in-a-supply-chain" title="Permalink to this heading"></a></h1>
+<section id="Finding-Root-Causes-of-Changes-in-a-Supply-Chain">
+<h1>Finding Root Causes of Changes in a Supply Chain<a class="headerlink" href="#Finding-Root-Causes-of-Changes-in-a-Supply-Chain" title="Permalink to this heading"></a></h1>
 <p>In a supply chain, the number of units of each product in the inventory that is available for shipment is crucial to fulfill customers’ demand faster. For this reason, retailers continuously buy products anticipating customers’ demand in the future.</p>
 <p>Suppose that each week a retailer submits purchase orders (POs) to vendors taking into account future demands for products and capacity constraints to consider for demands. The vendors will then confirm whether they can fulfill some or all of the retailer’s purchase orders. Once confirmed by the vendors and agreed by the retailer, products are then sent to the retailer. All of the confirmed POs, however, may not arrive at once.</p>
-<p><img alt="ab48942c25234686a42b2a4f3de57488" class="no-scaled-link" src="../_images/supply-chain.png" style="width: 800px;" /></p>
+<p><img alt="23761351ef034a32bb9fbf56d4590b0f" class="no-scaled-link" src="../_images/supply-chain.png" style="width: 800px;" /></p>
 <section id="Week-over-week-changes">
 <h2>Week-over-week changes<a class="headerlink" href="#Week-over-week-changes" title="Permalink to this heading"></a></h2>
 <p>For this case study, we consider synthetic data inspired from a real-world use case in supply chain. Let us look at data over two weeks, <em>w1</em> and <em>w2</em> in particular.</p>
@@ -890,7 +890,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_5450/2641881978.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+/tmp/ipykernel_5449/2641881978.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   data.groupby([&#39;week&#39;]).mean()[[&#39;received&#39;]].plot(kind=&#39;bar&#39;, title=&#39;average received&#39;, legend=False);
 </pre></div></div>
 </div>
@@ -938,7 +938,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_5450/3361261226.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+/tmp/ipykernel_5449/3361261226.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   data.groupby([&#39;week&#39;]).mean().plot(kind=&#39;bar&#39;, title=&#39;average&#39;, legend=True);
 </pre></div></div>
 </div>
@@ -1105,7 +1105,7 @@ value of demand mean from <span class="math notranslate nohighlight">\(2\)</span
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-/tmp/ipykernel_5450/2721469738.py:26: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+/tmp/ipykernel_5449/2721469738.py:26: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
   data = data_week1.append(data_week2, ignore_index=True)
 </pre></div></div>
 </div>
@@ -1130,7 +1130,7 @@ value of demand mean from <span class="math notranslate nohighlight">\(2\)</span
   <a class='right-next' id="next-link" href="gcm_counterfactual_medical_dry_eyes.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Counterfactual analysis in a medical case using a GCM</p>
+      <p class="prev-next-title">Counterfactual Analysis in a Medical Case</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>

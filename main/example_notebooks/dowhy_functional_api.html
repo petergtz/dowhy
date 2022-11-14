@@ -708,9 +708,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W2])
+─────(E[y|W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,U) = P(y|v0,W0,W1,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W2,W0,U) = P(y|v0,W1,W2,W0)
 
 ### Estimand : 2
 Estimand name: iv
@@ -778,12 +778,12 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W2])
+─────(E[y|W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,U) = P(y|v0,W0,W1,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W2,W0,U) = P(y|v0,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W0+W1+W2
+b: y~v0+W1+W2+W0
 Target units: ate
 
 ## Estimate
@@ -830,8 +830,8 @@ Mean value: 11.326873255880667
 <div class="highlight"><pre>
 Refute: Bootstrap Sample Dataset
 Estimated effect:11.326873255880667
-New effect:11.55159341873881
-p value:0.8
+New effect:11.632461883569267
+p value:0.74
 
 Refute: Use a subset of data
 Estimated effect:11.326873255880667
@@ -840,8 +840,8 @@ p value:0.46
 
 Refute: Bootstrap Sample Dataset
 Estimated effect:11.326873255880667
-New effect:11.675913745695695
-p value:0.72
+New effect:11.768461066177677
+p value:0.7
 
 Refute: Use a subset of data
 Estimated effect:11.326873255880667
@@ -889,9 +889,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W2])
+─────(E[y|W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,U) = P(y|v0,W0,W1,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W2,W0,U) = P(y|v0,W1,W2,W0)
 
 ### Estimand : 2
 Estimand name: iv
@@ -938,12 +938,12 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W1,W2])
+─────(E[y|W1,W2,W0])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W1,W2,U) = P(y|v0,W0,W1,W2)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W1,W2,W0,U) = P(y|v0,W1,W2,W0)
 
 ## Realized estimand
-b: y~v0+W0+W1+W2
+b: y~v0+W1+W2+W0
 Target units: ate
 
 ## Estimate
@@ -976,8 +976,8 @@ Mean value: 11.326873255880667
 <div class="highlight"><pre>
 Refute: Bootstrap Sample Dataset
 Estimated effect:11.326873255880667
-New effect:11.960526178195249
-p value:0.46
+New effect:11.870319438092256
+p value:0.5
 
 Refute: Use a subset of data
 Estimated effect:11.326873255880667

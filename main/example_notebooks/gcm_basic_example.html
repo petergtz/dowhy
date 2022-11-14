@@ -15,7 +15,7 @@
         gtag('config', 'G-B139P18WHM');
     </script>
     
-    <title>Basic Example for GCM-Based Inference &#8212; DoWhy  documentation</title>
+    <title>Basic Example for Graphical Causal Model-Based Intervention &#8212; DoWhy  documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -56,7 +56,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Confounding Example: Finding causal effects from observed data" href="dowhy_confounder_example.html" />
-    <link rel="prev" title="Getting started with DoWhy: A simple example" href="dowhy_simple_example.html" />
+    <link rel="prev" title="Basic Example for calculating the Causal Treatment Effect" href="dowhy_simple_example.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
   </head>
@@ -201,12 +201,12 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
-   Getting started with DoWhy: A simple example
+   Basic Example for calculating the Causal Treatment Effect
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Basic Example for GCM-Based Inference
+   Basic Example for Graphical Causal Model-Based Intervention
   </a>
  </li>
  <li class="toctree-l1">
@@ -258,17 +258,17 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
-   DoWhy-The Causal Story Behind Hotel Booking Cancellations
+   Using the Average Treatment Effect to Find What Causes Hotel Booking Cancellations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">
-   Estimating the effect of a Member Rewards program
+   Estimating the Effect of a Member Rewards Program
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_rca_microservice_architecture.html">
-   Root cause analysis (RCA) of latencies in a microservice architecture
+   Finding the Root Cause of Elevated Latencies in a Microservice Architecture
   </a>
  </li>
  <li class="toctree-l1">
@@ -278,12 +278,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_supply_chain_dist_change.html">
-   Root causes of changes in a supply chain
+   Finding Root Causes of Changes in a Supply Chain
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
-   Counterfactual analysis in a medical case using a GCM
+   Counterfactual Analysis in a Medical Case
   </a>
  </li>
 </ul>
@@ -674,8 +674,8 @@ div.rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
 </style>
-<section id="Basic-Example-for-GCM-Based-Inference">
-<h1>Basic Example for GCM-Based Inference<a class="headerlink" href="#Basic-Example-for-GCM-Based-Inference" title="Permalink to this heading"></a></h1>
+<section id="Basic-Example-for-Graphical-Causal-Model-Based-Intervention">
+<h1>Basic Example for Graphical Causal Model-Based Intervention<a class="headerlink" href="#Basic-Example-for-Graphical-Causal-Model-Based-Intervention" title="Permalink to this heading"></a></h1>
 <section id="Step-1:-Modeling-cause-effect-relationships-as-a-structural-causal-model-(SCM)">
 <h2>Step 1: Modeling cause-effect relationships as a structural causal model (SCM)<a class="headerlink" href="#Step-1:-Modeling-cause-effect-relationships-as-a-structural-causal-model-(SCM)" title="Permalink to this heading"></a></h2>
 <p>The first step is to model the cause-effect relationships between variables relevant to our use case. We do that in form of a causal graph. A causal graph is a directed acyclic graph (DAG) where an edge X→Y implies that X causes Y. Statistically, a causal graph encodes the conditional independence relations between variables. Using the <a class="reference external" href="https://networkx.org/">NetworkX</a> library, we can create causal graphs. In the snippet below, we create a chain X→Y→Z:</p>
@@ -744,33 +744,33 @@ div.rendered_html tbody tr:hover {
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.216837</td>
-      <td>0.844727</td>
-      <td>1.664600</td>
+      <td>-1.028890</td>
+      <td>-0.778452</td>
+      <td>-2.893203</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.865914</td>
-      <td>1.065800</td>
-      <td>5.057296</td>
+      <td>0.480819</td>
+      <td>1.646441</td>
+      <td>7.050918</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.020595</td>
-      <td>0.648945</td>
-      <td>1.743480</td>
+      <td>-1.478225</td>
+      <td>-3.191578</td>
+      <td>-8.422672</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.115610</td>
-      <td>-0.222143</td>
-      <td>-1.186400</td>
+      <td>-1.018632</td>
+      <td>-2.254261</td>
+      <td>-8.235629</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.645482</td>
-      <td>1.422698</td>
-      <td>5.030105</td>
+      <td>-0.203029</td>
+      <td>1.749446</td>
+      <td>4.161734</td>
     </tr>
   </tbody>
 </table>
@@ -815,7 +815,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 304.60it/s]
+Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 516.73it/s]
 </pre></div></div>
 </div>
 <p>Fitting means, we learn the generative models of the variables in the SCM according to the data.</p>
@@ -869,33 +869,33 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.347112</td>
+      <td>1.313193</td>
       <td>2.34</td>
-      <td>7.929759</td>
+      <td>5.766221</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.778929</td>
+      <td>-0.640955</td>
       <td>2.34</td>
-      <td>6.021768</td>
+      <td>6.266256</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-1.231377</td>
+      <td>0.912788</td>
       <td>2.34</td>
-      <td>7.565043</td>
+      <td>5.909808</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.053227</td>
+      <td>-0.554055</td>
       <td>2.34</td>
-      <td>7.745630</td>
+      <td>3.928411</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.225401</td>
+      <td>-1.260378</td>
       <td>2.34</td>
-      <td>8.085660</td>
+      <td>5.952756</td>
     </tr>
   </tbody>
 </table>
@@ -917,7 +917,7 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Getting started with DoWhy: A simple example</p>
+          <p class="prev-next-title">Basic Example for calculating the Causal Treatment Effect</p>
       </div>
   </a>
   <a class='right-next' id="next-link" href="dowhy_confounder_example.html" title="next page">

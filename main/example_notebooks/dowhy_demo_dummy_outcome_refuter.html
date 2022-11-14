@@ -201,12 +201,12 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
-   Getting started with DoWhy: A simple example
+   Basic Example for calculating the Causal Treatment Effect
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_basic_example.html">
-   Basic Example for GCM-Based Inference
+   Basic Example for Graphical Causal Model-Based Intervention
   </a>
  </li>
  <li class="toctree-l1">
@@ -258,17 +258,17 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
-   DoWhy-The Causal Story Behind Hotel Booking Cancellations
+   Using the Average Treatment Effect to Find What Causes Hotel Booking Cancellations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">
-   Estimating the effect of a Member Rewards program
+   Estimating the Effect of a Member Rewards Program
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_rca_microservice_architecture.html">
-   Root cause analysis (RCA) of latencies in a microservice architecture
+   Finding the Root Cause of Elevated Latencies in a Microservice Architecture
   </a>
  </li>
  <li class="toctree-l1">
@@ -278,12 +278,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_supply_chain_dist_change.html">
-   Root causes of changes in a supply chain
+   Finding Root Causes of Changes in a Supply Chain
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
-   Counterfactual analysis in a medical case using a GCM
+   Counterfactual Analysis in a Medical Case
   </a>
  </li>
 </ul>
@@ -821,42 +821,42 @@ div.rendered_html tbody tr:hover {
     <tr>
       <th>0</th>
       <td>0.0</td>
-      <td>0.030770</td>
-      <td>-1.689316</td>
-      <td>-4.386766</td>
-      <td>-52.065747</td>
+      <td>0.970325</td>
+      <td>-1.215193</td>
+      <td>-4.220014</td>
+      <td>-45.244025</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.0</td>
-      <td>1.260038</td>
-      <td>0.320776</td>
-      <td>17.020713</td>
-      <td>174.780177</td>
+      <td>0.0</td>
+      <td>2.795577</td>
+      <td>-0.178528</td>
+      <td>0.485841</td>
+      <td>11.525534</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.0</td>
-      <td>0.999866</td>
-      <td>0.212681</td>
-      <td>5.460305</td>
-      <td>58.030141</td>
+      <td>1.0</td>
+      <td>0.106744</td>
+      <td>-1.183751</td>
+      <td>4.943505</td>
+      <td>44.234840</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.0</td>
-      <td>0.194901</td>
-      <td>-0.447044</td>
-      <td>0.670201</td>
-      <td>4.984616</td>
+      <td>0.441614</td>
+      <td>0.709962</td>
+      <td>2.992512</td>
+      <td>34.423541</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.0</td>
-      <td>-1.589623</td>
-      <td>0.539513</td>
-      <td>4.856908</td>
-      <td>47.409893</td>
+      <td>0.0</td>
+      <td>1.131861</td>
+      <td>-2.420333</td>
+      <td>-11.515210</td>
+      <td>-123.347058</td>
     </tr>
   </tbody>
 </table>
@@ -981,7 +981,7 @@ Estimand assumption 4, outcome_effect_homogeneity: Each unit&#39;s outcome y is 
 Target units: ate
 
 ## Estimate
-Mean value: 10.004366900737551
+Mean value: 9.999928870799371
 
 </pre></div></div>
 </div>
@@ -1010,8 +1010,8 @@ Mean value: 10.004366900737551
 <div class="highlight"><pre>
 Refute: Use a Dummy Outcome
 Estimated effect:0
-New effect:2.7958678399150192e-05
-p value:0.96
+New effect:3.902528201809316e-05
+p value:0.94
 
 </pre></div></div>
 </div>
@@ -1055,8 +1055,8 @@ p value:0.96
 <div class="highlight"><pre>
 Refute: Use a Dummy Outcome
 Estimated effect:0
-New effect:9.166798095645967e-05
-p value:0.86
+New effect:-0.00017210933554404133
+p value:0.8600000000000001
 
 </pre></div></div>
 </div>
