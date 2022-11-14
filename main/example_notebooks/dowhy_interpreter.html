@@ -55,8 +55,8 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Demo for the DoWhy causal API" href="dowhy_causal_api.html" />
-    <link rel="prev" title="Different ways to load an input graph" href="load_graph_example.html" />
+    <link rel="next" title="Conditional Average Treatment Effects (CATE) with DoWhy and EconML" href="dowhy-conditional-treatment-effects.html" />
+    <link rel="prev" title="DoWhy: Different estimation methods for causal inference" href="dowhy_estimation_methods.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
   </head>
@@ -195,13 +195,18 @@
   <div class="bd-toc-item active">
     <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Getting started
+  Introductory examples
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
    Getting started with DoWhy: A simple example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_basic_example.html">
+   Basic Example for GCM-Based Inference
   </a>
  </li>
  <li class="toctree-l1">
@@ -214,24 +219,24 @@
    DoWhy: Different estimation methods for causal inference
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="graph_conditional_independence_refuter.html">
-   Testing Assumptions in model with DoWhy: A simple example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="dowhy-simple-iv-example.html">
-   Simple example on using Instrumental Variables method for estimation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="load_graph_example.html">
-   Different ways to load an input graph
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    DoWhy: Interpreters for Causal Estimators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy-conditional-treatment-effects.html">
+   Conditional Average Treatment Effects (CATE) with DoWhy and EconML
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy_mediation_analysis.html">
+   Mediation analysis with DoWhy: Direct and Indirect Effects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy_refuter_notebook.html">
+   Iterating over multiple refutation tests
   </a>
  </li>
  <li class="toctree-l1">
@@ -244,20 +249,47 @@
    Do-sampler Introduction
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Real world-inspired examples
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="gcm_basic_example.html">
-   Basic Example for GCM-Based Inference
+  <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
+   DoWhy-The Causal Story Behind Hotel Booking Cancellations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="gcm_draw_samples.html">
-   Basic Example for generating samples from a GCM
+  <a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">
+   Estimating the effect of a Member Rewards program
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_rca_microservice_architecture.html">
+   Root cause analysis (RCA) of latencies in a microservice architecture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_401k_analysis.html">
+   Impact of 401(k) eligibility on net financial assets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_supply_chain_dist_change.html">
+   Root causes of changes in a supply chain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
+   Counterfactual analysis in a medical case using a GCM
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Using benchmark datasets
+  Examples on benchmarks datasets
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -277,6 +309,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="gcm_401k_analysis.html">
+   Impact of 401(k) eligibility on net financial assets
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lalonde_pandas_api.html">
    Lalonde Pandas API Example
   </a>
@@ -284,18 +321,28 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Advanced
+  Miscellaneous
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="dowhy-conditional-treatment-effects.html">
-   Conditional Average Treatment Effects (CATE) with DoWhy and EconML
+  <a class="reference internal" href="load_graph_example.html">
+   Different ways to load an input graph
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dowhy_mediation_analysis.html">
-   Mediation analysis with DoWhy: Direct and Indirect Effects
+  <a class="reference internal" href="gcm_draw_samples.html">
+   Basic Example for generating samples from a GCM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy-simple-iv-example.html">
+   Simple example on using Instrumental Variables method for estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="graph_conditional_independence_refuter.html">
+   Testing Assumptions in model with DoWhy: A simple example
   </a>
  </li>
  <li class="toctree-l1">
@@ -309,33 +356,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dowhy_refuter_notebook.html">
-   Iterating over multiple refutation tests
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="identifying_effects_using_id_algorithm.html">
    Identifying Effect using ID Algorithm
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_rca_microservice_architecture.html">
-   Root cause analysis (RCA) of latencies in a microservice architecture
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_supply_chain_dist_change.html">
-   Root causes of changes in a supply chain
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
-   Counterfactual analysis in a medical case using a GCM
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_401k_analysis.html">
-   Impact of 401(k) eligibility on net financial assets
   </a>
  </li>
 </ul>
@@ -721,7 +743,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-6789
+9391
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -761,63 +783,63 @@ div.rendered_html tbody tr:hover {
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.0</td>
-      <td>0.158932</td>
-      <td>0.237539</td>
-      <td>0.150708</td>
-      <td>2.520506</td>
-      <td>-0.632495</td>
-      <td>3</td>
+      <td>1.0</td>
+      <td>0.610380</td>
+      <td>1.739526</td>
+      <td>-0.060101</td>
+      <td>-0.080078</td>
+      <td>0.401196</td>
+      <td>0</td>
       <td>True</td>
-      <td>2.397452</td>
+      <td>1.735938</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.0</td>
-      <td>0.147430</td>
-      <td>-1.134897</td>
-      <td>0.411810</td>
-      <td>2.653916</td>
-      <td>-0.034420</td>
-      <td>2</td>
-      <td>False</td>
-      <td>0.807095</td>
+      <td>1.0</td>
+      <td>0.753033</td>
+      <td>0.434786</td>
+      <td>0.869540</td>
+      <td>1.666750</td>
+      <td>0.067423</td>
+      <td>0</td>
+      <td>True</td>
+      <td>2.406519</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.0</td>
-      <td>0.426919</td>
-      <td>-0.055569</td>
-      <td>-1.407164</td>
-      <td>1.360389</td>
-      <td>-1.180827</td>
-      <td>1</td>
-      <td>False</td>
-      <td>0.263772</td>
+      <td>1.0</td>
+      <td>0.238164</td>
+      <td>-0.254445</td>
+      <td>0.654655</td>
+      <td>-0.810128</td>
+      <td>1.071974</td>
+      <td>0</td>
+      <td>True</td>
+      <td>2.321084</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.0</td>
-      <td>0.946920</td>
-      <td>-1.057152</td>
-      <td>0.696216</td>
-      <td>1.196191</td>
-      <td>-1.195435</td>
-      <td>3</td>
-      <td>False</td>
-      <td>0.992042</td>
+      <td>0.452299</td>
+      <td>-0.025962</td>
+      <td>1.196505</td>
+      <td>-1.334031</td>
+      <td>0.398057</td>
+      <td>0</td>
+      <td>True</td>
+      <td>2.182800</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.0</td>
-      <td>0.066619</td>
-      <td>1.380458</td>
-      <td>0.205303</td>
-      <td>0.329176</td>
-      <td>-0.425037</td>
-      <td>3</td>
-      <td>False</td>
-      <td>1.526835</td>
+      <td>1.0</td>
+      <td>0.110179</td>
+      <td>-0.835159</td>
+      <td>0.297370</td>
+      <td>0.525074</td>
+      <td>2.502248</td>
+      <td>0</td>
+      <td>True</td>
+      <td>3.416492</td>
     </tr>
     <tr>
       <th>...</th>
@@ -834,62 +856,62 @@ div.rendered_html tbody tr:hover {
     <tr>
       <th>9995</th>
       <td>0.0</td>
-      <td>0.593169</td>
-      <td>-0.839931</td>
-      <td>-0.706943</td>
-      <td>1.232592</td>
-      <td>0.219953</td>
+      <td>0.148599</td>
+      <td>-0.625960</td>
+      <td>0.485636</td>
+      <td>-0.296374</td>
+      <td>2.138886</td>
       <td>3</td>
       <td>True</td>
-      <td>2.217156</td>
+      <td>4.696998</td>
     </tr>
     <tr>
       <th>9996</th>
       <td>0.0</td>
-      <td>0.691779</td>
-      <td>1.107689</td>
-      <td>-1.152866</td>
-      <td>1.401129</td>
-      <td>0.779223</td>
-      <td>0</td>
+      <td>0.761617</td>
+      <td>1.954280</td>
+      <td>1.105213</td>
+      <td>0.060522</td>
+      <td>1.850497</td>
+      <td>3</td>
       <td>True</td>
-      <td>1.368178</td>
+      <td>5.773610</td>
     </tr>
     <tr>
       <th>9997</th>
       <td>0.0</td>
-      <td>0.451224</td>
-      <td>-2.393000</td>
-      <td>-1.786324</td>
-      <td>0.107643</td>
-      <td>1.229223</td>
-      <td>0</td>
-      <td>False</td>
-      <td>-0.341092</td>
+      <td>0.034345</td>
+      <td>-1.336225</td>
+      <td>1.971320</td>
+      <td>-0.837828</td>
+      <td>0.426771</td>
+      <td>1</td>
+      <td>True</td>
+      <td>3.287514</td>
     </tr>
     <tr>
       <th>9998</th>
-      <td>0.0</td>
-      <td>0.367044</td>
-      <td>-1.534386</td>
-      <td>-0.537453</td>
-      <td>-1.461362</td>
-      <td>1.220194</td>
-      <td>2</td>
+      <td>1.0</td>
+      <td>0.895262</td>
+      <td>-0.775607</td>
+      <td>1.461013</td>
+      <td>-1.698591</td>
+      <td>1.198325</td>
+      <td>1</td>
       <td>True</td>
-      <td>1.627041</td>
+      <td>3.408830</td>
     </tr>
     <tr>
       <th>9999</th>
       <td>0.0</td>
-      <td>0.814611</td>
-      <td>-0.444722</td>
-      <td>-1.934504</td>
-      <td>0.520285</td>
-      <td>-0.478310</td>
+      <td>0.188304</td>
+      <td>0.196402</td>
+      <td>1.461845</td>
+      <td>-1.895616</td>
+      <td>1.399586</td>
       <td>1</td>
       <td>True</td>
-      <td>1.235371</td>
+      <td>3.782611</td>
     </tr>
   </tbody>
 </table>
@@ -960,9 +982,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W4,W3,W2,W1])
+─────(E[y|W2,W1,W0,W4,W3])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W4,W3,W2,W1,U) = P(y|v0,W0,W4,W3,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W1,W0,W4,W3,U) = P(y|v0,W2,W1,W0,W4,W3)
 
 ### Estimand : 2
 Estimand name: iv
@@ -970,9 +992,9 @@ Estimand expression:
  ⎡                              -1⎤
  ⎢    d        ⎛    d          ⎞  ⎥
 E⎢─────────(y)⋅⎜─────────([v₀])⎟  ⎥
- ⎣d[Z₁  Z₀]    ⎝d[Z₁  Z₀]      ⎠  ⎦
-Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z1,Z0})
-Estimand assumption 2, Exclusion: If we remove {Z1,Z0}→{v0}, then ¬({Z1,Z0}→y)
+ ⎣d[Z₀  Z₁]    ⎝d[Z₀  Z₁]      ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→y then ¬(U →→{Z0,Z1})
+Estimand assumption 2, Exclusion: If we remove {Z0,Z1}→{v0}, then ¬({Z0,Z1}→y)
 
 ### Estimand : 3
 Estimand name: frontdoor
@@ -1010,18 +1032,18 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W4,W3,W2,W1])
+─────(E[y|W2,W1,W0,W4,W3])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W4,W3,W2,W1,U) = P(y|v0,W0,W4,W3,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W1,W0,W4,W3,U) = P(y|v0,W2,W1,W0,W4,W3)
 
 ## Realized estimand
-b: y~v0+W0+W4+W3+W2+W1
+b: y~v0+W2+W1+W0+W4+W3
 Target units: att
 
 ## Estimate
-Mean value: 0.9878387337611084
+Mean value: 1.0045228585971038
 
-Causal Estimate is 0.9878387337611084
+Causal Estimate is 1.0045228585971038
 </pre></div></div>
 </div>
 <section id="Textual-Interpreter">
@@ -1041,7 +1063,7 @@ Causal Estimate is 0.9878387337611084
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 0.9878387337611084 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
+Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 1.0045228585971038 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
 </pre></div></div>
 </div>
 </section>
@@ -1098,18 +1120,18 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W4,W3,W2,W1])
+─────(E[y|W2,W1,W0,W4,W3])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W4,W3,W2,W1,U) = P(y|v0,W0,W4,W3,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W1,W0,W4,W3,U) = P(y|v0,W2,W1,W0,W4,W3)
 
 ## Realized estimand
-b: y~v0+W0+W4+W3+W2+W1
+b: y~v0+W2+W1+W0+W4+W3
 Target units: atc
 
 ## Estimate
-Mean value: 0.9937627990115474
+Mean value: 0.9842241283534208
 
-Causal Estimate is 0.9937627990115474
+Causal Estimate is 0.9842241283534208
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1126,7 +1148,7 @@ Causal Estimate is 0.9937627990115474
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 0.9937627990115474 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
+Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 0.9842241283534208 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
 </pre></div></div>
 </div>
 <p>Cannot use propensity balance interpretor here since the interpreter method only supports propensity score stratification estimator.</p>
@@ -1161,18 +1183,18 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W0,W4,W3,W2,W1])
+─────(E[y|W2,W1,W0,W4,W3])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W0,W4,W3,W2,W1,U) = P(y|v0,W0,W4,W3,W2,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W1,W0,W4,W3,U) = P(y|v0,W2,W1,W0,W4,W3)
 
 ## Realized estimand
-b: y~v0+W0+W4+W3+W2+W1
+b: y~v0+W2+W1+W0+W4+W3
 Target units: ate
 
 ## Estimate
-Mean value: 1.00615089663732
+Mean value: 1.461258314984785
 
-Causal Estimate is 1.00615089663732
+Causal Estimate is 1.461258314984785
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1189,7 +1211,7 @@ Causal Estimate is 1.00615089663732
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 1.00615089663732 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
+Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 1.461258314984785 in the expected value of the outcome [y], over the data distribution/population represented by the dataset.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1226,17 +1248,17 @@ Increasing the treatment variable(s) [v0] from 0 to 1 causes an increase of 1.00
               <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="load_graph_example.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="dowhy_estimation_methods.html" title="previous page">
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Different ways to load an input graph</p>
+          <p class="prev-next-title">DoWhy: Different estimation methods for causal inference</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="dowhy_causal_api.html" title="next page">
+  <a class='right-next' id="next-link" href="dowhy-conditional-treatment-effects.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Demo for the DoWhy causal API</p>
+      <p class="prev-next-title">Conditional Average Treatment Effects (CATE) with DoWhy and EconML</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>

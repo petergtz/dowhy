@@ -55,8 +55,8 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="DoWhy example on ihdp (Infant Health and Development Program) dataset" href="dowhy_ihdp_data_example.html" />
-    <link rel="prev" title="Basic Example for GCM-Based Inference" href="gcm_basic_example.html" />
+    <link rel="next" title="Simple example on using Instrumental Variables method for estimation" href="dowhy-simple-iv-example.html" />
+    <link rel="prev" title="Different ways to load an input graph" href="load_graph_example.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
   </head>
@@ -195,13 +195,18 @@
   <div class="bd-toc-item active">
     <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Getting started
+  Introductory examples
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
    Getting started with DoWhy: A simple example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_basic_example.html">
+   Basic Example for GCM-Based Inference
   </a>
  </li>
  <li class="toctree-l1">
@@ -215,23 +220,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="graph_conditional_independence_refuter.html">
-   Testing Assumptions in model with DoWhy: A simple example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="dowhy-simple-iv-example.html">
-   Simple example on using Instrumental Variables method for estimation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="load_graph_example.html">
-   Different ways to load an input graph
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="dowhy_interpreter.html">
    DoWhy: Interpreters for Causal Estimators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy-conditional-treatment-effects.html">
+   Conditional Average Treatment Effects (CATE) with DoWhy and EconML
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy_mediation_analysis.html">
+   Mediation analysis with DoWhy: Direct and Indirect Effects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy_refuter_notebook.html">
+   Iterating over multiple refutation tests
   </a>
  </li>
  <li class="toctree-l1">
@@ -244,20 +249,47 @@
    Do-sampler Introduction
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Real world-inspired examples
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="gcm_basic_example.html">
-   Basic Example for GCM-Based Inference
+  <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
+   DoWhy-The Causal Story Behind Hotel Booking Cancellations
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Basic Example for generating samples from a GCM
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">
+   Estimating the effect of a Member Rewards program
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_rca_microservice_architecture.html">
+   Root cause analysis (RCA) of latencies in a microservice architecture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_401k_analysis.html">
+   Impact of 401(k) eligibility on net financial assets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_supply_chain_dist_change.html">
+   Root causes of changes in a supply chain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
+   Counterfactual analysis in a medical case using a GCM
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Using benchmark datasets
+  Examples on benchmarks datasets
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -277,6 +309,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="gcm_401k_analysis.html">
+   Impact of 401(k) eligibility on net financial assets
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lalonde_pandas_api.html">
    Lalonde Pandas API Example
   </a>
@@ -284,18 +321,28 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Advanced
+  Miscellaneous
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="dowhy-conditional-treatment-effects.html">
-   Conditional Average Treatment Effects (CATE) with DoWhy and EconML
+  <a class="reference internal" href="load_graph_example.html">
+   Different ways to load an input graph
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Basic Example for generating samples from a GCM
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dowhy_mediation_analysis.html">
-   Mediation analysis with DoWhy: Direct and Indirect Effects
+  <a class="reference internal" href="dowhy-simple-iv-example.html">
+   Simple example on using Instrumental Variables method for estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="graph_conditional_independence_refuter.html">
+   Testing Assumptions in model with DoWhy: A simple example
   </a>
  </li>
  <li class="toctree-l1">
@@ -309,33 +356,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dowhy_refuter_notebook.html">
-   Iterating over multiple refutation tests
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="identifying_effects_using_id_algorithm.html">
    Identifying Effect using ID Algorithm
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_rca_microservice_architecture.html">
-   Root cause analysis (RCA) of latencies in a microservice architecture
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_supply_chain_dist_change.html">
-   Root causes of changes in a supply chain
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
-   Counterfactual analysis in a medical case using a GCM
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_401k_analysis.html">
-   Impact of 401(k) eligibility on net financial assets
   </a>
  </li>
 </ul>
@@ -682,33 +704,33 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.842755</td>
-      <td>1.149344</td>
-      <td>5.048072</td>
+      <td>-0.792675</td>
+      <td>-2.628208</td>
+      <td>-9.224842</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.642876</td>
-      <td>-1.499931</td>
-      <td>-3.520118</td>
+      <td>-1.350351</td>
+      <td>-4.524398</td>
+      <td>-14.638142</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.183522</td>
-      <td>1.996823</td>
-      <td>5.812984</td>
+      <td>-0.693806</td>
+      <td>-1.987150</td>
+      <td>-7.037892</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.044951</td>
-      <td>1.479428</td>
-      <td>5.454243</td>
+      <td>-1.488138</td>
+      <td>-3.059918</td>
+      <td>-8.145668</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.707925</td>
-      <td>-1.942553</td>
-      <td>-6.692910</td>
+      <td>0.615080</td>
+      <td>0.077473</td>
+      <td>-0.364176</td>
     </tr>
   </tbody>
 </table>
@@ -733,7 +755,7 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 258.20it/s]
+Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 319.00it/s]
 </pre></div></div>
 </div>
 <p>We now learned the generative models of the variables, based on the defined causal graph and the additive noise model assumption. To generate new samples from this model, we can now simply call:</p>
@@ -777,33 +799,33 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.474175</td>
-      <td>3.083075</td>
-      <td>9.667001</td>
+      <td>-2.390284</td>
+      <td>-4.327652</td>
+      <td>-14.078118</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.668081</td>
-      <td>2.065859</td>
-      <td>7.946500</td>
+      <td>-0.246570</td>
+      <td>-0.494091</td>
+      <td>-0.995208</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.963526</td>
-      <td>-3.045979</td>
-      <td>-9.651197</td>
+      <td>-1.385713</td>
+      <td>-3.492976</td>
+      <td>-10.442851</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.959694</td>
-      <td>5.435327</td>
-      <td>17.456065</td>
+      <td>-1.774475</td>
+      <td>-3.492144</td>
+      <td>-9.333524</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.493775</td>
-      <td>1.864362</td>
-      <td>6.455602</td>
+      <td>0.007520</td>
+      <td>-0.110287</td>
+      <td>0.073040</td>
     </tr>
   </tbody>
 </table>
@@ -839,17 +861,17 @@ interventional distribution (e.g. when intervening on Y).</p>
               <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="gcm_basic_example.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="load_graph_example.html" title="previous page">
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Basic Example for GCM-Based Inference</p>
+          <p class="prev-next-title">Different ways to load an input graph</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="dowhy_ihdp_data_example.html" title="next page">
+  <a class='right-next' id="next-link" href="dowhy-simple-iv-example.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">DoWhy example on ihdp (Infant Health and Development Program) dataset</p>
+      <p class="prev-next-title">Simple example on using Instrumental Variables method for estimation</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>

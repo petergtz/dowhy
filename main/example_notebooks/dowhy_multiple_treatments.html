@@ -55,7 +55,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Iterating over multiple refutation tests" href="dowhy_refuter_notebook.html" />
+    <link rel="next" title="Identifying Effect using ID Algorithm" href="identifying_effects_using_id_algorithm.html" />
     <link rel="prev" title="A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions" href="dowhy_demo_dummy_outcome_refuter.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
@@ -195,13 +195,18 @@
   <div class="bd-toc-item active">
     <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Getting started
+  Introductory examples
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
    Getting started with DoWhy: A simple example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_basic_example.html">
+   Basic Example for GCM-Based Inference
   </a>
  </li>
  <li class="toctree-l1">
@@ -215,23 +220,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="graph_conditional_independence_refuter.html">
-   Testing Assumptions in model with DoWhy: A simple example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="dowhy-simple-iv-example.html">
-   Simple example on using Instrumental Variables method for estimation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="load_graph_example.html">
-   Different ways to load an input graph
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="dowhy_interpreter.html">
    DoWhy: Interpreters for Causal Estimators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy-conditional-treatment-effects.html">
+   Conditional Average Treatment Effects (CATE) with DoWhy and EconML
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy_mediation_analysis.html">
+   Mediation analysis with DoWhy: Direct and Indirect Effects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy_refuter_notebook.html">
+   Iterating over multiple refutation tests
   </a>
  </li>
  <li class="toctree-l1">
@@ -244,20 +249,47 @@
    Do-sampler Introduction
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Real world-inspired examples
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="gcm_basic_example.html">
-   Basic Example for GCM-Based Inference
+  <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
+   DoWhy-The Causal Story Behind Hotel Booking Cancellations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="gcm_draw_samples.html">
-   Basic Example for generating samples from a GCM
+  <a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">
+   Estimating the effect of a Member Rewards program
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_rca_microservice_architecture.html">
+   Root cause analysis (RCA) of latencies in a microservice architecture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_401k_analysis.html">
+   Impact of 401(k) eligibility on net financial assets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_supply_chain_dist_change.html">
+   Root causes of changes in a supply chain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
+   Counterfactual analysis in a medical case using a GCM
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Using benchmark datasets
+  Examples on benchmarks datasets
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -277,6 +309,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="gcm_401k_analysis.html">
+   Impact of 401(k) eligibility on net financial assets
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="lalonde_pandas_api.html">
    Lalonde Pandas API Example
   </a>
@@ -284,18 +321,28 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Advanced
+  Miscellaneous
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="dowhy-conditional-treatment-effects.html">
-   Conditional Average Treatment Effects (CATE) with DoWhy and EconML
+  <a class="reference internal" href="load_graph_example.html">
+   Different ways to load an input graph
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dowhy_mediation_analysis.html">
-   Mediation analysis with DoWhy: Direct and Indirect Effects
+  <a class="reference internal" href="gcm_draw_samples.html">
+   Basic Example for generating samples from a GCM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy-simple-iv-example.html">
+   Simple example on using Instrumental Variables method for estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="graph_conditional_independence_refuter.html">
+   Testing Assumptions in model with DoWhy: A simple example
   </a>
  </li>
  <li class="toctree-l1">
@@ -309,33 +356,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dowhy_refuter_notebook.html">
-   Iterating over multiple refutation tests
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="identifying_effects_using_id_algorithm.html">
    Identifying Effect using ID Algorithm
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_rca_microservice_architecture.html">
-   Root cause analysis (RCA) of latencies in a microservice architecture
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_supply_chain_dist_change.html">
-   Root causes of changes in a supply chain
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
-   Counterfactual analysis in a medical case using a GCM
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_401k_analysis.html">
-   Impact of 401(k) eligibility on net financial assets
   </a>
  </li>
 </ul>
@@ -720,63 +742,63 @@ div.rendered_html tbody tr:hover {
   <tbody>
     <tr>
       <th>0</th>
-      <td>-1.119373</td>
-      <td>2.126632</td>
-      <td>1.705959</td>
-      <td>-0.663729</td>
+      <td>1.300696</td>
+      <td>-0.848441</td>
+      <td>0.442870</td>
+      <td>-1.694225</td>
       <td>1</td>
-      <td>0</td>
-      <td>9.940736</td>
-      <td>1.784761</td>
-      <td>207.365969</td>
+      <td>1</td>
+      <td>4.002593</td>
+      <td>0.477747</td>
+      <td>46.266729</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.635923</td>
-      <td>-1.084243</td>
-      <td>2.353450</td>
-      <td>-1.406452</td>
-      <td>1</td>
+      <td>1.812838</td>
+      <td>-2.636830</td>
+      <td>-1.517950</td>
+      <td>-0.013976</td>
       <td>2</td>
-      <td>14.422428</td>
-      <td>10.158316</td>
-      <td>-607.100151</td>
+      <td>0</td>
+      <td>0.311249</td>
+      <td>-0.092682</td>
+      <td>7.339895</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.517730</td>
-      <td>-1.542798</td>
-      <td>3.461271</td>
-      <td>-0.358976</td>
-      <td>0</td>
-      <td>0</td>
-      <td>11.943630</td>
-      <td>2.030622</td>
-      <td>50.788853</td>
+      <td>1.360176</td>
+      <td>-1.167374</td>
+      <td>-1.310744</td>
+      <td>0.615428</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5.659725</td>
+      <td>8.608854</td>
+      <td>160.143472</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-3.284654</td>
-      <td>-0.665210</td>
-      <td>0.548839</td>
-      <td>-0.352302</td>
+      <td>0.229785</td>
+      <td>-2.373248</td>
+      <td>-0.051541</td>
+      <td>0.738369</td>
+      <td>2</td>
       <td>3</td>
-      <td>1</td>
-      <td>18.064953</td>
-      <td>14.933904</td>
-      <td>-2969.172516</td>
+      <td>13.961373</td>
+      <td>23.744748</td>
+      <td>-3454.347796</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.388574</td>
-      <td>-2.880768</td>
-      <td>1.024145</td>
-      <td>-1.598257</td>
-      <td>2</td>
+      <td>0.428420</td>
+      <td>-1.957398</td>
+      <td>0.072592</td>
+      <td>-1.866507</td>
       <td>0</td>
-      <td>11.763666</td>
-      <td>2.483532</td>
-      <td>-127.283741</td>
+      <td>3</td>
+      <td>6.806069</td>
+      <td>3.506086</td>
+      <td>-99.008825</td>
     </tr>
   </tbody>
 </table>
@@ -829,9 +851,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W0,W1,W3])
+─────────(E[y|W0,W1,W2,W3])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W0,W1,W3,U) = P(y|v0,v1,W2,W0,W1,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W1,W2,W3,U) = P(y|v0,v1,W0,W1,W2,W3)
 
 ### Estimand : 2
 Estimand name: iv
@@ -874,16 +896,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W0,W1,W3])
+─────────(E[y|W0,W1,W2,W3])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W0,W1,W3,U) = P(y|v0,v1,W2,W0,W1,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W1,W2,W3,U) = P(y|v0,v1,W0,W1,W2,W3)
 
 ## Realized estimand
-b: y~v0+v1+W2+W0+W1+W3+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W0+W1+W2+W3+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: -97.03852656996776
+Mean value: -6.205631319746519
 
 </pre></div></div>
 </div>
@@ -914,43 +936,43 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W0,W1,W3])
+─────────(E[y|W0,W1,W2,W3])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W0,W1,W3,U) = P(y|v0,v1,W2,W0,W1,W3)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W1,W2,W3,U) = P(y|v0,v1,W0,W1,W2,W3)
 
 ## Realized estimand
-b: y~v0+v1+W2+W0+W1+W3+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W0+W1+W2+W3+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: -97.03852656996776
+Mean value: -6.205631319746519
 ### Conditional Estimates
-__categorical__X0  __categorical__X1
-(-5.025, -1.794]   (-4.590000000000001, -1.624]   -239.426343
-                   (-1.624, -1.039]               -190.913293
-                   (-1.039, -0.529]               -161.687023
-                   (-0.529, 0.0565]               -130.640907
-                   (0.0565, 3.344]                 -83.913336
-(-1.794, -1.188]   (-4.590000000000001, -1.624]   -198.588217
-                   (-1.624, -1.039]               -150.991095
-                   (-1.039, -0.529]               -120.577306
-                   (-0.529, 0.0565]                -91.342507
-                   (0.0565, 3.344]                 -43.189010
-(-1.188, -0.677]   (-4.590000000000001, -1.624]   -172.274062
-                   (-1.624, -1.039]               -126.705066
-                   (-1.039, -0.529]                -96.545955
-                   (-0.529, 0.0565]                -67.478452
-                   (0.0565, 3.344]                 -17.653038
-(-0.677, -0.0819]  (-4.590000000000001, -1.624]   -149.809926
-                   (-1.624, -1.039]               -102.368194
-                   (-1.039, -0.529]                -73.237422
-                   (-0.529, 0.0565]                -43.482442
-                   (0.0565, 3.344]                   5.404397
-(-0.0819, 2.96]    (-4.590000000000001, -1.624]   -113.047511
-                   (-1.624, -1.039]                -61.092478
-                   (-1.039, -0.529]                -33.762233
-                   (-0.529, 0.0565]                 -3.580144
-                   (0.0565, 3.344]                  40.701446
+__categorical__X1              __categorical__X0
+(-4.4190000000000005, -1.784]  (-3.154, -0.178]    -190.312507
+                               (-0.178, 0.416]     -137.864220
+                               (0.416, 0.924]      -102.380814
+                               (0.924, 1.513]       -68.202917
+                               (1.513, 4.446]       -13.297545
+(-1.784, -1.192]               (-3.154, -0.178]    -128.447199
+                               (-0.178, 0.416]      -76.901806
+                               (0.416, 0.924]       -42.721607
+                               (0.924, 1.513]        -9.943368
+                               (1.513, 4.446]        46.199556
+(-1.192, -0.683]               (-3.154, -0.178]     -92.704969
+                               (-0.178, 0.416]      -39.403968
+                               (0.416, 0.924]        -6.029406
+                               (0.924, 1.513]        27.722706
+                               (1.513, 4.446]        79.664509
+(-0.683, -0.0942]              (-3.154, -0.178]     -55.324002
+                               (-0.178, 0.416]       -2.771833
+                               (0.416, 0.924]        29.458070
+                               (0.924, 1.513]        63.905066
+                               (1.513, 4.446]       115.928568
+(-0.0942, 3.125]               (-3.154, -0.178]       0.155536
+                               (-0.178, 0.416]       56.216429
+                               (0.416, 0.924]        91.075947
+                               (0.924, 1.513]       122.404898
+                               (1.513, 4.446]       178.561251
 dtype: float64
 </pre></div></div>
 </div>
@@ -977,10 +999,10 @@ dtype: float64
           <p class="prev-next-title">A Simple Example on Creating a Custom Refutation Using User-Defined Outcome Functions</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="dowhy_refuter_notebook.html" title="next page">
+  <a class='right-next' id="next-link" href="identifying_effects_using_id_algorithm.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Iterating over multiple refutation tests</p>
+      <p class="prev-next-title">Identifying Effect using ID Algorithm</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>

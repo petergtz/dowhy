@@ -29,14 +29,8 @@ Introductory examples
         | **Level:** Beginner
         | **API:** GCM inference
 
-    .. card:: :doc:`dowhy_optimize_backdoor_example`
 
-        +++
-        | **Level:** Beginner
-        | **API:** Effect inference
-
-
-Real-world inspired examples
+Real world-inspired examples
 ----------------------------
 
 .. card-carousel:: 3
@@ -83,8 +77,8 @@ Real-world inspired examples
         | **Level:** Advanced
         | **API:** GCM inference
 
-Using benchmarks datasets
--------------------------
+Examples on benchmarks datasets
+-------------------------------
 
 .. card-carousel:: 3
 
@@ -112,72 +106,109 @@ Using benchmarks datasets
         | **Level:** Advanced
         | **API:** GCM inference
 
+    .. card:: :doc:`lalonde_pandas_api`
+
+        +++
+        | **Level:** Advanced
+        | **API:** Do Sampler
 
 
 
 
-Others
-------
+
+Miscellaneous
+-------------
 
 .. card-carousel:: 3
 
     .. card:: :doc:`gcm_draw_samples`
 
         **Level:** Beginner
+        | **API:** GCM inference
 
-    .. card:: :doc:`gcm_rca_microservice_architecture`
+    .. card:: :doc:`load_graph_example`
 
-        **Level:** Beginner
+        | **Level:** Beginner
+        | **API:** Effect inference
 
-    .. card:: :doc:`gcm_rca_microservice_architecture`
+    .. card:: :doc:`gcm_draw_samples`
 
-        **Level:** Beginner
+        | **Level:** Beginner
+        | **API:** GCM inference
 
+    .. card:: :doc:`dowhy-simple-iv-example`
 
+        | **Level:** Beginner
+        | **API:** Effect inference
 
+    .. card:: :doc:`graph_conditional_independence_refuter`
+
+        | **Level:** Beginner
+        | **API:** Effect inference
+
+    .. card:: :doc:`dowhy_demo_dummy_outcome_refuter`
+
+        | **Level:** Beginner
+        | **API:** Effect inference
+
+    .. card:: :doc:`dowhy_multiple_treatments`
+
+        | **Level:** Beginner
+        | **API:** Effect inference
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: Getting started
+   :caption: Introductory examples
+   :hidden:
 
    dowhy_simple_example
+   gcm_basic_example
    dowhy_confounder_example
    dowhy_estimation_methods
-   graph_conditional_independence_refuter
-   dowhy-simple-iv-example
-   load_graph_example
    dowhy_interpreter
    dowhy_causal_discovery_example
+   dowhy-conditional-treatment-effects
+   dowhy_mediation_analysis
+   dowhy_refuter_notebook
    dowhy_causal_api
    do_sampler_demo
-   gcm_basic_example
-   gcm_draw_samples
 
 .. toctree::
    :maxdepth: 1
-   :caption: Using benchmark datasets
+   :caption: Real world-inspired examples
+   :hidden:
 
-   dowhy_ihdp_data_example
-   dowhy_twins_example
-   dowhy_lalonde_example
-   dowhy_refutation_testing
-   lalonde_pandas_api
-
-.. Advanced notebooks
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Advanced
-
-   dowhy-conditional-treatment-effects
-   dowhy_mediation_analysis.ipynb
-   dowhy_demo_dummy_outcome_refuter.ipynb
-   dowhy_multiple_treatments.ipynb
-   dowhy_refuter_notebook
-   dowhy_causal_discovery_example.ipynb
-   identifying_effects_using_id_algorithm.ipynb
+   DoWhy-The Causal Story Behind Hotel Booking Cancellations
+   dowhy_example_effect_of_memberrewards_program
    gcm_rca_microservice_architecture
+   gcm_401k_analysis
    gcm_supply_chain_dist_change
    gcm_counterfactual_medical_dry_eyes
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Examples on benchmarks datasets
+   :hidden:
+
+   dowhy_ihdp_data_example
+   dowhy_lalonde_example
+   dowhy_refutation_testing
    gcm_401k_analysis
+   lalonde_pandas_api
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Miscellaneous
+   :hidden:
+
+   load_graph_example
+   gcm_draw_samples
+   dowhy-simple-iv-example
+   graph_conditional_independence_refuter
+   dowhy_demo_dummy_outcome_refuter
+   dowhy_multiple_treatments
+   identifying_effects_using_id_algorithm.ipynb
+
+

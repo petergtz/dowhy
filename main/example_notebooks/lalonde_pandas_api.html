@@ -55,7 +55,7 @@
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Conditional Average Treatment Effects (CATE) with DoWhy and EconML" href="dowhy-conditional-treatment-effects.html" />
+    <link rel="next" title="Different ways to load an input graph" href="load_graph_example.html" />
     <link rel="prev" title="Applying refutation tests to the Lalonde and IHDP datasets" href="dowhy_refutation_testing.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
@@ -195,13 +195,18 @@
   <div class="bd-toc-item active">
     <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Getting started
+  Introductory examples
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
    Getting started with DoWhy: A simple example
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_basic_example.html">
+   Basic Example for GCM-Based Inference
   </a>
  </li>
  <li class="toctree-l1">
@@ -215,23 +220,23 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="graph_conditional_independence_refuter.html">
-   Testing Assumptions in model with DoWhy: A simple example
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="dowhy-simple-iv-example.html">
-   Simple example on using Instrumental Variables method for estimation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="load_graph_example.html">
-   Different ways to load an input graph
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="dowhy_interpreter.html">
    DoWhy: Interpreters for Causal Estimators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy-conditional-treatment-effects.html">
+   Conditional Average Treatment Effects (CATE) with DoWhy and EconML
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy_mediation_analysis.html">
+   Mediation analysis with DoWhy: Direct and Indirect Effects
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy_refuter_notebook.html">
+   Iterating over multiple refutation tests
   </a>
  </li>
  <li class="toctree-l1">
@@ -244,20 +249,47 @@
    Do-sampler Introduction
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Real world-inspired examples
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="gcm_basic_example.html">
-   Basic Example for GCM-Based Inference
+  <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
+   DoWhy-The Causal Story Behind Hotel Booking Cancellations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="gcm_draw_samples.html">
-   Basic Example for generating samples from a GCM
+  <a class="reference internal" href="dowhy_example_effect_of_memberrewards_program.html">
+   Estimating the effect of a Member Rewards program
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_rca_microservice_architecture.html">
+   Root cause analysis (RCA) of latencies in a microservice architecture
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_401k_analysis.html">
+   Impact of 401(k) eligibility on net financial assets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_supply_chain_dist_change.html">
+   Root causes of changes in a supply chain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
+   Counterfactual analysis in a medical case using a GCM
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Using benchmark datasets
+  Examples on benchmarks datasets
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -276,6 +308,11 @@
    Applying refutation tests to the Lalonde and IHDP datasets
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcm_401k_analysis.html">
+   Impact of 401(k) eligibility on net financial assets
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Lalonde Pandas API Example
@@ -284,18 +321,28 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Advanced
+  Miscellaneous
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="dowhy-conditional-treatment-effects.html">
-   Conditional Average Treatment Effects (CATE) with DoWhy and EconML
+  <a class="reference internal" href="load_graph_example.html">
+   Different ways to load an input graph
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dowhy_mediation_analysis.html">
-   Mediation analysis with DoWhy: Direct and Indirect Effects
+  <a class="reference internal" href="gcm_draw_samples.html">
+   Basic Example for generating samples from a GCM
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dowhy-simple-iv-example.html">
+   Simple example on using Instrumental Variables method for estimation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="graph_conditional_independence_refuter.html">
+   Testing Assumptions in model with DoWhy: A simple example
   </a>
  </li>
  <li class="toctree-l1">
@@ -309,33 +356,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dowhy_refuter_notebook.html">
-   Iterating over multiple refutation tests
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="identifying_effects_using_id_algorithm.html">
    Identifying Effect using ID Algorithm
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_rca_microservice_architecture.html">
-   Root cause analysis (RCA) of latencies in a microservice architecture
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_supply_chain_dist_change.html">
-   Root causes of changes in a supply chain
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_counterfactual_medical_dry_eyes.html">
-   Counterfactual analysis in a medical case using a GCM
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gcm_401k_analysis.html">
-   Impact of 401(k) eligibility on net financial assets
   </a>
  </li>
 </ul>
@@ -943,87 +965,87 @@ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF TH
     <tr>
       <th>0</th>
       <td>True</td>
-      <td>24.0</td>
-      <td>10.0</td>
+      <td>17.0</td>
+      <td>7.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0.00</td>
-      <td>0.000</td>
-      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3023.879</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.372590</td>
-      <td>2.683914</td>
+      <td>0.397411</td>
+      <td>2.516286</td>
     </tr>
     <tr>
       <th>1</th>
       <td>False</td>
-      <td>18.0</td>
-      <td>9.0</td>
+      <td>17.0</td>
+      <td>8.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0.00</td>
-      <td>0.000</td>
-      <td>10877.3500</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>7010.444</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.624983</td>
-      <td>1.600044</td>
+      <td>0.614641</td>
+      <td>1.626966</td>
     </tr>
     <tr>
       <th>2</th>
       <td>False</td>
-      <td>28.0</td>
-      <td>9.0</td>
+      <td>29.0</td>
+      <td>8.0</td>
       <td>1.0</td>
       <td>0.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>10222.41</td>
-      <td>9210.447</td>
-      <td>1239.8440</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.558131</td>
-      <td>1.791695</td>
+      <td>0.000</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.595415</td>
+      <td>1.679501</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>True</td>
-      <td>24.0</td>
-      <td>11.0</td>
+      <td>False</td>
+      <td>26.0</td>
+      <td>12.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>0.00</td>
-      <td>0.000</td>
-      <td>995.7002</td>
+      <td>0.0</td>
+      <td>6191.943</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.360840</td>
-      <td>2.771315</td>
+      <td>0.408024</td>
+      <td>2.450836</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>True</td>
-      <td>27.0</td>
-      <td>13.0</td>
-      <td>1.0</td>
+      <td>False</td>
+      <td>26.0</td>
+      <td>12.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00</td>
-      <td>0.000</td>
-      <td>34099.2800</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>12383.680</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.529498</td>
-      <td>1.888582</td>
+      <td>0.419394</td>
+      <td>2.384395</td>
     </tr>
   </tbody>
 </table>
@@ -1064,7 +1086,7 @@ $\displaystyle 1794.34240427027$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1531.29214942428$</div></div>
+$\displaystyle 1299.92168927018$</div></div>
 </div>
 <p>We could get some rough error bars on the outcome using the normal approximation for a 95% confidence interval, like</p>
 <div class="nbinput docutils container">
@@ -1083,7 +1105,7 @@ $\displaystyle 1531.29214942428$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1168.85699601682$</div></div>
+$\displaystyle 1160.01140259033$</div></div>
 </div>
 <p>but note that these DO NOT contain propensity score estimation error. For that, a bootstrapping procedure might be more appropriate.</p>
 <p>This is just one statistic we can compute from the interventional distribution of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can get all of the interventional moments as well, including functions of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can leverage the full power of pandas, like</p>
@@ -1102,13 +1124,13 @@ $\displaystyle 1168.85699601682$</div></div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 count      445.000000
-mean      5333.822824
-std       6387.918849
+mean      5404.155503
+std       6313.840502
 min          0.000000
 25%          0.000000
-50%       3595.894000
-75%       8551.533000
-max      39483.530000
+50%       3701.812000
+75%       8472.158000
+max      36646.950000
 Name: re78, dtype: float64
 </pre></div></div>
 </div>
@@ -1264,87 +1286,87 @@ Name: re78, dtype: float64
     <tr>
       <th>0</th>
       <td>True</td>
-      <td>26.0</td>
-      <td>12.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>8408.762</td>
-      <td>5794.831</td>
-      <td>1424.944</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.591977</td>
-      <td>1.689256</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>True</td>
-      <td>26.0</td>
-      <td>11.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>17230.960</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.363938</td>
-      <td>2.747718</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>True</td>
-      <td>25.0</td>
-      <td>11.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.362388</td>
-      <td>2.759477</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>True</td>
       <td>22.0</td>
       <td>9.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>2192.877</td>
-      <td>3836.986</td>
-      <td>3462.564</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>4056.494</td>
+      <td>1.0</td>
+      <td>1.0</td>
       <td>0.381324</td>
-      <td>2.622439</td>
+      <td>2.622443</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>True</td>
+      <td>25.0</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.398141</td>
+      <td>2.511675</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>True</td>
+      <td>24.0</td>
+      <td>10.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4250.402</td>
+      <td>2421.947</td>
+      <td>1660.508</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.372590</td>
+      <td>2.683914</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>True</td>
+      <td>31.0</td>
+      <td>9.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>26817.600</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.286868</td>
+      <td>3.485929</td>
     </tr>
     <tr>
       <th>4</th>
       <td>True</td>
-      <td>35.0</td>
-      <td>9.0</td>
+      <td>17.0</td>
+      <td>10.0</td>
       <td>1.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>0.000</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>13602.430</td>
-      <td>13830.640</td>
-      <td>12803.970</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.453475</td>
-      <td>2.205194</td>
+      <td>0.361685</td>
+      <td>2.764839</td>
     </tr>
   </tbody>
 </table>
@@ -1431,10 +1453,10 @@ do(x, method=&#39;weighting&#39;, num_cores=1, variable_types={}, outcome=None, 
           <p class="prev-next-title">Applying refutation tests to the Lalonde and IHDP datasets</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="dowhy-conditional-treatment-effects.html" title="next page">
+  <a class='right-next' id="next-link" href="load_graph_example.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Conditional Average Treatment Effects (CATE) with DoWhy and EconML</p>
+      <p class="prev-next-title">Different ways to load an input graph</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>
