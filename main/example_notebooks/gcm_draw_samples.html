@@ -704,33 +704,33 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
   <tbody>
     <tr>
       <th>0</th>
-      <td>3.282413</td>
-      <td>6.371129</td>
-      <td>18.052065</td>
+      <td>-0.629137</td>
+      <td>-1.406399</td>
+      <td>-3.261401</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2.761313</td>
-      <td>6.147829</td>
-      <td>19.350982</td>
+      <td>-0.676504</td>
+      <td>-1.875471</td>
+      <td>-6.008708</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.029210</td>
-      <td>0.326531</td>
-      <td>-1.096048</td>
+      <td>-0.009967</td>
+      <td>-0.214630</td>
+      <td>-2.574795</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.156504</td>
-      <td>-1.826326</td>
-      <td>-4.924320</td>
+      <td>-1.677366</td>
+      <td>-3.151777</td>
+      <td>-9.809743</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.148039</td>
-      <td>3.290618</td>
-      <td>11.575587</td>
+      <td>0.969437</td>
+      <td>2.248512</td>
+      <td>6.726204</td>
     </tr>
   </tbody>
 </table>
@@ -755,7 +755,7 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 383.86it/s]
+Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 578.15it/s]
 </pre></div></div>
 </div>
 <p>We now learned the generative models of the variables, based on the defined causal graph and the additive noise model assumption. To generate new samples from this model, we can now simply call:</p>
@@ -799,33 +799,33 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.339323</td>
-      <td>1.914399</td>
-      <td>5.249963</td>
+      <td>1.229217</td>
+      <td>3.522837</td>
+      <td>11.470714</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.669641</td>
-      <td>1.704151</td>
-      <td>4.334174</td>
+      <td>0.688713</td>
+      <td>2.575601</td>
+      <td>8.190999</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.576277</td>
-      <td>1.871554</td>
-      <td>6.366326</td>
+      <td>-0.785974</td>
+      <td>-2.236123</td>
+      <td>-6.761724</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.084162</td>
-      <td>2.577632</td>
-      <td>6.834706</td>
+      <td>-0.423801</td>
+      <td>-1.521263</td>
+      <td>-5.759592</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.582295</td>
-      <td>2.191952</td>
-      <td>8.058442</td>
+      <td>0.002297</td>
+      <td>0.057399</td>
+      <td>1.528571</td>
     </tr>
   </tbody>
 </table>
@@ -846,7 +846,7 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 0.000443939902225536$</div></div>
+$\displaystyle 0$</div></div>
 </div>
 <p>Here, we expect the divergence to be (very) small.</p>
 <p><strong>Note</strong>: We <strong>cannot</strong> validate the correctness of a causal graph this way, since any graph from a Markov equivalence class would be sufficient to generate data that is consistent with the observed one, but only one particular graph would generate the correct interventional and counterfactual distributions. This is, seeing the example above, X→Y→Z and X←Y←Z would generate the same observational distribution (since they encode the same conditionals), but only X→Y→Z would generate the correct

@@ -77,6 +77,7 @@ Real world-inspired examples
         | **Level:** Advanced
         | **API:** Counterfactuals via GCM
 
+
 Examples on benchmarks datasets
 -------------------------------
 
@@ -113,9 +114,6 @@ Examples on benchmarks datasets
         | **API:** Do Sampler
 
 
-
-
-
 Miscellaneous
 -------------
 
@@ -123,36 +121,43 @@ Miscellaneous
 
     .. card:: :doc:`gcm_draw_samples`
 
-        **Level:** Beginner
+        +++
+        | **Level:** Beginner
         | **API:** GCM inference
 
     .. card:: :doc:`load_graph_example`
 
+        +++
         | **Level:** Beginner
         | **API:** Effect inference
 
     .. card:: :doc:`gcm_draw_samples`
 
+        +++
         | **Level:** Beginner
         | **API:** GCM inference
 
     .. card:: :doc:`dowhy-simple-iv-example`
 
+        +++
         | **Level:** Beginner
         | **API:** Effect inference
 
     .. card:: :doc:`graph_conditional_independence_refuter`
 
+        +++
         | **Level:** Beginner
         | **API:** Effect inference
 
     .. card:: :doc:`dowhy_demo_dummy_outcome_refuter`
 
+        +++
         | **Level:** Beginner
         | **API:** Effect inference
 
     .. card:: :doc:`dowhy_multiple_treatments`
 
+        +++
         | **Level:** Beginner
         | **API:** Effect inference
 
@@ -196,7 +201,6 @@ Miscellaneous
    dowhy_refutation_testing
    gcm_401k_analysis
    lalonde_pandas_api
-
 
 .. toctree::
    :maxdepth: 1
