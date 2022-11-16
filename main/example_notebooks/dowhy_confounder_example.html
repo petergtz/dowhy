@@ -201,7 +201,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
-   Basic Example for calculating the Causal Treatment Effect
+   Basic Example for Calculating the Causal Effect
   </a>
  </li>
  <li class="toctree-l1">
@@ -258,7 +258,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
-   Using the Average Treatment Effect to Find What Causes Hotel Booking Cancellations
+   Exploring Causes of Hotel Booking Cancellations
   </a>
  </li>
  <li class="toctree-l1">
@@ -767,11 +767,11 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <div class="highlight"><pre>
    Treatment    Outcome        w0
-0   9.763266  19.871958  3.977351
-1   2.774615   5.915725 -3.204967
-2   2.557502   4.913974 -3.854008
-3   2.154658   4.569476 -3.738335
-4   7.632930  15.290562  1.834942
+0   8.584593  18.091700  2.844600
+1   6.103557  12.286095  0.088039
+2   9.624855  19.885119  3.922885
+3   9.915740  19.815752  3.799218
+4   5.883571  12.075967 -0.033374
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -888,7 +888,7 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Causal Estimate is 0.9936207581094338
+Causal Estimate is -0.009702735092247394
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -915,8 +915,8 @@ Causal Estimate is 0.9936207581094338
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-DoWhy estimate is 0.9936207581094338
-Actual true causal effect was 1
+DoWhy estimate is -0.009702735092247394
+Actual true causal effect was 0
 </pre></div></div>
 </div>
 </section>
@@ -941,9 +941,9 @@ Actual true causal effect was 1
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:0.9936207581094338
-New effect:0.9936112888152979
-p value:0.78
+Estimated effect:-0.009702735092247394
+New effect:-0.009700632138340364
+p value:0.96
 
 </pre></div></div>
 </div>
@@ -966,9 +966,9 @@ p value:0.78
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:0.9936207581094338
-New effect:0.00010975149473210877
-p value:0.82
+Estimated effect:-0.009702735092247394
+New effect:-5.6929915023964384e-05
+p value:0.8
 
 </pre></div></div>
 </div>
@@ -991,9 +991,9 @@ p value:0.82
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:0.9936207581094338
-New effect:0.9937883591872521
-p value:0.98
+Estimated effect:-0.009702735092247394
+New effect:-0.009574987149107272
+p value:0.96
 
 </pre></div></div>
 </div>

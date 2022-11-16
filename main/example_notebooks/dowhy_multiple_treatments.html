@@ -201,7 +201,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
-   Basic Example for calculating the Causal Treatment Effect
+   Basic Example for Calculating the Causal Effect
   </a>
  </li>
  <li class="toctree-l1">
@@ -258,7 +258,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
-   Using the Average Treatment Effect to Find What Causes Hotel Booking Cancellations
+   Exploring Causes of Hotel Booking Cancellations
   </a>
  </li>
  <li class="toctree-l1">
@@ -742,63 +742,63 @@ div.rendered_html tbody tr:hover {
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.781968</td>
-      <td>-0.358785</td>
-      <td>1.442157</td>
-      <td>-1.587293</td>
+      <td>1.995654</td>
+      <td>-1.012073</td>
+      <td>0.775166</td>
+      <td>2.050170</td>
       <td>3</td>
-      <td>0</td>
-      <td>15.875148</td>
-      <td>2.801774</td>
-      <td>125.282946</td>
+      <td>3</td>
+      <td>25.750379</td>
+      <td>27.255111</td>
+      <td>2925.744982</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.503012</td>
-      <td>-1.765137</td>
-      <td>2.709830</td>
-      <td>-0.973362</td>
-      <td>2</td>
+      <td>1.162613</td>
+      <td>-0.263420</td>
+      <td>-0.789109</td>
+      <td>0.218210</td>
+      <td>1</td>
       <td>0</td>
-      <td>19.752834</td>
-      <td>4.843971</td>
-      <td>-219.669356</td>
+      <td>-2.487428</td>
+      <td>0.482291</td>
+      <td>-20.168832</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.157559</td>
-      <td>-1.376624</td>
-      <td>-0.365874</td>
-      <td>0.062732</td>
-      <td>3</td>
+      <td>-0.403815</td>
+      <td>0.313766</td>
+      <td>2.201479</td>
+      <td>0.232464</td>
       <td>1</td>
-      <td>15.061511</td>
-      <td>4.613717</td>
-      <td>-45.406074</td>
+      <td>1</td>
+      <td>13.683618</td>
+      <td>11.020105</td>
+      <td>159.108019</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.081535</td>
-      <td>0.764198</td>
-      <td>2.078500</td>
-      <td>-0.138564</td>
+      <td>1.622648</td>
+      <td>-0.316708</td>
+      <td>2.350055</td>
+      <td>0.657835</td>
+      <td>3</td>
       <td>0</td>
-      <td>2</td>
-      <td>19.673969</td>
-      <td>1.062400</td>
-      <td>246.729693</td>
+      <td>10.225298</td>
+      <td>10.908179</td>
+      <td>562.528937</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-2.170080</td>
-      <td>0.088444</td>
-      <td>1.464233</td>
-      <td>-0.992264</td>
+      <td>1.384602</td>
+      <td>-1.936849</td>
+      <td>0.424897</td>
+      <td>-0.011893</td>
+      <td>3</td>
       <td>2</td>
-      <td>2</td>
-      <td>23.808374</td>
-      <td>4.729279</td>
-      <td>204.498570</td>
+      <td>12.442065</td>
+      <td>15.514843</td>
+      <td>613.707580</td>
     </tr>
   </tbody>
 </table>
@@ -851,9 +851,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W1,W3,W0])
+─────────(E[y|W2,W0,W3,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W1,W3,W0,U) = P(y|v0,v1,W2,W1,W3,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W0,W3,W1,U) = P(y|v0,v1,W2,W0,W3,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -896,16 +896,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W1,W3,W0])
+─────────(E[y|W2,W0,W3,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W1,W3,W0,U) = P(y|v0,v1,W2,W1,W3,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W0,W3,W1,U) = P(y|v0,v1,W2,W0,W3,W1)
 
 ## Realized estimand
-b: y~v0+v1+W2+W1+W3+W0+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W2+W0+W3+W1+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: -28.991926716795277
+Mean value: 46.72407963223797
 
 </pre></div></div>
 </div>
@@ -936,43 +936,43 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W2,W1,W3,W0])
+─────────(E[y|W2,W0,W3,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W1,W3,W0,U) = P(y|v0,v1,W2,W1,W3,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W2,W0,W3,W1,U) = P(y|v0,v1,W2,W0,W3,W1)
 
 ## Realized estimand
-b: y~v0+v1+W2+W1+W3+W0+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W2+W0+W3+W1+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: -28.991926716795277
+Mean value: 46.72407963223797
 ### Conditional Estimates
-__categorical__X0  __categorical__X1
-(-4.783, -1.83]    (-4.87, -1.606]     -105.095174
-                   (-1.606, -1.028]     -63.609000
-                   (-1.028, -0.525]     -40.836765
-                   (-0.525, 0.0579]     -17.369158
-                   (0.0579, 3.298]       21.885649
-(-1.83, -1.256]    (-4.87, -1.606]      -94.562154
-                   (-1.606, -1.028]     -57.260606
-                   (-1.028, -0.525]     -33.393869
-                   (-0.525, 0.0579]      -9.662712
-                   (0.0579, 3.298]       26.855812
-(-1.256, -0.745]   (-4.87, -1.606]      -88.888088
-                   (-1.606, -1.028]     -52.521386
-                   (-1.028, -0.525]     -29.156923
-                   (-0.525, 0.0579]      -4.967262
-                   (0.0579, 3.298]       34.197306
-(-0.745, -0.151]   (-4.87, -1.606]      -87.185484
-                   (-1.606, -1.028]     -48.247689
-                   (-1.028, -0.525]     -24.839486
-                   (-0.525, 0.0579]      -1.040911
-                   (0.0579, 3.298]       38.664470
-(-0.151, 2.718]    (-4.87, -1.606]      -81.056551
-                   (-1.606, -1.028]     -40.403425
-                   (-1.028, -0.525]     -17.701190
-                   (-0.525, 0.0579]       5.482750
-                   (0.0579, 3.298]       45.809013
+__categorical__X1  __categorical__X0
+(-3.844, -1.178]   (-3.046, -0.189]     -15.647758
+                   (-0.189, 0.405]       13.016610
+                   (0.405, 0.912]        33.245229
+                   (0.912, 1.471]        51.332102
+                   (1.471, 4.312]        81.808214
+(-1.178, -0.592]   (-3.046, -0.189]      -9.145958
+                   (-0.189, 0.405]       21.867988
+                   (0.405, 0.912]        41.592395
+                   (0.912, 1.471]        60.145811
+                   (1.471, 4.312]        91.125631
+(-0.592, -0.102]   (-3.046, -0.189]      -3.184224
+                   (-0.189, 0.405]       27.938461
+                   (0.405, 0.912]        46.512935
+                   (0.912, 1.471]        65.294866
+                   (1.471, 4.312]        97.146537
+(-0.102, 0.51]     (-3.046, -0.189]       1.367787
+                   (-0.189, 0.405]       33.708684
+                   (0.405, 0.912]        52.634881
+                   (0.912, 1.471]        71.144301
+                   (1.471, 4.312]       100.190929
+(0.51, 3.83]       (-3.046, -0.189]      10.848657
+                   (-0.189, 0.405]       41.815471
+                   (0.405, 0.912]        61.736299
+                   (0.912, 1.471]        79.903209
+                   (1.471, 4.312]       111.702448
 dtype: float64
 </pre></div></div>
 </div>

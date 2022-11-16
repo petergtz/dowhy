@@ -201,7 +201,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="dowhy_simple_example.html">
-   Basic Example for calculating the Causal Treatment Effect
+   Basic Example for Calculating the Causal Effect
   </a>
  </li>
  <li class="toctree-l1">
@@ -258,7 +258,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="DoWhy-The%20Causal%20Story%20Behind%20Hotel%20Booking%20Cancellations.html">
-   Using the Average Treatment Effect to Find What Causes Hotel Booking Cancellations
+   Exploring Causes of Hotel Booking Cancellations
   </a>
  </li>
  <li class="toctree-l1">
@@ -964,88 +964,88 @@ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF TH
   <tbody>
     <tr>
       <th>0</th>
-      <td>False</td>
-      <td>31.0</td>
-      <td>12.0</td>
+      <td>True</td>
+      <td>21.0</td>
+      <td>8.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>1.0</td>
+      <td>989.2678</td>
+      <td>3695.897</td>
+      <td>4279.613</td>
       <td>0.0</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>7284.394</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.451268</td>
-      <td>2.215979</td>
+      <td>0.0</td>
+      <td>0.391728</td>
+      <td>2.552793</td>
     </tr>
     <tr>
       <th>1</th>
       <td>False</td>
-      <td>20.0</td>
-      <td>12.0</td>
+      <td>17.0</td>
+      <td>10.0</td>
+      <td>0.0</td>
       <td>1.0</td>
       <td>0.0</td>
+      <td>1.0</td>
+      <td>1442.6810</td>
+      <td>1734.559</td>
+      <td>6354.194</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>7182.492</td>
-      <td>6004.728</td>
-      <td>4779.720</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.469585</td>
-      <td>2.129539</td>
+      <td>0.741755</td>
+      <td>1.348155</td>
     </tr>
     <tr>
       <th>2</th>
       <td>False</td>
-      <td>29.0</td>
-      <td>9.0</td>
+      <td>19.0</td>
+      <td>11.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.000</td>
+      <td>0.000</td>
       <td>1.0</td>
-      <td>9594.308</td>
-      <td>16341.160</td>
-      <td>16900.300</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.715878</td>
-      <td>1.396886</td>
+      <td>1.0</td>
+      <td>0.608736</td>
+      <td>1.642749</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>False</td>
-      <td>34.0</td>
-      <td>13.0</td>
-      <td>1.0</td>
+      <td>True</td>
+      <td>22.0</td>
+      <td>11.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
-      <td>0.0</td>
+      <td>0.0000</td>
       <td>0.000</td>
-      <td>0.000</td>
-      <td>5193.247</td>
+      <td>1048.432</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.407287</td>
-      <td>2.455269</td>
+      <td>0.396066</td>
+      <td>2.524832</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>False</td>
-      <td>19.0</td>
-      <td>10.0</td>
+      <td>True</td>
+      <td>23.0</td>
+      <td>7.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
+      <td>0.0000</td>
       <td>0.000</td>
       <td>0.000</td>
-      <td>3194.010</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.596619</td>
-      <td>1.676112</td>
+      <td>0.446997</td>
+      <td>2.237150</td>
     </tr>
   </tbody>
 </table>
@@ -1086,7 +1086,7 @@ $\displaystyle 1794.34240427027$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 2210.12504435938$</div></div>
+$\displaystyle 857.29716064087$</div></div>
 </div>
 <p>We could get some rough error bars on the outcome using the normal approximation for a 95% confidence interval, like</p>
 <div class="nbinput docutils container">
@@ -1105,7 +1105,7 @@ $\displaystyle 2210.12504435938$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1238.57927022379$</div></div>
+$\displaystyle 1129.70644005485$</div></div>
 </div>
 <p>but note that these DO NOT contain propensity score estimation error. For that, a bootstrapping procedure might be more appropriate.</p>
 <p>This is just one statistic we can compute from the interventional distribution of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can get all of the interventional moments as well, including functions of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can leverage the full power of pandas, like</p>
@@ -1124,11 +1124,11 @@ $\displaystyle 1238.57927022379$</div></div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 count      445.000000
-mean      5674.601818
-std       6881.072064
+mean      5433.681021
+std       6045.606319
 min          0.000000
 25%          0.000000
-50%       3811.683000
+50%       4279.613000
 75%       8881.665000
 max      60307.930000
 Name: re78, dtype: float64
@@ -1286,87 +1286,87 @@ Name: re78, dtype: float64
     <tr>
       <th>0</th>
       <td>True</td>
-      <td>19.0</td>
-      <td>11.0</td>
+      <td>17.0</td>
+      <td>9.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
+      <td>0.00</td>
       <td>0.000</td>
-      <td>0.0000</td>
-      <td>7458.1050</td>
+      <td>0.000</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.353140</td>
-      <td>2.831739</td>
+      <td>0.373444</td>
+      <td>2.677777</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>True</td>
-      <td>24.0</td>
-      <td>11.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.000</td>
-      <td>0.0000</td>
-      <td>995.7002</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.360834</td>
-      <td>2.771359</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>True</td>
-      <td>26.0</td>
-      <td>10.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.000</td>
-      <td>0.0000</td>
-      <td>9265.7880</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.375727</td>
-      <td>2.661505</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>True</td>
-      <td>27.0</td>
-      <td>12.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>2143.413</td>
-      <td>357.9499</td>
-      <td>22163.2500</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.542084</td>
-      <td>1.844733</td>
-    </tr>
-    <tr>
-      <th>4</th>
       <td>True</td>
       <td>30.0</td>
       <td>11.0</td>
       <td>1.0</td>
       <td>0.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>1.0</td>
+      <td>0.00</td>
       <td>0.000</td>
-      <td>0.0000</td>
-      <td>590.7818</td>
+      <td>0.000</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.420340</td>
-      <td>2.379029</td>
+      <td>0.370172</td>
+      <td>2.701448</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>True</td>
+      <td>35.0</td>
+      <td>9.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>13602.43</td>
+      <td>13830.640</td>
+      <td>12803.970</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.453471</td>
+      <td>2.205212</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>True</td>
+      <td>37.0</td>
+      <td>9.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.00</td>
+      <td>0.000</td>
+      <td>1067.506</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.405318</td>
+      <td>2.467199</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>True</td>
+      <td>19.0</td>
+      <td>10.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.00</td>
+      <td>5324.109</td>
+      <td>13829.620</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.403378</td>
+      <td>2.479063</td>
     </tr>
   </tbody>
 </table>
