@@ -17,11 +17,11 @@ DoWhy documentation
 
 
 **Related resources**:
-`DoWhy on PyPI <https://pypi.org/project/dowhy>`__ |
 `Source Repository <https://github.com/py-why/dowhy>`__ |
 `Issues & Ideas <https://github.com/py-why/dowhy/issues>`__ |
-`PyWhy <https://www.pywhy.org>`__ |
-`Discord <https://discord.gg/cSBGb3vsZb>`__
+`Join the Community (Discord) <https://discord.gg/cSBGb3vsZb>`__
+`PyWhy Organization <https://www.pywhy.org>`__ |
+`DoWhy on PyPI <https://pypi.org/project/dowhy>`__ |
 
 Much like machine learning libraries have done for prediction, DoWhy is a Python library that aims to spark
 causal thinking and analysis. DoWhy provides a wide variety of algorithms for effect estimation, causal
