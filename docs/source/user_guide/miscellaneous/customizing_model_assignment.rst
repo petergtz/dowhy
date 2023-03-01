@@ -8,9 +8,11 @@ this feature.
 
 To understand this, let's pull up the mental model for a probabilistic causal model (PCM) again:
 
-.. image:: pcm.png
+.. image:: ../modeling_causal_relations/pcm.png
    :alt: Mental model for causal models
    :width: 80%
+
+|
 
 On the left, it shows a trivial causal graph :math:`X \rightarrow Y`. :math:`X` is a so-called root
 node (it has no parents), :math:`Y` is a non-root node (it *has* parents). We fundamentally

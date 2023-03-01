@@ -1,5 +1,5 @@
-Estimating Average Causal Effects
-=================================
+Estimating Average Causal Effects using GCM
+===========================================
 
 One of the most common causal questions is how much does a certain target quantity differ under two different
 interventions/treatments. This is also known as average treatment effect (ATE) or, more generally, average causal

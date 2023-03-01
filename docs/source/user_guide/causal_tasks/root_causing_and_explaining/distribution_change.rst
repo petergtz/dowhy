@@ -84,4 +84,3 @@ The steps here are as follows:
 4. Attribute the change in the marginal given :math:`T` to :math:`X_j` using Shapley values by comparing :math:`P^{X_n}_{T \bigcup \{j\}}` and :math:`P^{X_n}_{T}`. Here, we can use different measures to capture the change, such as KL divergence to the original distribution or difference in variances etc.
 
 For more detailed explanation, see the corresponding paper: `Why did the distribution change? <http://proceedings.mlr.press/v130/budhathoki21a/budhathoki21a.pdf>`_
-
