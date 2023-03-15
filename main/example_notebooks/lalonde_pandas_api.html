@@ -158,15 +158,14 @@
     <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
         <dl>
             <dt>Releases</dt>
-            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="../v0.7/index.html">v0.7</a></dd>
-            <dd><a href="../v0.6/index.html">v0.6</a></dd>
-            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="../v0.5/index.html">v0.5</a></dd>
-            <dd><a href="../v0.4/index.html">v0.4</a></dd>
-            <dd><a href="../v0.2/index.html">v0.2</a></dd>
-            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
+            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
+            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
+            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
+            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
+            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
         </dl>        
         <dl>
             <dt>Branches</dt>
@@ -550,10 +549,11 @@ div.nboutput.container div.prompt > div {
     }
 }
 
-/* disable scrollbars on prompts */
+/* disable scrollbars and line breaks on prompts */
 div.nbinput.container div.prompt pre,
 div.nboutput.container div.prompt pre {
     overflow: hidden;
+    white-space: pre;
 }
 
 /* input/output area */
@@ -706,54 +706,21 @@ which we call a “do” sample.</p>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;../../../&quot;</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os, sys
+sys.path.append(os.path.abspath(&quot;../../../&quot;))
 </pre></div>
 </div>
 </div>
 <section id="Getting-the-Data">
 <h2>Getting the Data<a class="headerlink" href="#Getting-the-Data" title="Permalink to this heading"></a></h2>
 <p>First, download the data from the LaLonde example.</p>
-<table class="table">
-<colgroup>
-<col style="width: 100%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>The following code for loading the Lalonde dataset was copied from
-<a class="reference external" href="https://github.com/wayfair/pylift/blob/5afc9088e96f25672423663f5c9b4bb889b4dfc0/examples/Lalonde/Lalonde_sample.ipynb?short_path=b1d451f#L94-L99">wayfair/pylift</a>.</p></td>
-</tr>
-<tr class="row-even"><td><p><em>Copyright 2018, Wayfair, Inc.</em></p></td>
-</tr>
-<tr class="row-odd"><td><p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p></td>
-</tr>
-<tr class="row-even"><td><ol class="arabic simple">
-<li><p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p></li>
-</ol>
-</td>
-</tr>
-<tr class="row-odd"><td><p>2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation
-and/or other materials provided with the distribution.</p></td>
-</tr>
-<tr class="row-even"><td><p><em>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
-TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</em></p></td>
-</tr>
-</tbody>
-</table>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import dowhy.datasets
 
-<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;educ&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;hisp&#39;</span><span class="p">,</span> <span class="s1">&#39;married&#39;</span><span class="p">,</span> <span class="s1">&#39;nodegr&#39;</span><span class="p">,</span><span class="s1">&#39;re74&#39;</span><span class="p">,</span><span class="s1">&#39;re75&#39;</span><span class="p">,</span><span class="s1">&#39;re78&#39;</span><span class="p">]</span>
-<span class="n">control</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;http://www.nber.org/~rdehejia/data/nswre74_control.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">cols</span><span class="p">)</span>
-<span class="n">treated</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;http://www.nber.org/~rdehejia/data/nswre74_treated.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">cols</span><span class="p">)</span>
-<span class="n">lalonde</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">control</span><span class="p">,</span> <span class="n">treated</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">({</span><span class="s1">&#39;treat&#39;</span><span class="p">:</span><span class="s1">&#39;bool&#39;</span><span class="p">},</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;u74&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;re74&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-<span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;u75&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;re75&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+lalonde = dowhy.datasets.lalonde_dataset()
 </pre></div>
 </div>
 </div>
@@ -765,7 +732,7 @@ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF TH
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dowhy.api</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import dowhy.api
 </pre></div>
 </div>
 </div>
@@ -778,12 +745,12 @@ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF TH
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_df</span> <span class="o">=</span> <span class="n">lalonde</span><span class="o">.</span><span class="n">causal</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;treat&#39;</span><span class="p">,</span>
-                          <span class="n">outcome</span><span class="o">=</span><span class="s1">&#39;re78&#39;</span><span class="p">,</span>
-                          <span class="n">common_causes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nodegr&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;hisp&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;educ&#39;</span><span class="p">,</span> <span class="s1">&#39;married&#39;</span><span class="p">],</span>
-                          <span class="n">variable_types</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;educ&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;hisp&#39;</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span>
-                                          <span class="s1">&#39;married&#39;</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;nodegr&#39;</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;re78&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;treat&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">},</span>
-                         <span class="n">proceed_when_unidentifiable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>do_df = lalonde.causal.do(x=&#39;treat&#39;,
+                          outcome=&#39;re78&#39;,
+                          common_causes=[&#39;nodegr&#39;, &#39;black&#39;, &#39;hisp&#39;, &#39;age&#39;, &#39;educ&#39;, &#39;married&#39;],
+                          variable_types={&#39;age&#39;: &#39;c&#39;, &#39;educ&#39;:&#39;c&#39;, &#39;black&#39;: &#39;d&#39;, &#39;hisp&#39;: &#39;d&#39;,
+                                          &#39;married&#39;: &#39;d&#39;, &#39;nodegr&#39;: &#39;d&#39;,&#39;re78&#39;: &#39;c&#39;, &#39;treat&#39;: &#39;b&#39;},
+                         proceed_when_unidentifiable=True)
 </pre></div>
 </div>
 </div>
@@ -793,7 +760,7 @@ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF TH
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lalonde</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>lalonde.head()
 </pre></div>
 </div>
 </div>
@@ -918,7 +885,7 @@ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF TH
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>do_df.head()
 </pre></div>
 </div>
 </div>
@@ -964,88 +931,88 @@ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF TH
   <tbody>
     <tr>
       <th>0</th>
-      <td>False</td>
-      <td>32.0</td>
-      <td>11.0</td>
+      <td>True</td>
+      <td>25.0</td>
+      <td>12.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>1.0</td>
       <td>0.0</td>
-      <td>0.0000</td>
-      <td>11120.530</td>
+      <td>0.0</td>
+      <td>0.000</td>
+      <td>0.000</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.626705</td>
-      <td>1.595647</td>
+      <td>0.538751</td>
+      <td>1.856144</td>
     </tr>
     <tr>
       <th>1</th>
       <td>False</td>
-      <td>20.0</td>
-      <td>12.0</td>
+      <td>27.0</td>
+      <td>10.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>591.8151</td>
-      <td>4159.919</td>
       <td>1.0</td>
       <td>0.0</td>
-      <td>0.469586</td>
-      <td>2.129535</td>
+      <td>0.000</td>
+      <td>1135.470</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.622695</td>
+      <td>1.605922</td>
     </tr>
     <tr>
       <th>2</th>
       <td>False</td>
-      <td>23.0</td>
-      <td>11.0</td>
+      <td>18.0</td>
+      <td>8.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
       <td>0.0</td>
-      <td>1896.0230</td>
-      <td>5573.547</td>
+      <td>0.000</td>
+      <td>1568.150</td>
       <td>1.0</td>
-      <td>0.0</td>
-      <td>0.640709</td>
-      <td>1.560770</td>
+      <td>1.0</td>
+      <td>0.613052</td>
+      <td>1.631183</td>
     </tr>
     <tr>
       <th>3</th>
       <td>False</td>
-      <td>19.0</td>
-      <td>12.0</td>
+      <td>20.0</td>
+      <td>10.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>1.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0000</td>
       <td>0.000</td>
+      <td>2015.503</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.471256</td>
-      <td>2.121987</td>
+      <td>0.633658</td>
+      <td>1.578138</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>True</td>
-      <td>25.0</td>
-      <td>11.0</td>
-      <td>1.0</td>
+      <td>False</td>
+      <td>31.0</td>
+      <td>12.0</td>
       <td>0.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
       <td>0.0</td>
-      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>494.643</td>
       <td>0.000</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>0.412195</td>
-      <td>2.426034</td>
+      <td>0.0</td>
+      <td>0.411252</td>
+      <td>2.431598</td>
     </tr>
   </tbody>
 </table>
@@ -1059,7 +1026,7 @@ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF TH
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">lalonde</span><span class="p">[</span><span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">lalonde</span><span class="p">[</span><span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())[</span><span class="s1">&#39;re78&#39;</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(lalonde[lalonde[&#39;treat&#39;] == 1].mean() - lalonde[lalonde[&#39;treat&#39;] == 0].mean())[&#39;re78&#39;]
 </pre></div>
 </div>
 </div>
@@ -1076,7 +1043,7 @@ $\displaystyle 1794.34240427027$</div></div>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">do_df</span><span class="p">[</span><span class="n">do_df</span><span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">do_df</span><span class="p">[</span><span class="n">do_df</span><span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())[</span><span class="s1">&#39;re78&#39;</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>(do_df[do_df[&#39;treat&#39;] == 1].mean() - do_df[do_df[&#39;treat&#39;] == 0].mean())[&#39;re78&#39;]
 </pre></div>
 </div>
 </div>
@@ -1086,16 +1053,16 @@ $\displaystyle 1794.34240427027$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1188.21134653898$</div></div>
+$\displaystyle 1517.16748322843$</div></div>
 </div>
 <p>We could get some rough error bars on the outcome using the normal approximation for a 95% confidence interval, like</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="mf">1.96</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">do_df</span><span class="p">[</span><span class="n">do_df</span><span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">do_df</span><span class="p">[</span><span class="n">do_df</span><span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]))</span> <span class="o">+</span>
-             <span class="p">(</span><span class="n">do_df</span><span class="p">[</span><span class="n">do_df</span><span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">var</span><span class="p">()</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">do_df</span><span class="p">[</span><span class="n">do_df</span><span class="p">[</span><span class="s1">&#39;treat&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">])))[</span><span class="s1">&#39;re78&#39;</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+1.96*np.sqrt((do_df[do_df[&#39;treat&#39;] == 1].var()/len(do_df[do_df[&#39;treat&#39;] == 1])) +
+             (do_df[do_df[&#39;treat&#39;] == 0].var()/len(do_df[do_df[&#39;treat&#39;] == 0])))[&#39;re78&#39;]
 </pre></div>
 </div>
 </div>
@@ -1105,7 +1072,7 @@ $\displaystyle 1188.21134653898$</div></div>
 </div>
 <div class="output_area docutils container">
 <div class="math notranslate nohighlight">
-$\displaystyle 1288.03794357025$</div></div>
+$\displaystyle 1128.52128367047$</div></div>
 </div>
 <p>but note that these DO NOT contain propensity score estimation error. For that, a bootstrapping procedure might be more appropriate.</p>
 <p>This is just one statistic we can compute from the interventional distribution of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can get all of the interventional moments as well, including functions of <code class="docutils literal notranslate"><span class="pre">'re78'</span></code>. We can leverage the full power of pandas, like</p>
@@ -1113,7 +1080,7 @@ $\displaystyle 1288.03794357025$</div></div>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_df</span><span class="p">[</span><span class="s1">&#39;re78&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>do_df[&#39;re78&#39;].describe()
 </pre></div>
 </div>
 </div>
@@ -1124,13 +1091,13 @@ $\displaystyle 1288.03794357025$</div></div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 count      445.000000
-mean      5693.241322
-std       6765.447826
+mean      5076.697745
+std       6101.908411
 min          0.000000
 25%          0.000000
-50%       4056.494000
-75%       8472.158000
-max      60307.930000
+50%       3023.879000
+75%       8173.908000
+max      36646.950000
 Name: re78, dtype: float64
 </pre></div></div>
 </div>
@@ -1138,7 +1105,7 @@ Name: re78, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lalonde</span><span class="p">[</span><span class="s1">&#39;re78&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>lalonde[&#39;re78&#39;].describe()
 </pre></div>
 </div>
 </div>
@@ -1164,7 +1131,7 @@ Name: re78, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%matplotlib inline
 </pre></div>
 </div>
 </div>
@@ -1172,14 +1139,38 @@ Name: re78, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import seaborn as sns
 
-<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">lalonde</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;treat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;re78&#39;</span><span class="p">)</span>
+sns.barplot(data=lalonde, x=&#39;treat&#39;, y=&#39;re78&#39;)
 </pre></div>
 </div>
 </div>
 <div class="nboutput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;AxesSubplot: xlabel=&#39;treat&#39;, ylabel=&#39;re78&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/example_notebooks_lalonde_pandas_api_25_1.png" src="../_images/example_notebooks_lalonde_pandas_api_25_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.barplot(data=do_df, x=&#39;treat&#39;, y=&#39;re78&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1194,30 +1185,6 @@ Name: re78, dtype: float64
 <img alt="../_images/example_notebooks_lalonde_pandas_api_26_1.png" src="../_images/example_notebooks_lalonde_pandas_api_26_1.png" />
 </div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">do_df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;treat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;re78&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;AxesSubplot: xlabel=&#39;treat&#39;, ylabel=&#39;re78&#39;&gt;
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/example_notebooks_lalonde_pandas_api_27_1.png" src="../_images/example_notebooks_lalonde_pandas_api_27_1.png" />
-</div>
-</div>
 </section>
 <section id="Specifying-Interventions">
 <h2>Specifying Interventions<a class="headerlink" href="#Specifying-Interventions" title="Permalink to this heading"></a></h2>
@@ -1226,12 +1193,12 @@ Name: re78, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_df</span> <span class="o">=</span> <span class="n">lalonde</span><span class="o">.</span><span class="n">causal</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;treat&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
-                          <span class="n">outcome</span><span class="o">=</span><span class="s1">&#39;re78&#39;</span><span class="p">,</span>
-                          <span class="n">common_causes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nodegr&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;hisp&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;educ&#39;</span><span class="p">,</span> <span class="s1">&#39;married&#39;</span><span class="p">],</span>
-                          <span class="n">variable_types</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;educ&#39;</span><span class="p">:</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;hisp&#39;</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span>
-                                          <span class="s1">&#39;married&#39;</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;nodegr&#39;</span><span class="p">:</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;re78&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;treat&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">},</span>
-                         <span class="n">proceed_when_unidentifiable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>do_df = lalonde.causal.do(x={&#39;treat&#39;: 1},
+                          outcome=&#39;re78&#39;,
+                          common_causes=[&#39;nodegr&#39;, &#39;black&#39;, &#39;hisp&#39;, &#39;age&#39;, &#39;educ&#39;, &#39;married&#39;],
+                          variable_types={&#39;age&#39;: &#39;c&#39;, &#39;educ&#39;:&#39;c&#39;, &#39;black&#39;: &#39;d&#39;, &#39;hisp&#39;: &#39;d&#39;,
+                                          &#39;married&#39;: &#39;d&#39;, &#39;nodegr&#39;: &#39;d&#39;,&#39;re78&#39;: &#39;c&#39;, &#39;treat&#39;: &#39;b&#39;},
+                         proceed_when_unidentifiable=True)
 </pre></div>
 </div>
 </div>
@@ -1239,7 +1206,7 @@ Name: re78, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">do_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>do_df.head()
 </pre></div>
 </div>
 </div>
@@ -1286,87 +1253,87 @@ Name: re78, dtype: float64
     <tr>
       <th>0</th>
       <td>True</td>
-      <td>30.0</td>
+      <td>21.0</td>
+      <td>8.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>989.2678</td>
+      <td>3695.897</td>
+      <td>4279.613</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.391731</td>
+      <td>2.552773</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>True</td>
+      <td>27.0</td>
+      <td>13.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.529498</td>
+      <td>1.888580</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>True</td>
+      <td>20.0</td>
+      <td>11.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0000</td>
+      <td>0.000</td>
+      <td>3972.540</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.354678</td>
+      <td>2.819461</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>True</td>
+      <td>26.0</td>
       <td>12.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0000</td>
       <td>0.000</td>
-      <td>0.000</td>
-      <td>24909.450</td>
+      <td>10747.350</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.547072</td>
-      <td>1.827913</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>True</td>
-      <td>17.0</td>
-      <td>9.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1716.509</td>
-      <td>1253.439</td>
-      <td>5445.200</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.373450</td>
-      <td>2.677734</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>True</td>
-      <td>35.0</td>
-      <td>8.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>13732.070</td>
-      <td>17976.150</td>
-      <td>3786.628</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.466048</td>
-      <td>2.145702</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>True</td>
-      <td>22.0</td>
-      <td>16.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>2164.022</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.483197</td>
-      <td>2.069549</td>
+      <td>0.540417</td>
+      <td>1.850422</td>
     </tr>
     <tr>
       <th>4</th>
       <td>True</td>
-      <td>24.0</td>
+      <td>17.0</td>
       <td>10.0</td>
       <td>1.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>1.0</td>
+      <td>0.0000</td>
       <td>0.000</td>
-      <td>0.000</td>
-      <td>0.000</td>
+      <td>16218.040</td>
       <td>1.0</td>
       <td>1.0</td>
-      <td>0.372589</td>
-      <td>2.683925</td>
+      <td>0.361685</td>
+      <td>2.764839</td>
     </tr>
   </tbody>
 </table>
@@ -1378,7 +1345,7 @@ Name: re78, dtype: float64
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">lalonde</span><span class="o">.</span><span class="n">causal</span><span class="o">.</span><span class="n">do</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>help(lalonde.causal.do)
 </pre></div>
 </div>
 </div>

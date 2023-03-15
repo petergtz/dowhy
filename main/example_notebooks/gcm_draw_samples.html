@@ -158,15 +158,14 @@
     <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
         <dl>
             <dt>Releases</dt>
-            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="../v0.7/index.html">v0.7</a></dd>
-            <dd><a href="../v0.6/index.html">v0.6</a></dd>
-            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="../v0.5/index.html">v0.5</a></dd>
-            <dd><a href="../v0.4/index.html">v0.4</a></dd>
-            <dd><a href="../v0.2/index.html">v0.2</a></dd>
-            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
+            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
+            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
+            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
+            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
+            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
         </dl>        
         <dl>
             <dt>Branches</dt>
@@ -508,10 +507,11 @@ div.nboutput.container div.prompt > div {
     }
 }
 
-/* disable scrollbars on prompts */
+/* disable scrollbars and line breaks on prompts */
 div.nbinput.container div.prompt pre,
 div.nboutput.container div.prompt pre {
     overflow: hidden;
+    white-space: pre;
 }
 
 /* input/output area */
@@ -663,13 +663,13 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np, pandas as pd
 
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">Z</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">Y</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="o">=</span><span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="n">Z</span><span class="p">))</span>
-<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+X = np.random.normal(loc=0, scale=1, size=1000)
+Y = 2 * X + np.random.normal(loc=0, scale=1, size=1000)
+Z = 3 * Y + np.random.normal(loc=0, scale=1, size=1000)
+data = pd.DataFrame(data=dict(X=X, Y=Y, Z=Z))
+data.head()
 </pre></div>
 </div>
 </div>
@@ -704,33 +704,33 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.143905</td>
-      <td>0.913775</td>
-      <td>2.716169</td>
+      <td>0.731699</td>
+      <td>3.096250</td>
+      <td>9.137229</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.900007</td>
-      <td>2.601871</td>
-      <td>8.561468</td>
+      <td>0.170202</td>
+      <td>1.164153</td>
+      <td>3.509314</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.611907</td>
-      <td>0.738924</td>
-      <td>1.969030</td>
+      <td>-1.378453</td>
+      <td>-2.807285</td>
+      <td>-9.040650</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.955472</td>
-      <td>0.175186</td>
-      <td>0.705411</td>
+      <td>-1.001202</td>
+      <td>-1.479018</td>
+      <td>-5.174971</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.138126</td>
-      <td>0.219097</td>
-      <td>0.080663</td>
+      <td>0.638492</td>
+      <td>2.632787</td>
+      <td>6.895729</td>
     </tr>
   </tbody>
 </table>
@@ -741,12 +741,12 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-<span class="kn">import</span> <span class="nn">dowhy.gcm</span> <span class="k">as</span> <span class="nn">gcm</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import networkx as nx
+import dowhy.gcm as gcm
 
-<span class="n">causal_model</span> <span class="o">=</span> <span class="n">gcm</span><span class="o">.</span><span class="n">StructuralCausalModel</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">([(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">)]))</span>
-<span class="n">gcm</span><span class="o">.</span><span class="n">auto</span><span class="o">.</span><span class="n">assign_causal_mechanisms</span><span class="p">(</span><span class="n">causal_model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="c1"># Automatically assigns additive noise models to non-root nodes</span>
-<span class="n">gcm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">causal_model</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+causal_model = gcm.StructuralCausalModel(nx.DiGraph([(&#39;X&#39;, &#39;Y&#39;), (&#39;Y&#39;, &#39;Z&#39;)]))
+gcm.auto.assign_causal_mechanisms(causal_model, data) # Automatically assigns additive noise models to non-root nodes
+gcm.fit(causal_model, data)
 </pre></div>
 </div>
 </div>
@@ -755,7 +755,7 @@ sampled noise. The <code class="docutils literal notranslate"><span class="pre">
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 360.98it/s]
+Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00:00&lt;00:00, 284.35it/s]
 </pre></div></div>
 </div>
 <p>We now learned the generative models of the variables, based on the defined causal graph and the additive noise model assumption. To generate new samples from this model, we can now simply call:</p>
@@ -763,8 +763,8 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">generated_data</span> <span class="o">=</span> <span class="n">gcm</span><span class="o">.</span><span class="n">draw_samples</span><span class="p">(</span><span class="n">causal_model</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">generated_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>generated_data = gcm.draw_samples(causal_model, num_samples=1000)
+generated_data.head()
 </pre></div>
 </div>
 </div>
@@ -799,33 +799,33 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
   <tbody>
     <tr>
       <th>0</th>
-      <td>-2.881079</td>
-      <td>-6.028778</td>
-      <td>-18.727733</td>
+      <td>0.510406</td>
+      <td>-0.728918</td>
+      <td>-2.403662</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.237915</td>
-      <td>1.081042</td>
-      <td>3.696041</td>
+      <td>0.242699</td>
+      <td>0.960775</td>
+      <td>3.489722</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.339116</td>
-      <td>-1.996618</td>
-      <td>-6.330822</td>
+      <td>-0.295060</td>
+      <td>0.567888</td>
+      <td>4.258929</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-1.122709</td>
-      <td>-2.766470</td>
-      <td>-9.686081</td>
+      <td>0.610418</td>
+      <td>1.602111</td>
+      <td>4.628368</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.194719</td>
-      <td>-1.171048</td>
-      <td>-3.621302</td>
+      <td>-1.531537</td>
+      <td>-3.316631</td>
+      <td>-9.794777</td>
     </tr>
   </tbody>
 </table>
@@ -836,7 +836,7 @@ Fitting causal mechanism of node Z: 100%|██████████| 3/3 [00
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gcm</span><span class="o">.</span><span class="n">divergence</span><span class="o">.</span><span class="n">auto_estimate_kl_divergence</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span> <span class="n">generated_data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>gcm.divergence.auto_estimate_kl_divergence(data.to_numpy(), generated_data.to_numpy())
 </pre></div>
 </div>
 </div>

@@ -156,15 +156,14 @@
     <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
         <dl>
             <dt>Releases</dt>
-            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="../v0.7/index.html">v0.7</a></dd>
-            <dd><a href="../v0.6/index.html">v0.6</a></dd>
-            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="../v0.5/index.html">v0.5</a></dd>
-            <dd><a href="../v0.4/index.html">v0.4</a></dd>
-            <dd><a href="../v0.2/index.html">v0.2</a></dd>
-            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
+            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
+            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
+            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
+            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
+            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
         </dl>        
         <dl>
             <dt>Branches</dt>
@@ -203,8 +202,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dowhy.causal_identifiers.html">
-   dowhy.causal_identifiers package
+  <a class="reference internal" href="dowhy.causal_identifier.html">
+   dowhy.causal_identifier package
   </a>
  </li>
  <li class="toctree-l1">
@@ -291,6 +290,11 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#submodules">
    Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dowhy-gcm-ml-autolguon-module">
+   dowhy.gcm.ml.autolguon module
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -724,6 +728,9 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
+<section id="dowhy-gcm-ml-autolguon-module">
+<h2>dowhy.gcm.ml.autolguon module<a class="headerlink" href="#dowhy-gcm-ml-autolguon-module" title="Permalink to this heading"></a></h2>
+</section>
 <section id="module-dowhy.gcm.ml.classification">
 <span id="dowhy-gcm-ml-classification-module"></span><h2>dowhy.gcm.ml.classification module<a class="headerlink" href="#module-dowhy.gcm.ml.classification" title="Permalink to this heading"></a></h2>
 <p>Functions and classes in this module should be considered experimental, meaning there might be breaking API changes
@@ -740,12 +747,8 @@ in the future.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.gcm.ml.classification.SklearnClassificationModel.clone">
 <span class="sig-name descname"><span class="pre">clone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/gcm/ml/classification.html#SklearnClassificationModel.clone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.gcm.ml.classification.SklearnClassificationModel.clone" title="Permalink to this definition"></a></dt>
-<dd><p>Clones the prediction model using the same hyper parameters but not fitted.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>An unfitted clone of the prediction model.</p>
-</dd>
-</dl>
+<dd><p>Clones the prediction model using the same hyper parameters but not fitted.
+:return: An unfitted clone of the prediction model.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -872,12 +875,8 @@ in the future.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="dowhy.gcm.ml.regression.SklearnRegressionModel.clone">
 <span class="sig-name descname"><span class="pre">clone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/dowhy/gcm/ml/regression.html#SklearnRegressionModel.clone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dowhy.gcm.ml.regression.SklearnRegressionModel.clone" title="Permalink to this definition"></a></dt>
-<dd><p>Clones the prediction model using the same hyper parameters but not fitted.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>An unfitted clone of the prediction model.</p>
-</dd>
-</dl>
+<dd><p>Clones the prediction model using the same hyper parameters but not fitted.
+:return: An unfitted clone of the prediction model.</p>
 </dd></dl>
 
 <dl class="py method">

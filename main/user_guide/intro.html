@@ -53,8 +53,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Effect inference" href="effect_inference/index.html" />
-    <link rel="prev" title="User Guide" href="index.html" />
+    <link rel="next" title="Modeling Causal Relations" href="modeling_causal_relations/index.html" />
+    <link rel="prev" title="Foreword" href="foreword.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
   </head>
@@ -156,15 +156,14 @@
     <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
         <dl>
             <dt>Releases</dt>
-            <dd><a href="../v0.7.1/index.html">v0.7.1</a></dd>
-            <dd><a href="../v0.7/index.html">v0.7</a></dd>
-            <dd><a href="../v0.6/index.html">v0.6</a></dd>
-            <dd><a href="../v0.5.1/index.html">v0.5.1</a></dd>
-            <dd><a href="../v0.5/index.html">v0.5</a></dd>
-            <dd><a href="../v0.4/index.html">v0.4</a></dd>
-            <dd><a href="../v0.2/index.html">v0.2</a></dd>
-            <dd><a href="../v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
-            <dd><a href="../v0.1-alpha/index.html">v0.1-alpha</a></dd>
+            <dd><a href="/dowhy/v0.7.1/index.html">v0.7.1</a></dd>
+            <dd><a href="/dowhy/v0.7/index.html">v0.7</a></dd>
+            <dd><a href="/dowhy/v0.6/index.html">v0.6</a></dd>
+            <dd><a href="/dowhy/v0.5.1/index.html">v0.5.1</a></dd>
+            <dd><a href="/dowhy/v0.5/index.html">v0.5</a></dd>
+            <dd><a href="/dowhy/v0.4/index.html">v0.4</a></dd>
+            <dd><a href="/dowhy/v0.2/index.html">v0.2</a></dd>
+            <dd><a href="/dowhy/v0.1.1-alpha/index.html">v0.1.1-alpha</a></dd>
         </dl>        
         <dl>
             <dt>Branches</dt>
@@ -192,14 +191,19 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="foreword.html">
+   Foreword
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Introduction to DoWhy
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="effect_inference/index.html">
-   Effect inference
+  <a class="reference internal" href="modeling_causal_relations/index.html">
+   Modeling Causal Relations
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -208,108 +212,156 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="effect_inference/model.html">
-     1. Model a causal problem
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="effect_inference/identify.html">
-     2. Identify a target estimand under the model
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="effect_inference/estimate.html">
-     3. Estimate causal effect based on the identified estimand
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="effect_inference/refute.html">
-     4. Refute the obtained estimate
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="effect_inference/comparison.html">
-     5. Comparison to other packages
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="gcm_based_inference/index.html">
-   GCM-based inference (Experimental)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="gcm_based_inference/introduction.html">
-     Introduction
+    <a class="reference internal" href="modeling_causal_relations/modeling_cause_effect_relationships_with_causal_mechanisms.html">
+     Modeling cause-effect relationships with causal mechanisms
     </a>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="gcm_based_inference/answering_causal_questions/index.html">
-     Answering Causal Questions
+    <a class="reference internal" href="modeling_causal_relations/diagnosing_a_causal_model/index.html">
+     Diagnosing a Causal Model
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-    <label for="toctree-checkbox-3">
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
      <i class="fas fa-chevron-down">
      </i>
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="gcm_based_inference/answering_causal_questions/quantify_arrow_strength.html">
+      <a class="reference internal" href="modeling_causal_relations/diagnosing_a_causal_model/independence_tests.html">
+       Independence Tests
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling_causal_relations/diagnosing_a_causal_model/refute_causal_structure.html">
+       Refute causal structure
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling_causal_relations/diagnosing_a_causal_model/quantify_arrow_strength.html">
        Quantifying Arrow Strength
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="gcm_based_inference/answering_causal_questions/quantify_intrinsic_causal_influence.html">
-       Quantifying Intrinsic Causal Influence
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="gcm_based_inference/answering_causal_questions/simulate_impact_of_interventions.html">
-       Simulating the Impact of Interventions
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="gcm_based_inference/answering_causal_questions/computing_counterfactuals.html">
-       Computing Counterfactuals
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="gcm_based_inference/answering_causal_questions/average_causal_effect.html">
-       Estimating Average Causal Effects
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="gcm_based_inference/answering_causal_questions/attribute_distributional_changes.html">
-       Attributing Distributional Changes
+      <a class="reference internal" href="modeling_causal_relations/diagnosing_a_causal_model/refuting_invertible_model.html">
+       Refuting Invertible Model (GCM only)
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="gcm_based_inference/draw_samples.html">
-     Generate samples from a GCM
+    <a class="reference internal" href="modeling_causal_relations/learning_causal_structure.html">
+     Learning Causal Structure from Data
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="gcm_based_inference/customizing_model_assignment.html">
-     Customizing Causal Mechanism Assignment
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="causal_tasks/index.html">
+   Performing Causal Tasks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="causal_tasks/estimating_causal_effects/index.html">
+     Estimating Causal Effects
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="causal_tasks/estimating_causal_effects/effect_estimation_with_estimators.html">
+       Effect Estimation Using specific Effect Estimators (for ACE, mediation effect, …)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="causal_tasks/estimating_causal_effects/effect_estimation_with_gcm.html">
+       Estimating Average Causal Effects using GCM
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="gcm_based_inference/estimating_confidence_intervals.html">
-     Estimating Confidence Intervals
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="causal_tasks/root_causing_and_explaining/index.html">
+     Root-Causing and Explaining Observed Effects
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="causal_tasks/root_causing_and_explaining/outliers.html">
+       Outlier Attribution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="causal_tasks/root_causing_and_explaining/distribution_change.html">
+       Attributing Distributional Changes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="causal_tasks/root_causing_and_explaining/icc.html">
+       Quantifying Intrinsic Causal Influence
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="causal_tasks/root_causing_and_explaining/unit_change.html">
+       Unit Change Attribution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="causal_tasks/root_causing_and_explaining/feature_attribution.html">
+       Feature Attribution
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="gcm_based_inference/independence_tests.html">
-     Independence Tests
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="causal_tasks/what_if/index.html">
+     Asking and Answering What-If Questions
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="causal_tasks/what_if/interventions/index.html">
+       Interventions
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="causal_tasks/what_if/interventions/atomic.html">
+         Simulating the Impact of Interventions
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="causal_tasks/what_if/interventions/soft.html">
+         Soft Interventions
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="causal_tasks/what_if/counterfactuals.html">
+       Computing Counterfactuals
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -336,29 +388,9 @@
     
     <div class="toc-item">
       
-<div class="tocsection onthispage mt-5 pt-1 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
 
 <nav id="bd-toc-nav">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-need-for-causal-inference">
-   The need for causal inference
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sample-causal-inference-analysis-in-dowhy">
-   Sample causal inference analysis in DoWhy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gcm-based-inference-experimental">
-   GCM-based inference (experimental)
-  </a>
- </li>
-</ul>
-
+    
 </nav>
     </div>
     
@@ -378,117 +410,21 @@
                 
   <section id="introduction-to-dowhy">
 <h1>Introduction to DoWhy<a class="headerlink" href="#introduction-to-dowhy" title="Permalink to this heading"></a></h1>
-<section id="the-need-for-causal-inference">
-<h2>The need for causal inference<a class="headerlink" href="#the-need-for-causal-inference" title="Permalink to this heading"></a></h2>
-<p>Predictive models uncover patterns that connect the inputs and outcome in observed data. To intervene, however, we need to estimate the effect of changing an input from its current value, for which no data exists. Such questions, involving estimating a <em>counterfactual</em>, are common in decision-making scenarios.</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Will it work?</dt><dd><ul>
-<li><p>Does a proposed change to a system improve people’s outcomes?</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Why did it work?</dt><dd><ul>
-<li><p>What led to a change in a system’s outcome?</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>What should we do?</dt><dd><ul>
-<li><p>What changes to a system are likely to improve outcomes for people?</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>What are the overall effects?</dt><dd><ul>
-<li><p>How does the system interact with human behavior?</p></li>
-<li><p>What is the effect of a system’s recommendations on people’s activity?</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<p>Answering these questions requires causal reasoning. While many methods exist
-for causal inference, it is hard to compare their assumptions and robustness of results. DoWhy makes three contributions,</p>
-<ol class="arabic simple">
-<li><p>Provides a principled way of modeling a given problem as a causal graph so
-that all assumptions are explicit.</p></li>
-<li><p>Provides a unified interface for many popular causal inference methods, combining the two major frameworks of graphical models and potential outcomes.</p></li>
-<li><p>Automatically tests for the validity of assumptions if possible and assesses
-the robustness of the estimate to violations.</p></li>
-</ol>
-<p>To see DoWhy in action, check out how it can be applied to estimate the effect
-of a subscription or rewards program for customers [<a class="reference external" href="https://github.com/microsoft/dowhy/blob/main/docs/source/example_notebooks/dowhy_example_effect_of_memberrewards_program.ipynb">Rewards notebook</a>] and for implementing and evaluating causal inference methods on benchmark datasets like the <a class="reference external" href="https://github.com/microsoft/dowhy/blob/main/docs/source/example_notebooks/dowhy_ihdp_data_example.ipynb">Infant Health and Development Program (IHDP)</a> dataset, <a class="reference external" href="https://github.com/microsoft/dowhy/blob/main/docs/source/example_notebooks/dowhy_twins_example.ipynb">Infant Mortality (Twins)</a> dataset, and the <a class="reference external" href="https://github.com/microsoft/dowhy/blob/main/docs/source/example_notebooks/dowhy_lalonde_example.ipynb">Lalonde Jobs</a> dataset.</p>
-</section>
-<section id="sample-causal-inference-analysis-in-dowhy">
-<h2>Sample causal inference analysis in DoWhy<a class="headerlink" href="#sample-causal-inference-analysis-in-dowhy" title="Permalink to this heading"></a></h2>
-<p>Most DoWhy
-analyses for causal inference take 4 lines to write, assuming a
-pandas dataframe df that contains the data:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dowhy</span> <span class="kn">import</span> <span class="n">CausalModel</span>
-<span class="kn">import</span> <span class="nn">dowhy.datasets</span>
-
-<span class="c1"># Load some sample data</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">dowhy</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">linear_dataset</span><span class="p">(</span>
-    <span class="n">beta</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">num_common_causes</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-    <span class="n">num_instruments</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">num_samples</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
-    <span class="n">treatment_is_binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>DoWhy supports two formats for providing the causal graph: <a class="reference external" href="https://github.com/GunterMueller/UNI_PASSAU_FMI_Graph_Drawing">gml</a> (preferred) and <a class="reference external" href="http://www.graphviz.org/documentation/">dot</a>. After loading in the data, we use the four main operations in DoWhy: <em>model</em>,
-<em>estimate</em>, <em>identify</em> and <em>refute</em>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># I. Create a causal model from the data and given graph.</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">CausalModel</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;df&quot;</span><span class="p">],</span>
-    <span class="n">treatment</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;treatment_name&quot;</span><span class="p">],</span>
-    <span class="n">outcome</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;outcome_name&quot;</span><span class="p">],</span>
-    <span class="n">graph</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;gml_graph&quot;</span><span class="p">])</span>
-
-<span class="c1"># II. Identify causal effect and return target estimands</span>
-<span class="n">identified_estimand</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">identify_effect</span><span class="p">()</span>
-
-<span class="c1"># III. Estimate the target estimand using a statistical method.</span>
-<span class="n">estimate</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span>
-                                 <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;backdoor.propensity_score_matching&quot;</span><span class="p">)</span>
-
-<span class="c1"># IV. Refute the obtained estimate using multiple robustness checks.</span>
-<span class="n">refute_results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">refute_estimate</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span>
-                                       <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;random_common_cause&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>DoWhy stresses on the interpretability of its output. At any point in the analysis,
-you can inspect the untested assumptions, identified estimands (if any) and the
-estimate (if any). Here’s a sample output of the linear regression estimator.</p>
-<img alt="https://raw.githubusercontent.com/microsoft/dowhy/main/docs/images/regression_output.png" src="https://raw.githubusercontent.com/microsoft/dowhy/main/docs/images/regression_output.png" />
-<p>For a full code example, check out the <a class="reference external" href="https://github.com/microsoft/dowhy/blob/main/docs/source/example_notebooks/dowhy_simple_example.ipynb">Getting Started with DoWhy</a> notebook. You can also use Conditional Average Treatment Effect (CATE) estimation methods from other libraries such as EconML and CausalML, as shown in the <a class="reference external" href="https://github.com/microsoft/dowhy/blob/main/docs/source/example_notebooks/dowhy-conditional-treatment-effects.ipynb">Conditional Treatment Effects</a> notebook. For more examples of using DoWhy, check out the Jupyter notebooks in <a class="reference external" href="https://github.com/microsoft/dowhy/tree/main/docs/source/example_notebooks/">docs/source/example_notebooks</a> or try them online at <a class="reference external" href="https://mybinder.org/v2/gh/microsoft/dowhy/main?filepath=docs%2Fsource%2F">Binder</a>.</p>
-</section>
-<section id="gcm-based-inference-experimental">
-<h2>GCM-based inference (experimental)<a class="headerlink" href="#gcm-based-inference-experimental" title="Permalink to this heading"></a></h2>
-<p>Graphical causal model-based inference, or GCM-based inference for short, is an experimental addition to DoWhy. For
-details, check out the <a class="reference external" href="https://py-why.github.io/dowhy/gcm">documentation for the gcm sub-package</a>. The basic
-recipe for this API works as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Modeling cause-effect relationships as a structural causal model</span>
-<span class="c1">#    (causal graph + functional causal models):</span>
-<span class="n">scm</span> <span class="o">=</span> <span class="n">gcm</span><span class="o">.</span><span class="n">StructuralCausalModel</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">([(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="s1">&#39;Z&#39;</span><span class="p">)]))</span> <span class="c1"># X -&gt; Y -&gt; Z</span>
-<span class="n">scm</span><span class="o">.</span><span class="n">set_causal_mechanism</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">gcm</span><span class="o">.</span><span class="n">EmpiricalDistribution</span><span class="p">())</span>
-<span class="n">scm</span><span class="o">.</span><span class="n">set_causal_mechanism</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">gcm</span><span class="o">.</span><span class="n">AdditiveNoiseModel</span><span class="p">(</span><span class="n">gcm</span><span class="o">.</span><span class="n">ml</span><span class="o">.</span><span class="n">create_linear_regressor</span><span class="p">()))</span>
-<span class="n">scm</span><span class="o">.</span><span class="n">set_causal_mechanism</span><span class="p">(</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">gcm</span><span class="o">.</span><span class="n">AdditiveNoiseModel</span><span class="p">(</span><span class="n">gcm</span><span class="o">.</span><span class="n">ml</span><span class="o">.</span><span class="n">create_linear_regressor</span><span class="p">()))</span>
-
-<span class="c1"># 2. Fitting the SCM to the data:</span>
-<span class="n">gcm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scm</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-
-<span class="c1"># 3. Answering a causal query based on the SCM:</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">gcm</span><span class="o">.&lt;</span><span class="n">causal_query</span><span class="o">&gt;</span><span class="p">(</span><span class="n">scm</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Where &lt;causal_query&gt; can be one of multiple functions explained in <a class="reference external" href="https://py-why.github.io/dowhy/gcm/user_guide/answering_causal_questions/index.html">Answering Causal Questions</a>.</p>
-</section>
+<p><em>[Maybe also include: “Who is this library/user guide for?”]</em></p>
+<p>DoWhy helps to perform a wide variety of <em>causal tasks</em> based on a method generally referred to as causal inference.
+These tasks help to give answers to questions, such as “If I change the color of my button to red, how much will this change users’ purchase decisions (effect)?”, or “Which service in my distributed system has caused the frontend to be slower than usual?”.</p>
+<p>To give readers easy access to learn about such tasks, this user guide dedicates the entire chapter
+<a class="reference internal" href="causal_tasks/index.html"><span class="doc">Performing Causal Tasks</span></a> to explain how DoWhy can be used to perform
+such tasks. We categorize tasks into <a class="reference internal" href="causal_tasks/estimating_causal_effects/index.html"><span class="doc">Estimating Causal Effects</span></a>,
+<a class="reference internal" href="causal_tasks/root_causing_and_explaining/index.html"><span class="doc">Root-Causing and Explaining Observed Effects</span></a>, and <a class="reference internal" href="causal_tasks/what_if/index.html"><span class="doc">Asking and Answering What-If Questions</span></a>.</p>
+<p>To perform tasks, DoWhy leverages two powerful frameworks, namely graphical causal models (GCM) and potential
+outcomes (PO). Depending on the task at hand, it leverages GCM, or PO, or both, or none. What’s common to all tasks
+though, except for unit-change and feature attribution, is that they require a <em>causal graph</em>, which is modeled after
+the problem domain. For that reason, this user guide starts with <a class="reference internal" href="modeling_causal_relations/index.html"><span class="doc">Modeling Causal Relations</span></a>. Readers
+interested in <a class="reference internal" href="causal_tasks/root_causing_and_explaining/unit_change.html"><span class="doc">Unit Change Attribution</span></a>
+or <a class="reference internal" href="causal_tasks/root_causing_and_explaining/feature_attribution.html"><span class="doc">Feature Attribution</span></a> can skip right to those sections.</p>
+<p>To aid the navigation within this user guide and the library further, the following flow chart can be used:</p>
+<p><em>[TODO (pego): insert flow chart here, which is a</em> <em>visual navigation map for the library.]</em></p>
 </section>
 
 
@@ -499,17 +435,17 @@ recipe for this API works as follows:</p>
               <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="foreword.html" title="previous page">
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">User Guide</p>
+          <p class="prev-next-title">Foreword</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="effect_inference/index.html" title="next page">
+  <a class='right-next' id="next-link" href="modeling_causal_relations/index.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Effect inference</p>
+      <p class="prev-next-title">Modeling Causal Relations</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>
