@@ -224,6 +224,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="dowhy_causal_discovery_example.html">
+   Causal Discovery example
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="dowhy-conditional-treatment-effects.html">
    Conditional Average Treatment Effects (CATE) with DoWhy and EconML
   </a>
@@ -675,17 +680,11 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
-import pandas as pd
-import logging
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dowhy</span> <span class="kn">import</span> <span class="n">CausalModel</span>
+<span class="kn">import</span> <span class="nn">dowhy.datasets</span>
 
-import dowhy
-from dowhy import CausalModel
-import dowhy.datasets
-
-import econml
-import warnings
-warnings.filterwarnings(&#39;ignore&#39;)
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -693,15 +692,15 @@ warnings.filterwarnings(&#39;ignore&#39;)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data = dowhy.datasets.linear_dataset(10, num_common_causes=4, num_samples=10000,
-                                    num_instruments=0, num_effect_modifiers=2,
-                                     num_treatments=2,
-                                    treatment_is_binary=False,
-                                    num_discrete_common_causes=2,
-                                    num_discrete_effect_modifiers=0,
-                                    one_hot_encode=False)
-df=data[&#39;df&#39;]
-df.head()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">dowhy</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">linear_dataset</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">num_common_causes</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">num_samples</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+                                     <span class="n">num_instruments</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_effect_modifiers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                     <span class="n">num_treatments</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                     <span class="n">treatment_is_binary</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                     <span class="n">num_discrete_common_causes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                     <span class="n">num_discrete_effect_modifiers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                     <span class="n">one_hot_encode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;df&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -742,63 +741,63 @@ df.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.422765</td>
-      <td>0.352154</td>
-      <td>0.132370</td>
-      <td>-0.456367</td>
-      <td>1</td>
+      <td>-2.208315</td>
+      <td>-0.379206</td>
+      <td>-1.348815</td>
+      <td>-0.864719</td>
       <td>0</td>
-      <td>0.886404</td>
-      <td>1.521926</td>
-      <td>26.561963</td>
+      <td>0</td>
+      <td>-7.164131</td>
+      <td>-6.305398</td>
+      <td>-242.419050</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.674607</td>
-      <td>1.309192</td>
-      <td>-0.276512</td>
-      <td>-0.701138</td>
-      <td>3</td>
-      <td>3</td>
-      <td>20.634999</td>
-      <td>27.484129</td>
-      <td>2378.144573</td>
+      <td>-2.966443</td>
+      <td>0.197227</td>
+      <td>-1.198793</td>
+      <td>-0.731203</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-5.421825</td>
+      <td>-5.956702</td>
+      <td>-128.065894</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.757814</td>
-      <td>1.063958</td>
-      <td>-1.712042</td>
-      <td>-0.674407</td>
+      <td>-0.775033</td>
+      <td>-1.108530</td>
+      <td>-1.005741</td>
+      <td>-1.949517</td>
+      <td>3</td>
       <td>1</td>
-      <td>0</td>
-      <td>-0.557354</td>
-      <td>-1.942287</td>
-      <td>-29.556651</td>
+      <td>-2.146616</td>
+      <td>-1.441088</td>
+      <td>-60.547515</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.283254</td>
-      <td>0.933398</td>
-      <td>-0.014430</td>
-      <td>-0.953390</td>
-      <td>0</td>
-      <td>1</td>
-      <td>5.478158</td>
-      <td>-0.255475</td>
-      <td>46.551839</td>
+      <td>-0.583949</td>
+      <td>-2.334713</td>
+      <td>0.679711</td>
+      <td>-1.929997</td>
+      <td>2</td>
+      <td>3</td>
+      <td>7.529720</td>
+      <td>0.932873</td>
+      <td>18.737353</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.171318</td>
-      <td>1.141351</td>
-      <td>-0.565743</td>
-      <td>0.565606</td>
-      <td>3</td>
+      <td>0.372940</td>
+      <td>1.528040</td>
+      <td>-0.732775</td>
+      <td>-0.633364</td>
       <td>2</td>
-      <td>15.113654</td>
-      <td>25.617164</td>
-      <td>1761.468702</td>
+      <td>0</td>
+      <td>-2.137486</td>
+      <td>1.165958</td>
+      <td>-29.922679</td>
     </tr>
   </tbody>
 </table>
@@ -808,9 +807,9 @@ df.head()
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>model = CausalModel(data=data[&quot;df&quot;],
-                    treatment=data[&quot;treatment_name&quot;], outcome=data[&quot;outcome_name&quot;],
-                    graph=data[&quot;gml_graph&quot;])
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">CausalModel</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;df&quot;</span><span class="p">],</span>
+                    <span class="n">treatment</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;treatment_name&quot;</span><span class="p">],</span> <span class="n">outcome</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;outcome_name&quot;</span><span class="p">],</span>
+                    <span class="n">graph</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;gml_graph&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -818,9 +817,9 @@ df.head()
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>model.view_model()
-from IPython.display import Image, display
-display(Image(filename=&quot;causal_model.png&quot;))
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">view_model</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">display</span>
+<span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;causal_model.png&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -835,8 +834,8 @@ display(Image(filename=&quot;causal_model.png&quot;))
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>identified_estimand= model.identify_effect(proceed_when_unidentifiable=True)
-print(identified_estimand)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">identified_estimand</span><span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">identify_effect</span><span class="p">(</span><span class="n">proceed_when_unidentifiable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -851,9 +850,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W2,W0,W1])
+─────────(E[y|W3,W2,W1,W0])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W2,W0,W1,U) = P(y|v0,v1,W3,W2,W0,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W2,W1,W0,U) = P(y|v0,v1,W3,W2,W1,W0)
 
 ### Estimand : 2
 Estimand name: iv
@@ -873,12 +872,12 @@ No such variable(s) found!
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>linear_estimate = model.estimate_effect(identified_estimand,
-                                        method_name=&quot;backdoor.linear_regression&quot;,
-                                       control_value=(0,0),
-                                       treatment_value=(1,1),
-                                       method_params={&#39;need_conditional_estimates&#39;: False})
-print(linear_estimate)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linear_estimate</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span>
+                                        <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;backdoor.linear_regression&quot;</span><span class="p">,</span>
+                                        <span class="n">control_value</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+                                        <span class="n">treatment_value</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+                                        <span class="n">method_params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;need_conditional_estimates&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">linear_estimate</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -896,16 +895,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W2,W0,W1])
+─────────(E[y|W3,W2,W1,W0])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W2,W0,W1,U) = P(y|v0,v1,W3,W2,W0,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W2,W1,W0,U) = P(y|v0,v1,W3,W2,W1,W0)
 
 ## Realized estimand
-b: y~v0+v1+W3+W2+W0+W1+v0*X1+v0*X0+v1*X1+v1*X0
+b: y~v0+v1+W3+W2+W1+W0+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: 71.11239674192772
+Mean value: 13.049781703853995
 
 </pre></div></div>
 </div>
@@ -914,11 +913,11 @@ Mean value: 71.11239674192772
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>linear_estimate = model.estimate_effect(identified_estimand,
-                                        method_name=&quot;backdoor.linear_regression&quot;,
-                                       control_value=(0,0),
-                                       treatment_value=(1,1))
-print(linear_estimate)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linear_estimate</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">estimate_effect</span><span class="p">(</span><span class="n">identified_estimand</span><span class="p">,</span>
+                                        <span class="n">method_name</span><span class="o">=</span><span class="s2">&quot;backdoor.linear_regression&quot;</span><span class="p">,</span>
+                                        <span class="n">control_value</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+                                        <span class="n">treatment_value</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">linear_estimate</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -936,16 +935,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W2,W0,W1])
+─────────(E[y|W3,W2,W1,W0])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W2,W0,W1,U) = P(y|v0,v1,W3,W2,W0,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W2,W1,W0,U) = P(y|v0,v1,W3,W2,W1,W0)
 
 ## Realized estimand
-b: y~v0+v1+W3+W2+W0+W1+v0*X1+v0*X0+v1*X1+v1*X0
+b: y~v0+v1+W3+W2+W1+W0+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: 71.11239674192772
+Mean value: 13.049781703853995
 
 </pre></div></div>
 </div>
