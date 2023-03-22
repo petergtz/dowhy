@@ -19,4 +19,6 @@ or :doc:`causal_tasks/root_causing_and_explaining/feature_attribution` can skip 
 
 To aid the navigation within this user guide and the library further, the following flow chart can be used:
 
-*[TODO (pego): insert flow chart here, which is a* *visual navigation map for the library.]*
+.. image:: navigation.png
+   :alt: Visual navigation map to aid the user in navigating the user guide
+   :width: 100%
