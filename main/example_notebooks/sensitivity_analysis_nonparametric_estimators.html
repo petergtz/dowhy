@@ -873,9 +873,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W4,W2,W3,W6,W1,W5])
+─────(E[y|W2,W6,W4,W3,W5,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W2,W3,W6,W1,W5,U) = P(y|v0,W4,W2,W3,W6,W1,W5)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W6,W4,W3,W5,W1,U) = P(y|v0,W2,W6,W4,W3,W5,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -930,17 +930,17 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W4,W2,W3,W6,W1,W5])
+─────(E[y|W2,W6,W4,W3,W5,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W2,W3,W6,W1,W5,U) = P(y|v0,W4,W2,W3,W6,W1,W5)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W6,W4,W3,W5,W1,U) = P(y|v0,W2,W6,W4,W3,W5,W1)
 
 ## Realized estimand
-b: y~v0+W4+W2+W3+W6+W1+W5 |
+b: y~v0+W2+W6+W4+W3+W5+W1 |
 Target units: ate
 
 ## Estimate
-Mean value: 11.738591154292918
-Effect estimates: [[11.73859115]]
+Mean value: 11.7005527718022
+Effect estimates: [[11.70055277]]
 
 </pre></div></div>
 </div>
@@ -983,7 +983,7 @@ Effect estimates: [[11.73859115]]
 <div class="highlight"><pre>
 Sensitivity Analysis to Unobserved Confounding using partial R^2 parameterization
 
-Original Effect Estimate : 11.738591154292918
+Original Effect Estimate : 11.7005527718022
 Robustness Value : 0.45
 
 Robustness Value (alpha=0.05) : 0.41000000000000003
@@ -1110,14 +1110,14 @@ effect without considering the significance level * <code class="docutils litera
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.048662</td>
-      <td>0.053907</td>
-      <td>11.738591</td>
-      <td>1.046665</td>
-      <td>10.691926</td>
-      <td>12.785256</td>
-      <td>9.541516</td>
-      <td>13.908553</td>
+      <td>0.048804</td>
+      <td>0.051817</td>
+      <td>11.700553</td>
+      <td>1.025514</td>
+      <td>10.675039</td>
+      <td>12.726067</td>
+      <td>9.527615</td>
+      <td>13.846914</td>
     </tr>
   </tbody>
 </table>
@@ -1168,17 +1168,17 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
   d
-─────(E[y|W4,W2,W3,W6,W1,W5])
+─────(E[y|W2,W6,W4,W3,W5,W1])
 d[v₀]
-Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W4,W2,W3,W6,W1,W5,U) = P(y|v0,W4,W2,W3,W6,W1,W5)
+Estimand assumption 1, Unconfoundedness: If U→{v0} and U→y then P(y|v0,W2,W6,W4,W3,W5,W1,U) = P(y|v0,W2,W6,W4,W3,W5,W1)
 
 ## Realized estimand
-b: y~v0+W4+W2+W3+W6+W1+W5 |
+b: y~v0+W2+W6+W4+W3+W5+W1 |
 Target units: ate
 
 ## Estimate
-Mean value: 11.819530367821299
-Effect estimates: [[11.81953037]]
+Mean value: 11.833643274616747
+Effect estimates: [[11.83364327]]
 
 </pre></div></div>
 </div>
@@ -1213,7 +1213,7 @@ Effect estimates: [[11.81953037]]
 <div class="highlight"><pre>
 Sensitivity Analysis to Unobserved Confounding using partial R^2 parameterization
 
-Original Effect Estimate : 11.819530367821299
+Original Effect Estimate : 11.833643274616747
 Robustness Value : 0.66
 
 Robustness Value (alpha=0.05) : 0.64

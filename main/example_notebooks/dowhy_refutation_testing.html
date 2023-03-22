@@ -1264,13 +1264,13 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
      d
-────────────(E[y_factual|x6,x19,x16,x7,x24,x1,x15,x3,x5,x17,x21,x18,x14,x20,x1
+────────────(E[y_factual|x21,x2,x14,x9,x1,x18,x17,x20,x16,x19,x5,x24,x23,x8,x3
 d[treatment]
 
 
-2,x22,x23,x2,x10,x9,x4,x25,x11,x8,x13])
+,x13,x15,x4,x7,x6,x22,x25,x12,x11,x10])
 
-Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x6,x19,x16,x7,x24,x1,x15,x3,x5,x17,x21,x18,x14,x20,x12,x22,x23,x2,x10,x9,x4,x25,x11,x8,x13,U) = P(y_factual|treatment,x6,x19,x16,x7,x24,x1,x15,x3,x5,x17,x21,x18,x14,x20,x12,x22,x23,x2,x10,x9,x4,x25,x11,x8,x13)
+Estimand assumption 1, Unconfoundedness: If U→{treatment} and U→y_factual then P(y_factual|treatment,x21,x2,x14,x9,x1,x18,x17,x20,x16,x19,x5,x24,x23,x8,x3,x13,x15,x4,x7,x6,x22,x25,x12,x11,x10,U) = P(y_factual|treatment,x21,x2,x14,x9,x1,x18,x17,x20,x16,x19,x5,x24,x23,x8,x3,x13,x15,x4,x7,x6,x22,x25,x12,x11,x10)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1306,9 +1306,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
    d
-────────(E[re78|black,educ,age,hisp,nodegr,married])
+────────(E[re78|educ,hisp,married,age,nodegr,black])
 d[treat]
-Estimand assumption 1, Unconfoundedness: If U→{treat} and U→re78 then P(re78|treat,black,educ,age,hisp,nodegr,married,U) = P(re78|treat,black,educ,age,hisp,nodegr,married)
+Estimand assumption 1, Unconfoundedness: If U→{treat} and U→re78 then P(re78|treat,educ,hisp,married,age,nodegr,black,U) = P(re78|treat,educ,hisp,married,age,nodegr,black)
 
 ### Estimand : 2
 Estimand name: iv
@@ -1344,7 +1344,7 @@ No such variable(s) found!
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-The Causal Estimate is 4.028748218389982
+The Causal Estimate is 4.028748218389819
 </pre></div></div>
 </div>
 </section>
@@ -1368,7 +1368,7 @@ The Causal Estimate is 4.028748218389982
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-The Causal Estimate is 1639.8057347437189
+The Causal Estimate is 1639.8040438967437
 </pre></div></div>
 </div>
 </section>
@@ -1399,8 +1399,8 @@ The Causal Estimate is 1639.8057347437189
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:4.028748218389982
-New effect:4.028748218389981
+Estimated effect:4.028748218389819
+New effect:4.028748218389819
 p value:1.0
 
 </pre></div></div>
@@ -1429,9 +1429,9 @@ p value:1.0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:4.028748218389982
-New effect:-0.49028061643554727
-p value:0.04
+Estimated effect:4.028748218389819
+New effect:-0.4578467399476742
+p value:0.02
 
 </pre></div></div>
 </div>
@@ -1458,9 +1458,9 @@ p value:0.04
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:4.028748218389982
-New effect:4.035261588518715
-p value:0.98
+Estimated effect:4.028748218389819
+New effect:4.036576472357734
+p value:1.0
 
 </pre></div></div>
 </div>
@@ -1490,8 +1490,8 @@ p value:0.98
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Add a random common cause
-Estimated effect:1639.8057347437189
-New effect:1639.8057347437186
+Estimated effect:1639.8040438967437
+New effect:1639.804043896743
 p value:1.0
 
 </pre></div></div>
@@ -1520,9 +1520,9 @@ p value:1.0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a Placebo Treatment
-Estimated effect:1639.8057347437189
-New effect:-42.34785219858372
-p value:0.84
+Estimated effect:1639.8040438967437
+New effect:-204.9011200196449
+p value:0.64
 
 </pre></div></div>
 </div>
@@ -1550,9 +1550,9 @@ p value:0.84
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Refute: Use a subset of data
-Estimated effect:1639.8057347437189
-New effect:1620.6008806254179
-p value:0.8999999999999999
+Estimated effect:1639.8040438967437
+New effect:1596.466137872775
+p value:0.84
 
 </pre></div></div>
 </div>

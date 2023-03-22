@@ -741,63 +741,63 @@ div.rendered_html tbody tr:hover {
   <tbody>
     <tr>
       <th>0</th>
-      <td>-2.208315</td>
-      <td>-0.379206</td>
-      <td>-1.348815</td>
-      <td>-0.864719</td>
+      <td>0.236164</td>
+      <td>1.809145</td>
+      <td>-1.264750</td>
+      <td>-0.056120</td>
+      <td>3</td>
       <td>0</td>
-      <td>0</td>
-      <td>-7.164131</td>
-      <td>-6.305398</td>
-      <td>-242.419050</td>
+      <td>2.139094</td>
+      <td>-1.445834</td>
+      <td>-26.325105</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-2.966443</td>
-      <td>0.197227</td>
-      <td>-1.198793</td>
-      <td>-0.731203</td>
+      <td>-1.192213</td>
+      <td>-0.349073</td>
+      <td>0.748321</td>
+      <td>-0.968030</td>
+      <td>3</td>
       <td>0</td>
-      <td>0</td>
-      <td>-5.421825</td>
-      <td>-5.956702</td>
-      <td>-128.065894</td>
+      <td>9.001991</td>
+      <td>1.476010</td>
+      <td>59.109931</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.775033</td>
-      <td>-1.108530</td>
-      <td>-1.005741</td>
-      <td>-1.949517</td>
-      <td>3</td>
-      <td>1</td>
-      <td>-2.146616</td>
-      <td>-1.441088</td>
-      <td>-60.547515</td>
+      <td>-1.050438</td>
+      <td>-0.283086</td>
+      <td>1.232609</td>
+      <td>-2.033378</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3.786766</td>
+      <td>0.269896</td>
+      <td>39.501381</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.583949</td>
-      <td>-2.334713</td>
-      <td>0.679711</td>
-      <td>-1.929997</td>
-      <td>2</td>
+      <td>-0.300952</td>
+      <td>-1.109992</td>
+      <td>2.118359</td>
+      <td>-1.451518</td>
+      <td>0</td>
       <td>3</td>
-      <td>7.529720</td>
-      <td>0.932873</td>
-      <td>18.737353</td>
+      <td>16.837344</td>
+      <td>5.432249</td>
+      <td>-328.388750</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.372940</td>
-      <td>1.528040</td>
-      <td>-0.732775</td>
-      <td>-0.633364</td>
+      <td>-0.791298</td>
+      <td>0.460061</td>
+      <td>-1.153637</td>
+      <td>0.792488</td>
+      <td>1</td>
       <td>2</td>
-      <td>0</td>
-      <td>-2.137486</td>
-      <td>1.165958</td>
-      <td>-29.922679</td>
+      <td>8.712718</td>
+      <td>0.900112</td>
+      <td>111.889893</td>
     </tr>
   </tbody>
 </table>
@@ -850,9 +850,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W2,W1,W0])
+─────────(E[y|W0,W2,W3,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W2,W1,W0,U) = P(y|v0,v1,W3,W2,W1,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W2,W3,W1,U) = P(y|v0,v1,W0,W2,W3,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -895,16 +895,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W2,W1,W0])
+─────────(E[y|W0,W2,W3,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W2,W1,W0,U) = P(y|v0,v1,W3,W2,W1,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W2,W3,W1,U) = P(y|v0,v1,W0,W2,W3,W1)
 
 ## Realized estimand
-b: y~v0+v1+W3+W2+W1+W0+v0*X1+v0*X0+v1*X1+v1*X0
+b: y~v0+v1+W0+W2+W3+W1+v0*X0+v0*X1+v1*X0+v1*X1
 Target units: ate
 
 ## Estimate
-Mean value: 13.049781703853995
+Mean value: 55.79975398167804
 
 </pre></div></div>
 </div>
@@ -935,16 +935,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W3,W2,W1,W0])
+─────────(E[y|W0,W2,W3,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W3,W2,W1,W0,U) = P(y|v0,v1,W3,W2,W1,W0)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W2,W3,W1,U) = P(y|v0,v1,W0,W2,W3,W1)
 
 ## Realized estimand
-b: y~v0+v1+W3+W2+W1+W0+v0*X1+v0*X0+v1*X1+v1*X0
+b: y~v0+v1+W0+W2+W3+W1+v0*X0+v0*X1+v1*X0+v1*X1
 Target units: ate
 
 ## Estimate
-Mean value: 13.049781703853995
+Mean value: 55.79975398167804
 
 </pre></div></div>
 </div>

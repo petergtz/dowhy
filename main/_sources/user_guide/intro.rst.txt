@@ -21,4 +21,4 @@ To aid the navigation within this user guide and the library further, the follow
 
 .. image:: navigation.png
    :alt: Visual navigation map to aid the user in navigating the user guide
-   :width: 80%
+   :width: 100%
