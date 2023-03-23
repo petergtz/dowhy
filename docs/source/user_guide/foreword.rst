@@ -8,7 +8,7 @@ Foreword
 The need for causal inference
 ----------------------------------
 
-Predictive models uncover patterns that connect the inputs and outcome in observed data. To intervene, however, we need to estimate the effect of changing an input from its current value, for which no data exists. Such questions, involving estimating a *counterfactual*, are common in decision-making scenarios.
+Causal inference is essential for informed decision-making, as it uncovers causality beyond mere associations found in predictive models. It enables us to estimate effects of interventions and counterfactual outcomes, even in the absence of data. Moving beyond correlation-based analysis is vital for generalizing insights and gaining a true understanding of real-world relationships, such as:
 
 * Will it work?
     * Does a proposed change to a system improve people's outcomes?
@@ -23,11 +23,9 @@ Predictive models uncover patterns that connect the inputs and outcome in observ
 Answering these questions requires causal reasoning. While many methods exist
 for causal inference, it is hard to compare their assumptions and robustness of results. DoWhy makes three contributions,
 
-1. Provides a principled way of modeling a given problem as a causal graph so
-   that all assumptions are explicit.
+1. Provides a systematic method for modeling causal relationships through graphical representations, ensuring that all underlying assumptions are clearly stated and transparent.
 2. Provides a unified interface for many popular causal inference methods, combining the two major frameworks of graphical models and potential outcomes.
-3. Automatically tests for the validity of assumptions if possible and assesses
-   the robustness of the estimate to violations.
+3. Provides capabilities to test the validity of assumptions if possible and assesses the robustness of the estimate to violations.
 
 To see DoWhy in action, check out how it can be applied to estimate the effect
 of a subscription or rewards program for customers [`Rewards notebook
@@ -38,14 +36,14 @@ of a subscription or rewards program for customers [`Rewards notebook
 
 * *Some of the [description in the documentation](https://www.pywhy.org/dowhy/main):*
 
->Much like machine learning libraries have done for prediction, DoWhy is a Python library that aims to spark causal thinking and analysis. DoWhy provides a wide variety of algorithms for effect estimation, causal structure learning, diagnosis of causal structures, root cause analysis, interventions and counterfactuals.
+>Much like machine learning libraries have done for prediction, DoWhy is a Python library that aims to spark causal thinking and analysis. DoWhy provides a wide variety of algorithms for effect estimation, quantification of causal influences, causal structure learning, diagnosis of causal structures, root cause analysis, interventions and counterfactuals.
 * Some of the [GitHub description](https://github.com/py-why/dowhy):
 
 >DoWhy is a Python library for causal inference that supports explicit modeling and testing of causal assumptions. DoWhy is based on a unified language for causal inference, combining causal graphical models and potential outcomes frameworks.
 * Some of its [README](https://github.com/py-why/dowhy/blob/main/README.rst):
 
 >As computing systems are more frequently and more actively intervening in societally critical domains such as healthcare, education, and governance, it is critical to correctly predict and understand the causal effects of these interventions. Without an A/B test, conventional machine learning methods, built on pattern recognition and correlational analyses, are insufficient for decision-making.
-Much like machine learning libraries have done for prediction, "DoWhy" is a Python library that aims to spark causal thinking and analysis. DoWhy provides a principled four-step interface for causal inference that focuses on explicitly modeling causal assumptions and validating them as much as possible. The key feature of DoWhy is its state-of-the-art refutation API that can automatically test causal assumptions for any estimation method, thus making inference more robust and accessible to non-experts. DoWhy supports estimation of the average causal effect for backdoor, frontdoor, instrumental variable and other identification methods, and estimation of the conditional effect (CATE) through an integration with the EconML library.
+The key feature of DoWhy is its state-of-the-art refutation API that can test causal assumptions for any estimation method, thus making inference more robust and accessible to non-experts. DoWhy supports estimation of the average causal effect for backdoor, frontdoor, instrumental variable and other identification methods, and estimation of the conditional effect (CATE) through an integration with the EconML library. Additionally, DoWhy supports answering causal questions beyond effect estimation by utilizing graphical causal models, which enable tackling problems such as root cause analysis or quantification of causal influences.
 
 
 *In general, it should create some motivation and excitement for why one would use this library and why it’s needed.*

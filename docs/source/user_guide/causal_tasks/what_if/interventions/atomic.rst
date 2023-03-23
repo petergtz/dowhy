@@ -29,7 +29,7 @@ Next, we'll model cause-effect relationships as a probabilistic causal model and
 
 >>> gcm.fit(causal_model, training_data)
 
-Finally, let's perform an intervention on X:
+Finally, let's perform an intervention on X. Here, we explicitly perform the intervention :math:`do(X:=1)`:
 
 >>> samples = gcm.interventional_samples(causal_model,
 >>>                                      {'X': lambda x: 1},

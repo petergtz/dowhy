@@ -1,12 +1,14 @@
 Modeling cause-effect relationships with causal mechanisms
 ==========================================================
 
-To perform causal tasks based on graphical causal models, such as root cause analysis or what-if analysis, we also have to know the nature of underlying data-generating process of variables. A causal graph by itself, being a diagram, does not have any information about the data-generating process.
+To perform causal tasks based on graphical causal models, such as root cause analysis or quantifying the causal strength of edges, we also have to know the nature of underlying data-generating process of variables. A causal graph by itself, being a diagram, does not have any information about the data-generating process.
 
 All main features of the GCM-based inference in DoWhy are built around the concept of **graphical causal models**. A
 graphical causal model consists of a causal direct acyclic graph (DAG) of variables and a **causal mechanism** for
 each of the variables. A causal mechanism defines the conditional distribution of a variable given its parents in the
-graph, or, in case of root node variables, simply its distribution.
+graph, or, in case of root node variables, simply its distribution. This is, for non-root nodes, we model a node
+:math:`X_i` as :math:`X_i = f(PA_X_i, N_i)`, where :math:`PA_X_i` are the parents of :math:`X_i` and
+:math:`N_i` is unobserved noise that is assumed to be independent of :math:`PA_X_i` (causal sufficiency).
 
 The most general case of a GCM is a **probabilistic causal model** (PCM), where causal mechanisms are defined by
 **conditional stochastic models** and **stochastic models**. In the ``dowhy.gcm`` package, these are represented by
@@ -21,8 +23,8 @@ The most general case of a GCM is a **probabilistic causal model** (PCM), where 
 In practical terms however, we often use **structural causal models** (SCMs) to represent our GCMs,
 and the causal mechanisms are defined by **functional causal models** (FCMs) for non-root nodes and **stochastic
 models** for root nodes. An SCM implements the same traits as a PCM, but on top of that, its FCMs allow us to
-reason *further* about its data generation process based on parents and noise, and hence, allow us e.g. to compute
-counterfactuals.
+reason *further* about its data generation process based on parents and noise, and hence, allow us e.g. to utilize
+sample specific counterfactual outcomes.
 
 .. image:: scm.png
    :width: 80%

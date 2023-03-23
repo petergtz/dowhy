@@ -1,4 +1,4 @@
-Root-Causing and Explaining Observed Effects
+Explaining Observed Effects and Root-Cause Analysis
 ============================================
 
 .. toctree::
