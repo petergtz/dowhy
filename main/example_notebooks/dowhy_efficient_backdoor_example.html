@@ -646,13 +646,13 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-──────────(E[injury|contact sport,previous injury,tissue disorder,neuromusc fa
+──────────(E[injury|previous injury,contact sport,team motivation,tissue disor
 d[warm-up]
 
 
-tigue,team motivation])
+der,neuromusc fatigue])
 
-Estimand assumption 1, Unconfoundedness: If U→{warm-up} and U→injury then P(injury|warm-up,contact sport,previous injury,tissue disorder,neuromusc fatigue,team motivation,U) = P(injury|warm-up,contact sport,previous injury,tissue disorder,neuromusc fatigue,team motivation)
+Estimand assumption 1, Unconfoundedness: If U→{warm-up} and U→injury then P(injury|warm-up,previous injury,contact sport,team motivation,tissue disorder,neuromusc fatigue,U) = P(injury|warm-up,previous injury,contact sport,team motivation,tissue disorder,neuromusc fatigue)
 
 ### Estimand : 2
 Estimand name: iv
@@ -693,13 +693,13 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-──────────(E[injury|previous injury,tissue disorder,team motivation,neuromusc
+──────────(E[injury|neuromusc fatigue,previous injury,team motivation,tissue d
 d[warm-up]
 
 
-fatigue])
+isorder])
 
-Estimand assumption 1, Unconfoundedness: If U→{warm-up} and U→injury then P(injury|warm-up,previous injury,tissue disorder,team motivation,neuromusc fatigue,U) = P(injury|warm-up,previous injury,tissue disorder,team motivation,neuromusc fatigue)
+Estimand assumption 1, Unconfoundedness: If U→{warm-up} and U→injury then P(injury|warm-up,neuromusc fatigue,previous injury,team motivation,tissue disorder,U) = P(injury|warm-up,neuromusc fatigue,previous injury,team motivation,tissue disorder)
 
 ### Estimand : 2
 Estimand name: iv

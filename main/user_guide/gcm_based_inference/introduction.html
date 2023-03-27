@@ -297,11 +297,11 @@ graph, or, in case of root node variables, simply its distribution.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>In practical terms however, we often use <strong>structural causal models</strong> (SCMs) to represent our GCMs,
+<p>In practical terms however, we often use invertible <strong>structural causal models</strong> (SCMs) to represent our GCMs,
 and the causal mechanisms are defined by <strong>functional causal models</strong> (FCMs) for non-root nodes and <strong>stochastic
-models</strong> for root nodes. An SCM implements the same traits as a PCM, but on top of that, its FCMs allow us to
+models</strong> for root nodes. An invertible SCM implements the same traits as a PCM, but on top of that, its FCMs allow us to
 reason <em>further</em> about its data generation process based on parents and noise, and hence, allow us e.g. to compute
-counterfactuals.</p>
+counterfactuals. See section <span class="xref std std-doc">graphical_causal_models</span> for more details about the type of graphs and their implications.</p>
 <a class="reference internal image-reference" href="user_guide/gcm_based_inference/scm.png"><img alt="user_guide/gcm_based_inference/scm.png" class="align-center" src="user_guide/gcm_based_inference/scm.png" style="width: 80%;" /></a>
 <div class="line-block">
 <div class="line"><br /></div>

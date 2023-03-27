@@ -289,7 +289,7 @@
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="causal_tasks/root_causing_and_explaining/index.html">
-     Root-Causing and Explaining Observed Effects
+     Explaining Observed Effects and Root-Cause Analysis
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
@@ -365,6 +365,33 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="miscellaneous/index.html">
+   Miscellaneous Topics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="miscellaneous/customizing_model_assignment.html">
+     Customizing Causal Mechanism Assignment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="miscellaneous/estimating_confidence_intervals.html">
+     Estimating Confidence Intervals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="miscellaneous/draw_samples.html">
+     Generate samples from a GCM
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../cite.html">
    Citing this package
@@ -426,7 +453,7 @@
 </ul>
 <section id="the-need-for-causal-inference">
 <h2>The need for causal inference<a class="headerlink" href="#the-need-for-causal-inference" title="Permalink to this heading"></a></h2>
-<p>Predictive models uncover patterns that connect the inputs and outcome in observed data. To intervene, however, we need to estimate the effect of changing an input from its current value, for which no data exists. Such questions, involving estimating a <em>counterfactual</em>, are common in decision-making scenarios.</p>
+<p>Causal inference is essential for informed decision-making, as it uncovers causality beyond mere associations found in predictive models. It enables us to estimate effects of interventions and counterfactual outcomes, even in the absence of data. Moving beyond correlation-based analysis is vital for generalizing insights and gaining a true understanding of real-world relationships, such as:</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Will it work?</dt><dd><ul>
@@ -461,23 +488,21 @@
 <p>Answering these questions requires causal reasoning. While many methods exist
 for causal inference, it is hard to compare their assumptions and robustness of results. DoWhy makes three contributions,</p>
 <ol class="arabic simple">
-<li><p>Provides a principled way of modeling a given problem as a causal graph so
-that all assumptions are explicit.</p></li>
+<li><p>Provides a systematic method for modeling causal relationships through graphical representations, ensuring that all underlying assumptions are clearly stated and transparent.</p></li>
 <li><p>Provides a unified interface for many popular causal inference methods, combining the two major frameworks of graphical models and potential outcomes.</p></li>
-<li><p>Automatically tests for the validity of assumptions if possible and assesses
-the robustness of the estimate to violations.</p></li>
+<li><p>Provides capabilities to test the validity of assumptions if possible and assesses the robustness of the estimate to violations.</p></li>
 </ol>
 <p>To see DoWhy in action, check out how it can be applied to estimate the effect
 of a subscription or rewards program for customers [<a class="reference external" href="https://github.com/microsoft/dowhy/blob/main/docs/source/example_notebooks/dowhy_example_effect_of_memberrewards_program.ipynb">Rewards notebook</a>] and for implementing and evaluating causal inference methods on benchmark datasets like the <a class="reference external" href="https://github.com/microsoft/dowhy/blob/main/docs/source/example_notebooks/dowhy_ihdp_data_example.ipynb">Infant Health and Development Program (IHDP)</a> dataset, <a class="reference external" href="https://github.com/microsoft/dowhy/blob/main/docs/source/example_notebooks/dowhy_twins_example.ipynb">Infant Mortality (Twins)</a> dataset, and the <a class="reference external" href="https://github.com/microsoft/dowhy/blob/main/docs/source/example_notebooks/dowhy_lalonde_example.ipynb">Lalonde Jobs</a> dataset.</p>
 <ul class="simple">
 <li><p><em>Some of the [description in the documentation](https://www.pywhy.org/dowhy/main):</em></p></li>
 </ul>
-<p>&gt;Much like machine learning libraries have done for prediction, DoWhy is a Python library that aims to spark causal thinking and analysis. DoWhy provides a wide variety of algorithms for effect estimation, causal structure learning, diagnosis of causal structures, root cause analysis, interventions and counterfactuals.
+<p>&gt;Much like machine learning libraries have done for prediction, DoWhy is a Python library that aims to spark causal thinking and analysis. DoWhy provides a wide variety of algorithms for effect estimation, quantification of causal influences, causal structure learning, diagnosis of causal structures, root cause analysis, interventions and counterfactuals.
 * Some of the [GitHub description](<a class="reference external" href="https://github.com/py-why/dowhy">https://github.com/py-why/dowhy</a>):</p>
 <p>&gt;DoWhy is a Python library for causal inference that supports explicit modeling and testing of causal assumptions. DoWhy is based on a unified language for causal inference, combining causal graphical models and potential outcomes frameworks.
 * Some of its [README](<a class="reference external" href="https://github.com/py-why/dowhy/blob/main/README.rst">https://github.com/py-why/dowhy/blob/main/README.rst</a>):</p>
 <p>&gt;As computing systems are more frequently and more actively intervening in societally critical domains such as healthcare, education, and governance, it is critical to correctly predict and understand the causal effects of these interventions. Without an A/B test, conventional machine learning methods, built on pattern recognition and correlational analyses, are insufficient for decision-making.
-Much like machine learning libraries have done for prediction, “DoWhy” is a Python library that aims to spark causal thinking and analysis. DoWhy provides a principled four-step interface for causal inference that focuses on explicitly modeling causal assumptions and validating them as much as possible. The key feature of DoWhy is its state-of-the-art refutation API that can automatically test causal assumptions for any estimation method, thus making inference more robust and accessible to non-experts. DoWhy supports estimation of the average causal effect for backdoor, frontdoor, instrumental variable and other identification methods, and estimation of the conditional effect (CATE) through an integration with the EconML library.</p>
+The key feature of DoWhy is its state-of-the-art refutation API that can test causal assumptions for any estimation method, thus making inference more robust and accessible to non-experts. DoWhy supports estimation of the average causal effect for backdoor, frontdoor, instrumental variable and other identification methods, and estimation of the conditional effect (CATE) through an integration with the EconML library. Additionally, DoWhy supports answering causal questions beyond effect estimation by utilizing graphical causal models, which enable tackling problems such as root cause analysis or quantification of causal influences.</p>
 <p><em>In general, it should create some motivation and excitement for why one would use this library and why it’s needed.</em></p>
 </section>
 </section>

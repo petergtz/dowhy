@@ -289,7 +289,7 @@
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../causal_tasks/root_causing_and_explaining/index.html">
-     Root-Causing and Explaining Observed Effects
+     Explaining Observed Effects and Root-Cause Analysis
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
@@ -365,6 +365,33 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../miscellaneous/index.html">
+   Miscellaneous Topics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../miscellaneous/customizing_model_assignment.html">
+     Customizing Causal Mechanism Assignment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../miscellaneous/estimating_confidence_intervals.html">
+     Estimating Confidence Intervals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../miscellaneous/draw_samples.html">
+     Generate samples from a GCM
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../cite.html">
    Citing this package
@@ -410,16 +437,18 @@
                 
   <section id="modeling-causal-relations">
 <h1>Modeling Causal Relations<a class="headerlink" href="#modeling-causal-relations" title="Permalink to this heading"></a></h1>
-<p>Except for a couple of exceptions, in DoWhy, the first step to perform a causal <em>task</em> is to model causal relations in form of a causal graph. A causal graph models the causal relations, or “cause-effect-relationships” present in a system or problem domain. This serves to make each causal assumption explicit. Think e.g. altitude → temperature, i.e. higher altitude causes lower temperature. A causal graph is a directed acyclic graph (DAG) where an edge X→Y implies that X causes Y. Statistically, a causal graph encodes the conditional independence relations between variables.</p>
+<p>Except for a couple of exceptions, in DoWhy, the first step to perform a causal <em>task</em> is to model causal relations in form of a causal graph. A causal graph models the causal relations, or “cause-effect-relationships” present in a system or problem domain. This serves to make each causal assumption explicit. Think e.g. altitude → temperature, i.e. higher altitude causes lower temperature. In DoWhy, we require the causal graph to be a directed acyclic graph (DAG) where an edge X→Y implies that X causes Y. Statistically, a causal graph encodes the conditional independence relations between variables.</p>
 <p>In cases, where we do not know the causal graph, we can apply methods for learning causal structures from data.
 Section <a class="reference internal" href="learning_causal_structure.html"><span class="doc">Learning Causal Structure from Data</span></a> introduces statistical
 methods for this.</p>
-<p>There are other ways to construct causal graphs too. Often, we can derive it, when systems already convey this kind of information. E.g. in a distributed system of microservices, we can use request tracing frameworks to reconstruct the graph of dependencies in that system. A causal graph is the reverse of that dependency graph.</p>
+<p>There are other ways to construct causal graphs too. Often, we can derive it, when systems already convey this kind of information.
+For example, in a distributed system of microservices, we can use request tracing frameworks to reconstruct the graph of
+dependencies in that system. Here, the causal graph is the reverse of that dependency graph.</p>
 <a class="reference internal image-reference" href="../../_images/microservice-architecture1.png"><img alt="../../_images/microservice-architecture1.png" class="align-center" src="../../_images/microservice-architecture1.png" style="width: 80%;" /></a>
 <p>In other cases, we can consult domain experts to learn about the causal graph and construct it.</p>
 <a class="reference internal image-reference" href="../../_images/hotel-booking-cancellations.png"><img alt="../../_images/hotel-booking-cancellations.png" class="align-center" src="../../_images/hotel-booking-cancellations.png" style="width: 80%;" /></a>
-<p>Note that, depending on the causal task, this graph need not be complete. E.g. for
-<a class="reference internal" href="../causal_tasks/estimating_causal_effects/effect_estimation_with_estimators.html"><span class="doc">Effect Estimation Using specific Effect Estimators (for ACE, mediation effect, …)</span></a> you can provide a partial graph,
+<p>Note that, depending on the causal task, this graph doesn’t need to be completely directed. For instance, for
+<a class="reference internal" href="../causal_tasks/estimating_causal_effects/effect_estimation_with_estimators.html"><span class="doc">Effect Estimation Using specific Effect Estimators (for ACE, mediation effect, …)</span></a> one can provide a partial graph,
 representing prior
 knowledge
 about some of the variables. DoWhy automatically considers the rest of the variables as potential confounders.</p>
@@ -434,10 +463,10 @@ X→Y→Z:</p>
 <li><p>For effect estimation using specific effect estimators, this is all we need. The next step would be
 “identification” as explained in
 <a class="reference internal" href="../causal_tasks/estimating_causal_effects/effect_estimation_with_estimators.html"><span class="doc">Effect Estimation Using specific Effect Estimators (for ACE, mediation effect, …)</span></a>.</p></li>
-<li><p>For most other tasks, we will also have to assign so-called causal mechanisms to each node as we’ll show in the
+<li><p>For many other tasks, we will also have to assign so-called causal mechanisms to each node as we’ll show in the
 following section.</p></li>
 </ul>
-<p>To diagnose a causal graph, check out <a class="reference internal" href="diagnosing_a_causal_model/index.html"><span class="doc">Diagnosing a Causal Model</span></a>.</p>
+<p>To diagnose and potentially reject a causal graph, check out <a class="reference internal" href="diagnosing_a_causal_model/index.html"><span class="doc">Diagnosing a Causal Model</span></a>.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>

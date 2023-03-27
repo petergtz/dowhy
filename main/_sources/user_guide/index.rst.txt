@@ -8,4 +8,5 @@ User Guide
    intro
    modeling_causal_relations/index
    causal_tasks/index
+   miscellaneous/index
    ../cite.rst

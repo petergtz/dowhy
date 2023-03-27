@@ -53,6 +53,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Customizing Causal Mechanism Assignment" href="customizing_model_assignment.html" />
+    <link rel="prev" title="Computing Counterfactuals" href="../causal_tasks/what_if/counterfactuals.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
   </head>
@@ -102,7 +104,7 @@
  </a>
 </li>
 
-<li class="toctree-l1 nav-item">
+<li class="toctree-l1 current active nav-item">
  <a class="reference internal nav-link" href="../index.html">
   User Guide
  </a>
@@ -188,7 +190,215 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../foreword.html">
+   Foreword
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Introduction to DoWhy
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../modeling_causal_relations/index.html">
+   Modeling Causal Relations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modeling_causal_relations/modeling_cause_effect_relationships_with_causal_mechanisms.html">
+     Modeling cause-effect relationships with causal mechanisms
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../modeling_causal_relations/diagnosing_a_causal_model/index.html">
+     Diagnosing a Causal Model
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../modeling_causal_relations/diagnosing_a_causal_model/independence_tests.html">
+       Independence Tests
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../modeling_causal_relations/diagnosing_a_causal_model/refute_causal_structure.html">
+       Refute causal structure
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../modeling_causal_relations/diagnosing_a_causal_model/quantify_arrow_strength.html">
+       Quantifying Arrow Strength
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../modeling_causal_relations/diagnosing_a_causal_model/refuting_invertible_model.html">
+       Refuting Invertible Model (GCM only)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../modeling_causal_relations/learning_causal_structure.html">
+     Learning Causal Structure from Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../causal_tasks/index.html">
+   Performing Causal Tasks
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../causal_tasks/estimating_causal_effects/index.html">
+     Estimating Causal Effects
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../causal_tasks/estimating_causal_effects/effect_estimation_with_estimators.html">
+       Effect Estimation Using specific Effect Estimators (for ACE, mediation effect, …)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../causal_tasks/estimating_causal_effects/effect_estimation_with_gcm.html">
+       Estimating Average Causal Effects using GCM
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../causal_tasks/root_causing_and_explaining/index.html">
+     Explaining Observed Effects and Root-Cause Analysis
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../causal_tasks/root_causing_and_explaining/outliers.html">
+       Outlier Attribution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../causal_tasks/root_causing_and_explaining/distribution_change.html">
+       Attributing Distributional Changes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../causal_tasks/root_causing_and_explaining/icc.html">
+       Quantifying Intrinsic Causal Influence
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../causal_tasks/root_causing_and_explaining/unit_change.html">
+       Unit Change Attribution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../causal_tasks/root_causing_and_explaining/feature_attribution.html">
+       Feature Attribution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../causal_tasks/what_if/index.html">
+     Asking and Answering What-If Questions
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../causal_tasks/what_if/interventions/index.html">
+       Interventions
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+      <label for="toctree-checkbox-7">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../causal_tasks/what_if/interventions/atomic.html">
+         Simulating the Impact of Interventions
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../causal_tasks/what_if/interventions/soft.html">
+         Soft Interventions
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../causal_tasks/what_if/counterfactuals.html">
+       Computing Counterfactuals
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Miscellaneous Topics
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="customizing_model_assignment.html">
+     Customizing Causal Mechanism Assignment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="estimating_confidence_intervals.html">
+     Estimating Confidence Intervals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="draw_samples.html">
+     Generate samples from a GCM
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../cite.html">
+   Citing this package
+  </a>
+ </li>
+</ul>
+
   </div>
 </nav>
   </div>
@@ -244,6 +454,20 @@
               <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="../causal_tasks/what_if/counterfactuals.html" title="previous page">
+      <i class="fas fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Computing Counterfactuals</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="customizing_model_assignment.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Customizing Causal Mechanism Assignment</p>
+  </div>
+  <i class="fas fa-angle-right"></i>
+  </a>
 </div>
               </footer>
               

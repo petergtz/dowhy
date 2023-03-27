@@ -28,11 +28,11 @@ The most general case of a GCM is a **probabilistic causal model** (PCM), where 
 
 |
 
-In practical terms however, we often use **structural causal models** (SCMs) to represent our GCMs,
+In practical terms however, we often use invertible **structural causal models** (SCMs) to represent our GCMs,
 and the causal mechanisms are defined by **functional causal models** (FCMs) for non-root nodes and **stochastic
-models** for root nodes. An SCM implements the same traits as a PCM, but on top of that, its FCMs allow us to
+models** for root nodes. An invertible SCM implements the same traits as a PCM, but on top of that, its FCMs allow us to
 reason *further* about its data generation process based on parents and noise, and hence, allow us e.g. to compute
-counterfactuals.
+counterfactuals. See section :doc:`graphical_causal_models` for more details about the type of graphs and their implications.
 
 .. image:: scm.png
    :width: 80%

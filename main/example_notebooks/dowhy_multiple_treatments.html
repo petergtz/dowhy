@@ -741,63 +741,63 @@ div.rendered_html tbody tr:hover {
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.236164</td>
-      <td>1.809145</td>
-      <td>-1.264750</td>
-      <td>-0.056120</td>
-      <td>3</td>
+      <td>-0.160726</td>
+      <td>0.197717</td>
+      <td>0.168884</td>
+      <td>0.281044</td>
       <td>0</td>
-      <td>2.139094</td>
-      <td>-1.445834</td>
-      <td>-26.325105</td>
+      <td>2</td>
+      <td>7.305433</td>
+      <td>1.566046</td>
+      <td>96.418483</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-1.192213</td>
-      <td>-0.349073</td>
-      <td>0.748321</td>
-      <td>-0.968030</td>
+      <td>0.622458</td>
+      <td>1.749118</td>
+      <td>1.266611</td>
+      <td>-0.697390</td>
       <td>3</td>
-      <td>0</td>
-      <td>9.001991</td>
-      <td>1.476010</td>
-      <td>59.109931</td>
+      <td>3</td>
+      <td>22.841898</td>
+      <td>17.612662</td>
+      <td>4068.381933</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-1.050438</td>
-      <td>-0.283086</td>
-      <td>1.232609</td>
-      <td>-2.033378</td>
+      <td>-0.507455</td>
+      <td>0.239130</td>
+      <td>-0.343174</td>
+      <td>0.415110</td>
       <td>0</td>
-      <td>0</td>
-      <td>3.786766</td>
-      <td>0.269896</td>
-      <td>39.501381</td>
+      <td>2</td>
+      <td>3.728880</td>
+      <td>2.577602</td>
+      <td>59.251898</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.300952</td>
-      <td>-1.109992</td>
-      <td>2.118359</td>
-      <td>-1.451518</td>
-      <td>0</td>
-      <td>3</td>
-      <td>16.837344</td>
-      <td>5.432249</td>
-      <td>-328.388750</td>
+      <td>-0.762805</td>
+      <td>-0.040333</td>
+      <td>-2.167921</td>
+      <td>-0.418095</td>
+      <td>2</td>
+      <td>1</td>
+      <td>-3.357920</td>
+      <td>7.994089</td>
+      <td>131.406754</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>-0.791298</td>
-      <td>0.460061</td>
-      <td>-1.153637</td>
-      <td>0.792488</td>
-      <td>1</td>
+      <td>-1.552625</td>
+      <td>0.831265</td>
+      <td>1.186141</td>
+      <td>-0.322733</td>
       <td>2</td>
-      <td>8.712718</td>
-      <td>0.900112</td>
-      <td>111.889893</td>
+      <td>3</td>
+      <td>19.853591</td>
+      <td>15.394102</td>
+      <td>-437.483542</td>
     </tr>
   </tbody>
 </table>
@@ -850,9 +850,9 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W0,W2,W3,W1])
+─────────(E[y|W0,W3,W2,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W2,W3,W1,U) = P(y|v0,v1,W0,W2,W3,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W3,W2,W1,U) = P(y|v0,v1,W0,W3,W2,W1)
 
 ### Estimand : 2
 Estimand name: iv
@@ -895,16 +895,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W0,W2,W3,W1])
+─────────(E[y|W0,W3,W2,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W2,W3,W1,U) = P(y|v0,v1,W0,W2,W3,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W3,W2,W1,U) = P(y|v0,v1,W0,W3,W2,W1)
 
 ## Realized estimand
-b: y~v0+v1+W0+W2+W3+W1+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W0+W3+W2+W1+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: 55.79975398167804
+Mean value: 19.38227351230603
 
 </pre></div></div>
 </div>
@@ -935,16 +935,16 @@ Estimand type: EstimandType.NONPARAMETRIC_ATE
 Estimand name: backdoor
 Estimand expression:
     d
-─────────(E[y|W0,W2,W3,W1])
+─────────(E[y|W0,W3,W2,W1])
 d[v₀  v₁]
-Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W2,W3,W1,U) = P(y|v0,v1,W0,W2,W3,W1)
+Estimand assumption 1, Unconfoundedness: If U→{v0,v1} and U→y then P(y|v0,v1,W0,W3,W2,W1,U) = P(y|v0,v1,W0,W3,W2,W1)
 
 ## Realized estimand
-b: y~v0+v1+W0+W2+W3+W1+v0*X0+v0*X1+v1*X0+v1*X1
+b: y~v0+v1+W0+W3+W2+W1+v0*X1+v0*X0+v1*X1+v1*X0
 Target units: ate
 
 ## Estimate
-Mean value: 55.79975398167804
+Mean value: 19.38227351230603
 
 </pre></div></div>
 </div>

@@ -51,6 +51,8 @@
     <script src="../../_static/design-tabs.js"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Diagnosing a Causal Model" href="diagnosing_a_causal_model/index.html" />
@@ -289,7 +291,7 @@
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../causal_tasks/root_causing_and_explaining/index.html">
-     Root-Causing and Explaining Observed Effects
+     Explaining Observed Effects and Root-Cause Analysis
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
@@ -365,6 +367,33 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../miscellaneous/index.html">
+   Miscellaneous Topics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../miscellaneous/customizing_model_assignment.html">
+     Customizing Causal Mechanism Assignment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../miscellaneous/estimating_confidence_intervals.html">
+     Estimating Confidence Intervals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../miscellaneous/draw_samples.html">
+     Generate samples from a GCM
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../cite.html">
    Citing this package
@@ -420,11 +449,13 @@
                 
   <section id="modeling-cause-effect-relationships-with-causal-mechanisms">
 <h1>Modeling cause-effect relationships with causal mechanisms<a class="headerlink" href="#modeling-cause-effect-relationships-with-causal-mechanisms" title="Permalink to this heading"></a></h1>
-<p>To perform causal tasks based on graphical causal models, such as root cause analysis or what-if analysis, we also have to know the nature of underlying data-generating process of variables. A causal graph by itself, being a diagram, does not have any information about the data-generating process.</p>
+<p>To perform causal tasks based on graphical causal models, such as root cause analysis or quantifying the causal strength of edges, we also have to know the nature of underlying data-generating process of variables. A causal graph by itself, being a diagram, does not have any information about the data-generating process.</p>
 <p>All main features of the GCM-based inference in DoWhy are built around the concept of <strong>graphical causal models</strong>. A
 graphical causal model consists of a causal direct acyclic graph (DAG) of variables and a <strong>causal mechanism</strong> for
 each of the variables. A causal mechanism defines the conditional distribution of a variable given its parents in the
-graph, or, in case of root node variables, simply its distribution.</p>
+graph, or, in case of root node variables, simply its distribution. This is, for non-root nodes, we model a node
+<span class="math notranslate nohighlight">\(X_i\)</span> as <span class="math notranslate nohighlight">\(X_i = f(PA_X_i, N_i)\)</span>, where <span class="math notranslate nohighlight">\(PA_X_i\)</span> are the parents of <span class="math notranslate nohighlight">\(X_i\)</span> and
+<span class="math notranslate nohighlight">\(N_i\)</span> is unobserved noise that is assumed to be independent of <span class="math notranslate nohighlight">\(PA_X_i\)</span> (causal sufficiency).</p>
 <p>The most general case of a GCM is a <strong>probabilistic causal model</strong> (PCM), where causal mechanisms are defined by
 <strong>conditional stochastic models</strong> and <strong>stochastic models</strong>. In the <code class="docutils literal notranslate"><span class="pre">dowhy.gcm</span></code> package, these are represented by
 <code class="xref py py-class docutils literal notranslate"><span class="pre">ProbabilisticCausalModel</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ConditionalStochasticModel</span></code>, and <code class="xref py py-class docutils literal notranslate"><span class="pre">StochasticModel</span></code>.</p>
@@ -432,11 +463,11 @@ graph, or, in case of root node variables, simply its distribution.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>In practical terms however, we often use <strong>structural causal models</strong> (SCMs) to represent our GCMs,
+<p>In practical terms however, we often use invertible <strong>structural causal models</strong> (SCMs) to represent our GCMs,
 and the causal mechanisms are defined by <strong>functional causal models</strong> (FCMs) for non-root nodes and <strong>stochastic
-models</strong> for root nodes. An SCM implements the same traits as a PCM, but on top of that, its FCMs allow us to
+models</strong> for root nodes. An invertible SCM implements the same traits as a PCM, but on top of that, its FCMs allow us to
 reason <em>further</em> about its data generation process based on parents and noise, and hence, allow us e.g. to compute
-counterfactuals.</p>
+counterfactuals. See section <a class="reference internal" href="../miscellaneous/graphical_causal_models.html"><span class="doc">Types of graphical causal models</span></a> for more details about the type of graphs and their implications.</p>
 <a class="reference internal image-reference" href="../../_images/scm.png"><img alt="../../_images/scm.png" class="align-center" src="../../_images/scm.png" style="width: 80%;" /></a>
 <div class="line-block">
 <div class="line"><br /></div>

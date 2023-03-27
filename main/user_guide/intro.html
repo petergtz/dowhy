@@ -289,7 +289,7 @@
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="causal_tasks/root_causing_and_explaining/index.html">
-     Root-Causing and Explaining Observed Effects
+     Explaining Observed Effects and Root-Cause Analysis
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
     <label for="toctree-checkbox-5">
@@ -365,6 +365,33 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="miscellaneous/index.html">
+   Miscellaneous Topics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="miscellaneous/customizing_model_assignment.html">
+     Customizing Causal Mechanism Assignment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="miscellaneous/estimating_confidence_intervals.html">
+     Estimating Confidence Intervals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="miscellaneous/draw_samples.html">
+     Generate samples from a GCM
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../cite.html">
    Citing this package
@@ -416,13 +443,12 @@ These tasks help to give answers to questions, such as “If I change the color 
 <p>To give readers easy access to learn about such tasks, this user guide dedicates the entire chapter
 <a class="reference internal" href="causal_tasks/index.html"><span class="doc">Performing Causal Tasks</span></a> to explain how DoWhy can be used to perform
 such tasks. We categorize tasks into <a class="reference internal" href="causal_tasks/estimating_causal_effects/index.html"><span class="doc">Estimating Causal Effects</span></a>,
-<a class="reference internal" href="causal_tasks/root_causing_and_explaining/index.html"><span class="doc">Root-Causing and Explaining Observed Effects</span></a>, and <a class="reference internal" href="causal_tasks/what_if/index.html"><span class="doc">Asking and Answering What-If Questions</span></a>.</p>
-<p>To perform tasks, DoWhy leverages two powerful frameworks, namely graphical causal models (GCM) and potential
-outcomes (PO). Depending on the task at hand, it leverages GCM, or PO, or both, or none. What’s common to all tasks
-though, except for unit-change and feature attribution, is that they require a <em>causal graph</em>, which is modeled after
-the problem domain. For that reason, this user guide starts with <a class="reference internal" href="modeling_causal_relations/index.html"><span class="doc">Modeling Causal Relations</span></a>. Readers
-interested in <a class="reference internal" href="causal_tasks/root_causing_and_explaining/unit_change.html"><span class="doc">Unit Change Attribution</span></a>
-or <a class="reference internal" href="causal_tasks/root_causing_and_explaining/feature_attribution.html"><span class="doc">Feature Attribution</span></a> can skip right to those sections.</p>
+<a class="reference internal" href="causal_tasks/root_causing_and_explaining/index.html"><span class="doc">Explaining Observed Effects and Root-Cause Analysis</span></a>, and <a class="reference internal" href="causal_tasks/what_if/index.html"><span class="doc">Asking and Answering What-If Questions</span></a>. See also the <span class="xref std std-doc">example_notebooks/nb_index</span> how to use them in a concrete problem.</p>
+<p>To perform tasks, DoWhy leverages two powerful frameworks, namely graphical causal models (GCM) and potential outcomes (PO),
+depending on the task at hand. What’s common to most tasks is that they require a <em>causal graph</em>, which is modeled after the
+problem domain. For that reason, this user guide starts with <a class="reference internal" href="modeling_causal_relations/index.html"><span class="doc">Modeling Causal Relations</span></a>. Readers interested in
+<a class="reference internal" href="causal_tasks/root_causing_and_explaining/unit_change.html"><span class="doc">Unit Change Attribution</span></a> or <a class="reference internal" href="causal_tasks/root_causing_and_explaining/feature_attribution.html"><span class="doc">Feature Attribution</span></a>,
+which do not require a causal graph, can skip right to those sections.</p>
 <p>To aid the navigation within this user guide and the library further, the following flow chart can be used:</p>
 <a class="reference internal image-reference" href="../_images/navigation.png"><img alt="Visual navigation map to aid the user in navigating the user guide" src="../_images/navigation.png" style="width: 100%;" /></a>
 </section>
